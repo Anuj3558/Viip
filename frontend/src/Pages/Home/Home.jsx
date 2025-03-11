@@ -8,6 +8,8 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import ExpertTeam from "./components/ExpertTeam";
 import Testimonials from "./components/Testimonials";
 import ContactForm from "./components/ContactForm";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 
 
 const Home = () => {
@@ -41,7 +43,7 @@ const Home = () => {
           content="https://www.vastavintellect.com/logo.png"
         />
       </Helmet>
-
+      <Navbar />
       <Hero />
       <Services />
       <AboutUs />
@@ -50,6 +52,7 @@ const Home = () => {
       <ExpertTeam />
       <Testimonials />
       <ContactForm />
+      <Footer />
     </>
   );
 };

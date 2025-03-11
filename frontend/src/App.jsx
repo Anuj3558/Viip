@@ -32,10 +32,16 @@ const PageTransition = ({ children }) => {
     out: { opacity: 0, scale: 1.02 },
   };
 
-  const pageTransition = { type: 'tween', ease: 'anticipate', duration: 0.5 };
+  const pageTransition = { type: "tween", ease: "anticipate", duration: 0.5 };
 
   return (
-    <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       {children}
     </motion.div>
   );
@@ -65,6 +71,14 @@ const AnimatedRoutes = () => {
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
         <Route path="/blogs" element={<PageTransition><Blogs /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} /> */}
+        <Route
+          path="/dashboard"
+          element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -73,11 +87,11 @@ const AnimatedRoutes = () => {
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      
       <main className="flex-grow">
         <AnimatedRoutes />
       </main>
-      <Footer />
+      
     </div>
   );
 }
