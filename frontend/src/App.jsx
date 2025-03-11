@@ -18,6 +18,9 @@ import PartnershipDeedDraftingPage from './Pages/Services/BussinessSetup/Partner
 import AuthorizedShareCapitalPage from './Pages/Services/BussinessSetup/AuthorizedShareCapitalPage';
 import CompanyNameChangePage from './Pages/Services/BussinessSetup/CompanyNameChangePage';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import TrademarkRegistrationPage from './Pages/Services/Trademark/TrademarkRegistrationPage';
+import TrademarkRegistrationIndividualPage from './Pages/Services/Trademark/TrademarkRegistrationIndividualPage';
+import TrademarkAssignmentPage from './Pages/Services/Trademark/TrademarkAssignmentPage';
 
 // import About from './pages/About';
 // import Services from './pages/Services';
@@ -68,6 +71,9 @@ const AnimatedRoutes = () => {
       <Route path="/partnership-deed-drafting" element={<PageTransition><PartnershipDeedDraftingPage /></PageTransition>} />
       <Route path="/authorized-share-capital" element={<PageTransition><AuthorizedShareCapitalPage /></PageTransition>} />
       <Route path="/company-name-change" element={<PageTransition><CompanyNameChangePage /></PageTransition>} />
+      <Route path="/trademark-registration" element={<PageTransition><TrademarkRegistrationPage /></PageTransition>} />
+      <Route path="/trademark-registration-individual" element={<PageTransition><TrademarkRegistrationIndividualPage /></PageTransition>} />
+      <Route path="/trademark-assignment" element={<PageTransition><TrademarkAssignmentPage /></PageTransition>} />
         {/* <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
         <Route path="/blogs" element={<PageTransition><Blogs /></PageTransition>} />
@@ -88,11 +94,11 @@ const AnimatedRoutes = () => {
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-      
+      <Navbar />
       <main className="flex-grow">
         <AnimatedRoutes />
       </main>
-      
+      <Footer />
     </div>
   );
 }

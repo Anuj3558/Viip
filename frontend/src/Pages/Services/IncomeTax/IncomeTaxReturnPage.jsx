@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { FaCheckCircle, FaShieldAlt, FaSearch } from 'react-icons/fa'; // Import React Icons
+import { FaCheckCircle, FaFileInvoiceDollar, FaCalculator } from 'react-icons/fa'; // Import React Icons
+import { GiTakeMyMoney } from "react-icons/gi";
 
-const TrademarkRegistrationPage = () => {
+const IncomeTaxReturnPage = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
+        pan: '',
         message: ''
     });
 
@@ -23,16 +25,16 @@ const TrademarkRegistrationPage = () => {
         // Handle form submission - would typically send to backend API
         console.log('Form submitted:', formData);
         // Reset form after submission
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', pan: '', message: '' });
         alert('Form submitted successfully!');
     };
 
     return (
         <>
             <Helmet>
-                <title>Trademark Registration | Vastav Intellect and IP Solutions</title>
-                <meta name="description" content="Register your Trademark with Vastav Intellect and IP Solutions. Protect your brand identity and prevent infringement." />
-                <meta name="keywords" content="trademark registration, trademark search, brand protection, logo registration, trademark attorney, Vastav Intellect, IP Solutions, India" />
+                <title>Income Tax Return Filing | Vastav Intellect and IP Solutions</title>
+                <meta name="description" content="File your Income Tax Return with Vastav Intellect and IP Solutions. Get expert assistance for accurate and timely ITR filing." />
+                <meta name="keywords" content="income tax return, ITR filing, tax filing, income tax, Vastav Intellect, financial services, India" />
                 <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
             </Helmet>
 
@@ -43,19 +45,19 @@ const TrademarkRegistrationPage = () => {
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         {/* Left Information Column */}
                         <div className="md:w-1/2 space-y-6">
-                            <h2 className="text-3xl font-bold text-blue-800">Trademark Registration Services</h2>
+                            <h2 className="text-3xl font-bold text-blue-800">Income Tax Return Filing Services</h2>
                             <p className="text-lg text-gray-700">
-                               Vastav Intellect and IP Solutions offers expert trademark registration services to protect your brand identity,
-                               prevent infringement, and build a strong brand presence in the market.
+                                Vastav Intellect and IP Solutions offers professional income tax return filing services to help you file your ITR accurately,
+                                on time, and in compliance with all applicable tax laws.
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-start">
                                     <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaShieldAlt className="h-6 w-6 text-blue-800" />
+                                        <FaFileInvoiceDollar className="h-6 w-6 text-blue-800" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Brand Protection</h3>
-                                        <p className="text-gray-600">Safeguard your brand name, logo, and slogan from unauthorized use.</p>
+                                        <h3 className="font-semibold text-lg">Accurate Filing</h3>
+                                        <p className="text-gray-600">Ensure your ITR is filed correctly and avoid any potential issues with the tax authorities.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
@@ -63,17 +65,17 @@ const TrademarkRegistrationPage = () => {
                                         <FaCheckCircle className="h-6 w-6 text-blue-800" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Comprehensive Search</h3>
-                                        <p className="text-gray-600">We conduct thorough trademark searches to ensure your mark is unique and available.</p>
+                                        <h3 className="font-semibold text-lg">Timely Submission</h3>
+                                        <p className="text-gray-600">We ensure your ITR is filed before the deadline to avoid penalties.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
                                     <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaFileSignature className="h-6 w-6 text-blue-800" />
+                                        <FaCalculator className="h-6 w-6 text-blue-800" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Expert Filing</h3>
-                                        <p className="text-gray-600">We manage the entire trademark application process with the Trademark Registry.</p>
+                                        <h3 className="font-semibold text-lg">Tax Optimization</h3>
+                                        <p className="text-gray-600">We help you identify all eligible deductions and exemptions to minimize your tax liability.</p>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +83,7 @@ const TrademarkRegistrationPage = () => {
 
                         {/* Right Form Column */}
                         <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold text-blue-800 mb-6">Register Your Trademark Today</h2>
+                            <h2 className="text-2xl font-bold text-blue-800 mb-6">File Your Income Tax Return with Us</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name</label>
@@ -123,6 +125,19 @@ const TrademarkRegistrationPage = () => {
                                     />
                                 </div>
                                 <div>
+                                    <label htmlFor="pan" className="block text-gray-700 font-medium mb-1">PAN Number</label>
+                                    <input
+                                        type="text"
+                                        id="pan"
+                                        name="pan"
+                                        value={formData.pan}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="Enter your PAN number"
+                                        required
+                                    />
+                                </div>
+                                <div>
                                     <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
                                     <textarea
                                         id="message"
@@ -131,7 +146,7 @@ const TrademarkRegistrationPage = () => {
                                         onChange={handleChange}
                                         rows="4"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Tell us about your brand and what you want to protect"
+                                        placeholder="Tell us about your income and any specific requirements"
                                         required
                                     ></textarea>
                                 </div>
@@ -139,7 +154,7 @@ const TrademarkRegistrationPage = () => {
                                     type="submit"
                                     className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                                 >
-                                    Submit Registration Inquiry
+                                    Submit ITR Filing Inquiry
                                 </button>
                             </form>
                         </div>
@@ -149,68 +164,56 @@ const TrademarkRegistrationPage = () => {
                 {/* Services Section */}
                 <section className="bg-gray-100 py-16">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Trademark Registration Services</h2>
+                        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Income Tax Return Filing Services</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                                    <FaSearch className="h-8 w-8 text-blue-800" />
+                                    <FaCalculator className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Trademark Search</h3>
-                                <p className="text-gray-600 mb-4">Conducting a comprehensive search to ensure the availability and uniqueness of your trademark.</p>
+                                <h3 className="text-xl font-bold mb-2">Income Assessment & Planning</h3>
+                                <p className="text-gray-600 mb-4">Comprehensive assessment of your income and tax planning strategies.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Public database search
+                                        Income analysis
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Similar mark analysis
-                                    </li>
-                                    <li className="flex items-center">
-                                        <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Comprehensive report
+                                        Tax saving strategies
                                     </li>
                                 </ul>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                                    <FaFileSignature className="h-8 w-8 text-blue-800" />
+                                    <FaFileInvoiceDollar className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Trademark Filing</h3>
-                                <p className="text-gray-600 mb-4">Preparing and filing your trademark application with the Indian Trademark Registry.</p>
+                                <h3 className="text-xl font-bold mb-2">ITR Filing & Submission</h3>
+                                <p className="text-gray-600 mb-4">Preparing and filing your income tax return accurately and on time.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Application drafting
+                                        Form 16 analysis
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Documentation & filing
-                                    </li>
-                                    <li className="flex items-center">
-                                        <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Official fees payment
+                                        Online filing
                                     </li>
                                 </ul>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                                    <FaShieldAlt className="h-8 w-8 text-blue-800" />
+                                    <GiTakeMyMoney className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Trademark Prosecution</h3>
-                                <p className="text-gray-600 mb-4">Handling the entire prosecution process, including responding to office actions and objections.</p>
+                                <h3 className="text-xl font-bold mb-2">Refund Processing</h3>
+                                <p className="text-gray-600 mb-4">Assistance with tracking and expediting your income tax refund.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Responding to objections
+                                        Refund status tracking
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Attending hearings
-                                    </li>
-                                    <li className="flex items-center">
-                                        <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Ensuring smooth registration
+                                        Communication with authorities
                                     </li>
                                 </ul>
                             </div>
@@ -220,60 +223,36 @@ const TrademarkRegistrationPage = () => {
 
                 {/* Process Section */}
                 <section className="container mx-auto px-4 py-16">
-                    <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Trademark Registration Process</h2>
+                    <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Income Tax Return Filing Process</h2>
                     <div className="flex flex-col md:flex-row">
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">1</div>
-                            <h3 className="text-xl font-bold mb-2">Trademark Search</h3>
-                            <p className="text-gray-600">We conduct a comprehensive search for conflicting trademarks.</p>
+                            <h3 className="text-xl font-bold mb-2">Information Gathering</h3>
+                            <p className="text-gray-600">We collect all necessary financial documents and information from you.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">2</div>
-                            <h3 className="text-xl font-bold mb-2">Application Filing</h3>
-                            <p className="text-gray-600">We prepare and file your trademark application with the Registry.</p>
+                            <h3 className="text-xl font-bold mb-2">Income Calculation</h3>
+                            <p className="text-gray-600">We calculate your taxable income and identify eligible deductions.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">3</div>
-                            <h3 className="text-xl font-bold mb-2">Prosecution</h3>
-                            <p className="text-gray-600">We handle all communications and objections from the Trademark Office.</p>
+                            <h3 className="text-xl font-bold mb-2">ITR Filing</h3>
+                            <p className="text-gray-600">We file your income tax return online.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">4</div>
-                            <h3 className="text-xl font-bold mb-2">Registration</h3>
-                            <p className="text-gray-600">We secure your trademark registration certificate.</p>
+                            <h3 className="text-xl font-bold mb-2">Acknowledgement</h3>
+                            <p className="text-gray-600">You receive an acknowledgement of successful ITR filing.</p>
                         </div>
                     </div>
                 </section>
 
-                {/* Why Choose Us Section */}
-                <section className="bg-gray-100 py-16">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">Why Choose Vastav for Trademark Registration?</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
-                                <FaShieldAlt className="mx-auto h-12 w-12 text-blue-800 mb-4" />
-                                <h3 className="text-xl font-bold mb-2">Expertise in IP Law</h3>
-                                <p className="text-gray-600">We have a deep understanding of trademark law and procedures.</p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
-                                <FaCheckCircle className="mx-auto h-12 w-12 text-blue-800 mb-4" />
-                                <h3 className="text-xl font-bold mb-2">Comprehensive Service</h3>
-                                <p className="text-gray-600">We provide end-to-end support throughout the trademark registration process.</p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
-                                <FaFileSignature className="mx-auto h-12 w-12 text-blue-800 mb-4" />
-                                <h3 className="text-xl font-bold mb-2">High Success Rate</h3>
-                                <p className="text-gray-600">We have a proven track record of successful trademark registrations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Call to Action Section */}
-               
+                {/* Footer Section (Add your footer here) */}
+        
             </div>
         </>
     );
 };
 
-export default TrademarkRegistrationPage;
+export default IncomeTaxReturnPage;
