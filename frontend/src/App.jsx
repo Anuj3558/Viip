@@ -1,13 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Blogs from './pages/Blogs';
-import Contact from './pages/Contact';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Home from "./Pages/Home/Home";
+// import About from './pages/About';
+// import Services from './pages/Services';
+// import Blogs from './pages/Blogs';
+// import Contact from './pages/Contact';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -16,10 +21,17 @@ const PageTransition = ({ children }) => {
     out: { opacity: 0, scale: 1.02 },
   };
 
-  const pageTransition = { type: 'tween', ease: 'anticipate', duration: 0.5 };
+  const pageTransition = { type: "tween", ease: "anticipate", duration: 0.5 };
 
   return (
-    <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      <Navbar />
       {children}
     </motion.div>
   );
@@ -31,11 +43,38 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-        <Route path="/blogs" element={<PageTransition><Blogs /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route
+          path="/home"
+          element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about"
+          element={<PageTransition>{/* <About /> */}</PageTransition>}
+        />
+        <Route
+          path="/services"
+          element={<PageTransition>{/* <Services /> */}</PageTransition>}
+        />
+        <Route
+          path="/blogs"
+          element={
+            <PageTransition>
+              {/* <Blogs /> */}
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              {/* <Contact /> */}
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
