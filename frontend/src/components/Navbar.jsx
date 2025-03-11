@@ -113,30 +113,34 @@ const Navbar = () => {
   };
 
   // Dropdown data
-  const dropdownItems = {
-    expert: [
-      "Expert Consultation",
-      "Lawyer Consultation",
-      "Property Lawyer",
-      "Family Lawyer",
-      "Consumer Lawyer",
-      "Civil Lawyer",
-      "Criminal Lawyer",
-      "Intellectual Property Lawyer",
-      "Business Lawyer",
-      "Labour Lawyer",
-      "Constitutional Lawyer",
-    ],
-    business: ["Company Registration"],
-    trademarks: [
-      "Trademark Registration",
-      "Trademark Registration in USA",
-      "Trademark Registration for Individuals",
-      "Trademark Assignment",
-    ],
-    licenses: ["Licenses", "Registrations", "ISO Certification"],
-    accounting: ["Income Tax Return (ITR)", "Payroll Management System"],
-  };
+ const dropdownItems = {
+   expert: [
+     "Expert Consultation",
+     "Lawyer Consultation",
+     "Property Lawyer",
+     "Family Lawyer",
+     "Consumer Lawyer",
+     "Civil Lawyer",
+     "Criminal Lawyer",
+     "Intellectual Property Lawyer",
+     "Business Lawyer",
+     "Labour Lawyer",
+     "Constitutional Lawyer",
+   ],
+   business: ["Company Registration"],
+   trademarks: [
+     { name: "Trademark Registration", link: "/trademark-registration" },
+     {
+       name: "Trademark Registration for Individuals",
+       link: "/trademark-registration-individual",
+     },
+     { name: "Trademark Assignment", link: "/trademark-assignment" },
+     // Add "Trademark Registration in USA" if you have a route for it
+   ],
+   licenses: ["Licenses", "Registrations", "ISO Certification"],
+   accounting: ["Income Tax Return (ITR)", "Payroll Management System"],
+ };
+
 
   // Submenu data for Expert Consultation
   const expertSubMenu = {
@@ -618,13 +622,13 @@ const businessSubMenu = {
                       {dropdownItems.trademarks.map((item, index) => (
                         <motion.a
                           key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
+                          href={item.link}
                           className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                           variants={itemVariants}
                           whileHover="hover"
                           whileTap={{ scale: 0.98 }}
                         >
-                          {item}
+                          {item.name}
                         </motion.a>
                       ))}
                     </div>

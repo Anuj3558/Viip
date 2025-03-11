@@ -23,6 +23,9 @@ import PartnershipDeedDraftingPage from "./Pages/Services/BussinessSetup/Partner
 import AuthorizedShareCapitalPage from "./Pages/Services/BussinessSetup/AuthorizedShareCapitalPage";
 import CompanyNameChangePage from "./Pages/Services/BussinessSetup/CompanyNameChangePage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import TrademarkRegistrationPage from "./Pages/Services/Trademark/TrademarkRegistrationPage";
+import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/TrademarkRegistrationIndividualPage";
+import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -161,6 +164,30 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <CompanyNameChangePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-registration"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-registration-individual"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationIndividualPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-assignment"
+          element={
+            <PageTransition>
+              <TrademarkAssignmentPage />
             </PageTransition>
           }
         />
