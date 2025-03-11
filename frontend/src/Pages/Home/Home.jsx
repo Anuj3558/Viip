@@ -1,15 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Navbar from "../../components/Navbar";
 import Hero from "./components/Hero";
-// import Services from "../components/Services";
-// import AboutUs from "../components/AboutUs";
-// import IPRights from "../components/IPRights";
-// import WhyChooseUs from "../components/WhyChooseUs";
-// import ExpertTeam from "../components/ExpertTeam";
-// import Testimonials from "../components/Testimonials";
-// import ContactForm from "../components/ContactForm";
-// import Footer from "../components/Footer";
+import Services from "./components/Services";
+import AboutUs from "./components/AboutUs";
+import IPRights from "./components/IPRights";
+import WhyChooseUs from "./components/WhyChooseUs";
+import ExpertTeam from "./components/ExpertTeam";
+import Testimonials from "./components/Testimonials";
+import ContactForm from "./components/ContactForm";
+
 
 const Home = () => {
   return (
@@ -43,7 +42,6 @@ const Home = () => {
         />
       </Helmet>
 
-      <Navbar />
       <Hero />
       <Services />
       <AboutUs />
@@ -52,7 +50,6 @@ const Home = () => {
       <ExpertTeam />
       <Testimonials />
       <ContactForm />
-      <Footer />
     </>
   );
 };
