@@ -17,6 +17,7 @@ import NidhiCompanyRegistrationPage from './Pages/Services/BussinessSetup/NidhiC
 import PartnershipDeedDraftingPage from './Pages/Services/BussinessSetup/PartnershipDeedDraftingPage';
 import AuthorizedShareCapitalPage from './Pages/Services/BussinessSetup/AuthorizedShareCapitalPage';
 import CompanyNameChangePage from './Pages/Services/BussinessSetup/CompanyNameChangePage';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 // import About from './pages/About';
 // import Services from './pages/Services';
