@@ -28,7 +28,16 @@ import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/Trad
 import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
 import IncomeTaxReturnPage from "./Pages/Services/IncomeTax/IncomeTaxReturnPage";
 import PayrollManagementPage from "./Pages/Services/IncomeTax/PayrollManagementPage";
-
+import ISOCertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISOCertificationPage";
+import ISO9001CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO9001CertificationPage";
+import ISO9000_2005CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO9000_2005CertificationPage";
+import ISO13485CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO13485CertificationPage";
+import ISO14001CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO14001CertificationPage";
+import ISO22000CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO22000CertificationPage";
+import ISO26000ConsultingPage from "./Pages/Services/Liscence&Accounting/ISO/ISO26000ConsultingPage";
+import ISO27001CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO27001CertificationPage";
+import ISO31000CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO31000CertificationPage";
+import BenefitsOfISOCertification from "./Pages/Services/Liscence&Accounting/ISO/BenefitsOfISOCertification";
 const PageTransition = ({ children }) => {
   const pageVariants = {
     initial: { opacity: 0, scale: 0.98 },
@@ -214,6 +223,86 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Dashboard />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-certification"
+          element={
+            <PageTransition>
+              <ISOCertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-9001-certification"
+          element={
+            <PageTransition>
+              <ISO9001CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-9000-2005-certification"
+          element={
+            <PageTransition>
+              <ISO9000_2005CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-13485-certification"
+          element={
+            <PageTransition>
+              <ISO13485CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-14001-certification"
+          element={
+            <PageTransition>
+              <ISO14001CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-22000-certification"
+          element={
+            <PageTransition>
+              <ISO22000CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-26000-consulting"
+          element={
+            <PageTransition>
+              <ISO26000ConsultingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-27001-certification"
+          element={
+            <PageTransition>
+              <ISO27001CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/iso-31000-certification"
+          element={
+            <PageTransition>
+              <ISO31000CertificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/benefits-of-iso-certification"
+          element={
+            <PageTransition>
+              <BenefitsOfISOCertification />
             </PageTransition>
           }
         />

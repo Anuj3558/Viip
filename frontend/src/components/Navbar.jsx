@@ -346,30 +346,50 @@ const businessSubMenu = {
 };
 
 
-  const licenseSubMenu = {
-    Licenses: ["PSARA License", "Trade License Renewal Registration", "FSSAI"],
-    Registrations: [
-      "Professional Tax Registration",
-      "Online PF Registration",
-      "NGO Registration",
-      "Online ESI Registration",
-      "Udyog Aadhaar Registration",
-      "Digital Signature Certificate",
-      "Legal Metrology",
-    ],
-    "ISO Certification": [
-      "ISO Certification",
-      "ISO Certification 22000",
-      "ISO Certification 27001",
-      "ISO Certification 9001",
-      "ISO Certification 13485",
-      "ISO Certification 26000",
-      "ISO Certification 9000 2005",
-      "ISO Certification 14001",
-      "ISO Certification 31000",
-      "Benefits Of ISO Certification",
-    ],
-  };
+const licenseSubMenu = {
+  Licenses: [
+    { name: "PSARA License", link: "/psara-license" },
+    {
+      name: "Trade License Renewal Registration",
+      link: "/trade-license-renewal",
+    },
+    { name: "FSSAI", link: "/fssai-license" },
+  ],
+  Registrations: [
+    {
+      name: "Professional Tax Registration",
+      link: "/professional-tax-registration",
+    },
+    { name: "Online PF Registration", link: "/online-pf-registration" },
+    { name: "NGO Registration", link: "/ngo-registration" },
+    { name: "Online ESI Registration", link: "/online-esi-registration" },
+    { name: "Udyog Aadhaar Registration", link: "/udyog-aadhaar-registration" },
+    {
+      name: "Digital Signature Certificate",
+      link: "/digital-signature-certificate",
+    },
+    { name: "Legal Metrology", link: "/legal-metrology" },
+  ],
+  "ISO Certification": [
+    { name: "ISO Certification", link: "/iso-certification" },
+    { name: "ISO Certification 22000", link: "/iso-22000-certification" },
+    { name: "ISO Certification 27001", link: "/iso-27001-certification" },
+    { name: "ISO Certification 9001", link: "/iso-9001-certification" },
+    { name: "ISO Certification 13485", link: "/iso-13485-certification" },
+    { name: "ISO Certification 26000", link: "/iso-26000-consulting" },
+    {
+      name: "ISO Certification 9000 2005",
+      link: "/iso-9000-2005-certification",
+    }, // Note: This route needs to be defined
+    { name: "ISO Certification 14001", link: "/iso-14001-certification" },
+    { name: "ISO Certification 31000", link: "/iso-31000-certification" },
+    {
+      name: "Benefits Of ISO Certification",
+      link: "/benefits-of-iso-certification",
+    },
+  ],
+};
+
 
   // Map icons to dropdown categories
   const menuIcons = {
@@ -712,17 +732,17 @@ const businessSubMenu = {
                             <div className="grid grid-cols-2 gap-x-2">
                               {licenseSubMenu[activeLicenseSubMenu].map(
                                 (subItem, index) => (
-                                  <motion.a
-                                    key={index}
-                                    href={`#${subItem.replace(/\s+/g, "")}`}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
-                                    variants={linkVariants}
-                                    initial="initial"
-                                    whileHover="hover"
-                                    whileTap={{ scale: 0.98 }}
-                                  >
-                                    {subItem}
-                                  </motion.a>
+                                  <Link to={subItem.link} key={index}>
+                                    <motion.a
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
+                                      variants={linkVariants}
+                                      initial="initial"
+                                      whileHover="hover"
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      {subItem.name}
+                                    </motion.a>
+                                  </Link>
                                 )
                               )}
                             </div>
