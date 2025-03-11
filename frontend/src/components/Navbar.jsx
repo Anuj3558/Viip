@@ -11,6 +11,7 @@ import {
   Phone,
   X,
 } from "lucide-react";
+import { logo } from "../assets";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -333,14 +334,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-50">
+    <nav className="w-full border-b  border-gray-200 bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-blue-900">
-              Vastav Intellect
-            </h1>
+          <div className="flex-shrink-0 mr-8">
+            <a href="#Home" className="flex items-center">
+              <img 
+                src={logo}
+                alt="Vastav Intellect" 
+                className="h-10"
+              />
+              <span className="text-bold px-3">Vastav Intellect <br /> IP Solutions</span>
+            </a>
           </div>
 
           {/* Desktop Menu */}
