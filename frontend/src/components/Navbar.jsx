@@ -338,14 +338,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 mr-8">
+          <div className="flex-shrink-0 mr-8 justify-items-start">
             <a href="#Home" className="flex items-center">
               <img 
                 src={logo}
                 alt="Vastav Intellect" 
                 className="h-10"
               />
-              <span className="text-bold px-3">Vastav Intellect <br /> IP Solutions</span>
+              <span className="font-medium text-left px-3 Gorgea">Vastav Intellect  & <br /><span className="font-extralight text-[1.6vh]"> IP Solutions</span></span>
             </a>
           </div>
 
@@ -355,28 +355,20 @@ const Navbar = () => {
             ref={dropdownRef}
           >
             {/* Home Link */}
-            <motion.a
-              href="#Home"
-              className="flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="mr-1.5 text-blue-800">{menuIcons.home}</span>
-              <span>Home</span>
-            </motion.a>
+           
 
             {/* Expert Consultation Dropdown */}
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("expert")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700 hover:text-blue-900 w-full  transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "expert" ? "bg-blue-50 text-blue-900" : ""
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="mr-1.5 text-blue-800">{menuIcons.expert}</span>
-                <span>Consult an Expert</span>
+                <span className="inline min-w-full">Consult an Expert</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -458,7 +450,7 @@ const Navbar = () => {
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("business")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center mx-3 text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "business" ? "bg-blue-50 text-blue-900" : ""
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -467,7 +459,7 @@ const Navbar = () => {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.business}
                 </span>
-                <span>Business Setup</span>
+                <span className="inline  min-w-full">Business Setup</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "business" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -561,7 +553,7 @@ const Navbar = () => {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.trademarks}
                 </span>
-                <span>Trademarks & IP</span>
+                <span className="inline  min-w-full">Trademarks & IP</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "trademarks" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -602,7 +594,7 @@ const Navbar = () => {
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("licenses")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700 mx-1 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "licenses" ? "bg-blue-50 text-blue-900" : ""
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -611,7 +603,7 @@ const Navbar = () => {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.licenses}
                 </span>
-                <span>Licenses & Registrations</span>
+                <span className="inline  min-w-full">Licenses & Registrations</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -694,7 +686,7 @@ const Navbar = () => {
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("accounting")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700  hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "accounting"
                     ? "bg-blue-50 text-blue-900"
                     : ""
@@ -745,12 +737,12 @@ const Navbar = () => {
             {/* Contact Us Link */}
             <motion.a
               href="#Contact"
-              className="flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
+              className="flex items-center text-gray-700 border-2 w-[20vh] hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span>Contact Us</span>
+              <span className="inline  min-w-full">Contact Us</span>
             </motion.a>
           </div>
 
