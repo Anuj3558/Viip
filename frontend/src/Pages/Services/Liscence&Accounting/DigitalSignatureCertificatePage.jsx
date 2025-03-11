@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaKey, FaFileSignature, FaLock } from 'react-icons/fa'; // Import React Icons
-import { GiCertificate } from "react-icons/gi";
 
 const DigitalSignatureCertificatePage = () => {
     const [formData, setFormData] = useState({

@@ -26,6 +26,16 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import TrademarkRegistrationPage from "./Pages/Services/Trademark/TrademarkRegistrationPage";
 import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/TrademarkRegistrationIndividualPage";
 import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
+import UdyogAadharRegistrationPage from "./Pages/Services/Liscence&Accounting/UdyogAadharRegistrationPage";
+import TradeLicenseRenewalPage from "./Pages/Services/Liscence&Accounting/TradeLicenseRenewalPage";
+import PSARALicensePage from "./Pages/Services/Liscence&Accounting/PSARALicensePage";
+import ProfessionalTaxRegistrationPage from "./Pages/Services/Liscence&Accounting/ProfessionalTaxRegistrationPage";
+import PFRegistrationPage from "./Pages/Services/Liscence&Accounting/PFRegistrationPage";
+import LegalMetrologyRegistrationPage from "./Pages/Services/Liscence&Accounting/LegalMetrologyRegistrationPage";
+import FSSAIRegistrationPage from "./Pages/Services/Liscence&Accounting/FSSAIRegistrationPage";
+import ESIRegistrationPage from "./Pages/Services/Liscence&Accounting/ESIRegistrationPage";
+import DigitalSignatureCertificatePage from "./Pages/Services/Liscence&Accounting/DigitalSignatureCertificatePage";
+
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -188,6 +198,78 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <TrademarkAssignmentPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/udyog-aadhar-registration"
+          element={
+            <PageTransition>
+              <UdyogAadharRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trade-license-renewal"
+          element={
+            <PageTransition>
+              <TradeLicenseRenewalPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/psara-license"
+          element={
+            <PageTransition>
+              <PSARALicensePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/professional-tax-registration"
+          element={
+            <PageTransition>
+              <ProfessionalTaxRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/pf-registration"
+          element={
+            <PageTransition>
+              <PFRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-metrology-registration"
+          element={
+            <PageTransition>
+              <LegalMetrologyRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/fssai-registration"
+          element={
+            <PageTransition>
+              <FSSAIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/esi-registration"
+          element={
+            <PageTransition>
+              <ESIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/digital-signature-certificate"
+          element={
+            <PageTransition>
+              <DigitalSignatureCertificatePage />
             </PageTransition>
           }
         />

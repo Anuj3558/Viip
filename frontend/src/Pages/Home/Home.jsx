@@ -43,7 +43,6 @@ const Home = () => {
           content="https://www.vastavintellect.com/logo.png"
         />
       </Helmet>
-      <Navbar />
       <Hero />
       <Services />
       <AboutUs />
@@ -52,7 +51,6 @@ const Home = () => {
       <ExpertTeam />
       <Testimonials />
       <ContactForm />
-      <Footer />
     </>
   );
 };
