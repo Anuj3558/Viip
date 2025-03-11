@@ -44,7 +44,7 @@ const Sidebar = ({
 
             {/* Submenu */}
             {activeMenu === key && item.subItems && (
-              <div className="bg-gray-50">
+              <div className="bg-gray-50 overflow-y-auto max-h-64">
                 {Object.keys(item.subItems).map((subItem) => (
                   <div
                     key={subItem}

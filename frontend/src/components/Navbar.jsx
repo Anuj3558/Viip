@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ChevronDown,
   ChevronRight,
@@ -266,36 +267,77 @@ const Navbar = () => {
     ],
   };
 
-  const businessSubMenu = {
-    "Company Registration": [
-      "Company Registration",
-      "LLP Registration",
-      "LLP Anuual Compliance",
-      "LLP Anuual Filings",
-      "LLP Designated Partner",
-      "Sole Proprietorship Registration",
-      "Producer Company Registration",
-      "Nidhi Company Registration",
-      "Startup India Scheme",
-      "Partnership Firm Deed",
-      "One Person Company Registration",
-      "Authorised Share Capital",
-      "Memorandum Of Understanding",
-      "Change Company Name",
-    ],
-    "International Business Setup": [
-      "Netherlands Incorporation",
-      "United Kingdom Incorporation",
-      "China Incorporation",
-      "Malaysia Incorporation",
-      "Hong Kong Incorporation",
-      "Australia Incorporation",
-      "Usa Incorporation",
-      "Singapore Incorporation",
-      "Pune Incorporation",
-      "Business Setup In Dubai",
-    ],
-  };
+const businessSubMenu = {
+  "Company Registration": [
+    {
+      name: "Company Registration",
+      link: "/company-registrion",
+    },
+    {
+      name: "LLP Annual Compliance",
+      link: "/llpannual-compliance",
+    },
+    {
+      name: "LLP Annual Filings",
+      link: "/llp-annual-filing",
+    },
+    {
+      name: "LLP Designated Partner Change",
+      link: "/llpdesignated-partner-change",
+    },
+    {
+      name: "Sole Proprietorship Registration",
+      link: "/sole-proprietorship-registration",
+    },
+    {
+      name: "Producer Company Registration",
+      link: "/producer-company-registration",
+    },
+    {
+      name: "Nidhi Company Registration",
+      link: "/nidhi-company-registration",
+    },
+    {
+      name: "Startup India Registration",
+      link: "/startup-india-registration",
+    },
+    {
+      name: "Partnership Deed Drafting",
+      link: "/partnership-deed-drafting",
+    },
+    {
+      name: "One Person Company Registration",
+      link: "/one-person-company-registration",
+    },
+    {
+      name: "Authorized Share Capital",
+      link: "/authorized-share-capital",
+    },
+    {
+      name: "Memorandum Of Understanding (MOU) Drafting",
+      link: "/mou-drafting",
+    },
+    {
+      name: "Change Company Name",
+      link: "/company-name-change",
+    },
+  ],
+  "International Business Setup": [
+    { name: "Netherlands Incorporation", link: "/netherlands-incorporation" }, // Note: You need to define this route
+    {
+      name: "United Kingdom Incorporation",
+      link: "/united-kingdom-incorporation", // Note: You need to define this route
+    },
+    { name: "China Incorporation", link: "/china-incorporation" }, // Note: You need to define this route
+    { name: "Malaysia Incorporation", link: "/malaysia-incorporation" }, // Note: You need to define this route
+    { name: "Hong Kong Incorporation", link: "/hong-kong-incorporation" }, // Note: You need to define this route
+    { name: "Australia Incorporation", link: "/australia-incorporation" }, // Note: You need to define this route
+    { name: "USA Incorporation", link: "/usa-incorporation" }, // Note: You need to define this route
+    { name: "Singapore Incorporation", link: "/singapore-incorporation" }, // Note: You need to define this route
+    { name: "Dubai Incorporation", link: "/dubai-incorporation" }, // Note: You need to define this route
+  ],
+};
+
 
   const licenseSubMenu = {
     Licenses: ["PSARA License", "Trade License Renewal Registration", "FSSAI"],
@@ -340,12 +382,14 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 mr-8 justify-items-start">
             <a href="#Home" className="flex items-center">
-              <img 
-                src={logo}
-                alt="Vastav Intellect" 
-                className="h-10"
-              />
-              <span className="font-medium text-left px-3 Gorgea">Vastav Intellect  & <br /><span className="font-extralight text-[1.6vh]"> IP Solutions</span></span>
+              <img src={logo} alt="Vastav Intellect" className="h-10" />
+              <span className="font-medium text-left px-3 Gorgea">
+                Vastav Intellect & <br />
+                <span className="font-extralight text-[1.6vh]">
+                  {" "}
+                  IP Solutions
+                </span>
+              </span>
             </a>
           </div>
 
@@ -355,7 +399,6 @@ const Navbar = () => {
             ref={dropdownRef}
           >
             {/* Home Link */}
-           
 
             {/* Expert Consultation Dropdown */}
             <div className="relative">
@@ -516,17 +559,17 @@ const Navbar = () => {
                             <div className="grid grid-cols-2 gap-x-2">
                               {businessSubMenu[activeBusinessSubMenu].map(
                                 (subItem, index) => (
-                                  <motion.a
-                                    key={index}
-                                    href={`#${subItem.replace(/\s+/g, "")}`}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
-                                    variants={linkVariants}
-                                    initial="initial"
-                                    whileHover="hover"
-                                    whileTap={{ scale: 0.98 }}
-                                  >
-                                    {subItem}
-                                  </motion.a>
+                                  <Link to={subItem.link} key={index}>
+                                    <motion.a
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
+                                      variants={linkVariants}
+                                      initial="initial"
+                                      whileHover="hover"
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      {subItem.name}
+                                    </motion.a>
+                                  </Link>
                                 )
                               )}
                             </div>
@@ -603,7 +646,9 @@ const Navbar = () => {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.licenses}
                 </span>
-                <span className="inline  min-w-full">Licenses & Registrations</span>
+                <span className="inline  min-w-full">
+                  Licenses & Registrations
+                </span>
                 <motion.span
                   animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
