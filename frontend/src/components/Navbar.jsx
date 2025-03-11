@@ -138,7 +138,10 @@ const Navbar = () => {
      // Add "Trademark Registration in USA" if you have a route for it
    ],
    licenses: ["Licenses", "Registrations", "ISO Certification"],
-   accounting: ["Income Tax Return (ITR)", "Payroll Management System"],
+   accounting: [
+    { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
+    { name: "Payroll Management System", link: "/payroll-management-system" },
+  ],
  };
 
 
@@ -735,7 +738,7 @@ const businessSubMenu = {
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("accounting")}
-                className={`flex items-center text-gray-700  hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "accounting"
                     ? "bg-blue-50 text-blue-900"
                     : ""
@@ -766,16 +769,17 @@ const businessSubMenu = {
                   >
                     <div className="py-2">
                       {dropdownItems.accounting.map((item, index) => (
-                        <motion.a
+                        <motion.div
                           key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
                           className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                           variants={itemVariants}
                           whileHover="hover"
                           whileTap={{ scale: 0.98 }}
                         >
-                          {item}
-                        </motion.a>
+                          <Link to={item.link} className="block w-full">
+                            {item.name}
+                          </Link>
+                        </motion.div>
                       ))}
                     </div>
                   </motion.div>

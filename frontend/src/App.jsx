@@ -26,6 +26,8 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import TrademarkRegistrationPage from "./Pages/Services/Trademark/TrademarkRegistrationPage";
 import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/TrademarkRegistrationIndividualPage";
 import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
+import IncomeTaxReturnPage from "./Pages/Services/IncomeTax/IncomeTaxReturnPage";
+import PayrollManagementPage from "./Pages/Services/IncomeTax/PayrollManagementPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -188,6 +190,22 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <TrademarkAssignmentPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/income-tax-return"
+          element={
+            <PageTransition>
+              <IncomeTaxReturnPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/payroll-management-system"
+          element={
+            <PageTransition>
+              <PayrollManagementPage />
             </PageTransition>
           }
         />
