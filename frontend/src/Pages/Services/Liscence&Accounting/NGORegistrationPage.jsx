@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { FaCheckCircle, FaKey, FaFileSignature, FaLock } from 'react-icons/fa'; // Import React Icons
+import { FaCheckCircle, FaHandHoldingHeart, FaFileSignature, FaDonate } from 'react-icons/fa'; // Import React Icons
+import { GiReceiveMoney } from "react-icons/gi";
 
-const DigitalSignatureCertificatePage = () => {
+const NGORegistrationPage = () => {
     const [formData, setFormData] = useState({
-        name: '',
+        ngoName: '',
+        trusteeName: '',
         email: '',
         phone: '',
-        certificateType: '',
+        ngoType: '',
         message: ''
     });
 
@@ -24,16 +26,16 @@ const DigitalSignatureCertificatePage = () => {
         // Handle form submission - would typically send to backend API
         console.log('Form submitted:', formData);
         // Reset form after submission
-        setFormData({ name: '', email: '', phone: '', certificateType: '', message: '' });
+        setFormData({ ngoName: '', trusteeName: '', email: '', phone: '', ngoType: '', message: '' });
         alert('Form submitted successfully!');
     };
 
     return (
         <>
             <Helmet>
-                <title>Digital Signature Certificate | Vastav Intellect and IP Solutions</title>
-                <meta name="description" content="Get your Digital Signature Certificate (DSC) with Vastav Intellect and IP Solutions. Secure online transactions and ensure legal validity." />
-                <meta name="keywords" content="digital signature certificate, DSC, online signature, secure transactions, Vastav Intellect, legal services, India" />
+                <title>NGO Registration | Vastav Intellect and IP Solutions</title>
+                <meta name="description" content="Register your NGO with Vastav Intellect and IP Solutions. Expert assistance for Society, Trust, or Section 8 Company registration." />
+                <meta name="keywords" content="NGO registration, society registration, trust registration, section 8 company, non-profit organization, Vastav Intellect, legal services, India" />
                 <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
             </Helmet>
 
@@ -44,19 +46,19 @@ const DigitalSignatureCertificatePage = () => {
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         {/* Left Information Column */}
                         <div className="md:w-1/2 space-y-6">
-                            <h2 className="text-3xl font-bold text-blue-800">Digital Signature Certificate Services</h2>
+                            <h2 className="text-3xl font-bold text-blue-800">NGO Registration Services</h2>
                             <p className="text-lg text-gray-700">
-                                Vastav Intellect and IP Solutions offers expert assistance in obtaining Digital Signature Certificates (DSC),
-                                ensuring secure online transactions, legal validity, and compliance with regulatory requirements.
+                                Vastav Intellect and IP Solutions offers expert assistance in registering your Non-Governmental Organization (NGO),
+                                whether it's a Society, Trust, or Section 8 Company, ensuring compliance with all legal requirements.
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-start">
                                     <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaLock className="h-6 w-6 text-blue-800" />
+                                        <FaHandHoldingHeart className="h-6 w-6 text-blue-800" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Secure Online Transactions</h3>
-                                        <p className="text-gray-600">Ensure secure and legally valid online transactions with a Digital Signature Certificate.</p>
+                                        <h3 className="font-semibold text-lg">Legal Compliance</h3>
+                                        <p className="text-gray-600">Ensure your NGO meets all legal requirements for registration and operation.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
@@ -64,8 +66,8 @@ const DigitalSignatureCertificatePage = () => {
                                         <FaCheckCircle className="h-6 w-6 text-blue-800" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Regulatory Compliance</h3>
-                                        <p className="text-gray-600">Comply with regulations requiring DSC for various online filings and transactions.</p>
+                                        <h3 className="font-semibold text-lg">Simplified Process</h3>
+                                        <p className="text-gray-600">We guide you through the entire NGO registration process, making it easy and efficient.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start">
@@ -74,7 +76,7 @@ const DigitalSignatureCertificatePage = () => {
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-lg">Expert Guidance</h3>
-                                        <p className="text-gray-600">Get professional advice and support to obtain the right type of DSC for your needs.</p>
+                                        <p className="text-gray-600">Get professional advice and support to navigate the complexities of NGO regulations.</p>
                                     </div>
                                 </div>
                             </div>
@@ -82,18 +84,31 @@ const DigitalSignatureCertificatePage = () => {
 
                         {/* Right Form Column */}
                         <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold text-blue-800 mb-6">Apply for Your Digital Signature Certificate</h2>
+                            <h2 className="text-2xl font-bold text-blue-800 mb-6">Register Your NGO with Us</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
-                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name</label>
+                                    <label htmlFor="ngoName" className="block text-gray-700 font-medium mb-1">NGO Name</label>
                                     <input
                                         type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
+                                        id="ngoName"
+                                        name="ngoName"
+                                        value={formData.ngoName}
                                         onChange={handleChange}
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your full name"
+                                        placeholder="Enter your NGO name"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="trusteeName" className="block text-gray-700 font-medium mb-1">Trustee/President Name</label>
+                                    <input
+                                        type="text"
+                                        id="trusteeName"
+                                        name="trusteeName"
+                                        value={formData.trusteeName}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        placeholder="Enter the name of the trustee or president"
                                         required
                                     />
                                 </div>
@@ -124,19 +139,19 @@ const DigitalSignatureCertificatePage = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="certificateType" className="block text-gray-700 font-medium mb-1">Certificate Type</label>
+                                    <label htmlFor="ngoType" className="block text-gray-700 font-medium mb-1">Type of NGO</label>
                                     <select
-                                        id="certificateType"
-                                        name="certificateType"
-                                        value={formData.certificateType}
+                                        id="ngoType"
+                                        name="ngoType"
+                                        value={formData.ngoType}
                                         onChange={handleChange}
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         required
                                     >
-                                        <option value="">Select Certificate Type</option>
-                                        <option value="Class 2">Class 2</option>
-                                        <option value="Class 3">Class 3</option>
-                                        <option value="DGFT">DGFT</option>
+                                        <option value="">Select NGO Type</option>
+                                        <option value="Society">Society</option>
+                                        <option value="Trust">Trust</option>
+                                        <option value="Section 8 Company">Section 8 Company</option>
                                     </select>
                                 </div>
                                 <div>
@@ -148,7 +163,7 @@ const DigitalSignatureCertificatePage = () => {
                                         onChange={handleChange}
                                         rows="4"
                                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Tell us about your requirements for the Digital Signature Certificate"
+                                        placeholder="Tell us about your NGO and its objectives"
                                         required
                                     ></textarea>
                                 </div>
@@ -156,7 +171,7 @@ const DigitalSignatureCertificatePage = () => {
                                     type="submit"
                                     className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                                 >
-                                    Submit Application
+                                    Submit Registration Inquiry
                                 </button>
                             </form>
                         </div>
@@ -166,55 +181,56 @@ const DigitalSignatureCertificatePage = () => {
                 {/* Services Section */}
                 <section className="bg-gray-100 py-16">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Digital Signature Certificate Services</h2>
+                        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our NGO Registration Services</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                                     <FaFileSignature className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Documentation Assistance</h3>
-                                <p className="text-gray-600 mb-4">Helping you gather and prepare all the necessary documents for DSC application.</p>
+                                <h3 className="text-xl font-bold mb-2">Document Preparation</h3>
+                                <p className="text-gray-600 mb-4">Preparing all the necessary documents for NGO registration, tailored to the chosen type.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Identity proof
+                                        Memorandum of Association
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Address proof
+                                        Trust deed drafting
                                     </li>
                                 </ul>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                                    <FaKey className="h-8 w-8 text-blue-800" />
+                                    <GiReceiveMoney className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">DSC Type Selection Guidance</h3>
-                                <p className="text-gray-600 mb-4">Providing guidance on selecting the appropriate type of DSC based on your requirements.</p>
+                                <h3 className="text-xl font-bold mb-2">Fundraising Guidance</h3>
+                                <p className="text-gray-600 mb-4">Providing guidance on fundraising strategies and compliance with regulations for receiving donations.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Class 2 DSC
+                                        FCRA registration assistance
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Class 3 DSC
+                                        Donation compliance
                                     </li>
                                 </ul>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                                    <FaDonate className="h-8 w-8 text-blue-800" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">Application Filing and Processing</h3>
-                                <p className="text-gray-600 mb-4">Filing your DSC application and assisting with the verification process.</p>
+                                <h3 className="text-xl font-bold mb-2">Tax Exemption Assistance</h3>
+                                <p className="text-gray-600 mb-4">Assisting with obtaining tax exemption certificates for your NGO, such as 80G and 12A.</p>
                                 <ul className="space-y-2 text-gray-600">
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Online application
+                                        80G application support
                                     </li>
                                     <li className="flex items-center">
                                         <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                                        Verification assistance
+                                        12A registration
                                     </li>
                                 </ul>
                             </div>
@@ -224,36 +240,35 @@ const DigitalSignatureCertificatePage = () => {
 
                 {/* Process Section */}
                 <section className="container mx-auto px-4 py-16">
-                    <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Digital Signature Certificate Process</h2>
+                    <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our NGO Registration Process</h2>
                     <div className="flex flex-col md:flex-row">
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">1</div>
-                            <h3 className="text-xl font-bold mb-2">Information Gathering</h3>
-                            <p className="text-gray-600">We collect all the necessary information and documents from you.</p>
+                            <h3 className="text-xl font-bold mb-2">Consultation</h3>
+                            <p className="text-gray-600">We discuss your NGO's objectives and choose the appropriate legal structure.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">2</div>
-                            <h3 className="text-xl font-bold mb-2">Application Filing</h3>
-                            <p className="text-gray-600">We file your Digital Signature Certificate application online.</p>
+                            <h3 className="text-xl font-bold mb-2">Document Preparation</h3>
+                            <p className="text-gray-600">We prepare all necessary documents for NGO registration.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">3</div>
-                            <h3 className="text-xl font-bold mb-2">Verification</h3>
-                            <p className="text-gray-600">We assist you with the verification process as required by the Certifying Authority.</p>
+                            <h3 className="text-xl font-bold mb-2">Registration Filing</h3>
+                            <p className="text-gray-600">We file your NGO registration application with the relevant authorities.</p>
                         </div>
                         <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
                             <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">4</div>
-                            <h3 className="text-xl font-bold mb-2">DSC Issuance</h3>
-                            <p className="text-gray-600">You receive your Digital Signature Certificate.</p>
+                            <h3 className="text-xl font-bold mb-2">Registration Certificate</h3>
+                            <p className="text-gray-600">You receive your NGO registration certificate.</p>
                         </div>
                     </div>
                 </section>
 
-                {/* Footer Section (Add your footer here) */}
-              
+             
             </div>
         </>
     );
 };
 
-export default DigitalSignatureCertificatePage;
+export default NGORegistrationPage;

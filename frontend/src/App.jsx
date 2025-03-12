@@ -47,6 +47,7 @@ import LegalMetrologyRegistrationPage from "./Pages/Services/Liscence&Accounting
 import FSSAIRegistrationPage from "./Pages/Services/Liscence&Accounting/FSSAIRegistrationPage";
 import ESIRegistrationPage from "./Pages/Services/Liscence&Accounting/ESIRegistrationPage";
 import DigitalSignatureCertificatePage from "./Pages/Services/Liscence&Accounting/DigitalSignatureCertificatePage";
+import NGORegistrationPage from "./Pages/Services/Liscence&Accounting/NGORegistrationPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -244,6 +245,85 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+                  path="/udyog-aadhaar-registration"
+                  element={
+                    <PageTransition>
+                      <UdyogAadharRegistrationPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/trade-license-renewal"
+                  element={
+                    <PageTransition>
+                      <TradeLicenseRenewalPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/psara-license"
+                  element={
+                    <PageTransition>
+                      <PSARALicensePage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/professional-tax-registration"
+                  element={
+                    <PageTransition>
+                      <ProfessionalTaxRegistrationPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/online-pf-registration"
+                  element={
+                    <PageTransition>
+                      <PFRegistrationPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/legal-metrology"
+                  element={
+                    <PageTransition>
+                      <LegalMetrologyRegistrationPage />
+                    </PageTransition>
+                  }
+                />  <Route
+                path="/ngo-registration"
+                element={
+                  <PageTransition>
+                    <NGORegistrationPage />
+                  </PageTransition>
+                }
+              />
+                <Route
+                  path="/fssai-license"
+                  element={
+                    <PageTransition>
+                      <FSSAIRegistrationPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/online-esi-registration"
+                  element={
+                    <PageTransition>
+                      <ESIRegistrationPage />
+                    </PageTransition>
+                  }
+                />
+                <Route
+                  path="/digital-signature-certificate"
+                  element={
+                    <PageTransition>
+                      <DigitalSignatureCertificatePage />
+                    </PageTransition>
+                  }
+                />
         <Route
           path="/iso-9001-certification"
           element={
