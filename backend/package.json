@@ -1,0 +1,23 @@
+{
+  "name": "viip",
+  "version": "1.0.0",
+  "description": "Vastav intellect and ip solutions",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "viip anuj3558"
+  },
+  "keywords": [
+    "ip",
+    "solutions",
+    "trademark"
+  ],
+  "author": "Anuj",
+  "license": "MIT"
+}
