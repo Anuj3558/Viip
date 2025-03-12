@@ -38,6 +38,16 @@ import ISO26000ConsultingPage from "./Pages/Services/Liscence&Accounting/ISO/ISO
 import ISO27001CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO27001CertificationPage";
 import ISO31000CertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISO31000CertificationPage";
 import BenefitsOfISOCertification from "./Pages/Services/Liscence&Accounting/ISO/BenefitsOfISOCertification";
+import UdyogAadharRegistrationPage from "./Pages/Services/Liscence&Accounting/UdyogAadharRegistrationPage";
+import TradeLicenseRenewalPage from "./Pages/Services/Liscence&Accounting/TradeLicenseRenewalPage";
+import PSARALicensePage from "./Pages/Services/Liscence&Accounting/PSARALicensePage";
+import ProfessionalTaxRegistrationPage from "./Pages/Services/Liscence&Accounting/ProfessionalTaxRegistrationPage";
+import PFRegistrationPage from "./Pages/Services/Liscence&Accounting/PFRegistrationPage";
+import LegalMetrologyRegistrationPage from "./Pages/Services/Liscence&Accounting/LegalMetrologyRegistrationPage";
+import FSSAIRegistrationPage from "./Pages/Services/Liscence&Accounting/FSSAIRegistrationPage";
+import ESIRegistrationPage from "./Pages/Services/Liscence&Accounting/ESIRegistrationPage";
+import DigitalSignatureCertificatePage from "./Pages/Services/Liscence&Accounting/DigitalSignatureCertificatePage";
+
 const PageTransition = ({ children }) => {
   const pageVariants = {
     initial: { opacity: 0, scale: 0.98 },
