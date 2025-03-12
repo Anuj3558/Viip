@@ -408,7 +408,7 @@ const licenseSubMenu = {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 mr-8 justify-items-start">
-            <a href="#Home" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img src={logo} alt="Vastav Intellect" className="h-10" />
               <span className="font-medium text-left px-3 Gorgea">
                 Vastav Intellect & <br />
