@@ -1,6 +1,14 @@
+
+
 import React, { useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FaBuilding, FaFileContract, FaChartLine, FaCheckCircle } from "react-icons/fa";
+import {
+  FaBuilding,
+  FaFileContract,
+  FaChartLine,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
 
 const ISO9001CertificationPage = () => {
@@ -22,21 +30,29 @@ const ISO9001CertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      employees: "",
-      industry: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_URL}/api/iso/9001`,
+        formData
+      );
+      console.log("Form data submitted successfully:", response.data);
+      // Reset form after submission
+      setFormData({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        employees: "",
+        industry: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
 
   return (

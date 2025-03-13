@@ -1,4 +1,7 @@
+
+
 import React, { useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import { FaCheckCircle, FaFileContract, FaCertificate } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
@@ -21,21 +24,30 @@ const ISOCertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      standard: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault(); // Prevent default form submission
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_APP_URL}/api/iso/general`,
+          formData
+        );
+
+        console.log("Form data submitted successfully:", response.data);
+        // Reset form after submission
+        setFormData({
+          companyName: "",
+          contactName: "",
+          email: "",
+          phone: "",
+          standard: "",
+          message: "",
+        });
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting form data:", error);
+        alert("Error submitting form. Please try again.");
+      }
+    };
 
   return (
     <>
@@ -118,7 +130,10 @@ const ISOCertificationPage = () => {
               <h2 className="text-2xl font-bold text-blue-800 mb-6">
                 Get a Quote for ISO Certification
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
                 <div>
                   <label
                     htmlFor="companyName"

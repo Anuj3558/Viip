@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaHospital, FaFileSignature, FaUsers } from 'react-icons/fa'; // Import React Icons
@@ -23,13 +24,29 @@ const ESIRegistrationPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ companyName: '', ownerName: '', email: '', phone: '', employeeCount: '', establishmentDate: '', state: '', message: '' });
-        alert('Form submitted successfully!');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_APP_URL}/api/esi-registration`,
+          formData
+        );
+        console.log("Form submitted:", response.data);
+        setFormData({
+          companyName: "",
+          ownerName: "",
+          email: "",
+          phone: "",
+          employeeCount: "",
+          establishmentDate: "",
+          state: "",
+          message: "",
+        });
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Error submitting form. Please try again.");
+      }
     };
 
     return (

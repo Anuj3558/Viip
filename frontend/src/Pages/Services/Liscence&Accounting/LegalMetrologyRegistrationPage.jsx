@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaBalanceScale, FaFileSignature, FaRuler } from 'react-icons/fa'; // Import React Icons
@@ -22,13 +23,28 @@ const LegalMetrologyRegistrationPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ businessName: '', ownerName: '', email: '', phone: '', productType: '', state: '', message: '' });
-        alert('Form submitted successfully!');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_APP_URL}/api/legal-metrology-registration`,
+          formData
+        );
+        console.log("Form submitted:", response.data);
+        setFormData({
+          businessName: "",
+          ownerName: "",
+          email: "",
+          phone: "",
+          productType: "",
+          state: "",
+          message: "",
+        });
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Error submitting form. Please try again.");
+      }
     };
 
     return (

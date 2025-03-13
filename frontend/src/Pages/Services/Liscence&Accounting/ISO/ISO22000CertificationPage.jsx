@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FaUtensils, FaFileContract, FaSeedling, FaCheckCircle } from "react-icons/fa";
+import {
+  FaRecycle,
+  FaLeaf,
+  FaGlobeAmericas,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
 
 const ISO22000CertificationPage = () => {
@@ -22,22 +28,33 @@ const ISO22000CertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      scope: "",
-      employees: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
+    try {
+      // Using the route structure with isoType as a parameter
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_URL}/api/iso/22000`,
+        formData
+      );
+      console.log("Form data submitted successfully:", response.data);
+
+      // Reset form after submission
+      setFormData({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        employees: "",
+        industry: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
+
 
   return (
     <>
