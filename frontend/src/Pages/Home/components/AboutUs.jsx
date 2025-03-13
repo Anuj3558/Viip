@@ -49,20 +49,20 @@ const AboutUs = () => {
               <div className="relative bg-white shadow-lg rounded-xl p-8">
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="500">0</div>
-                    <p className="text-gray-600">Patents Filed</p>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="800">0</div>
+                    <p className="text-gray-600">Businesses Supported</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="1000">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="1200">0</div>
                     <p className="text-gray-600">Happy Clients</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="15">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="10">0</div>
                     <p className="text-gray-600">Years Experience</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="98">0</div>
-                    <p className="text-gray-600">Success Rate</p>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="95">0</div>
+                    <p className="text-gray-600">Client Satisfaction</p>
                   </div>
                 </div>
               </div>
@@ -72,12 +72,12 @@ const AboutUs = () => {
           {/* Right Column - Content */}
           <div className="space-y-6 animate__animated animate__fadeInRight">
             <div className="inline-block">
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">Who Are We?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">Why Choose Us?</h2>
               <div className="h-1 w-20 bg-blue-900 rounded"></div>
             </div>
             
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Vastav Intellect IP Solutions is a leading intellectual property consulting firm dedicated to protecting innovations and creative works. With over 15 years of experience, we've helped countless businesses secure their intellectual property rights.
+              At Vastav Intellect IP Solutions, we're dedicated to empowering businesses with comprehensive solutions tailored to their unique needs. With a decade of experience, we've assisted numerous businesses in navigating the complexities of the legal and regulatory landscape.
             </p>
 
             <div className="space-y-4">
@@ -88,8 +88,8 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Expert Team</h3>
-                  <p className="text-gray-600">Our team consists of experienced IP attorneys and technical experts.</p>
+                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Extensive Expertise</h3>
+                  <p className="text-gray-600">Access a wide array of expert consultations across various legal and business domains.</p>
                 </div>
               </div>
 
@@ -100,8 +100,8 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Comprehensive Solutions</h3>
-                  <p className="text-gray-600">End-to-end IP services from filing to maintenance and litigation.</p>
+                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Holistic Solution</h3>
+                  <p className="text-gray-600">From initial business setup to ongoing compliance and legal support, we've got you covered.</p>
                 </div>
               </div>
 
@@ -112,8 +112,8 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Timely Delivery</h3>
-                  <p className="text-gray-600">Quick turnaround times with attention to detail.</p>
+                  <h3 className="text-xl font-semibold text-blue-900 mb-1">Client-Centric Approach</h3>
+                  <p className="text-gray-600">We prioritize your needs and tailor our services to ensure optimal results and satisfaction.</p>
                 </div>
               </div>
             </div>
