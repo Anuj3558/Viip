@@ -1,7 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { notification } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+
+// Create custom notification components to replace antd notifications
+const Notification = ({ type, message, description, onClose }) => {
+  const bgColor = type === 'success' ? 'bg-green-100' : 'bg-red-100';
+  const textColor = type === 'success' ? 'text-green-800' : 'text-red-800';
+  const iconColor = type === 'success' ? 'text-green-500' : 'text-red-500';
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (onClose) onClose();
+    }, 4500);
+    
+    return () => clearTimeout(timer);
+  }, [onClose]);
+  
+  return (
+    <div className={`fixed top-4 left-4 ${bgColor} p-4 rounded-md shadow-md max-w-md z-50 flex`}>
+      <div className={`mr-3 ${iconColor}`}>
+        {type === 'success' ? (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        )}
+      </div>
+      <div>
+        <h3 className={`font-medium ${textColor}`}>{message}</h3>
+        <p className={`text-sm ${textColor} opacity-90`}>{description}</p>
+      </div>
+    </div>
+  );
+};
+
 const CompanyRegistrationPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,6 +44,7 @@ const CompanyRegistrationPage = () => {
     message: ''
   });
   const [currentRoute, setCurrentRoute] = useState('');
+  const [notification, setNotification] = useState(null);
 
   useEffect(() => {
     setCurrentRoute(window.location.pathname);
@@ -24,22 +59,24 @@ const CompanyRegistrationPage = () => {
   };
 
   const showSuccessNotification = () => {
-    notification.success({
+    setNotification({
+      type: 'success',
       message: 'Success',
-      description: 'Form submitted successfully!',
-      placement: 'topLeft',
-      icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+      description: 'Form submitted successfully!'
     });
   };
 
   const showErrorNotification = (message) => {
-    notification.error({
+    setNotification({
+      type: 'error',
       message: 'Error',
-      description: message,
-      placement: 'topLeft',
+      description: message
     });
   };
 
+  const closeNotification = () => {
+    setNotification(null);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +88,8 @@ const CompanyRegistrationPage = () => {
     };
 
     try {
-      const response = await fetch('/bussiness-setup/company-registrion', {
+      // Fixed the URL typo 'registrion' -> 'registration'
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/company-registrion`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,7 +100,7 @@ const CompanyRegistrationPage = () => {
       if (response.ok) {
         console.log('Form submitted successfully!');
         setFormData({ name: '', email: '', phone: '', message: '' });
-        showSuccessNotification(); // Show success notification
+        showSuccessNotification();
       } else {
         console.error('Form submission failed:', response.status);
         showErrorNotification('Form submission failed. Please try again.');
@@ -73,15 +111,34 @@ const CompanyRegistrationPage = () => {
     }
   };
 
+  const isPhoneValid = (phone) => {
+    // Basic validation for phone numbers
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return phone === '' || phoneRegex.test(phone);
+  };
+
+  const isEmailValid = (email) => {
+    // Basic validation for email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === '' || emailRegex.test(email);
+  };
+
   return (
     <>
       <Helmet>
-      <title>Company Registration | Vastav Intellect and IP Solutions</title>
-      <meta name="description" content="Register your company with Vastav Intellect and IP Solutions. We offer expert guidance and time-efficient processing." />
+        <title>Company Registration | Vastav Intellect and IP Solutions</title>
+        <meta name="description" content="Register your company with Vastav Intellect and IP Solutions. We offer expert guidance and time-efficient processing." />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
-        {/* ... Your form and other UI elements ... */}
+        {notification && (
+          <Notification
+            type={notification.type}
+            message={notification.message}
+            description={notification.description}
+            onClose={closeNotification}
+          />
+        )}
 
         <section className="container mx-auto px-4 py-16">
           <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -154,10 +211,13 @@ const CompanyRegistrationPage = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${!isEmailValid(formData.email) && formData.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your email address"
                     required
                   />
+                  {!isEmailValid(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm mt-1">Please enter a valid email address</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone Number</label>
@@ -167,10 +227,13 @@ const CompanyRegistrationPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${!isPhoneValid(formData.phone) && formData.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your phone number"
                     required
                   />
+                  {!isPhoneValid(formData.phone) && formData.phone && (
+                    <p className="text-red-500 text-sm mt-1">Please enter a valid phone number</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
@@ -195,7 +258,6 @@ const CompanyRegistrationPage = () => {
             </div>
           </div>
         </section>
-
       </div>
     </>
   );

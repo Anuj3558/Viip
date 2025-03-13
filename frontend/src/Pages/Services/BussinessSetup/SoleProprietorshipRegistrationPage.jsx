@@ -1,81 +1,163 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaUser, FaFileSignature } from 'react-icons/fa'; // Import React Icons
 
+const Notification = ({ type, message, description, onClose }) => {
+    const bgColor = type === 'success' ? 'bg-green-100' : 'bg-red-100';
+    const textColor = type === 'success' ? 'text-green-800' : 'text-red-800';
+    const iconColor = type === 'success' ? 'text-green-500' : 'text-red-500';
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        if (onClose) onClose();
+      }, 4500);
+  
+      return () => clearTimeout(timer);
+    }, [onClose]);
+  
+    return (
+      <div className={`fixed top-4 left-4 ${bgColor} p-4 rounded-md shadow-md max-w-md z-50 flex`}>
+        <div className={`mr-3 ${iconColor}`}>
+          {type === 'success' ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          )}
+        </div>
+        <div>
+          <h3 className={`font-medium ${textColor}`}>{message}</h3>
+          <p className={`text-sm ${textColor} opacity-90`}>{description}</p>
+        </div>
+      </div>
+    );
+  };
 const SoleProprietorshipRegistrationPage = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        message: ''
-    });
+        message: '',
+        type: 'sole_proprietorship_inquiry'
+      });
+    
+      const [notification, setNotification] = useState(null);
+    
+      const showSuccessNotification = () => {
+        setNotification({
+          type: 'success',
+          message: 'Success',
+          description: 'Form submitted successfully!'
+        });
+      };
+    
+      const showErrorNotification = (message) => {
+        setNotification({
+          type: 'error',
+          message: 'Error',
+          description: message
+        });
+      };
+    
+      const closeNotification = () => {
+        setNotification(null);
+      };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({
+        setFormData((prevState) => ({
             ...prevState,
             [name]: value
         }));
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        alert('Form submitted successfully!');
-    };
+        try {
+          const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/sole-proprietorship-registration`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+      
+          if (response.ok) {
+            showSuccessNotification();
+            setFormData({
+              name: '',
+              email: '',
+              phone: '',
+              message: '',
+              type: 'sole_proprietorship_inquiry'
+            });
+          } else {
+            showErrorNotification('Failed to submit the form.');
+          }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          showErrorNotification('An error occurred while submitting the form.');
+        }
+      };
 
     return (
         <>
             <Helmet>
                 <title>Sole Proprietorship Registration | Vastav Intellect and IP Solutions</title>
-                <meta name="description" content="Register your Sole Proprietorship with Vastav Intellect and IP Solutions. Simple, quick, and compliant setup for your business." />
-                <meta name="keywords" content="sole proprietorship, registration, business registration, MSME registration, Udyam registration, GST registration, India, Vastav Intellect, IP Solutions" />
-                <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
+                <meta
+                    name="description"
+                    content="Register your Sole Proprietorship with Vastav Intellect and IP Solutions. Simple, quick, and compliant setup for your business."
+                />
+                <meta
+                    name="keywords"
+                    content="sole proprietorship, registration, business registration, MSME registration, Udyam registration, GST registration, India, Vastav Intellect, IP Solutions"
+                />
+                <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
             </Helmet>
 
             <div className="min-h-screen bg-gray-50">
-
                 {/* Main Registration Section */}
+                {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          description={notification.description}
+          onClose={closeNotification}
+        />
+      )}
                 <section className="container mx-auto px-4 py-16">
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         {/* Left Information Column */}
                         <div className="md:w-1/2 space-y-6">
                             <h2 className="text-3xl font-bold text-blue-800">Sole Proprietorship Registration Services</h2>
                             <p className="text-lg text-gray-700">
-                               Vastav Intellect and IP Solutions helps you quickly establish your Sole Proprietorship by
-                               assisting with the necessary registrations and licenses to operate legally and efficiently.
+                                Vastav Intellect and IP Solutions helps you quickly establish your Sole Proprietorship by assisting with
+                                the necessary registrations and licenses to operate legally and efficiently.
                             </p>
                             <div className="space-y-4">
-                                <div className="flex items-start">
-                                    <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaUser className="h-6 w-6 text-blue-800" />
+                                {[{
+                                    icon: <FaUser />,
+                                    title: "Simple Setup",
+                                    description: "Sole proprietorships are easy to establish with minimal regulatory requirements."
+                                }, {
+                                    icon: <FaCheckCircle />,
+                                    title: "Essential Registrations",
+                                    description: "We help you obtain the necessary registrations like MSME (Udyam), GST, and others."
+                                }, {
+                                    icon: <FaFileSignature />,
+                                    title: "Operational Efficiency",
+                                    description: "Start operating your business smoothly with the right paperwork in place."
+                                }].map(({ icon, title, description }, idx) => (
+                                    <div key={idx} className="flex items-start">
+                                        <div className="bg-blue-100 p-2 rounded-full mr-3">{icon}</div>
+                                        <div>
+                                            <h3 className="font-semibold text-lg">{title}</h3>
+                                            <p className="text-gray-600">{description}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Simple Setup</h3>
-                                        <p className="text-gray-600">Sole proprietorships are easy to establish with minimal regulatory requirements.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaCheckCircle className="h-6 w-6 text-blue-800" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Essential Registrations</h3>
-                                        <p className="text-gray-600">We help you obtain the necessary registrations like MSME (Udyam), GST, and others.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="bg-blue-100 p-2 rounded-full mr-3">
-                                        <FaFileSignature className="h-6 w-6 text-blue-800" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Operational Efficiency</h3>
-                                        <p className="text-gray-600">Start operating your business smoothly with the right paperwork in place.</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
 
@@ -83,45 +165,25 @@ const SoleProprietorshipRegistrationPage = () => {
                         <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
                             <h2 className="text-2xl font-bold text-blue-800 mb-6">Register Your Sole Proprietorship</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
-                                <div>
-                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your full name"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email Address</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your email address"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone Number</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your phone number"
-                                        required
-                                    />
-                                </div>
+                                {/* Form Fields */}
+                                {['name', 'email', 'phone'].map((field) => (
+                                    <div key={field}>
+                                        <label htmlFor={field} className="block text-gray-700 font-medium mb-1 capitalize">
+                                            {field}
+                                        </label>
+                                        <input
+                                            type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                                            id={field}
+                                            name={field}
+                                            value={formData[field]}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                            placeholder={`Enter your ${field}`}
+                                            required
+                                        />
+                                    </div>
+                                ))}
+                                {/* Message Field */}
                                 <div>
                                     <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
                                     <textarea
@@ -135,6 +197,8 @@ const SoleProprietorshipRegistrationPage = () => {
                                         required
                                     ></textarea>
                                 </div>
+
+                                {/* Submit Button */}
                                 <button
                                     type="submit"
                                     className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
@@ -145,8 +209,6 @@ const SoleProprietorshipRegistrationPage = () => {
                         </div>
                     </div>
                 </section>
-
-                {/* Services Section */}
                 <section className="bg-gray-100 py-16">
                     <div className="container mx-auto px-4">
                         <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Our Sole Proprietorship Services</h2>
@@ -268,9 +330,7 @@ const SoleProprietorshipRegistrationPage = () => {
                         </div>
                     </div>
                 </section>
-
-                {/* Call to Action Section */}
-      
+                {/* Additional sections can be added here */}
             </div>
         </>
     );
