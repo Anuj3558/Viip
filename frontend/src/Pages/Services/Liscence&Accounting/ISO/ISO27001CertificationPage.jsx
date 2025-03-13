@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FaShieldAlt, FaFileContract, FaKey, FaCheckCircle } from "react-icons/fa";
+import {
+  FaLock,
+  FaShieldAlt,
+  FaUserShield,
+  FaCheckCircle,
+  FaFileContract,
+} from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
 
 const ISO27001CertificationPage = () => {
@@ -10,6 +17,7 @@ const ISO27001CertificationPage = () => {
     email: "",
     phone: "",
     employees: "",
+    industry: "",
     message: "",
   });
 
@@ -21,21 +29,35 @@ const ISO27001CertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      employees: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
-  };
+ const handleSubmit = async (e) => {
+   e.preventDefault();
+   try {
+     const response = await axios.post(
+       `${import.meta.env.VITE_APP_URL}/api/iso/27001`,
+       formData
+     );
+     console.log("Form data submitted successfully:", response.data);
+
+     setFormData({
+       // Reset form
+       companyName: "",
+       contactName: "",
+       email: "",
+       phone: "",
+       employees: "",
+       industry: "",
+       message: "",
+     });
+     alert("Form submitted successfully!");
+   } catch (error) {
+     console.error("Error submitting form data:", error);
+     console.error(
+       "Error details:",
+       error.response ? error.response.data : error.message
+     ); // Improved error logging
+     alert("Error submitting form. Please try again.");
+   }
+ };
 
   return (
     <>
@@ -45,14 +67,13 @@ const ISO27001CertificationPage = () => {
         </title>
         <meta
           name="description"
-          content="Achieve ISO 27001 Certification with Vastav Intellect and IP Solutions. Protect your information assets with our expert consulting."
+          content="Achieve ISO 27001 Certification with Vastav Intellect and IP Solutions. Expert information security management system consulting."
         />
         <meta
           name="keywords"
-          content="ISO 27001, information security, certification, ISMS, Vastav Intellect, data protection, India"
+          content="ISO 27001, information security, ISMS, cybersecurity, data protection, certification, Vastav Intellect, India"
         />
-        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />{" "}
-        {/* Replace with your actual URL */}
+        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
@@ -65,49 +86,49 @@ const ISO27001CertificationPage = () => {
                 ISO 27001 Certification Services
               </h2>
               <p className="text-lg text-gray-700">
-                Vastav Intellect and IP Solutions provides expert consulting and
-                support to help you achieve ISO 27001 certification and
-                establish a robust Information Security Management System
+                Vastav Intellect and IP Solutions provides expert consulting to
+                help your organization achieve ISO 27001 certification and
+                implement an effective Information Security Management System
                 (ISMS).
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-2 rounded-full mr-3">
+                    <FaLock className="h-6 w-6 text-blue-800" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">
+                      Enhanced Information Security
+                    </h3>
+                    <p className="text-gray-600">
+                      Protect your sensitive data and information assets from
+                      security threats and breaches.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-2 rounded-full mr-3">
                     <FaShieldAlt className="h-6 w-6 text-blue-800" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">
-                      Enhanced Security Posture
-                    </h3>
-                    <p className="text-gray-600">
-                      Strengthen your organization's information security and
-                      protect sensitive data.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <FaFileContract className="h-6 w-6 text-blue-800" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">
-                      Compliance and Trust
-                    </h3>
-                    <p className="text-gray-600">
-                      Demonstrate your commitment to data protection and meet
-                      regulatory requirements.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <FaKey className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Risk Management</h3>
                     <p className="text-gray-600">
-                      Identify, assess, and mitigate information security risks
-                      effectively.
+                      Identify and mitigate security risks before they impact
+                      your business operations.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-2 rounded-full mr-3">
+                    <FaUserShield className="h-6 w-6 text-blue-800" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">
+                      Customer & Stakeholder Trust
+                    </h3>
+                    <p className="text-gray-600">
+                      Build confidence with customers and partners by
+                      demonstrating your commitment to information security.
                     </p>
                   </div>
                 </div>
@@ -212,6 +233,24 @@ const ISO27001CertificationPage = () => {
                 </div>
                 <div>
                   <label
+                    htmlFor="industry"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
+                    Industry
+                  </label>
+                  <input
+                    type="text"
+                    id="industry"
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your industry"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
                     htmlFor="message"
                     className="block text-gray-700 font-medium mb-1"
                   >
@@ -224,7 +263,7 @@ const ISO27001CertificationPage = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Tell us about your company and ISO 27001 certification goals"
+                    placeholder="Tell us about your information security needs and ISO 27001 certification goals"
                     required
                   ></textarea>
                 </div>
@@ -248,21 +287,27 @@ const ISO27001CertificationPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                  <FaShieldAlt className="h-8 w-8 text-blue-800" />
+                  <FaLock className="h-8 w-8 text-blue-800" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Gap Analysis</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  Risk Assessment & Management
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Identifying gaps in your current information security
-                  practices compared to ISO 27001 requirements.
+                  Comprehensive risk assessments to identify and manage
+                  information security risks.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    ISMS assessment
+                    Risk identification
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Reporting and recommendations
+                    Risk analysis
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
+                    Risk mitigation planning
                   </li>
                 </ul>
               </div>
@@ -271,20 +316,24 @@ const ISO27001CertificationPage = () => {
                   <FaFileContract className="h-8 w-8 text-blue-800" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
-                  Documentation & Implementation
+                  ISMS Documentation & Implementation
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Developing and implementing the necessary documentation and
-                  controls for ISO 27001 compliance.
+                  Expert guidance in developing and implementing the necessary
+                  ISMS documentation and processes for ISO 27001 compliance.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Policy and procedure creation
+                    Policy and procedure development
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Risk assessment and treatment
+                    Control implementation
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
+                    Training and awareness programs
                   </li>
                 </ul>
               </div>
@@ -292,19 +341,26 @@ const ISO27001CertificationPage = () => {
                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                   <GiTakeMyMoney className="h-8 w-8 text-blue-800" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Audit Support</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  Internal Audit & Compliance Support
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Assistance with internal and external audits to ensure
-                  successful ISO 27001 certification.
+                  Assistance in conducting internal audits and ensuring ongoing
+                  compliance with information security standards and ISO 27001
+                  requirements.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Pre-audit assessment
+                    Internal audit planning and execution
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
                     Corrective action planning
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
+                    Compliance monitoring
                   </li>
                 </ul>
               </div>
@@ -322,37 +378,45 @@ const ISO27001CertificationPage = () => {
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-2">Initial Consultation</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Initial Assessment & Gap Analysis
+              </h3>
               <p className="text-gray-600">
-                We discuss your organization's needs and scope for ISO 27001
-                certification.
+                We assess your organization's current information security
+                practices and conduct a gap analysis against ISO 27001.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-2">Gap Analysis</h3>
+              <h3 className="text-xl font-bold mb-2">
+                ISMS Development & Implementation
+              </h3>
               <p className="text-gray-600">
-                We assess your current ISMS to identify gaps in meeting ISO
-                27001 requirements.
+                We develop and implement a customized Information Security
+                Management System (ISMS) tailored to your organization.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 3
               </div>
-              <h3 className="text-xl font-bold mb-2">Implementation</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Internal Audit & Training
+              </h3>
               <p className="text-gray-600">
-                We help you implement the necessary policies, procedures, and
-                controls.
+                We conduct internal audits and provide training to ensure your
+                ISMS is effective and compliant.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 4
               </div>
-              <h3 className="text-xl font-bold mb-2">Certification Audit</h3>
+              <h3 className="text-xl font-bold mb-2">
+                Certification Audit Support
+              </h3>
               <p className="text-gray-600">
                 We assist you in preparing for and successfully completing the
                 ISO 27001 certification audit.

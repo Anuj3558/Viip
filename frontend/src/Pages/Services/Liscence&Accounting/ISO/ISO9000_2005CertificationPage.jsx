@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { Helmet } from "react-helmet";
 import { FaBuilding, FaFileContract, FaChartLine, FaCheckCircle } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
@@ -21,21 +22,32 @@ const ISO9000_2005CertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      employees: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
+    try {
+      // Using the route structure with isoType as a parameter
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_URL}/iso/9000_2005`,
+        formData
+      );
+      console.log(response.data);
+      // Reset form after submission
+      setFormData({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        employees: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
+
+
 
   return (
     <>
@@ -52,8 +64,7 @@ const ISO9000_2005CertificationPage = () => {
           name="keywords"
           content="ISO 9001:2008, quality management system, QMS, certification, Vastav Intellect, process improvement, India"
         />
-        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />{" "}
-        {/* Replace with your actual URL */}
+        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FaRecycle, FaLeaf, FaGlobeAmericas, FaCheckCircle } from "react-icons/fa";
+import {
+  FaRecycle,
+  FaLeaf,
+  FaGlobeAmericas,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
 
 const ISO14001CertificationPage = () => {
@@ -22,21 +28,31 @@ const ISO14001CertificationPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - would typically send to backend API
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({
-      companyName: "",
-      contactName: "",
-      email: "",
-      phone: "",
-      employees: "",
-      industry: "",
-      message: "",
-    });
-    alert("Form submitted successfully!");
+    try {
+      // Using the route structure with isoType as a parameter
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_URL}/api/iso/14001`,
+        formData
+      );
+      console.log("Form data submitted successfully:", response.data);
+
+      // Reset form after submission
+      setFormData({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        employees: "",
+        industry: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
 
   return (
@@ -54,8 +70,7 @@ const ISO14001CertificationPage = () => {
           name="keywords"
           content="ISO 14001:2015, environmental management system, EMS, certification, Vastav Intellect, sustainability, environmental compliance, India"
         />
-        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />{" "}
-        {/* Replace with your actual URL */}
+        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">

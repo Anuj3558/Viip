@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaFileSignature, FaUtensils, FaClipboardCheck } from 'react-icons/fa'; // Import React Icons
@@ -21,13 +22,27 @@ const FSSAIRegistrationPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ businessName: '', name: '', email: '', phone: '', foodBusiness: '', message: '' });
-        alert('Form submitted successfully!');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_APP_URL}/api/fssai-registration`,
+          formData
+        );
+        console.log("Form submitted:", response.data);
+        setFormData({
+          businessName: "",
+          name: "",
+          email: "",
+          phone: "",
+          foodBusiness: "",
+          message: "",
+        });
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Error submitting form. Please try again.");
+      }
     };
 
     return (

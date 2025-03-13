@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaUsers, FaFileSignature, FaMoneyBillWave } from 'react-icons/fa'; // Import React Icons
@@ -22,20 +23,35 @@ const PFRegistrationPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ companyName: '', ownerName: '', email: '', phone: '', employeeCount: '', establishmentDate: '', message: '' });
-        alert('Form submitted successfully!');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_APP_URL}/api/pf-registration`,
+          formData
+        );
+        console.log("Form submitted:", response.data);
+        setFormData({
+          companyName: "",
+          ownerName: "",
+          email: "",
+          phone: "",
+          employeeCount: "",
+          establishmentDate: "",
+          message: "",
+        });
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Error submitting form. Please try again.");
+      }
     };
 
     return (
         <>
             <Helmet>
                 <title>Online PF Registration | Vastav Intellect and IP Solutions</title>
-                <meta name="description" content="Get your PF Registration Online with Vastav Intellect and IP Solutions. Ensure compliance with Employees' Provident Fund regulations." />
+                <meta name="descript    ion" content="Get your PF Registration Online with Vastav Intellect and IP Solutions. Ensure compliance with Employees' Provident Fund regulations." />
                 <meta name="keywords" content="PF registration, provident fund, employee PF, online registration, Vastav Intellect, legal services, India" />
                 <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
             </Helmet>
