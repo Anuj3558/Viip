@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
-import { FaBuilding, FaFileContract, FaChartLine, FaCheckCircle } from "react-icons/fa";
+import {
+  FaBuilding,
+  FaFileContract,
+  FaChartLine,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
+import Notification from "../../../../components/NOtification";  // Import Notification
 
 const ISO9000_2005CertificationPage = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +20,8 @@ const ISO9000_2005CertificationPage = () => {
     message: "",
   });
 
+  const [notification, setNotification] = useState(null); // Notification state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -22,16 +30,47 @@ const ISO9000_2005CertificationPage = () => {
     }));
   };
 
+  const showSuccessNotification = () => {
+    setNotification({
+      type: "success",
+      message: "Success",
+      description: "ISO 9001:2008 inquiry submitted successfully!",
+    });
+  };
+
+  const showErrorNotification = (message) => {
+    setNotification({
+      type: "error",
+      message: "Error",
+      description: message,
+    });
+  };
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
+  useEffect(() => {
+    if (notification && notification.type === "success") {
+      const timer = setTimeout(() => {
+        closeNotification();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Using the route structure with isoType as a parameter
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/iso/9000_2005`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/9000_2005`,
         formData
       );
-      console.log(response.data);
-      // Reset form after submission
+
+      console.log("Form data submitted successfully:", response.data);
+      showSuccessNotification();
+
       setFormData({
         companyName: "",
         contactName: "",
@@ -40,17 +79,23 @@ const ISO9000_2005CertificationPage = () => {
         employees: "",
         message: "",
       });
-      alert("Form submitted successfully!");
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error submitting form data:", error);
+      showErrorNotification("Failed to submit the inquiry. Please try again.");
     }
   };
 
-
-
-
   return (
     <>
+      {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          description={notification.description}
+          onClose={closeNotification}
+        />
+      )}
+
       <Helmet>
         <title>
           ISO 9001:2008 Certification Services | Vastav Intellect and IP
@@ -367,8 +412,8 @@ const ISO9000_2005CertificationPage = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Certification Audit</h3>
               <p className="text-gray-600">
-                We assist you in preparing for and successfully completing the
-                ISO 9001:2008 certification audit.
+                We assist you in the certification process, ensuring a
+                successful audit and ISO 9001:2008 certification.
               </p>
             </div>
           </div>

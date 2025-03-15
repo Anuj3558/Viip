@@ -1,6 +1,4 @@
-
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import {
@@ -10,6 +8,7 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
+import Notification from "../../../../components/NOtification"; 
 
 const ISO9001CertificationPage = () => {
   const [formData, setFormData] = useState({
@@ -22,23 +21,94 @@ const ISO9001CertificationPage = () => {
     message: "",
   });
 
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [notification, setNotification] = useState(null);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+
+  const validateEmail = (email) => {
+    if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validatePhone = (phone) => {
+    if (!phoneRegex.test(phone)) {
+      setPhoneError("Please enter a valid phone number.");
+      return false;
+    }
+    setPhoneError("");
+    return true;
+  };
+
+  const showSuccessNotification = () => {
+    setNotification({
+      type: "success",
+      message: "Success",
+      description: "ISO 9001:2015 inquiry submitted successfully!",
+    });
+  };
+
+  const showErrorNotification = (message) => {
+    setNotification({
+      type: "error",
+      message: "Error",
+      description: message,
+    });
+  };
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
+  useEffect(() => {
+    if (notification && notification.type === "success") {
+      const timer = setTimeout(() => {
+        closeNotification();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "email") {
+      validateEmail(value);
+    } else if (name === "phone") {
+      validatePhone(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isEmailValid = validateEmail(formData.email);
+    const isPhoneValid = validatePhone(formData.phone);
+
+    if (!isEmailValid || !isPhoneValid) {
+      return;
+    }
+
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/iso/9001`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/9001`,
         formData
       );
+
       console.log("Form data submitted successfully:", response.data);
-      // Reset form after submission
+      showSuccessNotification();
+
       setFormData({
         companyName: "",
         contactName: "",
@@ -48,15 +118,28 @@ const ISO9001CertificationPage = () => {
         industry: "",
         message: "",
       });
-      alert("Form submitted successfully!");
+      setEmailError("");
+      setPhoneError("");
     } catch (error) {
       console.error("Error submitting form data:", error);
-      alert("Error submitting form. Please try again.");
+      showErrorNotification(
+        error.response?.data?.message ||
+          "Failed to submit the inquiry. Please try again."
+      );
     }
   };
 
   return (
     <>
+      {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          description={notification.description}
+          onClose={closeNotification}
+        />
+      )}
+
       <Helmet>
         <title>
           ISO 9001:2015 Certification Services | Vastav Intellect and IP
@@ -70,8 +153,7 @@ const ISO9001CertificationPage = () => {
           name="keywords"
           content="ISO 9001:2015, quality management system, QMS, certification, Vastav Intellect, process improvement, customer satisfaction, India"
         />
-        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />{" "}
-        {/* Replace with your actual URL */}
+        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
@@ -189,10 +271,15 @@ const ISO9001CertificationPage = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${
+                      emailError ? "border-red-500" : "border-gray-300"
+                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your email address"
                     required
                   />
+                  {emailError && (
+                    <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -207,10 +294,15 @@ const ISO9001CertificationPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${
+                      phoneError ? "border-red-500" : "border-gray-300"
+                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your phone number"
                     required
                   />
+                  {phoneError && (
+                    <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -376,48 +468,40 @@ const ISO9001CertificationPage = () => {
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Initial Consultation & Gap Analysis
-              </h3>
+              <h3 className="text-xl font-bold mb-2">Initial Consultation</h3>
               <p className="text-gray-600">
-                We discuss your organization's needs and conduct a gap analysis
-                of your existing QMS.
+                We discuss your organization's needs and scope for ISO 9001:2015
+                certification.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Documentation & Implementation
-              </h3>
+              <h3 className="text-xl font-bold mb-2">Gap Analysis</h3>
               <p className="text-gray-600">
-                We develop and implement the necessary QMS documentation and
-                processes.
+                We assess your current QMS to identify gaps in meeting ISO
+                9001:2015 requirements.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 3
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Internal Audit & Training
-              </h3>
+              <h3 className="text-xl font-bold mb-2">Implementation</h3>
               <p className="text-gray-600">
-                We conduct internal audits and provide training to ensure your
-                QMS is effective and compliant.
+                We help you implement the necessary QMS processes, procedures,
+                and documentation.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 4
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Certification Audit Support
-              </h3>
+              <h3 className="text-xl font-bold mb-2">Certification Audit</h3>
               <p className="text-gray-600">
-                We assist you in preparing for and successfully completing the
-                ISO 9001:2015 certification audit.
+                We assist you in the certification process, ensuring a
+                successful audit and ISO 9001:2015 certification.
               </p>
             </div>
           </div>
