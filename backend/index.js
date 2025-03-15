@@ -13,6 +13,8 @@ import legalMetrologyRegistrationRoutes from "./router/Licenses and registration
 import fssaiRegistrationRoutes from "./router/Licenses and registrations/fssaiRegistrationRoutes.js";
 import psaraLicenseRoutes from "./router/Licenses and registrations/psaraLicenseRoutes.js";
 import tradeLicenseRenewalRoutes from "./router/Licenses and registrations/tradeLicenseRenewalRoutes.js";
+import BussinessSetupRouter from "./router/bussinessRouter.js";
+import TrademarkRouter from "./router/TrademarkRouter.js";
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -38,5 +40,7 @@ app.use("/api", legalMetrologyRegistrationRoutes);
 app.use("/api", fssaiRegistrationRoutes);
 app.use("/api", psaraLicenseRoutes);
 app.use("/api", tradeLicenseRenewalRoutes);
+app.use("/bussiness-setup", BussinessSetupRouter);
+app.use("/trademark-ip", TrademarkRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
