@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import Breadcrumb from "./components/Breadcrumb";
 import ServiceGrid from "./components/ServiceGrid";
@@ -10,6 +10,18 @@ function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubMenu, setActiveSubMenu] = useState("");
   const [selectedService, setSelectedService] = useState(null);
+  const [submissions, setSubmissions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Define API endpoints for each service
+  const serviceEndpoints = {
+    "Company Registration": "/api/company-registration",
+    "Trademark Registration": "/api/trademark-registration",
+    "ISO Certification": "/api/iso-certification",
+    "Talk To Lawyer": "/api/lawyer-consultation",
+    // Add other services and their endpoints here
+  };
 
   const handleMenuClick = (menu) => {
     setActiveMenu(activeMenu === menu ? "" : menu);
@@ -23,7 +35,53 @@ function Dashboard() {
   };
 
   const handleServiceClick = (service) => {
+    console.log("Service clicked:", service);
     setSelectedService(service);
+  };
+
+  // Fetch data when selectedService changes
+  useEffect(() => {
+    if (selectedService) {
+      fetchSubmissionsByService(selectedService);
+    }
+  }, [selectedService]);
+
+  const fetchSubmissionsByService = async (service) => {
+    // Check if we have an endpoint for this service
+    if (!serviceEndpoints[service]) {
+      console.warn(`No API endpoint defined for service: ${service}`);
+      // Fallback to mock data
+      const filteredMockSubmissions = mockSubmissions.filter(
+        (submission) => submission.subService === service
+      );
+      setSubmissions(filteredMockSubmissions);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const endpoint = serviceEndpoints[service];
+      const response = await fetch(endpoint);
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      setSubmissions(data);
+    } catch (err) {
+      console.error("Error fetching submissions:", err);
+      setError("Failed to load submissions. Please try again later.");
+      // Fallback to mock data in case of error
+      const filteredMockSubmissions = mockSubmissions.filter(
+        (submission) => submission.subService === service
+      );
+      setSubmissions(filteredMockSubmissions);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,15 +106,25 @@ function Dashboard() {
 
             {selectedService ? (
               <>
-                <SubmissionsTable submissions={mockSubmissions} />
+                <SubmissionsTable
+                  submissions={submissions}
+                  selectedService={selectedService}
+                  activeMenu={activeMenu}
+                  activeSubMenu={activeSubMenu}
+                  menuItems={menuItems}
+                  loading={loading}
+                  error={error}
+                />
                 <TablePagination />
               </>
             ) : (
               <ServiceGrid
                 activeMenu={activeMenu}
                 activeSubMenu={activeSubMenu}
+                selectedService={selectedService}
                 onServiceClick={handleServiceClick}
                 menuItems={menuItems}
+                submissions={mockSubmissions}
               />
             )}
           </div>
