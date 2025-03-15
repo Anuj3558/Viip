@@ -100,7 +100,7 @@ const ConsultAndExpertForBusinessPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/consult-and-expert`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/expert/consult-and-expert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

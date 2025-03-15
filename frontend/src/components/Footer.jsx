@@ -52,7 +52,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center mt-6">
-        <p className="text-sm">© {} Vastav Intellect IP Solutions. All rights reserved.</p>
+        <p className="text-sm">© {new Date().getFullYear()} Vastav Intellect IP Solutions. All rights reserved.</p>
       </div>
     </footer>
   );
