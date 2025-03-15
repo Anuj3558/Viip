@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import {
   FaCheckCircle,
@@ -8,6 +8,7 @@ import {
   FaRupeeSign,
 } from "react-icons/fa"; // Import React Icons
 import { GiTakeMyMoney } from "react-icons/gi";
+import Notification from "../../../components/NOtification";
 
 const ProfessionalTaxRegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -20,23 +21,94 @@ const ProfessionalTaxRegistrationPage = () => {
     message: "",
   });
 
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [notification, setNotification] = useState(null);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+
+  const validateEmail = (email) => {
+    if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validatePhone = (phone) => {
+    if (!phoneRegex.test(phone)) {
+      setPhoneError("Please enter a valid phone number.");
+      return false;
+    }
+    setPhoneError("");
+    return true;
+  };
+
+  const showSuccessNotification = () => {
+    setNotification({
+      type: "success",
+      message: "Success",
+      description:
+        "Professional Tax Registration inquiry submitted successfully!",
+    });
+  };
+
+  const showErrorNotification = (message) => {
+    setNotification({
+      type: "error",
+      message: "Error",
+      description: message,
+    });
+  };
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
+  useEffect(() => {
+    if (notification && notification.type === "success") {
+      const timer = setTimeout(() => {
+        closeNotification();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "email") {
+      validateEmail(value);
+    } else if (name === "phone") {
+      validatePhone(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isEmailValid = validateEmail(formData.email);
+    const isPhoneValid = validatePhone(formData.phone);
+
+    if (!isEmailValid || !isPhoneValid) {
+      return;
+    }
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_APP_URL}/api/professional-tax`,
         formData
       );
       console.log("Form submitted:", response.data);
-      // Reset form after submission
+      showSuccessNotification();
+
       setFormData({
         businessName: "",
         ownerName: "",
@@ -46,15 +118,27 @@ const ProfessionalTaxRegistrationPage = () => {
         employeeCount: "",
         message: "",
       });
-      alert("Form submitted successfully!");
+      setEmailError("");
+      setPhoneError("");
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Error submitting form. Please try again.");
+      showErrorNotification(
+        error.response?.data?.message ||
+          "Failed to submit the inquiry. Please try again."
+      );
     }
   };
 
   return (
     <>
+      {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          description={notification.description}
+          onClose={closeNotification}
+        />
+      )}
       <Helmet>
         <title>
           Professional Tax Registration | Vastav Intellect and IP Solutions

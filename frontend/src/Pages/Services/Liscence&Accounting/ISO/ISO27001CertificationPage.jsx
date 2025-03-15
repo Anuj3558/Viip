@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import {
@@ -9,6 +9,7 @@ import {
   FaFileContract,
 } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
+import Notification from "../../../../components/NOtification";
 
 const ISO27001CertificationPage = () => {
   const [formData, setFormData] = useState({
@@ -21,16 +22,85 @@ const ISO27001CertificationPage = () => {
     message: "",
   });
 
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [notification, setNotification] = useState(null);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+
+  const validateEmail = (email) => {
+    if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address.");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validatePhone = (phone) => {
+    if (!phoneRegex.test(phone)) {
+      setPhoneError("Please enter a valid phone number.");
+      return false;
+    }
+    setPhoneError("");
+    return true;
+  };
+
+  const showSuccessNotification = () => {
+    setNotification({
+      type: "success",
+      message: "Success",
+      description: "ISO 27001 inquiry submitted successfully!",
+    });
+  };
+
+  const showErrorNotification = (message) => {
+    setNotification({
+      type: "error",
+      message: "Error",
+      description: message,
+    });
+  };
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
+  useEffect(() => {
+    if (notification && notification.type === "success") {
+      const timer = setTimeout(() => {
+        closeNotification();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "email") {
+      validateEmail(value);
+    } else if (name === "phone") {
+      validatePhone(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isEmailValid = validateEmail(formData.email);
+    const isPhoneValid = validatePhone(formData.phone);
+
+    if (!isEmailValid || !isPhoneValid) {
+      return;
+    }
+
     try {
       console.log(`${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/27001`);
       const response = await axios.post(
@@ -39,6 +109,7 @@ const ISO27001CertificationPage = () => {
       );
 
       console.log("Form data submitted successfully:", response.data);
+      showSuccessNotification();
 
       // Reset form
       setFormData({
@@ -50,19 +121,31 @@ const ISO27001CertificationPage = () => {
         industry: "",
         message: "",
       });
-      alert("Form submitted successfully!");
+      setEmailError("");
+      setPhoneError("");
     } catch (error) {
       console.error("Error submitting form data:", error);
       console.error(
         "Error details:",
         error.response ? error.response.data : error.message
       ); // Improved error logging
-      alert("Error submitting form. Please try again.");
+      showErrorNotification(
+        error.response?.data?.message ||
+          "Failed to submit the inquiry. Please try again."
+      );
     }
   };
 
   return (
     <>
+      {notification && (
+        <Notification
+          type={notification.type}
+          message={notification.message}
+          description={notification.description}
+          onClose={closeNotification}
+        />
+      )}
       <Helmet>
         <title>
           ISO 27001 Certification Services | Vastav Intellect and IP Solutions
