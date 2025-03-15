@@ -27,7 +27,7 @@ const ISO9000_2005CertificationPage = () => {
     try {
       // Using the route structure with isoType as a parameter
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/iso/9000_2005`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/iso/9000_2005`,
         formData
       );
       console.log(response.data);

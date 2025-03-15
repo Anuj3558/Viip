@@ -29,35 +29,37 @@ const ISO27001CertificationPage = () => {
     }));
   };
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
-   try {
-     const response = await axios.post(
-       `${import.meta.env.VITE_APP_URL}/api/iso/27001`,
-       formData
-     );
-     console.log("Form data submitted successfully:", response.data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(`${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/27001`);
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/27001`,
+        formData
+      );
 
-     setFormData({
-       // Reset form
-       companyName: "",
-       contactName: "",
-       email: "",
-       phone: "",
-       employees: "",
-       industry: "",
-       message: "",
-     });
-     alert("Form submitted successfully!");
-   } catch (error) {
-     console.error("Error submitting form data:", error);
-     console.error(
-       "Error details:",
-       error.response ? error.response.data : error.message
-     ); // Improved error logging
-     alert("Error submitting form. Please try again.");
-   }
- };
+      console.log("Form data submitted successfully:", response.data);
+
+      // Reset form
+      setFormData({
+        companyName: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        employees: "",
+        industry: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      console.error(
+        "Error details:",
+        error.response ? error.response.data : error.message
+      ); // Improved error logging
+      alert("Error submitting form. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -277,7 +279,6 @@ const ISO27001CertificationPage = () => {
             </div>
           </div>
         </section>
-
         {/* Services Section */}
         <section className="bg-gray-100 py-16">
           <div className="container mx-auto px-4">
@@ -375,51 +376,45 @@ const ISO27001CertificationPage = () => {
           </h2>
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
-              <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
-                1
+              <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                <FaCheckCircle className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Initial Assessment & Gap Analysis
-              </h3>
+              <h3 className="text-xl font-semibold mb-2">Initial Assessment</h3>
               <p className="text-gray-600">
-                We assess your organization's current information security
-                practices and conduct a gap analysis against ISO 27001.
+                We conduct a thorough assessment of your current information
+                security posture.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
-              <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
-                2
+              <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                <FaFileContract className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                ISMS Development & Implementation
+              <h3 className="text-xl font-semibold mb-2">
+                ISMS Implementation
               </h3>
               <p className="text-gray-600">
-                We develop and implement a customized Information Security
-                Management System (ISMS) tailored to your organization.
+                Our experts help you develop and implement an Information
+                Security Management System (ISMS).
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
-              <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
-                3
+              <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                <GiTakeMyMoney className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Internal Audit & Training
-              </h3>
+              <h3 className="text-xl font-semibold mb-2">Internal Audit</h3>
               <p className="text-gray-600">
-                We conduct internal audits and provide training to ensure your
-                ISMS is effective and compliant.
+                We conduct internal audits to ensure compliance with ISO 27001
+                standards.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
-              <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
-                4
+              <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                <FaLock className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">
-                Certification Audit Support
-              </h3>
+              <h3 className="text-xl font-semibold mb-2">Certification</h3>
               <p className="text-gray-600">
-                We assist you in preparing for and successfully completing the
-                ISO 27001 certification audit.
+                We assist you in the certification process, ensuring a
+                successful audit and ISO 27001 certification.
               </p>
             </div>
           </div>

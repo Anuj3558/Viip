@@ -53,6 +53,16 @@ import ConsultAndExpertForBusinessPage from "./Pages/Services/BussinessSetup/Con
 import ServicesPage from "./Pages/Services/Services";
 import AboutUsPage from "./Pages/About/About";
 import ContactForm from "./Pages/Home/components/ContactForm";
+import IpDueDiligencePage from "./Pages/Services/Trademark/Legalsupport/IpDueDiligencePage";
+import IpLitigationSupportPage from "./Pages/Services/Trademark/Legalsupport/IpLitigationSupportPage";
+import IpStrategyConsultingPage from "./Pages/Services/Trademark/Legalsupport/IpStrategyConsultingPage";
+import InternationalIpProtectionPage from "./Pages/Services/Trademark/Legalsupport/InternationalIpProtectionPage";
+import IpPortfolioManagementPage from "./Pages/Services/Trademark/IpServices/IpPortfolioManagementPage";
+import IpLicensingPage from "./Pages/Services/Trademark/IpServices/IpLicensingPage";
+import IpValuationPage from "./Pages/Services/Trademark/IpServices/IpValuationPage";
+import IndustrialDesignRegistrationPage from "./Pages/Services/Trademark/IpServices/IndustrialDesignRegistrationPage";
+import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/CopyrightRegistrationPage";
+import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -82,29 +92,30 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-      <Route
+        <Route
           path="/"
           element={
             <PageTransition>
               <Home />
             </PageTransition>
           }
-        /> <Route
-        path="/about"
-        element={
-          <PageTransition>
-            <AboutUsPage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/contact"
-        element={
-          <PageTransition>
-            <ContactForm />
-          </PageTransition>
-        }
-      />
+        />{" "}
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <AboutUsPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <ContactForm />
+            </PageTransition>
+          }
+        />
         <Route
           path="/company-registrion"
           element={
@@ -266,98 +277,101 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-                  path="/udyog-aadhaar-registration"
-                  element={
-                    <PageTransition>
-                      <UdyogAadharRegistrationPage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/trade-license-renewal"
-                  element={
-                    <PageTransition>
-                      <TradeLicenseRenewalPage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/psara-license"
-                  element={
-                    <PageTransition>
-                      <PSARALicensePage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/professional-tax-registration"
-                  element={
-                    <PageTransition>
-                      <ProfessionalTaxRegistrationPage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/online-pf-registration"
-                  element={
-                    <PageTransition>
-                      <PFRegistrationPage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/legal-metrology"
-                  element={
-                    <PageTransition>
-                      <LegalMetrologyRegistrationPage />
-                    </PageTransition>
-                  }
-                />  <Route
-                path="/ngo-registration"
-                element={
-                  <PageTransition>
-                    <NGORegistrationPage />
-                  </PageTransition>
-                }
-              />
-                <Route
-                  path="/fssai-license"
-                  element={
-                    <PageTransition>
-                      <FSSAIRegistrationPage />
-                    </PageTransition>
-                  }
-                />
-                <Route
-                  path="/international-business-setupPage"
-                  element={
-                    <PageTransition>
-                      <InternationalBusinessSetupPage />
-                    </PageTransition>
-                  }
-                /><Route
-                path="/talktoexpert"
-                element={
-                  <PageTransition>
-                    <ConsultAndExpertForBusinessPage />
-                  </PageTransition>
-                }
-              /><Route
-              path="/services"
-              element={
-                <PageTransition>
-                  <ServicesPage  />
-                </PageTransition>
-              }
-            />
-                <Route
-                  path="/digital-signature-certificate"
-                  element={
-                    <PageTransition>
-                      <DigitalSignatureCertificatePage />
-                    </PageTransition>
-                  }
-                />
+          path="/udyog-aadhaar-registration"
+          element={
+            <PageTransition>
+              <UdyogAadharRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trade-license-renewal"
+          element={
+            <PageTransition>
+              <TradeLicenseRenewalPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/psara-license"
+          element={
+            <PageTransition>
+              <PSARALicensePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/professional-tax-registration"
+          element={
+            <PageTransition>
+              <ProfessionalTaxRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/online-pf-registration"
+          element={
+            <PageTransition>
+              <PFRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-metrology"
+          element={
+            <PageTransition>
+              <LegalMetrologyRegistrationPage />
+            </PageTransition>
+          }
+        />{" "}
+        <Route
+          path="/ngo-registration"
+          element={
+            <PageTransition>
+              <NGORegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/fssai-license"
+          element={
+            <PageTransition>
+              <FSSAIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/international-business-setupPage"
+          element={
+            <PageTransition>
+              <InternationalBusinessSetupPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/talktoexpert"
+          element={
+            <PageTransition>
+              <ConsultAndExpertForBusinessPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <PageTransition>
+              <ServicesPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/digital-signature-certificate"
+          element={
+            <PageTransition>
+              <DigitalSignatureCertificatePage />
+            </PageTransition>
+          }
+        />
         <Route
           path="/iso-9001-certification"
           element={
@@ -430,6 +444,86 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+          path="/ip-due-diligence"
+          element={
+            <PageTransition>
+              <IpDueDiligencePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ip-litigation-support"
+          element={
+            <PageTransition>
+              <IpLitigationSupportPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ip-strategy-consulting"
+          element={
+            <PageTransition>
+              <IpStrategyConsultingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/international-ip-protection"
+          element={
+            <PageTransition>
+              <InternationalIpProtectionPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/patent-registration"
+          element={
+            <PageTransition>
+              <PatentRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-registration"
+          element={
+            <PageTransition>
+              <CopyrightRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/industrial-design-registration"
+          element={
+            <PageTransition>
+              <IndustrialDesignRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ip-valuation"
+          element={
+            <PageTransition>
+              <IpValuationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ip-licensing"
+          element={
+            <PageTransition>
+              <IpLicensingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ip-portfolio-management"
+          element={
+            <PageTransition>
+              <IpPortfolioManagementPage />
+            </PageTransition>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -458,6 +552,3 @@ function AppWrapper() {
 }
 
 export default AppWrapper;
-
-
-

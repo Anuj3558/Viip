@@ -33,7 +33,7 @@ const ISO26000CertificationPage = () => {
     try {
       // Using the route structure with isoType as a parameter
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/iso/26000`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/26000`,
         formData
       );
       console.log("Form data submitted successfully:", response.data);

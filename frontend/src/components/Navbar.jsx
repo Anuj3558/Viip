@@ -20,6 +20,7 @@ const Navbar = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [activeBusinessSubMenu, setActiveBusinessSubMenu] = useState(null);
   const [activeLicenseSubMenu, setActiveLicenseSubMenu] = useState(null);
+  const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState(null);
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -113,27 +114,58 @@ const Navbar = () => {
   };
 
   // Dropdown data
- const dropdownItems = {
-   expert: [
-     "Expert Consultation",
- 
-   ],
-   business: ["Company Registration"],
-   trademarks: [
-     { name: "Trademark Registration", link: "/trademark-registration" },
-     {
-       name: "Trademark Registration for Individuals",
-       link: "/trademark-registration-individual",
-     },
-     { name: "Trademark Assignment", link: "/trademark-assignment" },
-     // Add "Trademark Registration in USA" if you have a route for it
-   ],
-   licenses: ["Licenses", "Registrations", "ISO Certification"],
-   accounting: [
+const dropdownItems = {
+  expert: ["Expert Consultation"],
+  business: ["Company Registration"],
+  trademarks: [
+    { name: "Trademark Registration", link: "/trademark-registration" },
+    {
+      name: "Trademark Registration for Individuals",
+      link: "/trademark-registration-individual",
+    },
+    { name: "Trademark Assignment", link: "/trademark-assignment" },
+    {
+      name: "Legal Support",
+      link: "", // No direct link, will use submenu
+      submenu: {
+        name: "Legal Support",
+        items: [
+          { name: "IP Due Diligence", link: "/ip-due-diligence" },
+          { name: "IP Litigation Support", link: "/ip-litigation-support" },
+          { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+          {
+            name: "International IP Protection",
+            link: "/international-ip-protection",
+          },
+        ],
+      },
+    },
+    {
+      name: "IP Services",
+      link: "", // No direct link, will use submenu
+      submenu: {
+        name: "IP Services",
+        items: [
+          { name: "Patent Registration", link: "/patent-registration" },
+          { name: "Copyright Registration", link: "/copyright-registration" },
+          {
+            name: "Industrial Design Registration",
+            link: "/industrial-design-registration",
+          },
+          { name: "IP Valuation", link: "/ip-valuation" },
+          { name: "IP Licensing", link: "/ip-licensing" },
+          { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
+        ],
+      },
+    },
+  ],
+  licenses: ["Licenses", "Registrations", "ISO Certification"],
+  accounting: [
     { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
     { name: "Payroll Management System", link: "/payroll-management-system" },
   ],
- };
+};
+
 
 
   // Submenu data for Expert Consultation
@@ -202,50 +234,83 @@ const businessSubMenu = {
   ],
 };
 
-
-const licenseSubMenu = {
-  Licenses: [
-    { name: "PSARA License", link: "/psara-license" },
+const trademarkIpSubMenu = {
+  Trademarks: [
+    { name: "Trademark Registration", link: "/trademark-registration" },
     {
-      name: "Trade License Renewal Registration",
-      link: "/trade-license-renewal",
+      name: "Trademark Registration for Individuals",
+      link: "/trademark-registration-individual",
     },
-    { name: "FSSAI", link: "/fssai-license" },
+    { name: "Trademark Assignment", link: "/trademark-assignment" },
   ],
-  Registrations: [
+  "Legal Support": [
+    { name: "IP Due Diligence", link: "/ip-due-diligence" },
+    { name: "IP Litigation Support", link: "/ip-litigation-support" },
+    { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
     {
-      name: "Professional Tax Registration",
-      link: "/professional-tax-registration",
+      name: "International IP Protection",
+      link: "/international-ip-protection",
     },
-    { name: "Online PF Registration", link: "/online-pf-registration" },
-    { name: "NGO Registration", link: "/ngo-registration" },
-    { name: "Online ESI Registration", link: "/online-esi-registration" },
-    { name: "Udyog Aadhaar Registration", link: "/udyog-aadhaar-registration" },
-    {
-      name: "Digital Signature Certificate",
-      link: "/digital-signature-certificate",
-    },
-    { name: "Legal Metrology", link: "/legal-metrology" },
   ],
-  "ISO Certification": [
-    { name: "ISO Certification", link: "/iso-certification" },
-    { name: "ISO Certification 22000", link: "/iso-22000-certification" },
-    { name: "ISO Certification 27001", link: "/iso-27001-certification" },
-    { name: "ISO Certification 9001", link: "/iso-9001-certification" },
-    { name: "ISO Certification 13485", link: "/iso-13485-certification" },
-    { name: "ISO Certification 26000", link: "/iso-26000-consulting" },
+  "IP Services": [
+    { name: "Patent Registration", link: "/patent-registration" },
+    { name: "Copyright Registration", link: "/copyright-registration" },
     {
-      name: "ISO Certification 9000 2005",
-      link: "/iso-9000-2005-certification",
-    }, // Note: This route needs to be defined
-    { name: "ISO Certification 14001", link: "/iso-14001-certification" },
-    { name: "ISO Certification 31000", link: "/iso-31000-certification" },
-    {
-      name: "Benefits Of ISO Certification",
-      link: "/benefits-of-iso-certification",
+      name: "Industrial Design Registration",
+      link: "/industrial-design-registration",
     },
+    { name: "IP Valuation", link: "/ip-valuation" },
+    { name: "IP Licensing", link: "/ip-licensing" },
+    { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
   ],
 };
+
+
+
+
+  const licenseSubMenu = {
+    Licenses: [
+      { name: "PSARA License", link: "/psara-license" },
+      {
+        name: "Trade License Renewal Registration",
+        link: "/trade-license-renewal",
+      },
+      { name: "FSSAI", link: "/fssai-license" },
+    ],
+    Registrations: [
+      {
+        name: "Professional Tax Registration",
+        link: "/professional-tax-registration",
+      },
+      { name: "Online PF Registration", link: "/online-pf-registration" },
+      { name: "NGO Registration", link: "/ngo-registration" },
+      { name: "Online ESI Registration", link: "/online-esi-registration" },
+      { name: "Udyog Aadhaar Registration", link: "/udyog-aadhaar-registration" },
+      {
+        name: "Digital Signature Certificate",
+        link: "/digital-signature-certificate",
+      },
+      { name: "Legal Metrology", link: "/legal-metrology" },
+    ],
+    "ISO Certification": [
+      { name: "ISO Certification", link: "/iso-certification" },
+      { name: "ISO Certification 22000", link: "/iso-22000-certification" },
+      { name: "ISO Certification 27001", link: "/iso-27001-certification" },
+      { name: "ISO Certification 9001", link: "/iso-9001-certification" },
+      { name: "ISO Certification 13485", link: "/iso-13485-certification" },
+      { name: "ISO Certification 26000", link: "/iso-26000-consulting" },
+      {
+        name: "ISO Certification 9000 2005",
+        link: "/iso-9000-2005-certification",
+      }, // Note: This route needs to be defined
+      { name: "ISO Certification 14001", link: "/iso-14001-certification" },
+      { name: "ISO Certification 31000", link: "/iso-31000-certification" },
+      {
+        name: "Benefits Of ISO Certification",
+        link: "/benefits-of-iso-certification",
+      },
+    ],
+  };
 
 
   // Map icons to dropdown categories
@@ -267,7 +332,6 @@ const licenseSubMenu = {
           <div className="flex-shrink-0 mr-8 justify-items-start">
             <a href="/" className="flex items-center">
               <img src={logo} alt="Vastav Intellect" className="h-20" />
-            
             </a>
           </div>
 
@@ -289,7 +353,9 @@ const licenseSubMenu = {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="mr-1.5 text-blue-800">{menuIcons.expert}</span>
-                <span className="inline text-sm min-w-full">Consult an Expert</span>
+                <span className="inline text-sm min-w-full">
+                  Consult an Expert
+                </span>
                 <motion.span
                   animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -347,7 +413,9 @@ const licenseSubMenu = {
                               (subItem, index) => (
                                 <motion.a
                                   key={index}
-                                  href={`/${subItem.replace(/\s+/g, "").toLowerCase()}`}
+                                  href={`/${subItem
+                                    .replace(/\s+/g, "")
+                                    .toLowerCase()}`}
                                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
                                   variants={linkVariants}
                                   initial="initial"
@@ -380,7 +448,9 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.business}
                 </span>
-                <span className="inline text-sm  min-w-full">Business Setup</span>
+                <span className="inline text-sm  min-w-full">
+                  Business Setup
+                </span>
                 <motion.span
                   animate={{ rotate: openDropdown === "business" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -474,7 +544,9 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.trademarks}
                 </span>
-                <span className="inline text-sm  min-w-full">Trademarks & IP</span>
+                <span className="inline text-sm min-w-full">
+                  Trademarks & IP
+                </span>
                 <motion.span
                   animate={{ rotate: openDropdown === "trademarks" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -483,29 +555,73 @@ const licenseSubMenu = {
                   <ChevronDown size={16} />
                 </motion.span>
               </motion.button>
+
               <AnimatePresence>
                 {openDropdown === "trademarks" && (
                   <motion.div
-                    className="absolute mt-2 w-72 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 overflow-hidden"
+                    className="absolute mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                     variants={dropdownVariants}
                   >
-                    <div className="py-2">
-                      {dropdownItems.trademarks.map((item, index) => (
+                    <div className="py-2 w-2/5 border-r border-gray-100 max-h-[70vh] overflow-y-auto">
+                      {Object.keys(trademarkIpSubMenu).map((item, index) => (
                         <motion.a
                           key={index}
-                          href={item.link}
-                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                          href={`#${item.replace(/\s+/g, "")}`}
+                          className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition-colors ${
+                            activeTrademarkSubMenu === item
+                              ? "bg-blue-50 text-blue-900 font-medium"
+                              : ""
+                          }`}
+                          onMouseEnter={() => setActiveTrademarkSubMenu(item)}
                           variants={itemVariants}
                           whileHover="hover"
-                          whileTap={{ scale: 0.98 }}
                         >
-                          {item.name}
+                          <span>{item}</span>
+                          {trademarkIpSubMenu[item] && (
+                            <ChevronRight size={14} className="text-blue-600" />
+                          )}
                         </motion.a>
                       ))}
                     </div>
+
+                    {/* Submenu with Two-Column Layout */}
+                    <AnimatePresence mode="wait">
+                      {activeTrademarkSubMenu &&
+                        trademarkIpSubMenu[activeTrademarkSubMenu] && (
+                          <motion.div
+                            className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 10 }}
+                            transition={{ duration: 0.2 }}
+                            key={activeTrademarkSubMenu}
+                          >
+                            <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0 bg-gray-50">
+                              {activeTrademarkSubMenu}
+                            </div>
+                            <div className="grid grid-cols-2 gap-x-2">
+                              {trademarkIpSubMenu[activeTrademarkSubMenu].map(
+                                (subItem, index) => (
+                                  <Link to={subItem.link} key={index}>
+                                    <motion.a
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
+                                      variants={linkVariants}
+                                      initial="initial"
+                                      whileHover="hover"
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      {subItem.name}
+                                    </motion.a>
+                                  </Link>
+                                )
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                    </AnimatePresence>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -32,7 +32,7 @@ const ISO31000CertificationPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/iso/27001`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/iso/27001`,
         formData
       );
       console.log("Form data submitted successfully:", response.data);

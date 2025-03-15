@@ -16,7 +16,9 @@ import tradeLicenseRenewalRoutes from "./router/Licenses and registrations/trade
 import BussinessSetupRouter from "./router/bussinessRouter.js";
 import TrademarkRouter from "./router/TrademarkRouter.js";
 import ITRRouter from "./router/ITRRouter.js";
+import ipServicesRouter from "./router/ipServiceRoutes.js";
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
@@ -43,6 +45,8 @@ app.use("/api", psaraLicenseRoutes);
 app.use("/api", tradeLicenseRenewalRoutes);
 app.use("/bussiness-setup", BussinessSetupRouter);
 app.use("/trademark-ip", TrademarkRouter);
+app.use("/api", ipServicesRouter);
+// app.use("/api",)
 app.use("/accounting", ITRRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
