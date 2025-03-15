@@ -17,6 +17,7 @@ import BussinessSetupRouter from "./router/bussinessRouter.js";
 import TrademarkRouter from "./router/TrademarkRouter.js";
 import ITRRouter from "./router/ITRRouter.js";
 import ipServicesRouter from "./router/ipServiceRoutes.js";
+import ConsultsExpertRouter from "./router/ConsultsExpertController.js";
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -48,5 +49,6 @@ app.use("/trademark-ip", TrademarkRouter);
 app.use("/api", ipServicesRouter);
 // app.use("/api",)
 app.use("/accounting", ITRRouter);
+app.use("/expert", ConsultsExpertRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -96,7 +96,7 @@ const IPRights = () => {
               </div>
 
               <button className="mt-8 bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
-                Schedule Consultation
+                <a href="/talktoexpert">Schedule Consultation</a>
               </button>
             </div>
           </div>

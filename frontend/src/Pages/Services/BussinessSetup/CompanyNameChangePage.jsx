@@ -8,8 +8,6 @@ const CompanyNameChangePage = () => {
         name: '',
         email: '',
         phone: '',
-        companyName: '',
-        newCompanyName: '',
         message: ''
     });
     const [notification, setNotification] = useState(null);
@@ -208,32 +206,7 @@ const CompanyNameChangePage = () => {
                                         <p className="text-red-500 text-sm mt-1">Please enter a valid phone number</p>
                                     )}
                                 </div>
-                                <div>
-                                    <label htmlFor="companyName" className="block text-gray-700 font-medium mb-1">Current Company Name</label>
-                                    <input
-                                        type="text"
-                                        id="companyName"
-                                        name="companyName"
-                                        value={formData.companyName}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your current company name"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="newCompanyName" className="block text-gray-700 font-medium mb-1">Proposed New Company Name</label>
-                                    <input
-                                        type="text"
-                                        id="newCompanyName"
-                                        name="newCompanyName"
-                                        value={formData.newCompanyName}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        placeholder="Enter your proposed new company name"
-                                        required
-                                    />
-                                </div>
+                               
                                 <div>
                                     <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
                                     <textarea
