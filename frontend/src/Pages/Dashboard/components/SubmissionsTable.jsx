@@ -14,10 +14,72 @@ const SubmissionsTable = ({
 
   // Mapping of services to their corresponding API endpoints
   const serviceEndpoints = {
-    "Talk To Expert": "expert/consult-and-expert",
-    "Company Registration": "bussiness-setup/inquiries/type/company_registration_inquiry",
-    "LLP Anuual Filings": "bussiness-setup/inquiries/type/llp_annual_filing_inquiry",
-    // Add more services as needed
+    // Business Setup
+    "Company Registration":
+      "bussiness-setup/inquiries/type/company_registration_inquiry",
+    "LLP Registration":
+      "bussiness-setup/inquiries/type/llp_registration_inquiry",
+    "LLP Anuual Compliance":
+      "bussiness-setup/inquiries/type/llp_annual_compliance_inquiry",
+    "LLP Anuual Filings":
+      "bussiness-setup/inquiries/type/llp_annual_filing_inquiry",
+    "LLP Designated Partner":
+      "bussiness-setup/inquiries/type/llp_designated_partner_inquiry",
+    "Sole Proprietorship Registration":
+      "bussiness-setup/inquiries/type/sole_proprietorship_inquiry",
+    "Producer Company Registration":
+      "bussiness-setup/inquiries/type/producer_company_inquiry",
+    "Nidhi Company Registration":
+      "bussiness-setup/inquiries/type/nidhi_company_inquiry",
+    "Startup India Scheme":
+      "bussiness-setup/inquiries/type/startup_india_inquiry",
+    "Partnership Firm Deed":
+      "bussiness-setup/inquiries/type/partnership_firm_inquiry",
+    "One Person Company Registration":
+      "bussiness-setup/inquiries/type/one_person_company_inquiry",
+    "Authorised Share Capital":
+      "bussiness-setup/inquiries/type/authorised_share_capital_inquiry",
+    "Memorandum Of Understanding": "bussiness-setup/inquiries/type/mou_inquiry",
+    "Change Company Name":
+      "bussiness-setup/inquiries/type/company_name_change_inquiry",
+
+    // International Business Setup
+   
+    // ISO Certification
+    "ISO Certification": "api/iso",
+    "ISO Certification 22000": "api/iso/22000",
+    "ISO Certification 27001": "api/iso/27001",
+    "ISO Certification 9001": "api/iso/9001",
+    "ISO Certification 13485": "api/iso/13485",
+    "ISO Certification 26000": "api/iso/26000",
+    "ISO Certification 9000 2005": "api/iso/9000_2005",
+    "ISO Certification 14001": "api/iso/14001",
+    "ISO Certification 31000": "api/iso/31000",
+    "Benefits Of ISO Certification": "api/iso/benefits",
+    // Registrations
+    "Professional Tax Registration": "api/professional-tax",
+    "Online PF Registration": "api/pf-registration",
+    "NGO Registration": "api/ngo-registration",
+    "Online ESI Registration": "api/esi-registration",
+    "Udyog Aadhaar Registration": "api/udyog-aadhar-registration",
+    "Digital Signature Certificate": "api/digital-signature-certificate",
+    "Legal Metrology": "api/legal-metrology-registration",
+    // Licenses
+    "PSARA License": "api/psara-license",
+    "Trade License Renewal Registration": "api/trade-license-renewal",
+    FSSAI: "api/fssai-registration",
+
+    //IP Services
+    "Patent Registration": "api/patent-registration",
+    "Copyright Registration": "api/copyright-registration",
+    "Industrial Design Registration": "api/industrial-design-registration",
+    "IP Valuation": "api/ip-valuation",
+    "IP Licensing": "api/ip-licensing",
+    "IP Portfolio Management": "api/ip-portfolio-management",
+    "IP Due Diligence": "api/ip-due-diligence",
+    "IP Litigation Support": "api/ip-litigation-support",
+    "IP Strategy Consulting": "api/ip-strategy-consulting",
+    "International IP Protection": "api/international-ip-protection",
   };
 
   // Fetch submissions when selectedService changes
@@ -45,7 +107,7 @@ const SubmissionsTable = ({
           return response.json();
         })
         .then((data) => {
-          setSubmissions(data);
+          setSubmissions(data.data);
           console.log(data);
           setLoading(false);
         })

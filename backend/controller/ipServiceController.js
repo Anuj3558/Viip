@@ -1,33 +1,41 @@
 import IPService from "../models/ipService.js";
 
-// Helper function to determine service type from route
-const getServiceTypeFromRoute = (route) => {
-  const routeMap = {
-    "/international-ip-protection": "International IP Protection",
-    "/ip-due-diligence": "IP Due Diligence",
-    "/ip-litigation-support": "IP Litigation Support",
-    "/ip-strategy-consulting": "IP Strategy Consulting",
-  };
-
-  return routeMap[route] || "Unknown Service";
+// Service type mapping
+const serviceTypeMap = {
+  "international-ip-protection": "International IP Protection",
+  "ip-due-diligence": "IP Due Diligence",
+  "ip-litigation-support": "IP Litigation Support",
+  "ip-strategy-consulting": "IP Strategy Consulting",
+  "copyright-registration": "Copyright Registration",
+  "industrial-design-registration": "Industrial Design Registration",
+  "ip-licensing": "IP Licensing",
+  "ip-portfolio-management": "IP Portfolio Management",
+  "ip-valuation": "IP Valuation",
+  "patent-registration": "Patent Registration",
 };
 
 export const createIPServiceInquiry = async (req, res) => {
   try {
-    const { route } = req.body;
+    const serviceType =
+      req.params.serviceType ||
+      req.body.serviceType ||
+      "international-ip-protection";
 
-    // Set the type based on the route if not provided
-    if (!req.body.type) {
-      req.body.type = getServiceTypeFromRoute(route);
-    }
+    // Convert route parameter to display name
+    const type = serviceTypeMap[serviceType] || "Unknown Service";
 
-    const newInquiry = new IPService(req.body);
-    await newInquiry.save();
+    const ipServiceData = new IPService({
+      ...req.body,
+      type,
+      route: `/ip-service/${serviceType}`,
+    });
+
+    await ipServiceData.save();
 
     res.status(201).json({
       success: true,
-      message: `${req.body.type} inquiry submitted successfully`,
-      data: newInquiry,
+      message: `${type} inquiry submitted successfully`,
+      data: ipServiceData,
     });
   } catch (error) {
     res.status(400).json({
@@ -40,10 +48,7 @@ export const createIPServiceInquiry = async (req, res) => {
 
 export const getIPServiceInquiries = async (req, res) => {
   try {
-    const { type } = req.query;
-    const query = type ? { type } : {};
-
-    const inquiries = await IPService.find(query).sort({ submittedAt: -1 });
+    const inquiries = await IPService.find().sort({ submittedAt: -1 });
 
     res.status(200).json({
       success: true,
@@ -59,25 +64,33 @@ export const getIPServiceInquiries = async (req, res) => {
   }
 };
 
-export const getIPServiceInquiryById = async (req, res) => {
+export const getIPServiceInquiriesByType = async (req, res) => {
   try {
-    const inquiry = await IPService.findById(req.params.id);
+    const { serviceType } = req.params;
+    let query = {};
 
-    if (!inquiry) {
-      return res.status(404).json({
-        success: false,
-        message: "Inquiry not found",
-      });
+    if (serviceType) {
+      const type = serviceTypeMap[serviceType];
+      if (!type) {
+        return res.status(400).json({
+          success: false,
+          message: "Invalid service type",
+        });
+      }
+      query = { type };
     }
+
+    const inquiries = await IPService.find(query).sort({ submittedAt: -1 });
 
     res.status(200).json({
       success: true,
-      data: inquiry,
+      count: inquiries.length,
+      data: inquiries,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Error fetching inquiry",
+      message: "Error fetching inquiries",
       error: error.message,
     });
   }

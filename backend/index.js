@@ -28,7 +28,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/isoCertifications", {
+  .connect("mongodb://localhost:27017/VIIP", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -46,10 +46,9 @@ app.use("/api", legalMetrologyRegistrationRoutes);
 app.use("/api", fssaiRegistrationRoutes);
 app.use("/api", psaraLicenseRoutes);
 app.use("/api", tradeLicenseRenewalRoutes);
+app.use("/api", ipServicesRouter);
 app.use("/bussiness-setup", BussinessSetupRouter);
 app.use("/trademark-ip", TrademarkRouter);
-app.use("/api", ipServicesRouter);
-// app.use("/api",)
 app.use("/accounting", ITRRouter);
 app.use("/expert", ConsultsExpertRouter);
 
