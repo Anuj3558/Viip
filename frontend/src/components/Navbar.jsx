@@ -116,16 +116,7 @@ const Navbar = () => {
  const dropdownItems = {
    expert: [
      "Expert Consultation",
-     "Lawyer Consultation",
-     "Property Lawyer",
-     "Family Lawyer",
-     "Consumer Lawyer",
-     "Civil Lawyer",
-     "Criminal Lawyer",
-     "Intellectual Property Lawyer",
-     "Business Lawyer",
-     "Labour Lawyer",
-     "Constitutional Lawyer",
+ 
    ],
    business: ["Company Registration"],
    trademarks: [
@@ -147,131 +138,8 @@ const Navbar = () => {
 
   // Submenu data for Expert Consultation
   const expertSubMenu = {
-    "Expert Consultation": ["Talk To Company Secretary", "Talk To CA"],
-    "Lawyer Consultation": ["Talk To Lawyer"],
-    "Property Lawyer": [
-      "Property Dispute",
-      "Real Estate Transactions",
-      "Landlord Tenant Issues",
-      "Title Deeds Registration",
-      "Zoning And Land Use",
-      "Easements And Rights Of Way",
-      "Homeowners Association",
-      "Property Tax Disputes",
-      "Property Inheritance And Wills",
-      "Foreclosure",
-    ],
-    "Family Lawyer": [
-      "Divorce",
-      "Child Custody",
-      "Child Support",
-      "Adoption",
-      "Domestic Violence",
-      "Paternity",
-      "Alimony",
-      "Legal Separation",
-      "Guardianship",
-    ],
-    "Consumer Lawyer": [
-      "Product Liability",
-      "False Advertising",
-      "Unfair Trade Practices",
-      "Consumer Fraud",
-      "Warranty Claims",
-      "Debt Collection Practices",
-      "Credit Reporting Issues",
-      "Bankruptcy",
-      "Privacy And Data Protection",
-      "Lemon Law",
-    ],
-    "Civil Lawyer": [
-      "Personal Injury",
-      "Breach Of Contract",
-      "Defamation",
-      "Employment Disputes",
-      "Debt Collection",
-    ],
-    "Criminal Lawyer": [
-      "Drug Offence Charges",
-      "Dui Dwi Charges",
-      "Assault Battery Cases",
-      "Theft Burglary Cases",
-      "Fraud Cases",
-      "Sexual Offenses Cases",
-      "White Collar Crimes",
-      "Cyber Crimes",
-      "Domestic Violence Cases",
-      "Embezzlement Cases",
-      "Insider Trading Cases",
-      "Money Laundering Cases",
-      "Bribery Corruption Cases",
-      "Tax Evasion Cases",
-      "Corporate Espionage",
-      "Identity Theft",
-      "Forgery Case",
-      "Antitrust Violations",
-      "Homicide Cases",
-    ],
-    "Intellectual Property Lawyer": [
-      "Patent",
-      "Trademark",
-      "Copyrights",
-      "Trade Secrets",
-      "Domain Name Disputes",
-      "Litigation",
-      "Counterfeiting Piracy",
-      "Digital Rights Management",
-      "International IP",
-      "IP Valuation",
-      "Licensing Agreements",
-      "Open Source Licensing",
-      "Genetic Patents",
-      "Artificial Intelligence And Ip",
-      "Traditional Cultural Expression",
-      "Moral Rights",
-      "Right Of Publicity",
-      "Trademark Parody And Satire",
-      "Fair Use And Fair Dealing",
-      "First Sale Doctrine",
-      "Orphan Works",
-      "Patent Troll",
-    ],
-    "Business Lawyer": [
-      "Business Formation",
-      "Contract Law",
-      "IP For Business",
-      "Employment",
-      "Mergers And Acquisitions",
-      "Antitrust And Competition",
-      "Tax Lawyer",
-      "Business Litigation",
-      "Commercial Real Estate",
-      "Corporate Governance",
-    ],
-    "Labour Lawyer": [
-      "Employment Contracts",
-      "Wrongful Termination",
-      "Workplace Discrimination",
-      "Harassment",
-      "Wage And Hour Disputes",
-      "Collective Bargaining",
-      "Health And Safety",
-      "Leave Entitlements",
-      "Retirement And Benefits",
-      "Workplace Policies And Handbooks",
-    ],
-    "Constitutional Lawyer": [
-      "Civil Rights Liberties",
-      "Equal Protection",
-      "Due Process",
-      "Freedom Of Speech",
-      "Freedom Of Religion",
-      "Right To Privacy",
-      "Separation Of Powers",
-      "Voting Rights",
-      "Criminal Procedure",
-      "Federalism",
-    ],
+    "Expert Consultation": ["Talk To Expert"],
+    
   };
 
 const businessSubMenu = {
@@ -330,18 +198,7 @@ const businessSubMenu = {
     },
   ],
   "International Business Setup": [
-    { name: "Netherlands Incorporation", link: "/netherlands-incorporation" }, // Note: You need to define this route
-    {
-      name: "United Kingdom Incorporation",
-      link: "/united-kingdom-incorporation", // Note: You need to define this route
-    },
-    { name: "China Incorporation", link: "/china-incorporation" }, // Note: You need to define this route
-    { name: "Malaysia Incorporation", link: "/malaysia-incorporation" }, // Note: You need to define this route
-    { name: "Hong Kong Incorporation", link: "/hong-kong-incorporation" }, // Note: You need to define this route
-    { name: "Australia Incorporation", link: "/australia-incorporation" }, // Note: You need to define this route
-    { name: "USA Incorporation", link: "/usa-incorporation" }, // Note: You need to define this route
-    { name: "Singapore Incorporation", link: "/singapore-incorporation" }, // Note: You need to define this route
-    { name: "Dubai Incorporation", link: "/dubai-incorporation" }, // Note: You need to define this route
+    { name: "International Business Setup", link: "/international-business-setupPage" }, // Note: You need to define this route // Note: You need to define this route
   ],
 };
 
@@ -405,18 +262,12 @@ const licenseSubMenu = {
   return (
     <nav className="w-full border-b  border-gray-200 bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 mr-8 justify-items-start">
             <a href="/" className="flex items-center">
-              <img src={logo} alt="Vastav Intellect" className="h-10" />
-              <span className="font-medium text-left px-3 Gorgea">
-                Vastav Intellect & <br />
-                <span className="font-extralight text-[1.6vh]">
-                  {" "}
-                  IP Solutions
-                </span>
-              </span>
+              <img src={logo} alt="Vastav Intellect" className="h-20" />
+            
             </a>
           </div>
 
@@ -438,7 +289,7 @@ const licenseSubMenu = {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="mr-1.5 text-blue-800">{menuIcons.expert}</span>
-                <span className="inline min-w-full">Consult an Expert</span>
+                <span className="inline text-sm min-w-full">Consult an Expert</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -460,7 +311,7 @@ const licenseSubMenu = {
                       {dropdownItems.expert.map((item, index) => (
                         <motion.a
                           key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
+                          href={`/`}
                           className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition-colors ${
                             activeSubMenu === item
                               ? "bg-blue-50 text-blue-900 font-medium"
@@ -496,7 +347,7 @@ const licenseSubMenu = {
                               (subItem, index) => (
                                 <motion.a
                                   key={index}
-                                  href={`#${subItem.replace(/\s+/g, "")}`}
+                                  href={`/${subItem.replace(/\s+/g, "").toLowerCase()}`}
                                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
                                   variants={linkVariants}
                                   initial="initial"
@@ -529,7 +380,7 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.business}
                 </span>
-                <span className="inline  min-w-full">Business Setup</span>
+                <span className="inline text-sm  min-w-full">Business Setup</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "business" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -623,7 +474,7 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.trademarks}
                 </span>
-                <span className="inline  min-w-full">Trademarks & IP</span>
+                <span className="inline text-sm  min-w-full">Trademarks & IP</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "trademarks" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -673,7 +524,7 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.licenses}
                 </span>
-                <span className="inline  min-w-full">
+                <span className="  text-sm min-w-full">
                   Licenses & Registrations
                 </span>
                 <motion.span
@@ -769,7 +620,7 @@ const licenseSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.accounting}
                 </span>
-                <span>Accounting</span>
+                <span className="text-sm">Accounting</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "accounting" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -809,13 +660,13 @@ const licenseSubMenu = {
 
             {/* Contact Us Link */}
             <motion.a
-              href="#Contact"
+              href="/contact"
               className="flex items-center text-gray-700 border-2 w-[20vh] hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span className="inline  min-w-full">Contact Us</span>
+              <span className="inline text-sm  min-w-full">Contact Us</span>
             </motion.a>
           </div>
 

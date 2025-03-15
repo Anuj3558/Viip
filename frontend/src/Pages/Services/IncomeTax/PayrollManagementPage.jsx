@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaUsers, FaMoneyBillWave, FaChartLine } from 'react-icons/fa'; // Import React Icons
 import { LuBuilding2 } from "react-icons/lu";
-
+import Notification from '../../../components/NOtification';
 const PayrollManagementPage = () => {
     const [formData, setFormData] = useState({
         companyName: '',
@@ -21,13 +21,49 @@ const PayrollManagementPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ companyName: '', name: '', email: '', phone: '', employeeCount: '', message: '' });
-        alert('Form submitted successfully!');
+        try {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/accounting/payroll-management`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                showSuccessNotification();
+                setFormData({ companyName: '', name: '', email: '', phone: '', employeeCount: '', message: '' });
+            } else {
+                showErrorNotification('Failed to submit the form.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showErrorNotification('An error occurred while submitting the form.');
+        }
+    };
+
+    const [notification, setNotification] = useState(null);
+
+    const showSuccessNotification = () => {
+        setNotification({
+            type: 'success',
+            message: 'Success',
+            description: 'Form submitted successfully!'
+        });
+    };
+
+    const showErrorNotification = (message) => {
+        setNotification({
+            type: 'error',
+            message: 'Error',
+            description: message
+        });
+    };
+
+    const closeNotification = () => {
+        setNotification(null);
     };
 
     return (
@@ -38,9 +74,15 @@ const PayrollManagementPage = () => {
                 <meta name="keywords" content="payroll management, payroll system, payroll software, employee payroll, salary processing, Vastav Intellect, HR solutions, India" />
                 <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
             </Helmet>
-
+            {notification && (
+                    <Notification
+                        type={notification.type}
+                        message={notification.message}
+                        description={notification.description}
+                        onClose={closeNotification}
+                    />
+                )}
             <div className="min-h-screen bg-gray-50">
-
                 {/* Main Section */}
                 <section className="container mx-auto px-4 py-16">
                     <div className="flex flex-col md:flex-row gap-8 items-center">

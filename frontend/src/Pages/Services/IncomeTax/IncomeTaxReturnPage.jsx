@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { FaCheckCircle, FaFileInvoiceDollar, FaCalculator } from 'react-icons/fa'; // Import React Icons
-import { GiTakeMyMoney } from "react-icons/gi";
-
+import { FaCheckCircle, FaFileInvoiceDollar, FaCalculator } from 'react-icons/fa';
+import Notification from '../../../components/NOtification';
 const IncomeTaxReturnPage = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -20,13 +19,49 @@ const IncomeTaxReturnPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ name: '', email: '', phone: '', pan: '', message: '' });
-        alert('Form submitted successfully!');
+        try {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/accounting/itr-filing`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                showSuccessNotification();
+                setFormData({ name: '', email: '', phone: '', pan: '', message: '' });
+            } else {
+                showErrorNotification('Failed to submit the form.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showErrorNotification('An error occurred while submitting the form.');
+        }
+    };
+
+    // Notification handling functions
+    const [notification, setNotification] = useState(null);
+    const showSuccessNotification = () => {
+        setNotification({
+            type: 'success',
+            message: 'Success',
+            description: 'Form submitted successfully!'
+        });
+    };
+
+    const showErrorNotification = (message) => {
+        setNotification({
+            type: 'error',
+            message: 'Error',
+            description: message
+        });
+    };
+
+    const closeNotification = () => {
+        setNotification(null);
     };
 
     return (
@@ -35,11 +70,20 @@ const IncomeTaxReturnPage = () => {
                 <title>Income Tax Return Filing | Vastav Intellect and IP Solutions</title>
                 <meta name="description" content="File your Income Tax Return with Vastav Intellect and IP Solutions. Get expert assistance for accurate and timely ITR filing." />
                 <meta name="keywords" content="income tax return, ITR filing, tax filing, income tax, Vastav Intellect, financial services, India" />
-                <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" /> {/* Replace with your actual URL */}
+                <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
             </Helmet>
-
+ {/* Display Notification */}
+           {notification && (
+                    <Notification
+                        type={notification.type}
+                        message={notification.message}
+                        description={notification.description}
+                        onClose={closeNotification}
+                    />
+                )}
+        
             <div className="min-h-screen bg-gray-50">
-
+                
                 {/* Main Registration Section */}
                 <section className="container mx-auto px-4 py-16">
                     <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -47,8 +91,7 @@ const IncomeTaxReturnPage = () => {
                         <div className="md:w-1/2 space-y-6">
                             <h2 className="text-3xl font-bold text-blue-800">Income Tax Return Filing Services</h2>
                             <p className="text-lg text-gray-700">
-                                Vastav Intellect and IP Solutions offers professional income tax return filing services to help you file your ITR accurately,
-                                on time, and in compliance with all applicable tax laws.
+                                Vastav Intellect and IP Solutions offers professional income tax return filing services to help you file your ITR accurately, on time, and in compliance with all applicable tax laws.
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-start">
@@ -202,7 +245,6 @@ const IncomeTaxReturnPage = () => {
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                                    <GiTakeMyMoney className="h-8 w-8 text-blue-800" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">Refund Processing</h3>
                                 <p className="text-gray-600 mb-4">Assistance with tracking and expediting your income tax refund.</p>
@@ -248,8 +290,7 @@ const IncomeTaxReturnPage = () => {
                     </div>
                 </section>
 
-                {/* Footer Section (Add your footer here) */}
-        
+           
             </div>
         </>
     );

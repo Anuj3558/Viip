@@ -46,10 +46,10 @@ const Hero = () => {
               Empowering entrepreneurs and businesses with comprehensive legal, regulatory, and financial solutions. From initial setup to ongoing compliance, we're here to guide you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-              <a href="#services" className="inline-block bg-blue-900 text-white py-4 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <a href="/services" className="inline-block bg-blue-900 text-white py-4 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Explore Our Services
               </a>
-              <a href="#contact" className="inline-block bg-white text-blue-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 border-2 border-blue-900 text-center hover:shadow-md transform hover:-translate-y-1">
+              <a href="/contact" className="inline-block bg-white text-blue-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 border-2 border-blue-900 text-center hover:shadow-md transform hover:-translate-y-1">
                 Contact Us
               </a>
             </div>

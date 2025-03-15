@@ -48,6 +48,11 @@ import FSSAIRegistrationPage from "./Pages/Services/Liscence&Accounting/FSSAIReg
 import ESIRegistrationPage from "./Pages/Services/Liscence&Accounting/ESIRegistrationPage";
 import DigitalSignatureCertificatePage from "./Pages/Services/Liscence&Accounting/DigitalSignatureCertificatePage";
 import NGORegistrationPage from "./Pages/Services/Liscence&Accounting/NGORegistrationPage";
+import InternationalBusinessSetupPage from "./Pages/Services/BussinessSetup/InternationalBusinessSetupPage";
+import ConsultAndExpertForBusinessPage from "./Pages/Services/BussinessSetup/ConsultAndExpertForBusinessPage";
+import ServicesPage from "./Pages/Services/Services";
+import AboutUsPage from "./Pages/About/About";
+import ContactForm from "./Pages/Home/components/ContactForm";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -77,14 +82,29 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route
+      <Route
           path="/"
           element={
             <PageTransition>
               <Home />
             </PageTransition>
           }
-        />
+        /> <Route
+        path="/about"
+        element={
+          <PageTransition>
+            <AboutUsPage />
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <PageTransition>
+            <ContactForm />
+          </PageTransition>
+        }
+      />
         <Route
           path="/company-registrion"
           element={
@@ -309,13 +329,27 @@ const AnimatedRoutes = () => {
                   }
                 />
                 <Route
-                  path="/online-esi-registration"
+                  path="/international-business-setupPage"
                   element={
                     <PageTransition>
-                      <ESIRegistrationPage />
+                      <InternationalBusinessSetupPage />
                     </PageTransition>
                   }
-                />
+                /><Route
+                path="/talktoexpert"
+                element={
+                  <PageTransition>
+                    <ConsultAndExpertForBusinessPage />
+                  </PageTransition>
+                }
+              /><Route
+              path="/services"
+              element={
+                <PageTransition>
+                  <ServicesPage  />
+                </PageTransition>
+              }
+            />
                 <Route
                   path="/digital-signature-certificate"
                   element={

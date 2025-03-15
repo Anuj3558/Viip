@@ -1,12 +1,12 @@
 import express from 'express';
-import BusinessModel from '../models/bussinessModel.js'; // Import the Mongoose model
-import { HandleCompanyRegistration } from '../controller/bussinessController.js';
+import { HandleTrademarkAssignement, HandleTrademarkRegistration } from '../controller/TrademarkController.js';
 
 const TrademarkRouter = express.Router();
 
 // Define your routes here
-TrademarkRouter.post('/trademark-registration', HandleCompanyRegistration)
-TrademarkRouter.post('/trademark-registration-individual', HandleCompanyRegistration)
+TrademarkRouter.post('/trademark-registration', HandleTrademarkRegistration)
+TrademarkRouter.post('/trademark-registration-individual', HandleTrademarkRegistration)
+TrademarkRouter.post('/trademark-assignment', HandleTrademarkAssignement)
 
 // Export the router
 export default TrademarkRouter;

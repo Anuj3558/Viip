@@ -26,7 +26,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-900">Phone</h3>
-                  <p className="text-gray-600">+91 1234567890</p>
+                  <p className="text-gray-600">+91-9891679693</p>
                 </div>
               </div>
 
@@ -38,7 +38,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-900">Email</h3>
-                  <p className="text-gray-600">info@vastavintellect.com</p>
+                  <p className="text-gray-600">helpdesk@vastavintellect.com</p>
                 </div>
               </div>
 
@@ -51,7 +51,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-900">Location</h3>
-                  <p className="text-gray-600">Mumbai, Maharashtra, India</p>
+                  <p className="text-gray-600">A-61-C Shivaji Enclave Rajori Garden-New Delhi-27</p>
                 </div>
               </div>
             </div>

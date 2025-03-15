@@ -50,7 +50,6 @@ const Home = () => {
       <WhyChooseUs />
       <ExpertTeam />
       <Testimonials />
-      <ContactForm />
     </>
   );
 };

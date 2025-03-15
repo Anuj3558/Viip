@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaHandshake, FaFileSignature } from 'react-icons/fa'; // Import React Icons
+import Notification from '../../../components/NOtification'; // Import Notification component
 
 const TrademarkAssignmentPage = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +13,28 @@ const TrademarkAssignmentPage = () => {
         message: ''
     });
 
+    const [notification, setNotification] = useState(null);
+
+    const showSuccessNotification = () => {
+        setNotification({
+            type: 'success',
+            message: 'Success',
+            description: 'Trademark assignment submitted successfully!',
+        });
+    };
+
+    const showErrorNotification = (message) => {
+        setNotification({
+            type: 'error',
+            message: 'Error',
+            description: message,
+        });
+    };
+
+    const closeNotification = () => {
+        setNotification(null);
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -20,17 +43,46 @@ const TrademarkAssignmentPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission - would typically send to backend API
-        console.log('Form submitted:', formData);
-        // Reset form after submission
-        setFormData({ trademarkName: '', assignorName: '', assigneeName: '', email: '', phone: '', message: '' });
-        alert('Form submitted successfully!');
+        try {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/trademark-ip/trademark-assignment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                showSuccessNotification();
+                setFormData({
+                    trademarkName: '',
+                    assignorName: '',
+                    assigneeName: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                });
+            } else {
+                showErrorNotification('Failed to submit the assignment.');
+            }
+        } catch (error) {
+            console.error('Error submitting assignment:', error);
+            showErrorNotification('An error occurred while submitting the assignment.');
+        }
     };
 
     return (
         <>
+            {notification && (
+                <Notification
+                    type={notification.type}
+                    message={notification.message}
+                    description={notification.description}
+                    onClose={closeNotification}
+                />
+            )}
             <Helmet>
                 <title>Trademark Assignment | Vastav Intellect and IP Solutions</title>
                 <meta name="description" content="Assign your Trademark with Vastav Intellect and IP Solutions. Transfer ownership of your brand assets smoothly and legally." />
@@ -39,7 +91,6 @@ const TrademarkAssignmentPage = () => {
             </Helmet>
 
             <div className="min-h-screen bg-gray-50">
-
                 {/* Main Assignment Section */}
                 <section className="container mx-auto px-4 py-16">
                     <div className="flex flex-col md:flex-row gap-8 items-center">

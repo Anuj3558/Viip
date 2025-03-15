@@ -338,22 +338,7 @@ const TrademarkRegistrationIndividualPage = () => {
         </section>
 
         {/* Call to Action Section */}
-        <section className="bg-blue-800 text-white py-12">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold mb-4">Give Yourself the Brand Attention You Deserve</h2>
-            <p className="text-lg mb-6">Contact us today for expert Trademark Registration services.</p>
-            <button className="bg-white text-blue-800 font-medium py-3 px-6 rounded-md hover:bg-blue-100 transition duration-300">
-              Get Started Now
-            </button>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-gray-800 text-white py-8">
-          <div className="container mx-auto px-4 text-center">
-            <p>&copy; {new Date().getFullYear()} Vastav Intellect and IP Solutions. All rights reserved.</p>
-          </div>
-        </footer>
+       
       </div>
     </>
   );
