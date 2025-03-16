@@ -4,9 +4,7 @@ import * as XLSX from "xlsx";
 
 const SubmissionsTable = ({
   selectedService,
-  activeMenu,
-  activeSubMenu,
-  menuItems,
+
 }) => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,6 +13,7 @@ const SubmissionsTable = ({
   // Mapping of services to their corresponding API endpoints
   const serviceEndpoints = {
     // Business Setup
+    "Talk To Expert":"expert/consult-and-expert",
     "Company Registration":
       "bussiness-setup/inquiries/type/company_registration_inquiry",
     "LLP Registration":
