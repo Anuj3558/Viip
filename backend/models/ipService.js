@@ -38,7 +38,7 @@ const ipServiceSchema = new mongoose.Schema({
   },
   route: {
     type: String,
-    required: true,
+    required: false, // Made optional since it can be derived
   },
   submittedAt: {
     type: Date,

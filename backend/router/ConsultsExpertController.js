@@ -11,7 +11,7 @@ ConsultsExpertRouter.get('/consult-and-expert', async (req, res) => {
     try {
       const type = req.params.type;
       const inquiries = await ConsultsExpert.find({});
-      res.json(inquiries);
+      res.json({data:inquiries});
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

@@ -2,15 +2,19 @@ import express from "express";
 import {
   createIPServiceInquiry,
   getIPServiceInquiries,
-  getIPServiceInquiryById,
+  getIPServiceInquiriesByType,
 } from "../controller/ipServiceController.js";
 
 const router = express.Router();
 
-// Base routes for all IP services
-router.post("/:serviceType", createIPServiceInquiry);
-router.get("/", getIPServiceInquiries);
-router.get("/:id", getIPServiceInquiryById);
+// Main dynamic route that handles all types
+router
+  .route("/ip-service/:serviceType?")
+  .post(createIPServiceInquiry)
+  .get(getIPServiceInquiriesByType);
+
+// Get all inquiries
+router.get("/ip-service", getIPServiceInquiries);
 
 // Specific service routes
 const serviceTypes = [
@@ -26,9 +30,23 @@ const serviceTypes = [
   "patent-registration",
 ];
 
-// Create specific routes for each service type
+// Configure specific service type routes
 serviceTypes.forEach((type) => {
-  router.post(`/${type}`, createIPServiceInquiry);
+  // POST route with parameter injection
+  router.post(
+    `/${type}`,
+    (req, _, next) => {
+      req.params = { ...req.params, serviceType: type };
+      next();
+    },
+    createIPServiceInquiry
+  );
+
+  // GET route with clean parameter handling
+  router.get(`/${type}`, (req, res) => {
+    req.params.serviceType = type;
+    return getIPServiceInquiriesByType(req, res);
+  });
 });
 
 export default router;
