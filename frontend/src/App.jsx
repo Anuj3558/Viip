@@ -63,6 +63,7 @@ import IpValuationPage from "./Pages/Services/Trademark/IpServices/IpValuationPa
 import IndustrialDesignRegistrationPage from "./Pages/Services/Trademark/IpServices/IndustrialDesignRegistrationPage";
 import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/CopyrightRegistrationPage";
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
+import LoginPage from "./Pages/Auth/Login";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -345,6 +346,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <InternationalBusinessSetupPage />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/login"
+          element={
+            <PageTransition>
+              <LoginPage/>
             </PageTransition>
           }
         />
