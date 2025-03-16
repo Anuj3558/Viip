@@ -20,20 +20,14 @@ import ipServicesRouter from "./router/ipServiceRoutes.js";
 import ConsultsExpertRouter from "./router/ConsultsExpertController.js";
 
 import dotenv from "dotenv";
+import connectDB from "./connection.js";
 dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(bodyParser.json());
-
-mongoose
-  .connect("mongodb://localhost:27017/VIIP", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error("Error connecting to MongoDB:", error));
+connectDB();
 
 app.use("/api", isoRouter);
 app.use("/api", professionalTaxRoutes);
