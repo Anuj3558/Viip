@@ -64,6 +64,7 @@ import IndustrialDesignRegistrationPage from "./Pages/Services/Trademark/IpServi
 import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/CopyrightRegistrationPage";
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 import LoginPage from "./Pages/Auth/Login";
+import ProtectedRoute from "./components/Protected";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -261,14 +262,16 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        <Route
-          path="/dashboard"
-          element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          }
-        />
+         <Route element={<ProtectedRoute />}>
+          <Route
+            path="/dashboard"
+            element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            }
+          />
+        </Route>
         <Route
           path="/iso-certification"
           element={

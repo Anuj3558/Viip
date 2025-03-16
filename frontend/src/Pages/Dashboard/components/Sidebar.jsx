@@ -1,5 +1,6 @@
 import React from "react";
 import { Home, Users, Settings, LogOut, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Assuming you're using React Router for navigation
 
 const Sidebar = ({
   menuItems,
@@ -8,6 +9,20 @@ const Sidebar = ({
   onMenuClick,
   onSubMenuClick,
 }) => {
+  const navigate = useNavigate(); // Hook for navigation
+
+  // Logout function
+  const handleLogout = () => {
+    // Remove the token from localStorage
+    localStorage.removeItem("token");
+
+    // Optionally, redirect to the login page
+    navigate("/login"); // Replace "/login" with your login route
+
+    // Optionally, refresh the page to reset the application state
+    // window.location.reload();
+  };
+
   return (
     <div className="w-64 bg-white shadow-lg">
       <div className="p-4 border-b border-gray-200">
@@ -73,7 +88,10 @@ const Sidebar = ({
             <Settings size={20} className="mr-3" />
             <span>Settings</span>
           </div>
-          <div className="p-4 hover:bg-blue-50 cursor-pointer flex items-center text-gray-700">
+          <div
+            className="p-4 hover:bg-blue-50 cursor-pointer flex items-center text-gray-700"
+            onClick={handleLogout} // Add onClick handler for logout
+          >
             <LogOut size={20} className="mr-3" />
             <span>Logout</span>
           </div>

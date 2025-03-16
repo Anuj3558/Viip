@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     // Basic validation
@@ -16,12 +16,29 @@ const LoginPage = () => {
       return;
     }
 
-    // Mock authentication (replace with actual API call)
-    if (email === "user@example.com" && password === "password") {
-      localStorage.setItem("isAuthenticated", "true"); // Store authentication state
-      navigate("/dashboard"); // Redirect to the dashboard
-    } else {
-      setError("Invalid email or password.");
+    try {
+      // Call the backend API
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Successful login
+        localStorage.setItem("token", data.token); // Store JWT token
+        navigate("/dashboard"); // Redirect to the dashboard
+      } else {
+        // Handle errors
+        setError(data.message || "Invalid email or password.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("An error occurred. Please try again.");
     }
   };
 
