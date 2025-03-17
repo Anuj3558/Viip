@@ -43,7 +43,7 @@ const SubmissionsTable = ({
       "bussiness-setup/inquiries/type/company_name_change_inquiry",
 
     // International Business Setup
-   
+   "International Incorporation":"bussiness-setup/international-business-setup",
     // ISO Certification
     "ISO Certification": "api/iso",
     "ISO Certification 22000": "api/iso/22000",
