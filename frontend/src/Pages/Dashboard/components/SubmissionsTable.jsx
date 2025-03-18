@@ -4,9 +4,7 @@ import * as XLSX from "xlsx";
 
 const SubmissionsTable = ({
   selectedService,
-  activeMenu,
-  activeSubMenu,
-  menuItems,
+
 }) => {
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);

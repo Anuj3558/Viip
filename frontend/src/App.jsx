@@ -255,6 +255,14 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/online-esi-registration"
+          element={
+            <PageTransition>
+              <ESIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/payroll-management-system"
           element={
             <PageTransition>

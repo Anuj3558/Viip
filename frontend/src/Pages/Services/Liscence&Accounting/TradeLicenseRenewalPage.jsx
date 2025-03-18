@@ -453,11 +453,7 @@ const TradeLicenseRenewalPage = () => {
         </section>
 
         {/* Footer Section (Add your footer here) */}
-        <footer className="bg-blue-800 text-white text-center py-8">
-          <p>
-            &copy; 2025 Vastav Intellect and IP Solutions. All rights reserved.
-          </p>
-        </footer>
+      
       </div>
     </>
   );
