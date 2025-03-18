@@ -101,7 +101,7 @@ const NGORegistrationPage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/ngo-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/ngo-registration`,
         formData
       );
       console.log("Form submitted:", response.data);

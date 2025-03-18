@@ -29,11 +29,7 @@ const ServiceCard = ({
         <p className="mt-2 text-sm text-gray-600">
           View all submissions for {service}
         </p>
-        <div className="mt-4 flex items-center text-sm text-gray-500">
-          <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
-            {submissionCount} submissions
-          </span>
-        </div>
+        
       </div>
     </div>
   );

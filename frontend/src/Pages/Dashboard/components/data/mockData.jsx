@@ -51,7 +51,7 @@ const licenseSubMenu = {
     "ISO Certification 9000 2005",
     "ISO Certification 14001",
     "ISO Certification 31000",
-    "Benefits Of ISO Certification",
+    
   ],
 };
 

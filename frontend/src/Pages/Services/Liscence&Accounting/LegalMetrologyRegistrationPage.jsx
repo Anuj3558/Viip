@@ -103,7 +103,9 @@ const LegalMetrologyRegistrationPage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/legal-metrology-registration`,
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/api/legal-metrology-registration`,
         formData
       );
       console.log("Form submitted:", response.data);

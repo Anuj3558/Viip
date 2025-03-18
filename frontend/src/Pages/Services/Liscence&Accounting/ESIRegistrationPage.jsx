@@ -103,7 +103,7 @@ const ESIRegistrationPage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/esi-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/esi-registration`,
         formData
       );
       console.log("Form submitted:", response.data);

@@ -102,7 +102,7 @@ const PSARALicensePage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/psara-license`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/psara-license`,
         formData
       );
       console.log("Form submitted:", response.data);

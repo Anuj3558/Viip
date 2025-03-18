@@ -262,7 +262,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route element={<ProtectedRoute />}>
+        <Route element={<ProtectedRoute />}>
           <Route
             path="/dashboard"
             element={
@@ -337,6 +337,14 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/online-esi-registration"
+          element={
+            <PageTransition>
+              <ESIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/fssai-license"
           element={
             <PageTransition>
@@ -352,11 +360,11 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/login"
           element={
             <PageTransition>
-              <LoginPage/>
+              <LoginPage />
             </PageTransition>
           }
         />

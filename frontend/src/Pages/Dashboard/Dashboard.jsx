@@ -115,7 +115,7 @@ function Dashboard() {
                   loading={loading}
                   error={error}
                 />
-                <TablePagination />
+                
               </>
             ) : (
               <ServiceGrid

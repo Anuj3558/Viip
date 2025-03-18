@@ -36,10 +36,7 @@ const ipServiceSchema = new mongoose.Schema({
       "Patent Registration",
     ],
   },
-  route: {
-    type: String,
-    required: false, // Made optional since it can be derived
-  },
+ 
   submittedAt: {
     type: Date,
     default: Date.now,
