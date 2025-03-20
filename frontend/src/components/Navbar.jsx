@@ -114,159 +114,186 @@ const Navbar = () => {
   };
 
   // Dropdown data
-const dropdownItems = {
-  expert: ["Expert Consultation"],
-  business: ["Company Registration"],
-  trademarks: [
-    { name: "Trademark Registration", link: "/trademark-registration" },
-    {
-      name: "Trademark Registration for Individuals",
-      link: "/trademark-registration-individual",
-    },
-    { name: "Trademark Assignment", link: "/trademark-assignment" },
-    {
-      name: "Legal Support",
-      link: "", // No direct link, will use submenu
-      submenu: {
+  const dropdownItems = {
+    expert: ["Expert Consultation"],
+    business: ["Company Registration"],
+    trademarks: [
+      { name: "Trademark Registration", link: "/trademark-registration" },
+      {
+        name: "Trademark Registration for Individuals",
+        link: "/trademark-registration-individual",
+      },
+      { name: "Trademark Assignment", link: "/trademark-assignment" },
+      {
         name: "Legal Support",
-        items: [
-          { name: "IP Due Diligence", link: "/ip-due-diligence" },
-          { name: "IP Litigation Support", link: "/ip-litigation-support" },
-          { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
-          {
-            name: "International IP Protection",
-            link: "/international-ip-protection",
-          },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "Legal Support",
+          items: [
+            { name: "IP Due Diligence", link: "/ip-due-diligence" },
+            { name: "IP Litigation Support", link: "/ip-litigation-support" },
+            { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+            {
+              name: "International IP Protection",
+              link: "/international-ip-protection",
+            },
+          ],
+        },
       },
-    },
-    {
-      name: "IP Services",
-      link: "", // No direct link, will use submenu
-      submenu: {
+      {
         name: "IP Services",
-        items: [
-          { name: "Patent Registration", link: "/patent-registration" },
-          { name: "Copyright Registration", link: "/copyright-registration" },
-          {
-            name: "Industrial Design Registration",
-            link: "/industrial-design-registration",
-          },
-          { name: "IP Valuation", link: "/ip-valuation" },
-          { name: "IP Licensing", link: "/ip-licensing" },
-          { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "IP Services",
+          items: [
+            { name: "Patent Registration", link: "/patent-registration" },
+            { name: "Copyright Registration", link: "/copyright-registration" },
+            {
+              name: "Industrial Design Registration",
+              link: "/industrial-design-registration",
+            },
+            { name: "IP Valuation", link: "/ip-valuation" },
+            { name: "IP Licensing", link: "/ip-licensing" },
+            {
+              name: "IP Portfolio Management",
+              link: "/ip-portfolio-management",
+            },
+          ],
+        },
       },
-    },
-  ],
-  licenses: ["Licenses", "Registrations", "ISO Certification"],
-  accounting: [
-    { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
-    { name: "Payroll Management System", link: "/payroll-management-system" },
-  ],
-};
-
-
+    ],
+    licenses: ["Licenses", "Registrations", "ISO Certification"],
+    accounting: [
+      { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
+      { name: "Payroll Management System", link: "/payroll-management-system" },
+    ],
+  };
 
   // Submenu data for Expert Consultation
   const expertSubMenu = {
     "Expert Consultation": ["Talk To Expert"],
-    
   };
 
-const businessSubMenu = {
-  "Company Registration": [
-    {
-      name: "Company Registration",
-      link: "/company-registrion",
-    },
-    {
-      name: "LLP Annual Compliance",
-      link: "/llpannual-compliance",
-    },
-    {
-      name: "LLP Annual Filings",
-      link: "/llp-annual-filing",
-    },
-    {
-      name: "LLP Designated Partner Change",
-      link: "/llpdesignated-partner-change",
-    },
-    {
-      name: "Sole Proprietorship Registration",
-      link: "/sole-proprietorship-registration",
-    },
-    {
-      name: "Producer Company Registration",
-      link: "/producer-company-registration",
-    },
-    {
-      name: "Nidhi Company Registration",
-      link: "/nidhi-company-registration",
-    },
-    {
-      name: "Startup India Registration",
-      link: "/startup-india-registration",
-    },
-    {
-      name: "Partnership Deed Drafting",
-      link: "/partnership-deed-drafting",
-    },
-    {
-      name: "One Person Company Registration",
-      link: "/one-person-company-registration",
-    },
-    {
-      name: "Authorized Share Capital",
-      link: "/authorized-share-capital",
-    },
-    {
-      name: "Memorandum Of Understanding (MOU) Drafting",
-      link: "/mou-drafting",
-    },
-    {
-      name: "Change Company Name",
-      link: "/company-name-change",
-    },
-  ],
-  "International Business Setup": [
-    { name: "International Business Setup", link: "/international-business-setupPage" }, // Note: You need to define this route // Note: You need to define this route
-  ],
-};
+  const businessSubMenu = {
+    "Company Registration": [
+      {
+        name: "Company Registration",
+        link: "/company-registrion",
+      },
+      {
+        name: "LLP Annual Compliance",
+        link: "/llpannual-compliance",
+      },
+      {
+        name: "LLP Annual Filings",
+        link: "/llp-annual-filing",
+      },
+      {
+        name: "LLP Designated Partner Change",
+        link: "/llpdesignated-partner-change",
+      },
+      {
+        name: "Sole Proprietorship Registration",
+        link: "/sole-proprietorship-registration",
+      },
+      {
+        name: "Producer Company Registration",
+        link: "/producer-company-registration",
+      },
+      {
+        name: "Nidhi Company Registration",
+        link: "/nidhi-company-registration",
+      },
+      {
+        name: "Startup India Registration",
+        link: "/startup-india-registration",
+      },
+      {
+        name: "Partnership Deed Drafting",
+        link: "/partnership-deed-drafting",
+      },
+      {
+        name: "One Person Company Registration",
+        link: "/one-person-company-registration",
+      },
+      {
+        name: "Authorized Share Capital",
+        link: "/authorized-share-capital",
+      },
+      {
+        name: "Memorandum Of Understanding (MOU) Drafting",
+        link: "/mou-drafting",
+      },
+      {
+        name: "Change Company Name",
+        link: "/company-name-change",
+      },
+    ],
+    "International Business Setup": [
+      {
+        name: "International Business Setup",
+        link: "/international-business-setupPage",
+      }, // Note: You need to define this route // Note: You need to define this route
+    ],
+  };
 
-const trademarkIpSubMenu = {
-  Trademarks: [
-    { name: "Trademark Registration", link: "/trademark-registration" },
-    {
-      name: "Trademark Registration for Individuals",
-      link: "/trademark-registration-individual",
-    },
-    { name: "Trademark Assignment", link: "/trademark-assignment" },
-  ],
-  "Legal Support": [
-    { name: "IP Due Diligence", link: "/ip-due-diligence" },
-    { name: "IP Litigation Support", link: "/ip-litigation-support" },
-    { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
-    {
-      name: "International IP Protection",
-      link: "/international-ip-protection",
-    },
-  ],
-  "IP Services": [
-    { name: "Patent Registration", link: "/patent-registration" },
-    { name: "Copyright Registration", link: "/copyright-registration" },
-    {
-      name: "Industrial Design Registration",
-      link: "/industrial-design-registration",
-    },
-    { name: "IP Valuation", link: "/ip-valuation" },
-    { name: "IP Licensing", link: "/ip-licensing" },
-    { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
-  ],
-};
-
-
-
+  const trademarkIpSubMenu = {
+    Trademarks: [
+      { name: "Trademark Registration", link: "/trademark-registration" },
+      {
+        name: "Trademark Registration for Individuals",
+        link: "/trademark-registration-individual",
+      },
+      { name: "Trademark Assignment", link: "/trademark-assignment" },
+      { name: "Trademark Search", link: "/trademark-search" },
+      { name: "Respond to TM Objection", link: "/respond-to-tm-objection" },
+      { name: "Well Known Trademark", link: "/well-known-trademark" },
+      { name: "Trademark Watch", link: "/trademark-watch" },
+      { name: "Trademark Renewal", link: "/trademark-renewal" },
+      { name: "USA Trademark", link: "/usa-trademark" },
+      { name: "International Trademark", link: "/international-trademark" },
+      { name: "Trademark Class Finder", link: "/trademark-class-finder" },
+    ],
+    Copyright: [
+      { name: "Copyright Registration", link: "/copyright-registration" },
+      { name: "Copyright Music", link: "/copyright-music" },
+    ],
+    Patent: [
+      { name: "Indian Patent Search", link: "/indian-patent-search" },
+      {
+        name: "Provisional Patent Application",
+        link: "/provisional-patent-application",
+      },
+      { name: "Patent Registration", link: "/patent-registration" },
+    ],
+    Infringement: [
+      { name: "Copyright Infringement", link: "/copyright-infringement" },
+      { name: "Patent Infringement", link: "/patent-infringement" },
+      { name: "Trademark Infringement", link: "/trademark-infringement" },
+    ],
+    "Design Registration": [
+      { name: "Logo Design", link: "/logo-design" },
+      { name: "Design Registration", link: "/design-registration" },
+    ],
+    "Legal Support": [
+      { name: "IP Due Diligence", link: "/ip-due-diligence" },
+      { name: "IP Litigation Support", link: "/ip-litigation-support" },
+      { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+      {
+        name: "International IP Protection",
+        link: "/international-ip-protection",
+      },
+    ],
+    "IP Services": [
+      {
+        name: "Industrial Design Registration",
+        link: "/industrial-design-registration",
+      },
+      { name: "IP Valuation", link: "/ip-valuation" },
+      { name: "IP Licensing", link: "/ip-licensing" },
+      { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
+    ],
+  };
 
   const licenseSubMenu = {
     Licenses: [
@@ -285,7 +312,10 @@ const trademarkIpSubMenu = {
       { name: "Online PF Registration", link: "/online-pf-registration" },
       { name: "NGO Registration", link: "/ngo-registration" },
       { name: "Online ESI Registration", link: "/online-esi-registration" },
-      { name: "Udyog Aadhaar Registration", link: "/udyog-aadhaar-registration" },
+      {
+        name: "Udyog Aadhaar Registration",
+        link: "/udyog-aadhaar-registration",
+      },
       {
         name: "Digital Signature Certificate",
         link: "/digital-signature-certificate",
@@ -311,7 +341,6 @@ const trademarkIpSubMenu = {
       },
     ],
   };
-
 
   // Map icons to dropdown categories
   const menuIcons = {

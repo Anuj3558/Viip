@@ -23,9 +23,9 @@ import PartnershipDeedDraftingPage from "./Pages/Services/BussinessSetup/Partner
 import AuthorizedShareCapitalPage from "./Pages/Services/BussinessSetup/AuthorizedShareCapitalPage";
 import CompanyNameChangePage from "./Pages/Services/BussinessSetup/CompanyNameChangePage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import TrademarkRegistrationPage from "./Pages/Services/Trademark/TrademarkRegistrationPage";
-import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/TrademarkRegistrationIndividualPage";
-import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
+import TrademarkRegistrationPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationPage";
+import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationIndividualPage";
+import TrademarkAssignmentPage from "./Pages/Services/Trademark/Trademark/TrademarkAssignmentPage";
 import IncomeTaxReturnPage from "./Pages/Services/IncomeTax/IncomeTaxReturnPage";
 import PayrollManagementPage from "./Pages/Services/IncomeTax/PayrollManagementPage";
 import ISOCertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISOCertificationPage";
@@ -65,6 +65,20 @@ import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/Cop
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 import LoginPage from "./Pages/Auth/Login";
 import ProtectedRoute from "./components/Protected";
+import TrademarkSearchPage from "./Pages/Services/Trademark/Trademark/TrademarkSearchPage";
+import WellKnownTrademarkPage from "./Pages/Services/Trademark/Trademark/WellKnownTrademarkPage";
+import TrademarkObjectionResponsePage from "./Pages/Services/Trademark/Trademark/TrademarkObjectionResponsePage";
+import TrademarkWatchPage from "./Pages/Services/Trademark/Trademark/TrademarkWatchPage";
+import TrademarkRenewal from "./Pages/Services/Trademark/Trademark/TrademarkRenewalPage";
+import TrademarkRegistrationUSAPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationUSAPage";
+import TrademarkRegistrationInternationalPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationInternationalPage";
+import CopyrightMusicPage from "./Pages/Services/Trademark/Copyright/CopyrightMusicPage";
+import ProvisionalPatentApplicationPage from "./Pages/Services/Petent/ProvisionalPatentApplicationPage";
+import CopyrightInfringementPage from "./Pages/Services/Trademark/Infringement/CopyrightInfringementPage";
+import PatentInfringementPage from "./Pages/Services/Trademark/Infringement/PatentInfringementPage";
+import TrademarkInfringementPage from "./Pages/Services/Trademark/Infringement/TrademarkInfringementPage";
+import LogoDesignPage from "./Pages/Services/Trademark/DesignRegistration/LogoDesignPage";
+import DesignRegistrationPage from "./Pages/Services/Trademark/DesignRegistration/DesignRegistrationPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -243,6 +257,126 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <TrademarkAssignmentPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-search"
+          element={
+            <PageTransition>
+              <TrademarkSearchPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/well-known-trademark"
+          element={
+            <PageTransition>
+              <WellKnownTrademarkPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/respond-to-tm-objection"
+          element={
+            <PageTransition>
+              <TrademarkObjectionResponsePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-watch"
+          element={
+            <PageTransition>
+              <TrademarkWatchPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-renewal"
+          element={
+            <PageTransition>
+              <TrademarkRenewal />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/usa-trademark"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationUSAPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/international-trademark"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationInternationalPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-registration"
+          element={
+            <PageTransition>
+              <CopyrightRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-music"
+          element={
+            <PageTransition>
+              <CopyrightMusicPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/provisional-patent-application"
+          element={
+            <PageTransition>
+              <ProvisionalPatentApplicationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-infringement"
+          element={
+            <PageTransition>
+              <CopyrightInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/patent-infringement"
+          element={
+            <PageTransition>
+              <PatentInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-infringement"
+          element={
+            <PageTransition>
+              <TrademarkInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/logo-design"
+          element={
+            <PageTransition>
+              <LogoDesignPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/design-registration"
+          element={
+            <PageTransition>
+              <DesignRegistrationPage />
             </PageTransition>
           }
         />

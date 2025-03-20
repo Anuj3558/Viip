@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { FaCheckCircle, FaHandshake, FaFileSignature } from 'react-icons/fa'; // Import React Icons
-import Notification from '../../../components/NOtification'; // Import Notification component
+import Notification from '../../../../components/NOtification'; // Import Notification component
 
 const TrademarkAssignmentPage = () => {
     const [formData, setFormData] = useState({
