@@ -65,6 +65,28 @@ import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/Cop
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 import LoginPage from "./Pages/Auth/Login";
 import ProtectedRoute from "./components/Protected";
+import MSMERegistrationPage from "./Pages/Services/BussinessSetup/MSMERegistrationPage";
+import IECImportExportCodePage from "./Pages/Services/BussinessSetup/IECImportExportCodePage";
+import SpiceBoardRegistrationPage from "./Pages/Services/BussinessSetup/SpiceBoardRegistrationPage";
+import FIEORegistrationPage from "./Pages/Services/BussinessSetup/FIEORegistrationPage";
+import HallmarkRegistrationPage from "./Pages/Services/BussinessSetup/HallmarkRegistrationPage";
+import APEDARCMCPage from "./Pages/Services/BussinessSetup/APEDARCMCPage";
+import TrademarkSearchPage from "./Pages/Services/Trademark/Trademark/TrademarkSearchPage";
+import WellKnownTrademarkPage from "./Pages/Services/Trademark/Trademark/WellKnownTrademarkPage";
+import TrademarkObjectionResponsePage from "./Pages/Services/Trademark/Trademark/TrademarkObjectionResponsePage";
+import TrademarkWatchPage from "./Pages/Services/Trademark/Trademark/TrademarkWatchPage";
+import TrademarkRenewal from "./Pages/Services/Trademark/Trademark/TrademarkRenewalPage";
+import TrademarkRegistrationUSAPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationUSAPage";
+import TrademarkRegistrationInternationalPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationInternationalPage";
+import CopyrightMusicPage from "./Pages/Services/Trademark/Copyright/CopyrightMusicPage";
+import CopyrightInfringementPage from "./Pages/Services/Trademark/Infringement/CopyrightInfringementPage";
+import ProvisionalPatentApplicationPage from "./Pages/Services/Petent/ProvisionalPatentApplicationPage";
+import PatentInfringementPage from "./Pages/Services/Trademark/Infringement/PatentInfringementPage";
+import TrademarkInfringementPage from "./Pages/Services/Trademark/Infringement/TrademarkInfringementPage";
+import LogoDesignPage from "./Pages/Services/Trademark/DesignRegistration/LogoDesignPage";
+import DesignRegistrationPage from "./Pages/Services/Trademark/DesignRegistration/DesignRegistrationPage";
+import BISCertificationPage from "./Pages/Services/BussinessSetup/BISCertificationPage";
+import PitchDeckPage from "./Pages/Others/PitchDeckPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
