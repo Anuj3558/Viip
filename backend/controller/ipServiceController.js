@@ -27,7 +27,7 @@ export const createIPServiceInquiry = async (req, res) => {
     const ipServiceData = new IPService({
       ...req.body,
       type,
-      route: `/ip-service/${serviceType}`,
+      
     });
 
     await ipServiceData.save();

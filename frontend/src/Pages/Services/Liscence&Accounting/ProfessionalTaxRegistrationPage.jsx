@@ -103,7 +103,7 @@ const ProfessionalTaxRegistrationPage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/professional-tax`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/professional-tax`,
         formData
       );
       console.log("Form submitted:", response.data);

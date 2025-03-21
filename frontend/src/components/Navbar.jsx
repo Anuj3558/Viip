@@ -114,64 +114,64 @@ const Navbar = () => {
   };
 
   // Dropdown data
-const dropdownItems = {
-  expert: ["Expert Consultation"],
-  business: ["Company Registration"],
-  trademarks: [
-    { name: "Trademark Registration", link: "/trademark-registration" },
-    {
-      name: "Trademark Registration for Individuals",
-      link: "/trademark-registration-individual",
-    },
-    { name: "Trademark Assignment", link: "/trademark-assignment" },
-    {
-      name: "Legal Support",
-      link: "", // No direct link, will use submenu
-      submenu: {
+  const dropdownItems = {
+    expert: ["Expert Consultation"],
+    business: ["Company Registration"],
+    trademarks: [
+      { name: "Trademark Registration", link: "/trademark-registration" },
+      {
+        name: "Trademark Registration for Individuals",
+        link: "/trademark-registration-individual",
+      },
+      { name: "Trademark Assignment", link: "/trademark-assignment" },
+      {
         name: "Legal Support",
-        items: [
-          { name: "IP Due Diligence", link: "/ip-due-diligence" },
-          { name: "IP Litigation Support", link: "/ip-litigation-support" },
-          { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
-          {
-            name: "International IP Protection",
-            link: "/international-ip-protection",
-          },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "Legal Support",
+          items: [
+            { name: "IP Due Diligence", link: "/ip-due-diligence" },
+            { name: "IP Litigation Support", link: "/ip-litigation-support" },
+            { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+            {
+              name: "International IP Protection",
+              link: "/international-ip-protection",
+            },
+          ],
+        },
       },
-    },
-    {
-      name: "IP Services",
-      link: "", // No direct link, will use submenu
-      submenu: {
+      {
         name: "IP Services",
-        items: [
-          { name: "Patent Registration", link: "/patent-registration" },
-          { name: "Copyright Registration", link: "/copyright-registration" },
-          {
-            name: "Industrial Design Registration",
-            link: "/industrial-design-registration",
-          },
-          { name: "IP Valuation", link: "/ip-valuation" },
-          { name: "IP Licensing", link: "/ip-licensing" },
-          { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "IP Services",
+          items: [
+            { name: "Patent Registration", link: "/patent-registration" },
+            { name: "Copyright Registration", link: "/copyright-registration" },
+            {
+              name: "Industrial Design Registration",
+              link: "/industrial-design-registration",
+            },
+            { name: "IP Valuation", link: "/ip-valuation" },
+            { name: "IP Licensing", link: "/ip-licensing" },
+            {
+              name: "IP Portfolio Management",
+              link: "/ip-portfolio-management",
+            },
+          ],
+        },
       },
-    },
-  ],
-  licenses: ["Licenses", "Registrations", "ISO Certification"],
-  accounting: [
-    { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
-    { name: "Payroll Management System", link: "/payroll-management-system" },
-  ],
-};
-
-
+    ],
+    licenses: ["Licenses", "Registrations", "ISO Certification"],
+    accounting: [
+      { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
+      { name: "Payroll Management System", link: "/payroll-management-system" },
+    ],
+  };
 
   // Submenu data for Expert Consultation
   const expertSubMenu = {
     "Expert Consultation": ["Talk To Expert"],
-    
   };
 
 const businessSubMenu = {
@@ -398,7 +398,6 @@ const trademarkIpSubMenu = {
     ],
    
   };
-
 
   // Map icons to dropdown categories
   const menuIcons = {

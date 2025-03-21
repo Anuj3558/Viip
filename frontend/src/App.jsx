@@ -23,9 +23,9 @@ import PartnershipDeedDraftingPage from "./Pages/Services/BussinessSetup/Partner
 import AuthorizedShareCapitalPage from "./Pages/Services/BussinessSetup/AuthorizedShareCapitalPage";
 import CompanyNameChangePage from "./Pages/Services/BussinessSetup/CompanyNameChangePage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import TrademarkRegistrationPage from "./Pages/Services/Trademark/TrademarkRegistrationPage";
-import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/TrademarkRegistrationIndividualPage";
-import TrademarkAssignmentPage from "./Pages/Services/Trademark/TrademarkAssignmentPage";
+import TrademarkRegistrationPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationPage";
+import TrademarkRegistrationIndividualPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationIndividualPage";
+import TrademarkAssignmentPage from "./Pages/Services/Trademark/Trademark/TrademarkAssignmentPage";
 import IncomeTaxReturnPage from "./Pages/Services/IncomeTax/IncomeTaxReturnPage";
 import PayrollManagementPage from "./Pages/Services/IncomeTax/PayrollManagementPage";
 import ISOCertificationPage from "./Pages/Services/Liscence&Accounting/ISO/ISOCertificationPage";
@@ -65,22 +65,6 @@ import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/Cop
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 import LoginPage from "./Pages/Auth/Login";
 import ProtectedRoute from "./components/Protected";
-import IECImportExportCodePage from "./Pages/Services/BussinessSetup/IECImportExportCodePage";
-import SpiceBoardRegistrationPage from "./Pages/Services/BussinessSetup/SpiceBoardRegistrationPage";
-import MSMERegistrationPage from "./Pages/Services/BussinessSetup/MSMERegistrationPage";
-import APEDARCMCPage from "./Pages/Services/BussinessSetup/APEDARCMCPage";
-import FIEORegistrationPage from "./Pages/Services/BussinessSetup/FIEORegistrationPage";
-import HallmarkRegistrationPage from "./Pages/Services/BussinessSetup/HallmarkRegistrationPage";
-import BISCertificationPage from "./Pages/Services/BussinessSetup/BISCertificationPage";
-import LiquorLicensePage from "./Pages/Services/BussinessSetup/LiquorLicensePage";
-import CLRARegistrationPage from "./Pages/Services/BussinessSetup/CLRARegistrationPage";
-import ADCodeRegistrationPage from "./Pages/Services/BussinessSetup/ADCodeRegistrationPage";
-import IRDAIRegistrationPage from "./Pages/Services/BussinessSetup/IRDAIRegistrationPage";
-import DrugsAndCosmeticsLicensePage from "./Pages/Services/BussinessSetup/DrugsAndCosmeticsLicensePage";
-import CustomerClearancePage from "./Pages/Services/BussinessSetup/CustomerClearancePage";
-import WebsiteEcommerceDevelopmentPage from "./Pages/Services/BussinessSetup/WebsiteEcommerceDevelopmentPage";
-import FundraisingPage from "./Pages/Others/FundraisingPage";
-import PitchDeckPage from "./Pages/Others/PitchDeckPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -321,6 +305,126 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/trademark-search"
+          element={
+            <PageTransition>
+              <TrademarkSearchPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/well-known-trademark"
+          element={
+            <PageTransition>
+              <WellKnownTrademarkPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/respond-to-tm-objection"
+          element={
+            <PageTransition>
+              <TrademarkObjectionResponsePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-watch"
+          element={
+            <PageTransition>
+              <TrademarkWatchPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-renewal"
+          element={
+            <PageTransition>
+              <TrademarkRenewal />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/usa-trademark"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationUSAPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/international-trademark"
+          element={
+            <PageTransition>
+              <TrademarkRegistrationInternationalPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-registration"
+          element={
+            <PageTransition>
+              <CopyrightRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-music"
+          element={
+            <PageTransition>
+              <CopyrightMusicPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/provisional-patent-application"
+          element={
+            <PageTransition>
+              <ProvisionalPatentApplicationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/copyright-infringement"
+          element={
+            <PageTransition>
+              <CopyrightInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/patent-infringement"
+          element={
+            <PageTransition>
+              <PatentInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trademark-infringement"
+          element={
+            <PageTransition>
+              <TrademarkInfringementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/logo-design"
+          element={
+            <PageTransition>
+              <LogoDesignPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/design-registration"
+          element={
+            <PageTransition>
+              <DesignRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/income-tax-return"
           element={
             <PageTransition>
@@ -350,70 +454,7 @@ const AnimatedRoutes = () => {
               <PayrollManagementPage />
             </PageTransition>
           }
-        /><Route
-        path="/liquor-license"
-        element={
-          <PageTransition>
-            <LiquorLicensePage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/CLRA-registration"
-        element={
-          <PageTransition>
-            <CLRARegistrationPage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/AD-code-registration"
-        element={
-          <PageTransition>
-            <ADCodeRegistrationPage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/IRDAI-registration"
-        element={
-          <PageTransition>
-            <IRDAIRegistrationPage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/drugs-and-cosmetics-license"
-        element={
-          <PageTransition>
-            <DrugsAndCosmeticsLicensePage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/customer-clearance"
-        element={
-          <PageTransition>
-            <CustomerClearancePage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/website-ecommerce-development"
-        element={
-          <PageTransition>
-            <WebsiteEcommerceDevelopmentPage />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/fundraising"
-        element={
-          <PageTransition>
-            <FundraisingPage />
-          </PageTransition>
-        }
-      />
+        />
          <Route element={<ProtectedRoute />}>
           <Route
             path="/dashboard"
@@ -489,6 +530,14 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/online-esi-registration"
+          element={
+            <PageTransition>
+              <ESIRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
           path="/fssai-license"
           element={
             <PageTransition>
@@ -504,11 +553,11 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/login"
           element={
             <PageTransition>
-              <LoginPage/>
+              <LoginPage />
             </PageTransition>
           }
         />

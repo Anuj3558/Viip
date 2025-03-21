@@ -95,7 +95,9 @@ const DigitalSignatureCertificatePage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/digital-signature-certificate`,
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/api/digital-signature-certificate`,
         formData
       );
       console.log("Form submitted:", response.data);

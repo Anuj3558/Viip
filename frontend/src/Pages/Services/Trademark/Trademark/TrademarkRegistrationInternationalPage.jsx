@@ -1,56 +1,88 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import {
   FaCheckCircle,
-  FaFileSignature,
-  FaGavel,
-  FaBuilding,
+  FaUser,
+  FaShieldAlt,
+  FaSearch,
+  FaGlobe,
 } from "react-icons/fa"; // Import React Icons
-import { GiPoliceBadge } from "react-icons/gi";
-import Notification from "../../../components/NOtification";
+import Notification from "../../../../components/NOtification"; // Import the Notification component
 
-const PSARALicensePage = () => {
+const TrademarkRegistrationInternationalPage = () => {
   const [formData, setFormData] = useState({
-    companyName: "",
     name: "",
     email: "",
     phone: "",
-    state: "",
-    employeeCount: "",
     message: "",
   });
-
-  const [emailError, setEmailError] = useState("");
-  const [phoneError, setPhoneError] = useState("");
   const [notification, setNotification] = useState(null);
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-
-  const validateEmail = (email) => {
-    if (!emailRegex.test(email)) {
-      setEmailError("Please enter a valid email address.");
-      return false;
-    }
-    setEmailError("");
-    return true;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  const validatePhone = (phone) => {
-    if (!phoneRegex.test(phone)) {
-      setPhoneError("Please enter a valid phone number.");
-      return false;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const dataToSend = {
+      ...formData,
+      route: "/trademark-registration-international",
+      type: "trademark_registration_international_inquiry",
+    };
+
+    try {
+      // Send data to backend API
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/trademark-ip/trademark-registration-international`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Form submitted successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        showSuccessNotification();
+      } else {
+        console.error("Form submission failed:", response.status);
+        showErrorNotification("Form submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      showErrorNotification(
+        "An error occurred while submitting the form. Please try again."
+      );
     }
-    setPhoneError("");
-    return true;
+  };
+
+  const isPhoneValid = (phone) => {
+    // Basic validation for phone numbers
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return phone === "" || phoneRegex.test(phone);
+  };
+
+  const isEmailValid = (email) => {
+    // Basic validation for email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === "" || emailRegex.test(email);
   };
 
   const showSuccessNotification = () => {
     setNotification({
       type: "success",
       message: "Success",
-      description: "PSARA License inquiry submitted successfully!",
+      description: "Form submitted successfully!",
     });
   };
 
@@ -67,117 +99,69 @@ const PSARALicensePage = () => {
   };
 
   useEffect(() => {
-    if (notification && notification.type === "success") {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (notification && notification.type === "success") {
         closeNotification();
-      }, 3000);
+      }
+    }, 4500);
 
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, [notification]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-
-    if (name === "email") {
-      validateEmail(value);
-    } else if (name === "phone") {
-      validatePhone(value);
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const isEmailValid = validateEmail(formData.email);
-    const isPhoneValid = validatePhone(formData.phone);
-
-    if (!isEmailValid || !isPhoneValid) {
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/api/psara-license`,
-        formData
-      );
-      console.log("Form submitted:", response.data);
-      showSuccessNotification();
-
-      setFormData({
-        companyName: "",
-        name: "",
-        email: "",
-        phone: "",
-        state: "",
-        employeeCount: "",
-        message: "",
-      });
-      setEmailError("");
-      setPhoneError("");
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      showErrorNotification(
-        error.response?.data?.message ||
-          "Failed to submit the inquiry. Please try again."
-      );
-    }
-  };
 
   return (
     <>
-      {notification && (
-        <Notification
-          type={notification.type}
-          message={notification.message}
-          description={notification.description}
-          onClose={closeNotification}
-        />
-      )}
       <Helmet>
-        <title>PSARA License | Vastav Intellect and IP Solutions</title>
+        <title>
+          International Trademark Registration | Vastav Intellect and IP
+          Solutions
+        </title>
         <meta
           name="description"
-          content="Get your PSARA License with Vastav Intellect and IP Solutions. Expert assistance for Private Security Agency Regulation Act compliance."
+          content="International Trademark Registration with Vastav Intellect and IP Solutions. Protect your brand globally with our expert services."
         />
         <meta
           name="keywords"
-          content="PSARA license, security agency license, private security agency, security license, Vastav Intellect, legal services, India"
+          content="international trademark registration, global trademark, brand protection, Madrid Protocol, Vastav Intellect, IP Solutions"
         />
         <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />{" "}
         {/* Replace with your actual URL */}
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
-        {/* Main Section */}
+        {notification && (
+          <Notification
+            type={notification.type}
+            message={notification.message}
+            description={notification.description}
+            onClose={closeNotification}
+          />
+        )}
+
+        {/* Main Registration Section */}
         <section className="container mx-auto px-4 py-16">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">
               <h2 className="text-3xl font-bold text-blue-800">
-                PSARA License Services
+                International Trademark Registration
               </h2>
               <p className="text-lg text-gray-700">
-                Vastav Intellect and IP Solutions offers expert assistance in
-                obtaining a PSARA license, ensuring your private security agency
-                complies with the Private Security Agency Regulation Act.
+                Vastav Intellect and IP Solutions helps businesses and
+                individuals protect their brand globally through international
+                trademark registration under the Madrid Protocol.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <GiPoliceBadge className="h-6 w-6 text-blue-800" />
+                    <FaGlobe className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">
-                      Compliance Expertise
+                      Global Brand Protection
                     </h3>
                     <p className="text-gray-600">
-                      Ensure your agency meets all regulatory requirements for a
-                      PSARA license.
+                      Safeguard your brand in multiple countries with a single
+                      international trademark application.
                     </p>
                   </div>
                 </div>
@@ -187,23 +171,25 @@ const PSARALicensePage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">
-                      Smooth Application Process
+                      Madrid Protocol Expertise
                     </h3>
                     <p className="text-gray-600">
-                      We guide you through the entire application process,
-                      minimizing delays and complications.
+                      We specialize in filing international trademarks under the
+                      Madrid Protocol for seamless global protection.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-2 rounded-full mr-3">
-                    <FaGavel className="h-6 w-6 text-blue-800" />
+                    <FaUser className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Legal Support</h3>
+                    <h3 className="font-semibold text-lg">
+                      Tailored Solutions
+                    </h3>
                     <p className="text-gray-600">
-                      Get expert legal support to address any queries or
-                      concerns during the licensing process.
+                      Our team provides customized solutions to meet your
+                      international trademark needs.
                     </p>
                   </div>
                 </div>
@@ -213,33 +199,15 @@ const PSARALicensePage = () => {
             {/* Right Form Column */}
             <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold text-blue-800 mb-6">
-                Apply for Your PSARA License
+                Register Your International Trademark
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="companyName"
-                    className="block text-gray-700 font-medium mb-1"
-                  >
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your company name"
-                    required
-                  />
-                </div>
                 <div>
                   <label
                     htmlFor="name"
                     className="block text-gray-700 font-medium mb-1"
                   >
-                    Contact Person Name
+                    Full Name
                   </label>
                   <input
                     type="text"
@@ -248,7 +216,7 @@ const PSARALicensePage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                     required
                   />
                 </div>
@@ -265,10 +233,19 @@ const PSARALicensePage = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${
+                      !isEmailValid(formData.email) && formData.email
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your email address"
                     required
                   />
+                  {!isEmailValid(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid email address
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -283,46 +260,19 @@ const PSARALicensePage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={`w-full px-4 py-2 border ${
+                      !isPhoneValid(formData.phone) && formData.phone
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                     placeholder="Enter your phone number"
                     required
                   />
-                </div>
-                <div>
-                  <label
-                    htmlFor="state"
-                    className="block text-gray-700 font-medium mb-1"
-                  >
-                    State Applying For
-                  </label>
-                  <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter the state where you are applying"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="employeeCount"
-                    className="block text-gray-700 font-medium mb-1"
-                  >
-                    Expected Number of Employees
-                  </label>
-                  <input
-                    type="number"
-                    id="employeeCount"
-                    name="employeeCount"
-                    value={formData.employeeCount}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter the expected number of employees"
-                    required
-                  />
+                  {!isPhoneValid(formData.phone) && formData.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid phone number
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label
@@ -338,7 +288,7 @@ const PSARALicensePage = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Tell us about your security agency and any specific requirements"
+                    placeholder="Tell us about what you want to trademark (name, logo, etc.)"
                     required
                   ></textarea>
                 </div>
@@ -346,7 +296,7 @@ const PSARALicensePage = () => {
                   type="submit"
                   className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                 >
-                  Submit License Inquiry
+                  Submit Registration Inquiry
                 </button>
               </form>
             </div>
@@ -357,72 +307,72 @@ const PSARALicensePage = () => {
         <section className="bg-gray-100 py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-              Our PSARA License Services
+              Our International Trademark Services
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                  <FaFileSignature className="h-8 w-8 text-blue-800" />
+                  <FaSearch className="h-8 w-8 text-blue-800" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
-                  Application Preparation
+                  Global Trademark Search
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Preparing all necessary documents and information for your
-                  PSARA license application.
+                  Ensuring your name or logo is unique and available for
+                  trademark registration in multiple countries.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Document collection
+                    International database search
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Application review
+                    Analysis of similar trademarks
                   </li>
                 </ul>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                  <FaBuilding className="h-8 w-8 text-blue-800" />
+                  <FaGlobe className="h-8 w-8 text-blue-800" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
-                  Liaison with Authorities
+                  Madrid Protocol Filing
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Communicating with the relevant authorities on your behalf to
-                  facilitate the licensing process.
+                  Preparing and submitting your international trademark
+                  application under the Madrid Protocol.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Follow-up with department
+                    Expert application drafting
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Addressing queries
+                    WIPO communication handling
                   </li>
                 </ul>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                 <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                  <FaGavel className="h-8 w-8 text-blue-800" />
+                  <FaShieldAlt className="h-8 w-8 text-blue-800" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">
-                  Compliance Assistance
+                  Global Trademark Monitoring
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Providing guidance and support to ensure your agency complies
-                  with all PSARA regulations.
+                  Protecting your registered trademark through monitoring and
+                  enforcement assistance worldwide.
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Regulatory updates
+                    International monitoring services
                   </li>
                   <li className="flex items-center">
                     <FaCheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                    Compliance audits
+                    Enforcement assistance
                   </li>
                 </ul>
               </div>
@@ -433,52 +383,91 @@ const PSARALicensePage = () => {
         {/* Process Section */}
         <section className="container mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Our PSARA License Process
+            International Trademark Registration Process
           </h2>
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-2">Document Collection</h3>
+              <h3 className="text-xl font-bold mb-2">Search & Clearance</h3>
               <p className="text-gray-600">
-                Gathering all necessary documents and information from you.
+                We conduct a thorough search to ensure the trademark is
+                available globally.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-2">Application Filing</h3>
+              <h3 className="text-xl font-bold mb-2">Application Prep</h3>
               <p className="text-gray-600">
-                Preparing and submitting your PSARA license application.
+                We prepare and file your international trademark application
+                under the Madrid Protocol.
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 3
               </div>
-              <h3 className="text-xl font-bold mb-2">Liaison</h3>
+              <h3 className="text-xl font-bold mb-2">WIPO Review</h3>
               <p className="text-gray-600">
-                Following up with the authorities and addressing any queries.
+                We handle all communications and potential objections from the
+                World Intellectual Property Organization (WIPO).
               </p>
             </div>
             <div className="md:w-1/4 p-4 flex flex-col items-center text-center">
               <div className="bg-blue-800 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mb-4">
                 4
               </div>
-              <h3 className="text-xl font-bold mb-2">License Issuance</h3>
+              <h3 className="text-xl font-bold mb-2">Trademark Secured</h3>
               <p className="text-gray-600">
-                Assisting you in obtaining your PSARA license.
+                We assist in securing and receiving your international trademark
+                registration certificate.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Footer Section (Add your footer here) */}
+        {/* Why Choose Us Section */}
+        <section className="bg-gray-100 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">
+              Why Choose Vastav for International Trademark Registration?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                <FaGlobe className="mx-auto h-12 w-12 text-blue-800 mb-4" />
+                <h3 className="text-xl font-bold mb-2">Global Expertise</h3>
+                <p className="text-gray-600">
+                  We specialize in international trademark registration under
+                  the Madrid Protocol.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                <FaCheckCircle className="mx-auto h-12 w-12 text-blue-800 mb-4" />
+                <h3 className="text-xl font-bold mb-2">
+                  Seamless Global Protection
+                </h3>
+                <p className="text-gray-600">
+                  Secure your brand in multiple countries with a single
+                  application.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 text-center">
+                <FaUser className="mx-auto h-12 w-12 text-blue-800 mb-4" />
+                <h3 className="text-xl font-bold mb-2">Tailored Solutions</h3>
+                <p className="text-gray-600">
+                  We provide customized solutions for your global trademark
+                  needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
 };
 
-export default PSARALicensePage;
+export default TrademarkRegistrationInternationalPage;

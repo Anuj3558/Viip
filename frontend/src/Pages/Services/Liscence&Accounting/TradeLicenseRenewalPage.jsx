@@ -101,7 +101,7 @@ const TradeLicenseRenewalPage = () => {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_URL}/api/trade-license-renewal`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/trade-license-renewal`,
         formData
       );
       console.log("Form submitted:", response.data);
