@@ -376,8 +376,8 @@ const trademarkIpSubMenu = {
     Fundraising: [
       { name: "Fundraising", link: "/fundraising" },
       { name: "Pitch Deck", link: "/pitch-deck" },
-      { name: "Business loan", link: "/patent-registration" },
-      { name: "DPR Service", link: "/patent-registration" },
+      { name: "Business loan", link: "/business-loan" },
+      { name: "DPR Service", link: "/drp-service" },
     ],
     NGO: [
       { name: "Section 8 Company", link: "/section-8-company" },
@@ -388,11 +388,13 @@ const trademarkIpSubMenu = {
       { name: "CSR-1 Filing", link: "/csr-1-filing" },
       { name: "Sec.80G & Sec.12A", link: "/sec-80g-sec-12a" },
       { name: "Darpan Registration", link: "/darpan-registration" },
-      { name: "FCRA Registration", link: "/fcra-registration" }
-   
+      { name: "FCRA Registration", link: "/fcra-registration" },
     ],
     Property: [
-      { name: "Property Title Verification", link: "/property-title-verification" },
+      {
+        name: "Property Title Verification",
+        link: "/property-title-verification",
+      },
       { name: "Property Registration", link: "/property-registration" },
       { name: "Rera Complaint", link: "/rera-complaint" },
       { name: "Gun License", link: "/gun-license" },
@@ -404,13 +406,15 @@ const trademarkIpSubMenu = {
       { name: "Court Marriage", link: "/court-marriage" },
       { name: "Mutual Divorce", link: "/mutual-divorce" },
       { name: "Divorce Alimony", link: "/divorce-alimony" },
-      { name: "Restitution of Conjugal Rights", link: "/restitution-conjugal-rights" },
+      {
+        name: "Restitution of Conjugal Rights",
+        link: "/restitution-conjugal-rights",
+      },
       { name: "Corporate Immigration", link: "/corporate-immigration" },
       { name: "Family Immigration", link: "/family-immigration" },
       { name: "College Immigration", link: "/college-immigration" },
-      { name: "Online Consumer Complaint", link: "/online-consumer-complaint" }
+      { name: "Online Consumer Complaint", link: "/online-consumer-complaint" },
     ],
-   
   };
   const documentationSubMenu = {
     "Free Legal Documents": [
@@ -864,14 +868,14 @@ const trademarkIpSubMenu = {
               <AnimatePresence>
                 {openDropdown === "documents" && (
                   <motion.div
-                    className="absolute mt-2 w-[400px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    className="absolute mt-2 left-0 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                     variants={dropdownVariants}
                   >
                     {/* Left Panel with Categories */}
-                    <div className="py-2 w-full max-h-[70vh] overflow-y-auto">
+                    <div className="py-2 w-2/5 border-r border-gray-100 max-h-[70vh] overflow-y-auto">
                       {Object.keys(documentationSubMenu).map((item, index) => (
                         <motion.a
                           key={index}
@@ -893,22 +897,22 @@ const trademarkIpSubMenu = {
                       ))}
                     </div>
 
-                    {/* Submenu with Single Column Layout */}
+                    {/* Right Panel with Two Column Layout */}
                     <AnimatePresence mode="wait">
                       {activeDocumentSubMenu &&
                         documentationSubMenu[activeDocumentSubMenu] && (
                           <motion.div
-                            className="py-2 w-full bg-gray-50 max-h-[70vh] overflow-y-auto"
-                            initial={{ opacity: 0, x: 10 }}
+                            className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
+                            initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 10 }}
+                            exit={{ opacity: 0, x: -10 }}
                             transition={{ duration: 0.2 }}
                             key={activeDocumentSubMenu}
                           >
                             <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0 bg-gray-50">
                               {activeDocumentSubMenu}
                             </div>
-                            <div>
+                            <div className="grid grid-cols-2 gap-x-4">
                               {documentationSubMenu[activeDocumentSubMenu].map(
                                 (subItem, index) => (
                                   <Link to={subItem.link} key={index}>
@@ -997,9 +1001,7 @@ const trademarkIpSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.licenses}
                 </span>
-                <span className="  text-sm min-w-full">
-                  Others
-                </span>
+                <span className="  text-sm min-w-full">Others</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
