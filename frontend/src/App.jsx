@@ -86,7 +86,36 @@ import TrademarkInfringementPage from "./Pages/Services/Trademark/Infringement/T
 import LogoDesignPage from "./Pages/Services/Trademark/DesignRegistration/LogoDesignPage";
 import DesignRegistrationPage from "./Pages/Services/Trademark/DesignRegistration/DesignRegistrationPage";
 import BISCertificationPage from "./Pages/Services/BussinessSetup/BISCertificationPage";
-import PitchDeckPage from "./Pages/Others/PitchDeckPage";
+import PitchDeckPage from "./Pages/Others/Fundraising/PitchDeckPage";
+import FundraisingPage from "./Pages/Others/Fundraising/FundraisingPage";
+import DPRServicePage from "./Pages/Others/Fundraising/DPRServicePage";
+import Section8CompanyPage from "./Pages/Others/NGO/Section8CompanyPage";
+import TrustRegistrationPage from "./Pages/Others/NGO/TrustRegistrationPage";
+import SocietyRegistrationPage from "./Pages/Others/NGO/SocietyRegistrationPage";
+import NGOCompliancePage from "./Pages/Others/NGO/NGOCompliancePage";
+import Section8CompliancePage from "./Pages/Others/NGO/Section8CompliancePage";
+import CSR1FilingPage from "./Pages/Others/NGO/CSR1FilingPage";
+import Section80G12APage from "./Pages/Others/NGO/Section80G12APage";
+import DarpanRegistrationPage from "./Pages/Others/NGO/DarpanRegistrationPage";
+import FCRARegistrationPage from "./Pages/Others/NGO/FCRARegistrationPage";
+import PropertyTitleVerificationPage from "./Pages/Others/Property/PropertyTitleVerificationPage";
+import PropertyRegistrationPage from "./Pages/Others/Property/PropertyRegistrationPage";
+import ReraComplaintPage from "./Pages/Others/Property/ReraComplaintPage";
+import GunLicensePage from "./Pages/Others/Property/GunLicensePage";
+import NameChangePage from "./Pages/Others/Property/NameChangePage";
+import ReligionChangePage from "./Pages/Others/Property/ReligionChangePage";
+import GenderChangePage from "./Pages/Others/Property/GenderChangePage";
+import OnlinePoliceComplaintPage from "./Pages/Others/Property/OnlinePoliceComplaintPage";
+import MarriageRegistrationPage from "./Pages/Others/Property/MarriageRegistrationPage";
+import CourtMarriagePage from "./Pages/Others/Property/CourtMarriagePage";
+import MutualDivorcePage from "./Pages/Others/Property/MutualDivorcePage";
+import DivorceAlimonyPage from "./Pages/Others/Property/DivorceAlimonyPage";
+import RestitutionOfConjugalRightsPage from "./Pages/Others/Property/RestitutionOfConjugalRightsPage";
+import CorporateImmigrationPage from "./Pages/Others/Property/CorporateImmigrationPage";
+import FamilyImmigrationPage from "./Pages/Others/Property/FamilyImmigrationPage";
+import CollegeImmigrationPage from "./Pages/Others/Property/CollegeImmigrationPage";
+import OnlineConsumerComplaintPage from "./Pages/Others/Property/OnlineConsumerComplaintPage";
+import BusinessLoanPage from "./Pages/Others/Fundraising/BusinessLoanPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -251,36 +280,39 @@ const AnimatedRoutes = () => {
               <CompanyNameChangePage />
             </PageTransition>
           }
-        /> <Route
-        path="/digital-signature-certificate"
-        element={
-          <PageTransition>
-            <DigitalSignatureCertificatePage />
-          </PageTransition>
-        }
-      /><Route
-      path="/IEC-importexportcode"
-      element={
-        <PageTransition>
-          <IECImportExportCodePage />
-        </PageTransition>
-      }
-    /><Route
-    path="/spiceboard-registration"
-    element={
-      <PageTransition>
-        <SpiceBoardRegistrationPage />
-      </PageTransition>
-    }
-  />
-  <Route
-    path="/udyam-registration"
-    element={
-      <PageTransition>
-        <UdyogAadharRegistrationPage />
-      </PageTransition>
-    }
-  />
+        />{" "}
+        <Route
+          path="/digital-signature-certificate"
+          element={
+            <PageTransition>
+              <DigitalSignatureCertificatePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/IEC-importexportcode"
+          element={
+            <PageTransition>
+              <IECImportExportCodePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/spiceboard-registration"
+          element={
+            <PageTransition>
+              <SpiceBoardRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/udyam-registration"
+          element={
+            <PageTransition>
+              <UdyogAadharRegistrationPage />
+            </PageTransition>
+          }
+        />
         <Route
           path="/trademark-registration"
           element={
@@ -288,28 +320,31 @@ const AnimatedRoutes = () => {
               <TrademarkRegistrationPage />
             </PageTransition>
           }
-        /><Route
-        path="/APEDA-RCMC"
-        element={
-          <PageTransition>
-            <APEDARCMCPage />
-          </PageTransition>
-        }
-      /><Route
-      path="/FIEO-registration"
-      element={
-        <PageTransition>
-          <FIEORegistrationPage />
-        </PageTransition>
-      }
-    /><Route
-    path="/hallmark-registration"
-    element={
-      <PageTransition>
-        <HallmarkRegistrationPage />
-      </PageTransition>
-    }
-  />
+        />
+        <Route
+          path="/APEDA-RCMC"
+          element={
+            <PageTransition>
+              <APEDARCMCPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/FIEO-registration"
+          element={
+            <PageTransition>
+              <FIEORegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/hallmark-registration"
+          element={
+            <PageTransition>
+              <HallmarkRegistrationPage />
+            </PageTransition>
+          }
+        />
         <Route
           path="/trademark-registration-individual"
           element={
@@ -461,14 +496,15 @@ const AnimatedRoutes = () => {
               <ESIRegistrationPage />
             </PageTransition>
           }
-        /><Route
-        path="/BIS-certification"
-        element={
-          <PageTransition>
-            <BISCertificationPage />
-          </PageTransition>
-        }
-      />
+        />
+        <Route
+          path="/BIS-certification"
+          element={
+            <PageTransition>
+              <BISCertificationPage />
+            </PageTransition>
+          }
+        />
         <Route
           path="/payroll-management-system"
           element={
@@ -477,7 +513,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route element={<ProtectedRoute />}>
+        <Route element={<ProtectedRoute />}>
           <Route
             path="/dashboard"
             element={
@@ -764,6 +800,238 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <PitchDeckPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/fundraising"
+          element={
+            <PageTransition>
+              <FundraisingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/drp-service"
+          element={
+            <PageTransition>
+              <DPRServicePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/business-loan"
+          element={
+            <PageTransition>
+              < BusinessLoanPage/>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/section-8-company"
+          element={
+            <PageTransition>
+              <Section8CompanyPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/trust-registration"
+          element={
+            <PageTransition>
+              <TrustRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/society-registration"
+          element={
+            <PageTransition>
+              <SocietyRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/ngo-compliance"
+          element={
+            <PageTransition>
+              <NGOCompliancePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/section-8-compliance"
+          element={
+            <PageTransition>
+              <Section8CompliancePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/csr-1-filing"
+          element={
+            <PageTransition>
+              <CSR1FilingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/sec-80g-sec-12a"
+          element={
+            <PageTransition>
+              <Section80G12APage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/darpan-registration"
+          element={
+            <PageTransition>
+              <DarpanRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/fcra-registration"
+          element={
+            <PageTransition>
+              <FCRARegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/property-title-verification"
+          element={
+            <PageTransition>
+              <PropertyTitleVerificationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/property-registration"
+          element={
+            <PageTransition>
+              <PropertyRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/rera-complaint"
+          element={
+            <PageTransition>
+              <ReraComplaintPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/gun-license"
+          element={
+            <PageTransition>
+              <GunLicensePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/name-change"
+          element={
+            <PageTransition>
+              <NameChangePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/religion-change"
+          element={
+            <PageTransition>
+              <ReligionChangePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/gender-change"
+          element={
+            <PageTransition>
+              <GenderChangePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/online-police-complaint"
+          element={
+            <PageTransition>
+              <OnlinePoliceComplaintPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/marriage-registration"
+          element={
+            <PageTransition>
+              <MarriageRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/court-marriage"
+          element={
+            <PageTransition>
+              <CourtMarriagePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/mutual-divorce"
+          element={
+            <PageTransition>
+              <MutualDivorcePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/divorce-alimony"
+          element={
+            <PageTransition>
+              <DivorceAlimonyPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/restitution-conjugal-rights"
+          element={
+            <PageTransition>
+              <RestitutionOfConjugalRightsPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/corporate-immigration"
+          element={
+            <PageTransition>
+              <CorporateImmigrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/family-immigration"
+          element={
+            <PageTransition>
+              <FamilyImmigrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/college-immigration"
+          element={
+            <PageTransition>
+              <CollegeImmigrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/online-consumer-complaint"
+          element={
+            <PageTransition>
+              <OnlineConsumerComplaintPage />
             </PageTransition>
           }
         />
