@@ -21,7 +21,13 @@ const Navbar = () => {
   const [activeBusinessSubMenu, setActiveBusinessSubMenu] = useState(null);
   const [activeLicenseSubMenu, setActiveLicenseSubMenu] = useState(null);
   const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState(null);
+  const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState(""); // Tracks the active submenu in "Documents"
+
+  
+
+  
   const dropdownRef = useRef(null);
+
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -163,6 +169,14 @@ const Navbar = () => {
       },
     ],
     licenses: ["Licenses", "Registrations", "ISO Certification"],
+    documents: [
+      "Free Legal Documents",
+      "Business Contracts",
+      "Personal & Family",
+      "Real Estate",
+      "Notices",
+      "HR Policies",
+    ],
     accounting: [
       { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
       { name: "Payroll Management System", link: "/payroll-management-system" },
@@ -339,6 +353,114 @@ const Navbar = () => {
         name: "Benefits Of ISO Certification",
         link: "/benefits-of-iso-certification",
       },
+    ],
+  };
+  const documentationSubMenu = {
+    "Free Legal Documents": [
+      { name: "All Legal Documents", link: "/documents" },
+      { name: "Rental Agreement", link: "/rental-agreement-download-format" },
+      {
+        name: "Commercial Rental Agreement",
+        link: "/commercial-rental-agreement",
+      },
+      { name: "Experience Letter", link: "/experience-letter-format" },
+      { name: "Appointment Letter", link: "/appointment-letter-format" },
+      { name: "Affidavit Format", link: "/affidavit-format-download" },
+      { name: "Power Of Attorney", link: "/power-of-attorney-format" },
+      {
+        name: "Income Certificate",
+        link: "/income-certificate-format-download",
+      },
+      {
+        name: "No Objection Certificate",
+        link: "/no-objection-certificate-noc-format-download",
+      },
+      { name: "Salary Slip", link: "/salary-slip-sample-download" },
+      {
+        name: "Resignation Letter",
+        link: "/resignation-letter-format-download",
+      },
+      {
+        name: "Legal Heir Certificate",
+        link: "/legal-heir-certificate-format-download",
+      },
+      { name: "Relieving Letter", link: "/relieving-letter-format" },
+      {
+        name: "Bonafide Certificate",
+        link: "/bonafide-certificate-format-download",
+      },
+      { name: "Partnership Deed", link: "/partnership-deed-format-download" },
+      { name: "Gst Invoice", link: "/gst-invoice-format" },
+      {
+        name: "Authorised Signatory In Gst",
+        link: "/authorised-signatory-in-gst",
+      },
+      { name: "Delivery Challan", link: "/delivery-challan-format" },
+      { name: "Offer Letter", link: "/offer-letter-format" },
+      {
+        name: "Consent Letter For Gst Registration",
+        link: "/consent-letter-for-gst-registration-format-download",
+      },
+      { name: "Rent Receipt", link: "/generate-free-rent-receipt" },
+    ],
+    "Business Contracts": [
+      {
+        name: "Non Disclosure Agreement NDA",
+        link: "/non-disclosure-agreement-nda",
+      },
+      { name: "Service Level Agreement", link: "/service-level-agreement" },
+      { name: "Franchise Agreement", link: "/franchise-agreement" },
+      { name: "Master Service Agreement", link: "/master-service-agreement" },
+      { name: "Shareholders Agreement", link: "/shareholders-agreement" },
+      { name: "Joint Venture Agreement", link: "/joint-venture-agreement" },
+      { name: "Founders Agreement", link: "/founders-agreement" },
+      { name: "Vendor Agreement", link: "/vendor-agreement" },
+      { name: "Consultancy Agreement", link: "/consultancy-agreement" },
+      {
+        name: "Memorandum of Understanding",
+        link: "/memorandum-of-understanding",
+      },
+      { name: "Succession Certificate", link: "/succession-certificate" },
+      { name: "Scope of Work Agreement", link: "/scope-of-work-agreement" },
+      { name: "Share Purchase Agreement", link: "/share-purchase-agreement" },
+      { name: "Relinquishment Deed", link: "/relinquishment-deed" },
+      { name: "Legal Heir Certificate", link: "/legal-heir-certificate" },
+      { name: "Trade License", link: "/trade-license" },
+      { name: "Noncompete Agreement", link: "/noncompete-agreement" },
+      { name: "Finance Agreement", link: "/finance-agreement" },
+      { name: "GDPR", link: "/gdpr" },
+    ],
+    "Personal & Family": [
+      { name: "Will Registration", link: "/will-registration" },
+      { name: "Probate of Will", link: "/probate-of-will" },
+      { name: "Power of Attorney", link: "/power-of-attorney" },
+    ],
+    "Real Estate": [
+      { name: "Rental Agreement", link: "/rental-agreement" },
+      { name: "Sale Deed", link: "/sale-deed" },
+      { name: "Gift Deed", link: "/gift-deed" },
+      { name: "Rental Tenant Notice", link: "/rental-tenant-notice" },
+    ],
+    Notices: [
+      { name: "Legal Notice", link: "/legal-notice" },
+      {
+        name: "Legal Notice for Money Recovery",
+        link: "/legal-notice-for-money-recovery",
+      },
+      {
+        name: "Legal Notice for recovery of dues",
+        link: "/legal-notice-for-recovery-of-dues",
+      },
+      { name: "Cheque Bounce Notice", link: "/cheque-bounce-notice" },
+      {
+        name: "Legal Notice Under Consumer Protection Act",
+        link: "/legal-notice-under-consumer-protection-act",
+      },
+    ],
+    "HR Policies": [
+      { name: "Employment Agreement", link: "/employment-agreement" },
+      { name: "ESOP", link: "/esop" },
+      { name: "Payroll Maintenance", link: "/payroll-maintenance" },
     ],
   };
 
@@ -727,6 +849,101 @@ const Navbar = () => {
                             </div>
                             <div className="grid grid-cols-2 gap-x-2">
                               {licenseSubMenu[activeLicenseSubMenu].map(
+                                (subItem, index) => (
+                                  <Link to={subItem.link} key={index}>
+                                    <motion.a
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
+                                      variants={linkVariants}
+                                      initial="initial"
+                                      whileHover="hover"
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      {subItem.name}
+                                    </motion.a>
+                                  </Link>
+                                )
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                    </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Documents Dropdown */}
+            <div className="relative">
+              <motion.button
+                onClick={() => toggleDropdown("documents")}
+                className={`flex items-center text-gray-700 mx-1 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                  openDropdown === "documents" ? "bg-blue-50 text-blue-900" : ""
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-1.5 text-blue-800">
+                  {menuIcons.documents}{" "}
+                  {/* Replace with your icon for Documents */}
+                </span>
+                <span className="text-sm min-w-full">Documents</span>
+                <motion.span
+                  animate={{ rotate: openDropdown === "documents" ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="ml-1"
+                >
+                  <ChevronDown size={16} />
+                </motion.span>
+              </motion.button>
+              <AnimatePresence>
+                {openDropdown === "documents" && (
+                  <motion.div
+                    className="absolute mt-2 w-[400px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={dropdownVariants}
+                  >
+                    {/* Left Panel with Categories */}
+                    <div className="py-2 w-full max-h-[70vh] overflow-y-auto">
+                      {Object.keys(documentationSubMenu).map((item, index) => (
+                        <motion.a
+                          key={index}
+                          href={`#${item.replace(/\s+/g, "")}`}
+                          className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition-colors ${
+                            activeDocumentSubMenu === item
+                              ? "bg-blue-50 text-blue-900 font-medium"
+                              : ""
+                          }`}
+                          onMouseEnter={() => setActiveDocumentSubMenu(item)}
+                          variants={itemVariants}
+                          whileHover="hover"
+                        >
+                          <span>{item}</span>
+                          {documentationSubMenu[item] && (
+                            <ChevronRight size={14} className="text-blue-600" />
+                          )}
+                        </motion.a>
+                      ))}
+                    </div>
+
+                    {/* Submenu with Single Column Layout */}
+                    <AnimatePresence mode="wait">
+                      {activeDocumentSubMenu &&
+                        documentationSubMenu[activeDocumentSubMenu] && (
+                          <motion.div
+                            className="py-2 w-full bg-gray-50 max-h-[70vh] overflow-y-auto"
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 10 }}
+                            transition={{ duration: 0.2 }}
+                            key={activeDocumentSubMenu}
+                          >
+                            <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0 bg-gray-50">
+                              {activeDocumentSubMenu}
+                            </div>
+                            <div>
+                              {documentationSubMenu[activeDocumentSubMenu].map(
                                 (subItem, index) => (
                                   <Link to={subItem.link} key={index}>
                                     <motion.a
