@@ -117,7 +117,6 @@ import CollegeImmigrationPage from "./Pages/Others/Property/CollegeImmigrationPa
 import OnlineConsumerComplaintPage from "./Pages/Others/Property/OnlineConsumerComplaintPage";
 import BusinessLoanPage from "./Pages/Others/Fundraising/BusinessLoanPage";
 
-import PitchDeckPage from "./Pages/Others/PitchDeckPage";
 import LiquorLicensePage from "./Pages/Services/BussinessSetup/LiquorLicensePage";
 import CLRARegistrationPage from "./Pages/Services/BussinessSetup/CLRARegistrationPage";
 import ADCodeRegistrationPage from "./Pages/Services/BussinessSetup/ADCodeRegistrationPage";
@@ -157,6 +156,16 @@ import SuccessionCertificatePage from "./Pages/Documents/Bussiness_docs/Successi
 import ScopeOfWorkAgreementPage from "./Pages/Documents/Bussiness_docs/ScopeOfWorkAgreementPage ";
 import SharePurchaseAgreementPage from "./Pages/Documents/Bussiness_docs/SharePurchaseAgreementPage ";
 import RelinquishmentDeedPage from "./Pages/Documents/Bussiness_docs/RelinquishmentDeedPage ";
+import TradeLicenseCertificatePage from "./Pages/Documents/Bussiness_docs/TradeLicenseCertificatePage ";
+import NonCompeteAgreementPage from "./Pages/Documents/Bussiness_docs/NonCompeteAgreementPage ";
+import FinanceAgreementPage from "./Pages/Documents/Bussiness_docs/FinanceAgreementPage";
+import GDPRPage from "./Pages/Documents/Bussiness_docs/GDPRPage ";
+import WillRegistrationPage from "./Pages/Documents/Family/WillRegistrationPage ";
+import ProbateOfWillPage from "./Pages/Documents/Family/ProbateOfWillPage ";
+import SaleDeedPage from "./Pages/Documents/Family/SaleDeedPage ";
+import GiftDeedPage from "./Pages/Documents/Family/formData";
+import RentalTenantNoticePage from "./Pages/Documents/Family/RentalTenantNoticePage ";
+import WebsiteEcommerceDevelopmentPage from "./Pages/Services/BussinessSetup/WebsiteEcommerceDevelopmentPage";
 
 
 
@@ -242,6 +251,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <LLPDesignatedPartnerChangePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/website-ecommerce-development"
+          element={
+            <PageTransition>
+              <WebsiteEcommerceDevelopmentPage />
             </PageTransition>
           }
         />
@@ -1128,9 +1145,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-            </PageTransition>
-          }
-        />
+            
 
         {/*Document Routes*/}
         <Route
@@ -1422,7 +1437,96 @@ const AnimatedRoutes = () => {
           </PageTransition>
         }
       /> 
+      <Route
+        path="/trade-license"
+        element={
+          <PageTransition>
+            <TradeLicenseCertificatePage    />
+          </PageTransition>
+        }
+      /> 
+      <Route
+        path="/noncompete-agreement"
+        element={
+          <PageTransition>
+            <NonCompeteAgreementPage    />
+          </PageTransition>
+        }
+      /> 
+        <Route
+        path="/finance-agreement"
+        element={
+          <PageTransition>
+            <FinanceAgreementPage    />
+          </PageTransition>
+        }
+      /> 
+      <Route
+        path="/gdpr"
+        element={
+          <PageTransition>
+            <GDPRPage    />
+          </PageTransition>
+        }
+      /> 
+      <Route
+        path="/will-registration"
+        element={
+          <PageTransition>
+            <WillRegistrationPage    />
+          </PageTransition>
+        }
+      /> 
+          <Route
+        path="/probate-of-will"
+        element={
+          <PageTransition>
+            <ProbateOfWillPage    />
+          </PageTransition>
+        }
+      /> 
+        <Route
+        path="/power-of-attorney"
+        element={
+          <PageTransition>
+            <PowerOfAttorneyPage    />
+          </PageTransition>
+        }
+      /> 
+        <Route
+        path="/rental-agreement"
+        element={
+          <PageTransition>
+            <RentalAgreementPage    />
+          </PageTransition>
+        }
+      /> 
+        <Route
+        path="/sale-deed"
+        element={
+          <PageTransition>
+            <SaleDeedPage    />
+          </PageTransition>
+        }
+      /> 
+       <Route
+        path="/gift-deed"
+        element={
+          <PageTransition>
+            <GiftDeedPage    />
+          </PageTransition>
+        }
+      /> 
+       <Route
+        path="/rental-tenant-notice"
+        element={
+          <PageTransition>
+            <RentalTenantNoticePage    />
+          </PageTransition>
+        }
+      /> 
       </Routes>
+      
     </AnimatePresence>
   );
 };

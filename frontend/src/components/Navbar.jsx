@@ -868,7 +868,7 @@ const trademarkIpSubMenu = {
               <AnimatePresence>
                 {openDropdown === "documents" && (
                   <motion.div
-                    className="absolute mt-2 left-0 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    className="absolute mt-2 left-[-20vh] w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
