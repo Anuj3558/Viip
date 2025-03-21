@@ -65,20 +65,6 @@ import CopyrightRegistrationPage from "./Pages/Services/Trademark/IpServices/Cop
 import PatentRegistrationPage from "./Pages/Services/Trademark/IpServices/PatentRegistrationPage";
 import LoginPage from "./Pages/Auth/Login";
 import ProtectedRoute from "./components/Protected";
-import TrademarkSearchPage from "./Pages/Services/Trademark/Trademark/TrademarkSearchPage";
-import WellKnownTrademarkPage from "./Pages/Services/Trademark/Trademark/WellKnownTrademarkPage";
-import TrademarkObjectionResponsePage from "./Pages/Services/Trademark/Trademark/TrademarkObjectionResponsePage";
-import TrademarkWatchPage from "./Pages/Services/Trademark/Trademark/TrademarkWatchPage";
-import TrademarkRenewal from "./Pages/Services/Trademark/Trademark/TrademarkRenewalPage";
-import TrademarkRegistrationUSAPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationUSAPage";
-import TrademarkRegistrationInternationalPage from "./Pages/Services/Trademark/Trademark/TrademarkRegistrationInternationalPage";
-import CopyrightMusicPage from "./Pages/Services/Trademark/Copyright/CopyrightMusicPage";
-import ProvisionalPatentApplicationPage from "./Pages/Services/Petent/ProvisionalPatentApplicationPage";
-import CopyrightInfringementPage from "./Pages/Services/Trademark/Infringement/CopyrightInfringementPage";
-import PatentInfringementPage from "./Pages/Services/Trademark/Infringement/PatentInfringementPage";
-import TrademarkInfringementPage from "./Pages/Services/Trademark/Infringement/TrademarkInfringementPage";
-import LogoDesignPage from "./Pages/Services/Trademark/DesignRegistration/LogoDesignPage";
-import DesignRegistrationPage from "./Pages/Services/Trademark/DesignRegistration/DesignRegistrationPage";
 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -137,6 +123,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <CompanyRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/MSME-registration"
+          element={
+            <PageTransition>
+              <MSMERegistrationPage />
             </PageTransition>
           }
         />
@@ -235,7 +229,36 @@ const AnimatedRoutes = () => {
               <CompanyNameChangePage />
             </PageTransition>
           }
-        />
+        /> <Route
+        path="/digital-signature-certificate"
+        element={
+          <PageTransition>
+            <DigitalSignatureCertificatePage />
+          </PageTransition>
+        }
+      /><Route
+      path="/IEC-importexportcode"
+      element={
+        <PageTransition>
+          <IECImportExportCodePage />
+        </PageTransition>
+      }
+    /><Route
+    path="/spiceboard-registration"
+    element={
+      <PageTransition>
+        <SpiceBoardRegistrationPage />
+      </PageTransition>
+    }
+  />
+  <Route
+    path="/udyam-registration"
+    element={
+      <PageTransition>
+        <UdyogAadharRegistrationPage />
+      </PageTransition>
+    }
+  />
         <Route
           path="/trademark-registration"
           element={
@@ -243,7 +266,28 @@ const AnimatedRoutes = () => {
               <TrademarkRegistrationPage />
             </PageTransition>
           }
-        />
+        /><Route
+        path="/APEDA-RCMC"
+        element={
+          <PageTransition>
+            <APEDARCMCPage />
+          </PageTransition>
+        }
+      /><Route
+      path="/FIEO-registration"
+      element={
+        <PageTransition>
+          <FIEORegistrationPage />
+        </PageTransition>
+      }
+    /><Route
+    path="/hallmark-registration"
+    element={
+      <PageTransition>
+        <HallmarkRegistrationPage />
+      </PageTransition>
+    }
+  />
         <Route
           path="/trademark-registration-individual"
           element={
@@ -395,7 +439,14 @@ const AnimatedRoutes = () => {
               <ESIRegistrationPage />
             </PageTransition>
           }
-        />
+        /><Route
+        path="/BIS-certification"
+        element={
+          <PageTransition>
+            <BISCertificationPage />
+          </PageTransition>
+        }
+      />
         <Route
           path="/payroll-management-system"
           element={
@@ -404,7 +455,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        <Route element={<ProtectedRoute />}>
+         <Route element={<ProtectedRoute />}>
           <Route
             path="/dashboard"
             element={
@@ -683,6 +734,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <IpPortfolioManagementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/pitch-deck"
+          element={
+            <PageTransition>
+              <PitchDeckPage />
             </PageTransition>
           }
         />
