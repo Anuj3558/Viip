@@ -117,6 +117,7 @@ import CollegeImmigrationPage from "./Pages/Others/Property/CollegeImmigrationPa
 import OnlineConsumerComplaintPage from "./Pages/Others/Property/OnlineConsumerComplaintPage";
 import BusinessLoanPage from "./Pages/Others/Fundraising/BusinessLoanPage";
 
+// import PitchDeckPage from "./Pages/Others/PitchDeckPage";
 import LiquorLicensePage from "./Pages/Services/BussinessSetup/LiquorLicensePage";
 import CLRARegistrationPage from "./Pages/Services/BussinessSetup/CLRARegistrationPage";
 import ADCodeRegistrationPage from "./Pages/Services/BussinessSetup/ADCodeRegistrationPage";
@@ -156,6 +157,14 @@ import SuccessionCertificatePage from "./Pages/Documents/Bussiness_docs/Successi
 import ScopeOfWorkAgreementPage from "./Pages/Documents/Bussiness_docs/ScopeOfWorkAgreementPage ";
 import SharePurchaseAgreementPage from "./Pages/Documents/Bussiness_docs/SharePurchaseAgreementPage ";
 import RelinquishmentDeedPage from "./Pages/Documents/Bussiness_docs/RelinquishmentDeedPage ";
+import LegalNoticePage from "./Pages/Documents/Notices/LegalNoticePage";
+import LegalNoticeMoneyRecoveryPage from "./Pages/Documents/Notices/LegalNoticeMoneyRecoveryPage";
+import LegalNoticeRecoveryOfDuesPage from "./Pages/Documents/Notices/LegalNoticeRecoveryOfDuesPage";
+import ChequeBounceNoticePage from "./Pages/Documents/Notices/ChequeBounceNoticePage";
+import LegalNoticeConsumerProtectionActPage from "./Pages/Documents/Notices/LegalNoticeConsumerProtectionActPage";
+import EmploymentAgreementPage from "./Pages/Documents/Notices/EmploymentAgreementPage";
+import PayrollMaintenancePage from "./Pages/Documents/Notices/PayrollMaintenancePage";
+import ESOPPage from "./Pages/Documents/Notices/ESOPPage";
 import TradeLicenseCertificatePage from "./Pages/Documents/Bussiness_docs/TradeLicenseCertificatePage ";
 import NonCompeteAgreementPage from "./Pages/Documents/Bussiness_docs/NonCompeteAgreementPage ";
 import FinanceAgreementPage from "./Pages/Documents/Bussiness_docs/FinanceAgreementPage";
@@ -486,7 +495,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/liquor-license"
           element={
             <PageTransition>
@@ -494,7 +503,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/CLRA-registration"
           element={
             <PageTransition>
@@ -502,27 +511,27 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/AD-code-registration"
           element={
             <PageTransition>
-              <ADCodeRegistrationPage  />
+              <ADCodeRegistrationPage />
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/IRDAI-registration"
           element={
             <PageTransition>
-              <IRDAIRegistrationPage  />
+              <IRDAIRegistrationPage />
             </PageTransition>
           }
         />
-         <Route
+        <Route
           path="/drugs-and-cosmetics-license"
           element={
             <PageTransition>
-              <DrugsAndCosmeticsLicensePage  />
+              <DrugsAndCosmeticsLicensePage />
             </PageTransition>
           }
         />
@@ -530,11 +539,10 @@ const AnimatedRoutes = () => {
           path="/customer-clearance"
           element={
             <PageTransition>
-              <CustomerClearancePage  />
+              <CustomerClearancePage />
             </PageTransition>
           }
         />
-
         <Route
           path="/copyright-music"
           element={
@@ -933,7 +941,7 @@ const AnimatedRoutes = () => {
           path="/business-loan"
           element={
             <PageTransition>
-              < BusinessLoanPage/>
+              <BusinessLoanPage />
             </PageTransition>
           }
         />
@@ -1152,7 +1160,7 @@ const AnimatedRoutes = () => {
           path="/documents"
           element={
             <PageTransition>
-              <LegalDocumentsPage  />
+              <LegalDocumentsPage />
             </PageTransition>
           }
         />
@@ -1160,7 +1168,7 @@ const AnimatedRoutes = () => {
           path="/rental-agreement-download-format"
           element={
             <PageTransition>
-              <RentalAgreementPage  />
+              <RentalAgreementPage />
             </PageTransition>
           }
         />
@@ -1168,268 +1176,338 @@ const AnimatedRoutes = () => {
           path="/commercial-rental-agreement"
           element={
             <PageTransition>
-              <CommercialRentalAgreementPage  />
+              <CommercialRentalAgreementPage />
             </PageTransition>
           }
-        /> 
+        />
         <Route
-        path="/experience-letter-format"
-        element={
-          <PageTransition>
-            <ExperienceLetterPage  />
-          </PageTransition>
-        }
-      />
+          path="/experience-letter-format"
+          element={
+            <PageTransition>
+              <ExperienceLetterPage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/appointment-letter-format"
-        element={
-          <PageTransition>
-            <AppointmentLetterPage  />
-          </PageTransition>
-        }
-      />
+          path="/appointment-letter-format"
+          element={
+            <PageTransition>
+              <AppointmentLetterPage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/affidavit-format-download"
-        element={
-          <PageTransition>
-            <AffidavitFormatPage  />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/power-of-attorney-format"
-        element={
-          <PageTransition>
-            <PowerOfAttorneyPage  />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/income-certificate-format-download"
-        element={
-          <PageTransition>
-            <IncomeCertificatePage  />
-          </PageTransition>
-        }
-      />
+          path="/affidavit-format-download"
+          element={
+            <PageTransition>
+              <AffidavitFormatPage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/no-objection-certificate-noc-format-download"
-        element={
-          <PageTransition>
-            <NoObjectionCertificatePage  />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/salary-slip-sample-download"
-        element={
-          <PageTransition>
-            <SalarySlipPage  />
-          </PageTransition>
-        }
-      />
-       <Route
-        path="/resignation-letter-format-download"
-        element={
-          <PageTransition>
-            <ResignationLetterPage  />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/legal-heir-certificate-format-download"
-        element={
-          <PageTransition>
-            <LegalHeirCertificatePage  />
-          </PageTransition>
-        }
-      />
+          path="/power-of-attorney-format"
+          element={
+            <PageTransition>
+              <PowerOfAttorneyPage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/relieving-letter-format"
-        element={
-          <PageTransition>
-            <RelievingLetterPage  />
-          </PageTransition>
-        }
-      />
+          path="/income-certificate-format-download"
+          element={
+            <PageTransition>
+              <IncomeCertificatePage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/bonafide-certificate-format-download"
-        element={
-          <PageTransition>
-            <BonafideCertificatePage  />
-          </PageTransition>
-        }
-      />
-         <Route
-        path="/gst-invoice-format"
-        element={
-          <PageTransition>
-            <GstInvoicePage  />
-          </PageTransition>
-        }
-      />
-       <Route
-        path="/authorised-signatory-in-gst"
-        element={
-          <PageTransition>
-            <AuthorizedSignatoryGstPage  />
-          </PageTransition>
-        }
-      />
-         <Route
-        path="/delivery-challan-format"
-        element={
-          <PageTransition>
-            <DeliveryChallanPage  />
-          </PageTransition>
-        }
-      />
-         <Route
-        path="/offer-letter-format"
-        element={
-          <PageTransition>
-            <OfferLetterPage  />
-          </PageTransition>
-        }
-      />
-           <Route
-        path="/consent-letter-for-gst-registration-format-download"
-        element={
-          <PageTransition>
-            <ConsentLetterGstRegistrationPage  />
-          </PageTransition>
-        }
-      />
-         <Route
-        path="/generate-free-rent-receipt"
-        element={
-          <PageTransition>
-            <RentReceiptPage  />
-          </PageTransition>
-        }
-      />
-      
-      <Route
-        path="/non-disclosure-agreement-nda"
-        element={
-          <PageTransition>
-            <NonDisclosureAgreementPage   />
-          </PageTransition>
-        }
-      />
-       <Route
-        path="/service-level-agreement"
-        element={
-          <PageTransition>
-            <ServiceLevelAgreementPage   />
-          </PageTransition>
-        }
-      />
-       <Route
-        path="/franchise-agreement"
-        element={
-          <PageTransition>
-            <FranchiseAgreementPage   />
-          </PageTransition>
-        }
-      />
+          path="/no-objection-certificate-noc-format-download"
+          element={
+            <PageTransition>
+              <NoObjectionCertificatePage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/master-service-agreement"
-        element={
-          <PageTransition>
-            <MasterServiceAgreementPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/shareholders-agreement"
-        element={
-          <PageTransition>
-            <ShareholdersAgreementPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/joint-venture-agreement"
-        element={
-          <PageTransition>
-            <JointVentureAgreementPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/founders-agreement"
-        element={
-          <PageTransition>
-            <FounderAgreementPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/vendor-agreement"
-        element={
-          <PageTransition>
-            <VendorAgreementPage   />
-          </PageTransition>
-        }
-      />
+          path="/salary-slip-sample-download"
+          element={
+            <PageTransition>
+              <SalarySlipPage />
+            </PageTransition>
+          }
+        />
         <Route
-        path="/consultancy-agreement"
-        element={
-          <PageTransition>
-            <ConsultancyAgreementPage   />
-          </PageTransition>
-        }
-      />
-       <Route
-        path="/partnership-deed-drafting"
-        element={
-          <PageTransition>
-            <PartnershipDeedDraftingPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/memorandum-of-understanding"
-        element={
-          <PageTransition>
-            <MOUDraftingPage   />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/succession-certificate"
-        element={
-          <PageTransition>
-            <SuccessionCertificatePage    />
-          </PageTransition>
-        }
-      />
-      <Route
-        path="/scope-of-work-agreement"
-        element={
-          <PageTransition>
-            <ScopeOfWorkAgreementPage    />
-          </PageTransition>
-        }
-      />  
-       <Route
-        path="/share-purchase-agreement"
-        element={
-          <PageTransition>
-            <SharePurchaseAgreementPage    />
-          </PageTransition>
-        }
-      />  
-      <Route
-        path="/relinquishment-deed"
-        element={
-          <PageTransition>
-            <RelinquishmentDeedPage    />
-          </PageTransition>
-        }
-      /> 
+          path="/resignation-letter-format-download"
+          element={
+            <PageTransition>
+              <ResignationLetterPage />
+            </PageTransition>
+          }
+        />
         <Route
+          path="/legal-heir-certificate-format-download"
+          element={
+            <PageTransition>
+              <LegalHeirCertificatePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/relieving-letter-format"
+          element={
+            <PageTransition>
+              <RelievingLetterPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/bonafide-certificate-format-download"
+          element={
+            <PageTransition>
+              <BonafideCertificatePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/gst-invoice-format"
+          element={
+            <PageTransition>
+              <GstInvoicePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/authorised-signatory-in-gst"
+          element={
+            <PageTransition>
+              <AuthorizedSignatoryGstPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/delivery-challan-format"
+          element={
+            <PageTransition>
+              <DeliveryChallanPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/offer-letter-format"
+          element={
+            <PageTransition>
+              <OfferLetterPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/consent-letter-for-gst-registration-format-download"
+          element={
+            <PageTransition>
+              <ConsentLetterGstRegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/generate-free-rent-receipt"
+          element={
+            <PageTransition>
+              <RentReceiptPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/non-disclosure-agreement-nda"
+          element={
+            <PageTransition>
+              <NonDisclosureAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/service-level-agreement"
+          element={
+            <PageTransition>
+              <ServiceLevelAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/franchise-agreement"
+          element={
+            <PageTransition>
+              <FranchiseAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/master-service-agreement"
+          element={
+            <PageTransition>
+              <MasterServiceAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/shareholders-agreement"
+          element={
+            <PageTransition>
+              <ShareholdersAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/joint-venture-agreement"
+          element={
+            <PageTransition>
+              <JointVentureAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/founders-agreement"
+          element={
+            <PageTransition>
+              <FounderAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/vendor-agreement"
+          element={
+            <PageTransition>
+              <VendorAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/consultancy-agreement"
+          element={
+            <PageTransition>
+              <ConsultancyAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/partnership-deed-drafting"
+          element={
+            <PageTransition>
+              <PartnershipDeedDraftingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/memorandum-of-understanding"
+          element={
+            <PageTransition>
+              <MOUDraftingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/succession-certificate"
+          element={
+            <PageTransition>
+              <SuccessionCertificatePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/scope-of-work-agreement"
+          element={
+            <PageTransition>
+              <ScopeOfWorkAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/share-purchase-agreement"
+          element={
+            <PageTransition>
+              <SharePurchaseAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/relinquishment-deed"
+          element={
+            <PageTransition>
+              <RelinquishmentDeedPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-heir-certificate"
+          element={
+            <PageTransition>
+              <LegalHeirCertificatePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-notice"
+          element={
+            <PageTransition>
+              <LegalNoticePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-notice-for-money-recovery"
+          element={
+            <PageTransition>
+              <LegalNoticeMoneyRecoveryPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-notice-for-recovery-of-dues"
+          element={
+            <PageTransition>
+              <LegalNoticeRecoveryOfDuesPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/cheque-bounce-notice"
+          element={
+            <PageTransition>
+              <ChequeBounceNoticePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/legal-notice-under-consumer-protection-act"
+          element={
+            <PageTransition>
+              <LegalNoticeConsumerProtectionActPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/employment-agreement"
+          element={
+            <PageTransition>
+              <EmploymentAgreementPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/payroll-maintenance"
+          element={
+            <PageTransition>
+              <PayrollMaintenancePage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/esop"
+          element={
+            <PageTransition>
+              <ESOPPage />
+            </PageTransition>
+          }
+        />
         path="/legal-heir-certificate"
         element={
           <PageTransition>
