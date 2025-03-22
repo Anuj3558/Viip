@@ -140,6 +140,40 @@ const SubmissionsTable = ({
 
      "Logo Design": "design/logo_design_inquiry",
      "Design Registration": "design/design_registration_inquiry",
+
+     //others
+     Fundraising: "others/fundraising",
+     "Pitch Deck": "others/pitch_deck",
+     "Business loan": "others/business_loan_inquiry",
+     "DPR Service": "others/dpr_service_inquiry",
+     "Section 8 Company": "others/section_8_company_inquiry",
+     "Trust Registration": "others/trust_registration_inquiry",
+     "Society Registration": "others/society_registration_inquiry",
+     "NGO Compliance": "others/ngo_compliance_inquiry",
+     "Section 8 Compliance": "others/section8_compliance_inquiry",
+     "CSR-1 Filing": "others/csr1_filing_inquiry",
+     "Sec.80G & Sec.12A": "others/section80g_12a_inquiry",
+     "Darpan Registration": "others/darpan_registration_inquiry",
+     "FCRA Registration": "others/fcra_registration_inquiry",
+     "Property Title Verification":
+       "others/property_title_verification_inquiry",
+     "Property Registration": "others/property_registration_inquiry",
+     "Rera Complaint": "others/rera_complaint_inquiry",
+     "Gun License": "others/gun_license_inquiry",
+     "Name Change": "others/name_change_inquiry",
+     "Religion Change": "others/religion_change_inquiry",
+     "Gender Change": "others/gender_change_inquiry",
+     "Online Police Complaint": "others/online_police_complaint_inquiry",
+     "Marriage Registration": "others/marriage_registration_inquiry",
+     "Court Marriage": "others/court_marriage_inquiry",
+     "Mutual Divorce": "others/mutual_divorce_inquiry",
+     "Divorce Alimony": "others/divorce_alimony_inquiry",
+     "Restitution of Conjugal Rights":
+       "others/restitution_of_conjugal_rights_inquiry",
+     "Corporate Immigration": "others/corporate_immigration_inquiry",
+     "Family Immigration": "others/family_immigration_inquiry",
+     "College Immigration": "others/college_immigration_inquiry",
+     "Online Consumer Complaint": "others/online_consumer_complaint_inquiry",
    };
 
   // Fetch submissions when selectedService changes

@@ -1,5 +1,8 @@
 import express from 'express';
-import { HandleOthers } from '../controller/OtherController.js';
+import {
+  HandleOthers,
+  getOthersByType,
+} from "../controller/OtherController.js";
 
 
 
@@ -36,5 +39,8 @@ OtherRouter.post("/restitution-of-conjugal-rights",HandleOthers)
 OtherRouter.post("/online-police-complaint",HandleOthers)
 OtherRouter.post("/rera-complaint",HandleOthers)
 OtherRouter.post("/religion-change",HandleOthers)
+
+
+OtherRouter.get("/:type",getOthersByType)
 
 export default OtherRouter;

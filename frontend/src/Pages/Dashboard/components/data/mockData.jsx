@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, Briefcase, FileText, DollarSign, Home, Heart, Clipboard, Users } from "lucide-react";
+import { Award, Briefcase, FileText, DollarSign, Home, Heart, Clipboard, Users, MoreHorizontal } from "lucide-react";
 
 // Submenu data
 const expertSubMenu = {
@@ -188,6 +188,40 @@ const legalDocumentsSubMenu = {
   ],
 };
 
+const otherSubMenu = {
+  Fundraising: ["Fundraising", "Pitch Deck", "Business loan", "DPR Service"],
+  NGO: [
+    "Section 8 Company",
+    "Trust Registration",
+    "Society Registration",
+    "NGO Compliance",
+    "Section 8 Compliance",
+    "CSR-1 Filing",
+    "Sec.80G & Sec.12A",
+    "Darpan Registration",
+    "FCRA Registration",
+  ],
+  Property: [
+    "Property Title Verification",
+    "Property Registration",
+    "Rera Complaint",
+    "Gun License",
+    "Name Change",
+    "Religion Change",
+    "Gender Change",
+    "Online Police Complaint",
+    "Marriage Registration",
+    "Court Marriage",
+    "Mutual Divorce",
+    "Divorce Alimony",
+    "Restitution of Conjugal Rights",
+    "Corporate Immigration",
+    "Family Immigration",
+    "College Immigration",
+    "Online Consumer Complaint",
+  ],
+};
+
 // Menu items with icons and submenus
 export const menuItems = {
   expert: {
@@ -212,6 +246,12 @@ export const menuItems = {
     title: "Legal Documents",
     subItems: legalDocumentsSubMenu,
   },
+
+  other: {
+    icon: <MoreHorizontal size={20} />,
+    title: "Other Services",
+    subItems: otherSubMenu,
+  }
 };
 
 // Mock submissions (empty for now)
