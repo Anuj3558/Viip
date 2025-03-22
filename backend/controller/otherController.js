@@ -45,11 +45,27 @@ const HandleOthers = async (req, res) => {
   }
 };
 
+const getOthersByType = async (req, res) => {
+  try {
+    const { type } = req.params;
+
+    const others = await OthersModel.find({ type });
+
+    res.status(200).json({
+      success: true,
+      message: 'Others retrieved successfully',
+      data: others
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+
 
 // Named exports using ES6 module syntax
-export { 
-    HandleOthers, 
-};
+export { HandleOthers, getOthersByType };
 
 // Optional default export
 // export default { HandleCompanyRegistration, HandleLLPFilingInquiry };
