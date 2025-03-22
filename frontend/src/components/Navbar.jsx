@@ -318,21 +318,18 @@ const trademarkIpSubMenu = {
       link: "/trademark-registration-individual",
     },
     { name: "Trademark Assignment", link: "/trademark-assignment" },
-    { name: "Trademark Search", link: "/trademark-search" },
     { name: "Respond to TM Objection", link: "/respond-to-tm-objection" },
     { name: "Well Known Trademark", link: "/well-known-trademark" },
     { name: "Trademark Watch", link: "/trademark-watch" },
     { name: "Trademark Renewal", link: "/trademark-renewal" },
     { name: "USA Trademark", link: "/usa-trademark" },
     { name: "International Trademark", link: "/international-trademark" },
-    { name: "Trademark Class Finder", link: "/trademark-class-finder" },
   ],
   Copyright: [
     { name: "Copyright Registration", link: "/copyright-registration" },
     { name: "Copyright Music", link: "/copyright-music" },
   ],
   Patent: [
-    { name: "Indian Patent Search", link: "/indian-patent-search" },
     {
       name: "Provisional Patent Application",
       link: "/provisional-patent-application",

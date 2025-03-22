@@ -1,101 +1,91 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { FaSearch, FaShieldAlt, FaGlobe, FaCheckCircle, FaUserTie, FaClock, FaChartLine } from "react-icons/fa";
+import {
+  FaSearch,
+  FaShieldAlt,
+  FaGlobe,
+  FaCheckCircle,
+  FaUserTie,
+  FaClock,
+  FaChartLine,
+} from "react-icons/fa";
+import Notification from "../../../../components/NOtification";
 
 const TrademarkWatchPage = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     phone: "",
     message: "",
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [notification, setNotification] = useState(null);
-
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-
-  const validatePhone = (phone) => {
-    const re = /^[0-9]{10}$/;
-    return re.test(phone);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
-
-    // Clear errors when user types
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: null,
-      });
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!validatePhone(formData.phone)) {
-      newErrors.phone = "Please enter a valid 10-digit phone number";
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
+    const dataToSend = {
+      ...formData,
+      route: "/trademark-watch",
+      type: "trademark_watch_inquiry",
+    };
 
     try {
-      // API call would go here
-      setTimeout(() => {
-        showSuccessNotification();
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/trademark-ip `,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Form submitted successfully!");
         setFormData({
-          fullName: "",
+          name: "",
           email: "",
           phone: "",
           message: "",
         });
-        setIsSubmitting(false);
-      }, 1000);
+        showSuccessNotification();
+      } else {
+        console.error("Form submission failed:", response.status);
+        showErrorNotification("Form submission failed. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
-      showErrorNotification("An error occurred while submitting your inquiry.");
-      setIsSubmitting(false);
+      showErrorNotification(
+        "An error occurred while submitting the form. Please try again."
+      );
     }
+  };
+
+  const isPhoneValid = (phone) => {
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return phone === "" || phoneRegex.test(phone);
+  };
+
+  const isEmailValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === "" || emailRegex.test(email);
   };
 
   const showSuccessNotification = () => {
     setNotification({
       type: "success",
       message: "Success",
-      description:
-        "Your inquiry has been submitted successfully! We'll get back to you soon.",
+      description: "Form submitted successfully!",
     });
   };
 
@@ -112,54 +102,19 @@ const TrademarkWatchPage = () => {
   };
 
   useEffect(() => {
-    if (notification && notification.type === "success") {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (notification && notification.type === "success") {
         closeNotification();
-      }, 3000);
+      }
+    }, 4500);
 
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, [notification]);
-
-  // Custom Notification component
-  const Notification = ({ type, message, description, onClose }) => (
-    <div
-      className={`fixed top-4 right-4 p-4 rounded-md shadow-lg ${
-        type === "success"
-          ? "bg-green-50 border-green-500"
-          : "bg-red-50 border-red-500"
-      } border-l-4 z-50`}
-    >
-      <div className="flex justify-between">
-        <div>
-          <h3
-            className={`font-bold ${
-              type === "success" ? "text-green-800" : "text-red-800"
-            }`}
-          >
-            {message}
-          </h3>
-          <p className="text-sm">{description}</p>
-        </div>
-        <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-          &times;
-        </button>
-      </div>
-    </div>
-  );
 
   return (
     <>
-      {notification && (
-        <Notification
-          type={notification.type}
-          message={notification.message}
-          description={notification.description}
-          onClose={closeNotification}
-        />
-      )}
       <Helmet>
-        <title>Trademark Watch | Vastav Intellect IP Solutions</title>
+        <title>Trademark Watch | Vastav Intellect and IP Solutions</title>
         <meta
           name="description"
           content="Protect your brand with our comprehensive trademark monitoring service. Get real-time alerts on similar trademark filings and potential infringements."
@@ -168,35 +123,31 @@ const TrademarkWatchPage = () => {
           name="keywords"
           content="trademark watch, trademark monitoring, intellectual property, Vastav Intellect, IP Solutions, India, brand protection"
         />
+        <link rel="canonical" href="YOUR_CANONICAL_URL_HERE" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
+        {notification && (
+          <Notification
+            type={notification.type}
+            message={notification.message}
+            description={notification.description}
+            onClose={closeNotification}
+          />
+        )}
+
         {/* Main Trademark Watch Section */}
         <section className="container mx-auto px-4 py-16">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">
               <h2 className="text-3xl font-bold text-blue-800">
-                Trademark Watch Service
+                Trademark Watch Services
               </h2>
               <p className="text-lg text-gray-700">
                 Protect your brand by monitoring new trademark applications that
                 could infringe on your intellectual property rights.
               </p>
-
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                <h3 className="font-bold text-blue-800 text-xl mb-2">
-                  What is a Trademark Monitoring Service?
-                </h3>
-                <p className="text-gray-700">
-                  Registering a trademark is the first step towards protecting
-                  your brand name. To ensure you have full control over it, you
-                  must keep a close watch on all probable attempts by other
-                  businesses and individuals to register similar trademarks,
-                  even if they are related to other domains.
-                </p>
-              </div>
-
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-2 rounded-full mr-3">
@@ -249,30 +200,27 @@ const TrademarkWatchPage = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
-                    htmlFor="fullName"
-                    className="block text-gray-700 mb-1"
+                    htmlFor="name"
+                    className="block text-gray-700 font-medium mb-1"
                   >
                     Full Name
                   </label>
                   <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${
-                      errors.fullName ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your full name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your full name"
+                    required
                   />
-                  {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.fullName}
-                    </p>
-                  )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Email Address
                   </label>
                   <input
@@ -282,16 +230,24 @@ const TrademarkWatchPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.email ? "border-red-500" : "border-gray-300"
+                      !isEmailValid(formData.email) && formData.email
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your email address"
+                    placeholder="Enter your email address"
+                    required
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  {!isEmailValid(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid email address
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -301,17 +257,25 @@ const TrademarkWatchPage = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
+                      !isPhoneValid(formData.phone) && formData.phone
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your 10-digit phone number"
+                    placeholder="Enter your phone number"
+                    required
                   />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  {!isPhoneValid(formData.phone) && formData.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid phone number
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 mb-1">
-                    Tell us about your trademark
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
+                    Message
                   </label>
                   <textarea
                     id="message"
@@ -319,30 +283,23 @@ const TrademarkWatchPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className={`w-full px-4 py-2 border ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Please provide details about your trademark and monitoring requirements"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Describe your requirements"
+                    required
                   ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.message}
-                    </p>
-                  )}
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-800 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center"
-                  disabled={isSubmitting}
+                  className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                  Submit Inquiry
                 </button>
               </form>
             </div>
           </div>
         </section>
 
-        {/* Types of Trademark Watch */}
+        {/* Services Section */}
         <section className="bg-gray-100 py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
@@ -426,103 +383,6 @@ const TrademarkWatchPage = () => {
                     Action plan development
                   </li>
                 </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-              Digital Trademark Monitoring - Step By Step Process
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">
-                    1
-                  </div>
-                  <h3 className="text-xl font-bold">Consultation</h3>
-                </div>
-                <p className="text-gray-600">
-                  You discuss your business and brand with our lawyers. The
-                  lawyers recommend the variations on your brand name that need
-                  to be tracked.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">
-                    2
-                  </div>
-                  <h3 className="text-xl font-bold">Database Monitoring</h3>
-                </div>
-                <p className="text-gray-600">
-                  We have access to the database of all trademark filings across
-                  industries. We keep a watch on all new filings and capture the
-                  mention of similar or identical brands.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-b old mr-3">
-                    3
-                  </div>
-                  <h3 className="text-xl font-bold">Reporting</h3>
-                </div>
-                <p className="text-gray-600">
-                  We provide you with a detailed report of all the trademark
-                  filings that are similar to your brand. You can take
-                  appropriate action based on the report.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-16 bg-gray-100">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">
-              Benefits of Trademark Watch
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">
-                    1
-                  </div>
-                  <h3 className="text-xl font-bold">Early Detection</h3>
-                </div>
-                <p className="text-gray-600">
-                  Identify potential infringements before they become a threat
-                  to your brand.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">
-                    2
-                  </div>
-                  <h3 className="text-xl font-bold">Legal Protection</h3>
-                </div>
-                <p className="text-gray-600">
-                  Gain legal protection by taking prompt action against
-                  potential trademark infringements.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">
-                    3
-                  </div>
-                  <h3 className="text-xl font-bold">Brand Integrity</h3>
-                </div>
-                <p className="text-gray-600">
-                  Maintain the integrity and reputation of your brand by
-                  preventing unauthorized use.
-                </p>
               </div>
             </div>
           </div>
