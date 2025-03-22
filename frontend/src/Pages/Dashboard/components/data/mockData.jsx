@@ -187,7 +187,7 @@ const legalDocumentsSubMenu = {
     "Payroll Maintenance",
   ],
 };
-
+//added other submenu
 const otherSubMenu = {
   Fundraising: ["Fundraising", "Pitch Deck", "Business loan", "DPR Service"],
   NGO: [
