@@ -33,7 +33,7 @@ const OnlinePoliceComplaintPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/online-police-complaint`,
+        }/others/online-police-complaint`,
         {
           method: "POST",
           headers: {

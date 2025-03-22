@@ -66,7 +66,7 @@ const BonafideCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/educational/bonafide-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/bonafide-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

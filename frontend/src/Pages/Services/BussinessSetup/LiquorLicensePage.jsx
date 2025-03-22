@@ -66,7 +66,7 @@ const LiquorLicensePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/liquor-license`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/liquor-license`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -66,7 +66,7 @@ const GiftDeedPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/property/gift-deed`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/gift-deed`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

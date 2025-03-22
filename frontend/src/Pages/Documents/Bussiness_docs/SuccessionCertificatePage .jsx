@@ -66,7 +66,7 @@ const SuccessionCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/succession-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/succession-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

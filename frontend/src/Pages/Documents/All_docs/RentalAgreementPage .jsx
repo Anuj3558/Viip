@@ -66,7 +66,7 @@ const RentalAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/rental-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/rental-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

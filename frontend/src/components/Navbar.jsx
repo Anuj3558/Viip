@@ -332,7 +332,6 @@ const trademarkIpSubMenu = {
     { name: "Copyright Music", link: "/copyright-music" },
   ],
   Patent: [
-    { name: "Indian Patent Search", link: "/indian-patent-search" },
     {
       name: "Provisional Patent Application",
       link: "/provisional-patent-application",

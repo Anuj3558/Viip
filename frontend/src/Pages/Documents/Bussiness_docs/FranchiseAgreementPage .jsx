@@ -66,7 +66,7 @@ const FranchiseAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business/franchise-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/franchise-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

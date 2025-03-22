@@ -66,7 +66,7 @@ const APEDARCMCPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/apeda-rcmc`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/apeda-rcmc`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

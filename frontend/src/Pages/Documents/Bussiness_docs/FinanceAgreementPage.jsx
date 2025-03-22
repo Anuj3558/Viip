@@ -66,7 +66,7 @@ const FinanceAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/financial/finance-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/finance-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

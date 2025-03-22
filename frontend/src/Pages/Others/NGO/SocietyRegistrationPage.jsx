@@ -31,7 +31,7 @@ const SocietyRegistrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/society-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/society-registration`,
         {
           method: "POST",
           headers: {

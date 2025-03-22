@@ -66,7 +66,7 @@ const AuthorizedSignatoryGstPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/gst/authorized-signatory`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/authorized-signatory`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

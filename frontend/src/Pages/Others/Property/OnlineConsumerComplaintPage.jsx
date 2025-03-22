@@ -33,7 +33,7 @@ const OnlineConsumerComplaintPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/online-consumer-complaint`,
+        }/others/online-consumer-complaint`,
         {
           method: "POST",
           headers: {

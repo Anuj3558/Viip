@@ -66,7 +66,7 @@ const RentalTenantNoticePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/property/rental-tenant-notice`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/rental-tenant-notice`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

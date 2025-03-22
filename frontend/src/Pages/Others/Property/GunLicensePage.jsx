@@ -31,7 +31,7 @@ const GunLicensePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/gun-license`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/gun-license`,
         {
           method: "POST",
           headers: {

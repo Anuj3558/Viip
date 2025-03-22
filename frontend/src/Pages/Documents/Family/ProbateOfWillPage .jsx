@@ -66,7 +66,7 @@ const ProbateOfWillPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/probate-of-will`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/probate-of-will`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

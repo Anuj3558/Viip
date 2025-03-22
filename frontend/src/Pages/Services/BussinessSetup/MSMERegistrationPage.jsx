@@ -66,7 +66,7 @@ const MSMERegistrationPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/msme-registration`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/msme-registration`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

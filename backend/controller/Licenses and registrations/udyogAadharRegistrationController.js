@@ -3,6 +3,7 @@ import UdyogAadharRegistration from "../../models/Licenses and registrations/udy
 export const createUdyogAadharRegistration = async (req, res) => {
   try {
     const newRegistration = new UdyogAadharRegistration(req.body);
+    
     await newRegistration.save();
     res.status(201).json({
       success: true,

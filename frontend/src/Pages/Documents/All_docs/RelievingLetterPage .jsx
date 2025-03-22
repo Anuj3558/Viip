@@ -66,7 +66,7 @@ const RelievingLetterPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/hr/relieving-letter`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/relieving-letter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

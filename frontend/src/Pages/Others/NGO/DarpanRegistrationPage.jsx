@@ -31,7 +31,7 @@ const DarpanRegistrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/darpan-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/darpan-registration`,
         {
           method: "POST",
           headers: {

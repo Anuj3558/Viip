@@ -31,7 +31,7 @@ const CollegeImmigrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/college-immigration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/college-immigration`,
         {
           method: "POST",
           headers: {

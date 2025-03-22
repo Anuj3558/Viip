@@ -31,7 +31,7 @@ const TrustRegistrationPage = () => {
     try {
       // Send data to backend API
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/trust-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/trust-registration`,
         {
           method: "POST",
           headers: {

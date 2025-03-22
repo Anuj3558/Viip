@@ -66,7 +66,7 @@ const MasterServiceAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/master-service-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/master-service-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

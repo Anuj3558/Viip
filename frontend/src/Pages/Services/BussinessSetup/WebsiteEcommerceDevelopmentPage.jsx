@@ -66,7 +66,7 @@ const WebsiteEcommerceDevelopmentPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/website-ecommerce-development`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/website-ecommerce-development`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

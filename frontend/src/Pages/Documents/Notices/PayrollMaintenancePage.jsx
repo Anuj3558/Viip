@@ -31,7 +31,7 @@ const PayrollMaintenancePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/payroll-maintenance`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/document/payroll-maintenance`,
         {
           method: "POST",
           headers: {

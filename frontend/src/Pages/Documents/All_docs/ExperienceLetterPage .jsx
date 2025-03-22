@@ -66,7 +66,7 @@ const ExperienceLetterPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/experience-letter`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/experience-letter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

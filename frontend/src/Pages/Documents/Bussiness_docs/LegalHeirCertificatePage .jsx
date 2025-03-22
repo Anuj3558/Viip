@@ -66,7 +66,7 @@ const LegalHeirCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/legal-heir-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/legal-heir-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -31,7 +31,7 @@ const DivorceAlimonyPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/divorce-alimony`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/divorce-alimony`,
         {
           method: "POST",
           headers: {

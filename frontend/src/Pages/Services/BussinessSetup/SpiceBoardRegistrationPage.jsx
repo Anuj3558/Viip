@@ -66,7 +66,7 @@ const SpiceBoardRegistrationPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/spice-board-registration`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/spice-board-registration`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

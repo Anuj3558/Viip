@@ -35,7 +35,7 @@ const NGOCompliancePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/ngo-compliance`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/ngo-compliance`,
         {
           method: "POST",
           headers: {

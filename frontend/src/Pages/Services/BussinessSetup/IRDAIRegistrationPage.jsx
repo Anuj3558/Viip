@@ -66,7 +66,7 @@ const IRDAIRegistrationPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/irdai-registration`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/irdai-registration`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

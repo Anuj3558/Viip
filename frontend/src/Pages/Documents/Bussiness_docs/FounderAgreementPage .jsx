@@ -66,7 +66,7 @@ const FounderAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/corporate/founder-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/founder-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

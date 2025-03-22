@@ -23,6 +23,8 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 import connectDB from "./connection.js";
+import DocumentRouer from "./router/DocumentRouter.js";
+import OtherRouter from "./router/OtherRouter.js";
 dotenv.config();
 const app = express();
 
@@ -108,5 +110,6 @@ app.use("/bussiness-setup", BussinessSetupRouter);
 app.use("/trademark-ip", TrademarkRouter);
 app.use("/accounting", ITRRouter);
 app.use("/expert", ConsultsExpertRouter);
-
+app.use("/document",DocumentRouer)
+app.use("/others",OtherRouter)
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

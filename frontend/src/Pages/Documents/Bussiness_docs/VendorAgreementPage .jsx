@@ -66,7 +66,7 @@ const VendorAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/procurement/vendor-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/vendor-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

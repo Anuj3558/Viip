@@ -66,7 +66,7 @@ const RentReceiptPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/property/rent-receipt`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/rent-receipt`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -66,7 +66,7 @@ const RelinquishmentDeedPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/relinquishment-deed`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/relinquishment-deed`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
