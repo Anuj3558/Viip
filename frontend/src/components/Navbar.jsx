@@ -18,10 +18,10 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
-  const [activeBusinessSubMenu, setActiveBusinessSubMenu] = useState(null);
-  const [activeLicenseSubMenu, setActiveLicenseSubMenu] = useState(null);
-  const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState(null);
-  const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState(""); // Tracks the active submenu in "Documents"
+  const [activeBusinessSubMenu, setActiveBusinessSubMenu] = useState("Company Registration");
+  const [activeLicenseSubMenu, setActiveLicenseSubMenu] = useState("Fundraising");
+  const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState("Trademarks");
+  const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState("Free Legal Documents"); // Tracks the active submenu in "Documents"
 
   const dropdownRef = useRef(null);
 
@@ -152,7 +152,9 @@ const Navbar = () => {
 
   // Dropdown data
   const dropdownItems = {
-    expert: ["Expert Consultation"],
+    expert: [{
+      "Expert Consultation":"/talktoexpert"
+    }],
     business: ["Company Registration"],
     trademarks: [
       { name: "Trademark Registration", link: "/trademark-registration" },
@@ -215,9 +217,7 @@ const Navbar = () => {
   };
 
 // Submenu data for Expert Consultation
-const expertSubMenu = {
-  "Expert Consultation": ["Talk To Expert"],
-};
+
 
   const businessSubMenu = {
     "Company Registration": [
@@ -445,6 +445,12 @@ const licenseSubMenu = {
     { name: "Family Immigration", link: "/family-immigration" },
     { name: "College Immigration", link: "/college-immigration" },
     { name: "Online Consumer Complaint", link: "/online-consumer-complaint" },
+    
+  ],
+  "Other Services": [
+    { name: "Vastav Incubatex & Entrepreneurship Foundation", link: "https://vief.in/" },
+    { name: "Vscholar", link: "https://vscholar.in/" },
+    { name: "Xcubit", link: "https://www.xcubit.in/" },
   ],
 };
 const documentationSubMenu = {
@@ -554,6 +560,7 @@ const documentationSubMenu = {
     { name: "ESOP", link: "/esop" },
     { name: "Payroll Maintenance", link: "/payroll-maintenance" },
   ],
+
 };
   // Map icons to dropdown categories
   const menuIcons = {
@@ -596,85 +603,17 @@ const documentationSubMenu = {
               >
                 <span className="mr-1.5 text-blue-800">{menuIcons.expert}</span>
                 <span className="inline text-sm min-w-full">
-                  Consult an Expert
+                 <a href="/talktoexpert"> Consult an Expert</a>
                 </span>
                 <motion.span
                   animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                   className="ml-1"
                 >
-                  <ChevronDown size={16} />
+
                 </motion.span>
               </motion.button>
-              <AnimatePresence>
-                {openDropdown === "expert" && (
-                  <motion.div
-                    className="absolute mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={dropdownVariants}
-                  >
-                    <div className="py-2 w-2/5 border-r border-gray-100 max-h-[70vh] overflow-y-auto">
-                      {dropdownItems.expert.map((item, index) => (
-                        <motion.a
-                          key={index}
-                          href={`/`}
-                          className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition-colors ${
-                            activeSubMenu === item
-                              ? "bg-blue-50 text-blue-900 font-medium"
-                              : ""
-                          }`}
-                          onMouseEnter={() => setActiveSubMenu(item)}
-                          variants={itemVariants}
-                          whileHover="hover"
-                        >
-                          <span>{item}</span>
-                          {expertSubMenu[item] && (
-                            <ChevronRight size={14} className="text-blue-600" />
-                          )}
-                        </motion.a>
-                      ))}
-                    </div>
-                    {/* Submenu with Two-Column Layout */}
-                    <AnimatePresence mode="wait">
-                      {activeSubMenu && expertSubMenu[activeSubMenu] && (
-                        <motion.div
-                          className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
-                          initial={{ opacity: 0, x: 10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: 10 }}
-                          transition={{ duration: 0.2 }}
-                          key={activeSubMenu}
-                        >
-                          <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0 bg-gray-50">
-                            {activeSubMenu}
-                          </div>
-                          <div className="grid grid-cols-2 gap-x-2">
-                            {expertSubMenu[activeSubMenu].map(
-                              (subItem, index) => (
-                                <motion.a
-                                  key={index}
-                                  href={`/${subItem
-                                    .replace(/\s+/g, "")
-                                    .toLowerCase()}`}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
-                                  variants={linkVariants}
-                                  initial="initial"
-                                  whileHover="hover"
-                                  whileTap={{ scale: 0.98 }}
-                                >
-                                  {subItem}
-                                </motion.a>
-                              )
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+             
             </div>
 
             {/* Business Setup Dropdown */}
@@ -698,7 +637,7 @@ const documentationSubMenu = {
                   transition={{ duration: 0.3 }}
                   className="ml-1"
                 >
-                  <ChevronDown size={16} />
+                  
                 </motion.span>
               </motion.button>
               <AnimatePresence>
@@ -794,7 +733,7 @@ const documentationSubMenu = {
                   transition={{ duration: 0.3 }}
                   className="ml-1"
                 >
-                  <ChevronDown size={16} />
+                  
                 </motion.span>
               </motion.button>
 
@@ -891,7 +830,7 @@ const documentationSubMenu = {
                   transition={{ duration: 0.3 }}
                   className="ml-1"
                 >
-                  <ChevronDown size={16} />
+                  
                 </motion.span>
               </motion.button>
               <AnimatePresence>
@@ -967,57 +906,7 @@ const documentationSubMenu = {
             </div>
 
             {/* Accounting Dropdown */}
-            <div className="relative">
-              <motion.button
-                onClick={() => toggleDropdown("accounting")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
-                  openDropdown === "accounting"
-                    ? "bg-blue-50 text-blue-900"
-                    : ""
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="mr-1.5 text-blue-800">
-                  {menuIcons.accounting}
-                </span>
-                <span className="text-sm">Accounting</span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "accounting" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-1"
-                >
-                  <ChevronDown size={16} />
-                </motion.span>
-              </motion.button>
-              <AnimatePresence>
-                {openDropdown === "accounting" && (
-                  <motion.div
-                    className="absolute mt-2 w-64 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 overflow-hidden"
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    variants={dropdownVariants}
-                  >
-                    <div className="py-2">
-                      {dropdownItems.accounting.map((item, index) => (
-                        <motion.div
-                          key={index}
-                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                          variants={itemVariants}
-                          whileHover="hover"
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Link to={item.link} className="block w-full">
-                            {item.name}
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            
             {/* Other Dropdown */}
             <div className="relative ">
               <motion.button
@@ -1028,16 +917,16 @@ const documentationSubMenu = {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="mr-1.5 text-blue-800">
+                <span className=" text-blue-800">
                   {menuIcons.licenses}
                 </span>
                 <span className="  text-sm min-w-full">Others</span>
                 <motion.span
                   animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="ml-1"
+                  className=""
                 >
-                  <ChevronDown size={16} />
+                  
                 </motion.span>
               </motion.button>
               <AnimatePresence>
@@ -1113,7 +1002,7 @@ const documentationSubMenu = {
             {/* Contact Us Link */}
             <motion.a
               href="/contact"
-              className="flex items-center text-gray-700 border-2 w-[20vh] hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
+              className="flex items-center text-gray-700 border-2  hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -1194,7 +1083,7 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "expert" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1283,7 +1172,7 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "business" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1368,7 +1257,7 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1455,7 +1344,7 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1546,7 +1435,7 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1592,7 +1481,7 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "licenses" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={16} />
+                    
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
