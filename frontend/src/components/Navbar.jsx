@@ -1014,7 +1014,6 @@ const documentationSubMenu = {
               {/* Expert Consultation */}
               <div>
                 <motion.button
-                  onClick={() => toggleMobileSubmenu("expert")}
                   className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                   variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
@@ -1023,79 +1022,16 @@ const documentationSubMenu = {
                     <span className="mr-3 text-blue-800">
                       {menuIcons.expert}
                     </span>
-                    <span>Consult an Expert</span>
+                    <span><a href="/talktoexpert">Consult an Expert</a></span>
                   </div>
                   <motion.span
                     animate={{ rotate: mobileSubmenu === "expert" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
-                <AnimatePresence>
-                  {mobileSubmenu === "expert" && (
-                    <motion.div
-                      className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }}
-                    >
-                      {dropdownItems.expert.map((item, index) => (
-                        <div key={index} className="relative">
-                          <motion.button
-                            onClick={() =>
-                              toggleMobileNestedMenu(`expert-${item}`)
-                            }
-                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
-                            variants={mobileMenuItemVariants}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <span className="text-gray-800 font-medium z-10 relative">
-                              {item}
-                            </span>
-                            {expertSubMenu[item] && (
-                              <ChevronRight
-                                size={14}
-                                className="text-blue-600"
-                              />
-                            )}
-                          </motion.button>
-                          <AnimatePresence>
-                            {mobileNestedMenu === `expert-${item}` &&
-                              expertSubMenu[item] && (
-                                <motion.div
-                                  className="bg-blue-50"
-                                  initial={{ height: 0, opacity: 0 }}
-                                  animate={{ height: "auto", opacity: 1 }}
-                                  exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.3 }}
-                                >
-                                  {expertSubMenu[item].map(
-                                    (subItem, subIndex) => (
-                                      <a
-                                        key={subIndex}
-                                        href={`/${subItem
-                                          .replace(/\s+/g, "")
-                                          .toLowerCase()}`}
-                                        className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
-                                        onClick={() =>
-                                          setIsMobileMenuOpen(false)
-                                        }
-                                      >
-                                        {subItem}
-                                      </a>
-                                    )
-                                  )}
-                                </motion.div>
-                              )}
-                          </AnimatePresence>
-                        </div>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+         
+                
               </div>
 
               {/* Business Setup */}
