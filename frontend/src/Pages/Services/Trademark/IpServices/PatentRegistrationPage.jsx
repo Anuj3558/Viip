@@ -94,13 +94,13 @@ const PatentRegistrationPage = () => {
       const dataToSend = {
         ...formData,
         route: "/patent-registration",
-        type: "Patent Registration",
+        type: "Patent_Registration",
       };
 
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/api/patent-registration`,
+        }/patent/patent-registration`,
         {
           method: "POST",
           headers: {

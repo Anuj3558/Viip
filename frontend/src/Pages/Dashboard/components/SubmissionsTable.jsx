@@ -48,9 +48,11 @@ const SubmissionsTable = ({
        "bussiness-setup/inquiries/type/mou_drafting_inquiry",
      "Change Company Name":
        "bussiness-setup/inquiries/type/company_name_change_inquiry",
-     "Web/Ecom Developmet":"bussiness-setup/inquiries/type/website_ecommerce_development",
+     "Web/Ecom Developmet":
+       "bussiness-setup/inquiries/type/website_ecommerce_development",
      // International Business Setup
-   "International Incorporation":"bussiness-setup/international-business-setup",
+     "International Incorporation":
+       "bussiness-setup/international-business-setup",
      // ISO Certification
      "ISO Certification": "api/iso",
      "ISO Certification 22000": "api/iso/22000",
@@ -67,12 +69,12 @@ const SubmissionsTable = ({
      "Online PF Registration": "api/pf-registration",
      "NGO Registration": "api/ngo-registration",
      "Online ESI Registration": "api/esi-registration",
-     
+
      "Legal Metrology": "api/legal-metrology-registration",
      // Licenses
      "PSARA License": "api/psara-license",
      "Trade License Renewal Registration": "api/trade-license-renewal",
-     "FSSAI": "api/fssai-registration",
+     FSSAI: "api/fssai-registration",
 
      //IP Services
      "Patent Registration": "api/patent-registration",
@@ -87,25 +89,57 @@ const SubmissionsTable = ({
      "International IP Protection": "api/international-ip-protection",
 
      "Income Tax Return": "",
-      ///Liscensce and Regisration
-      "Digital Signature Certificate":"bussiness-setup/inquiries/type/company_name_change_inquiry",
-       "IEC [Import/Export Code]":"bussiness-setup/inquiries/type/iec_import_export_code",
-       "Spice Board Registration":"bussiness-setup/inquiries/type/spice_board_registration",
-       "BIS Registration":"bussiness-setup/inquiries/type/bis_certification",
-       "CLRA Registration & Licensing":"bussiness-setup/inquiries/type/clra_registration",
-       "IRDAI Registration":"bussiness-setup/inquiries/type/irdai_registration",
-       "Customs Clearance":"bussiness-setup/inquiries/type/customer_clearance",
-   
-       "Apeda RCMC":"bussiness-setup/inquiries/type/apeda_rcmc",
-       "FIEO Registration":"bussiness-setup/inquiries/type/fieo_registration",
-       "Hallmark Registration":"bussiness-setup/inquiries/type/hallmark_registration",
-       "Liquor License":"bussiness-setup/inquiries/type/liquor_license",
-       "AD Code Registration":"bussiness-setup/inquiries/type/ad_code_registration",
-       "Drug & Cosmetic License":"bussiness-setup/inquiries/type/drugs_and_cosmetics_license",
-        "Udyog Aadhaar Registration": "bussiness-setup/inquiries/type/udyog_aadhar_registarion",
+     ///Liscensce and Regisration
+     "Digital Signature Certificate":
+       "bussiness-setup/inquiries/type/company_name_change_inquiry",
+     "IEC [Import/Export Code]":
+       "bussiness-setup/inquiries/type/iec_import_export_code",
+     "Spice Board Registration":
+       "bussiness-setup/inquiries/type/spice_board_registration",
+     "BIS Registration": "bussiness-setup/inquiries/type/bis_certification",
+     "CLRA Registration & Licensing":
+       "bussiness-setup/inquiries/type/clra_registration",
+     "IRDAI Registration": "bussiness-setup/inquiries/type/irdai_registration",
+     "Customs Clearance": "bussiness-setup/inquiries/type/customer_clearance",
 
+     "Apeda RCMC": "bussiness-setup/inquiries/type/apeda_rcmc",
+     "FIEO Registration": "bussiness-setup/inquiries/type/fieo_registration",
+     "Hallmark Registration":
+       "bussiness-setup/inquiries/type/hallmark_registration",
+     "Liquor License": "bussiness-setup/inquiries/type/liquor_license",
+     "AD Code Registration":
+       "bussiness-setup/inquiries/type/ad_code_registration",
+     "Drug & Cosmetic License":
+       "bussiness-setup/inquiries/type/drugs_and_cosmetics_license",
+     "Udyog Aadhaar Registration":
+       "bussiness-setup/inquiries/type/udyog_aadhar_registarion",
 
-     "Trademark Registration": "/trademark-registration",
+     "Trademark Registration": "trademark-ip/trademark_registration_inquiry",
+     "Trademark Assignment": "trademark-ip/trademark_assignment_inquiry",
+     "Well Known Trademark": "trademark-ip/well_known_trademark_inquiry",
+     "Trademark Renewal": "trademark-ip/trademark_renewal_inquiry",
+     "International Trademark":
+       "trademark-ip/trademark_registration_international_inquiry",
+     "Trademark Registration for Individuals":
+       "trademark-ip/trademark_registration_individual_inquiry",
+     "Respond to TM Objection":
+       "trademark-ip/trademark_objection_response_inquiry",
+     "Trademark Watch": "trademark-ip/trademark_watch_inquiry",
+     "USA Trademark": "trademark-ip/trademark_registration_usa_inquiry",
+
+     "Copyright Registration": "copyright/copyright_registration_inquiry",
+     "Copyright Music": "copyright/copyright_music_inquiry",
+
+     "Provisional Patent Application":
+       "patent/provisional_patent_application_inquiry",
+     "Patent Registration": "patent/Patent_Registration",
+
+     "Copyright Infringement": "copyright/copyright_infringement_inquiry",
+     "Patent Infringement": "patent/patent_infringement_inquiry",
+     "Trademark Infringement": "trademark-ip/trademark_infringement_inquiry",
+
+     "Logo Design": "design/logo_design_inquiry",
+     "Design Registration": "design/design_registration_inquiry",
    };
 
   // Fetch submissions when selectedService changes

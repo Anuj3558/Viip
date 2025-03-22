@@ -30,14 +30,15 @@ TrademarkRouter.post(
 TrademarkRouter.post("/trademark-renewal", HandleTrademarkRegistration);
 TrademarkRouter.post("/trademark-watch", HandleTrademarkRegistration);
 TrademarkRouter.post("/trademark-infringement", HandleTrademarkRegistration);
+TrademarkRouter.post("/well-known-trademark", HandleTrademarkRegistration);
 
 
-
-TrademarkRouter.get("/trademark-registration/:type", async (req, res) => {
+TrademarkRouter.get("/:type", async (req, res) => {
   try {
     const type = req.params.type;
     const inquiries = await TrademarkModel.find({ type: type });
-    res.json(inquiries);
+    console.log(inquiries);
+    res.json({ data: inquiries });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -46,7 +47,7 @@ TrademarkRouter.get("/trademark-registration/:type", async (req, res) => {
 TrademarkRouter.get("/trademark-assignment", async (req, res) => {
   try {
     const inquiries = await TrademarkAssignment.find({});
-    res.json(inquiries);
+    res.json({ data: inquiries });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
