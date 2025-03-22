@@ -1,18 +1,17 @@
 import React from "react";
-import { Award, Briefcase, FileText, DollarSign } from "lucide-react";
+import { Award, Briefcase, FileText, DollarSign, Home, Heart, Clipboard, Users } from "lucide-react";
 
 // Submenu data
 const expertSubMenu = {
   "Expert Consultation": ["Talk To Expert"],
-
 };
 
 const businessSubMenu = {
   "Company Registration": [
     "Company Registration",
     "LLP Registration",
-    "LLP Anuual Compliance",
-    "LLP Anuual Filings",
+    "LLP Annual Compliance",
+    "LLP Annual Filings",
     "LLP Designated Partner",
     "Sole Proprietorship Registration",
     "Producer Company Registration",
@@ -26,20 +25,33 @@ const businessSubMenu = {
   ],
   "International Business Setup": [
     "International Incorporation",
+  ],
+  "Liscence & Registartion": [
+    "Digital Signature Certificate",
+    "IEC [Import/Export Code]",
+    "FSSAI",
+    "Spice Board Registration",
+"Legal Metrology",
+"BIS Registration",
+"CLRA Registration & Licensing",
+"IRDAI Registration",
+"Customs Clearance",
+"Trade License Renewal Registration",
+"Online PF Registration",
+"Udyog Aadhaar Registration",
+"Apeda RCMC",
+"FIEO Registration",
+"Hallmark Registration",
+"Liquor License",
+"AD Code Registration",
+"Drug & Cosmetic License",
+"PSARA License",
+"Professional Tax Registration",
+"Online ESI Registration"
 
   ],
-};
-
-const licenseSubMenu = {
-  Licenses: ["PSARA License", "Trade License Renewal Registration", "FSSAI"],
-  Registrations: [
-    "Professional Tax Registration",
-    "Online PF Registration",
-    "NGO Registration",
-    "Online ESI Registration",
-    "Udyog Aadhaar Registration",
-    "Digital Signature Certificate",
-    "Legal Metrology",
+  "Web Development":[
+    "Web/Ecom Developmet"
   ],
   "ISO Certification": [
     "ISO Certification",
@@ -51,20 +63,43 @@ const licenseSubMenu = {
     "ISO Certification 9000 2005",
     "ISO Certification 14001",
     "ISO Certification 31000",
-    
   ],
 };
+
+
+
 
 const trademarksSubMenu = {
   "Trademark Registration": [
     "Trademark Registration",
-    "Trademark Registration in USA",
-    "Trademark Registration for Individuals",
-    "Trademark Assignment",
+"Trademark Assignment",
+"Well Known Trademark",
+"Trademark Renewal",
+"International Trademark",
+"Trademark Registration for Individuals",
+"Respond to TM Objection",
+"Trademark Watch",
+"USA Trademark"
   ],
-  "IP Services": [
-    "Patent Registration",
+  "CopyRight":[
     "Copyright Registration",
+"Copyright Music"
+  ],
+  "Patent":[
+  
+"Provisional Patent Application",
+"Patent Registration"
+  ],
+  "Infringement":[
+    "Copyright Infringement",
+"Patent Infringement",
+"Trademark Infringement"
+    ],
+    "Design Registration":[
+      "Logo Design",
+"Design Registration"
+    ],
+  "IP Services": [
     "Industrial Design Registration",
     "IP Valuation",
     "IP Licensing",
@@ -77,11 +112,83 @@ const trademarksSubMenu = {
     "International IP Protection",
   ],
 };
-const accountingSubMenu = {
- "Accounting Services":[ "Income Tax Return",
-  "Payroll Management"]
-}
 
+
+
+
+
+
+const legalDocumentsSubMenu = {
+  "Free Legal Documents": [
+    "All Legal Documents",
+    "Rental Agreement",
+    "Commercial Rental Agreement",
+    "Experience Letter",
+    "Appointment Letter",
+    "Affidavit Format",
+    "Power Of Attorney",
+    "Income Certificate",
+    "No Objection Certificate",
+    "Salary Slip",
+    "Resignation Letter",
+    "Legal Heir Certificate",
+    "Relieving Letter",
+    "Bonafide Certificate",
+    "Partnership Deed",
+    "GST Invoice",
+    "Authorised Signatory In GST",
+    "Delivery Challan",
+    "Offer Letter",
+    "Consent Letter For GST Registration",
+    "Rent Receipt",
+  ],
+  "Business Contracts": [
+    "Non Disclosure Agreement (NDA)",
+    "Service Level Agreement",
+    "Franchise Agreement",
+    "Master Service Agreement",
+    "Shareholders Agreement",
+    "Joint Venture Agreement",
+    "Founders Agreement",
+    "Vendor Agreement",
+    "Consultancy Agreement",
+    "Memorandum of Understanding",
+    "Succession Certificate",
+    "Scope of Work Agreement",
+    "Share Purchase Agreement",
+    "Relinquishment Deed",
+    "Legal Heir Certificate",
+    "Trade License",
+    "Noncompete Agreement",
+    "Finance Agreement",
+    "GDPR",
+  ],
+  "Personal & Family": [
+    "Will Registration",
+    "Probate of Will",
+    "Power of Attorney",
+  ],
+  "Real Estate": [
+    "Rental Agreement",
+    "Sale Deed",
+    "Gift Deed",
+    "Rental Tenant Notice",
+  ],
+  Notices: [
+    "Legal Notice",
+    "Legal Notice for Money Recovery",
+    "Legal Notice for Recovery of Dues",
+    "Cheque Bounce Notice",
+    "Legal Notice Under Consumer Protection Act",
+  ],
+  "HR Policies": [
+    "Employment Agreement",
+    "ESOP",
+    "Payroll Maintenance",
+  ],
+};
+
+// Menu items with icons and submenus
 export const menuItems = {
   expert: {
     icon: <Award size={20} />,
@@ -98,18 +205,14 @@ export const menuItems = {
     title: "Trademarks & IP",
     subItems: trademarksSubMenu,
   },
-  licenses: {
-    icon: <Award size={20} />,
-    title: "Licenses & Registrations",
-    subItems: licenseSubMenu,
-  },
-  accounting: {
-    icon: <DollarSign size={20} />,
-    title: "Accounting",
-    subItems: accountingSubMenu,
+
+  
+  legalDocuments: {
+    icon: <Clipboard size={20} />,
+    title: "Legal Documents",
+    subItems: legalDocumentsSubMenu,
   },
 };
 
-export const mockSubmissions = [
- 
-];
+// Mock submissions (empty for now)
+export const mockSubmissions = [];

@@ -131,9 +131,7 @@ const GenderChangePage = () => {
                 Gender Change
               </h2>
               <p className="text-lg text-gray-700">
-                Legally change your gender with expert guidance. Vastav
-                Intellect and IP Solutions provides seamless assistance for
-                gender change processes.
+                Legally change your gender with expert guidance. Vastav Intellect and IP Solutions provides seamless assistance for gender change processes.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -141,10 +139,11 @@ const GenderChangePage = () => {
                     <FaTransgender className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Legal Process</h3>
+                    <h3 className="font-semibold text-lg">
+                      Legal Process
+                    </h3>
                     <p className="text-gray-600">
-                      Ensure your gender change is legally recognized and
-                      hassle-free.
+                      Ensure your gender change is legally recognized and hassle-free.
                     </p>
                   </div>
                 </div>
@@ -153,12 +152,9 @@ const GenderChangePage = () => {
                     <FaFileAlt className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">
-                      Documentation Support
-                    </h3>
+                    <h3 className="font-semibold text-lg">Documentation Support</h3>
                     <p className="text-gray-600">
-                      We assist with all necessary documentation for gender
-                      change applications.
+                      We assist with all necessary documentation for gender change applications.
                     </p>
                   </div>
                 </div>
@@ -169,8 +165,7 @@ const GenderChangePage = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Expert Guidance</h3>
                     <p className="text-gray-600">
-                      Our experts will guide you through the entire gender
-                      change process.
+                      Our experts will guide you through the entire gender change process.
                     </p>
                   </div>
                 </div>

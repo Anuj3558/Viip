@@ -18,13 +18,17 @@ import TrademarkRouter from "./router/TrademarkRouter.js";
 import ITRRouter from "./router/ITRRouter.js";
 import ipServicesRouter from "./router/ipServiceRoutes.js";
 import ConsultsExpertRouter from "./router/ConsultsExpertController.js";
+import copyrightRouter from "./router/CopyrightRoutes.js";
+import designRouter from "./router/designRouter.js";
+import petentRouter from "./router/patentRouter.js";
+import otherRouter from "./router/otherRouter.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 import connectDB from "./connection.js";
 import DocumentRouer from "./router/DocumentRouter.js";
-import OtherRouter from "./router/OtherRouter.js";
+import OtherRouter from "./router/otherRouter.js";
 dotenv.config();
 const app = express();
 
@@ -110,6 +114,10 @@ app.use("/bussiness-setup", BussinessSetupRouter);
 app.use("/trademark-ip", TrademarkRouter);
 app.use("/accounting", ITRRouter);
 app.use("/expert", ConsultsExpertRouter);
+app.use("/copyright", copyrightRouter);
+app.use("/design", designRouter);
+app.use("/patent", petentRouter);
+app.use("/other", otherRouter);
 app.use("/document",DocumentRouer)
 app.use("/others",OtherRouter)
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -175,6 +175,7 @@ import SaleDeedPage from "./Pages/Documents/Family/SaleDeedPage ";
 import GiftDeedPage from "./Pages/Documents/Family/formData";
 import RentalTenantNoticePage from "./Pages/Documents/Family/RentalTenantNoticePage ";
 import WebsiteEcommerceDevelopmentPage from "./Pages/Services/BussinessSetup/WebsiteEcommerceDevelopmentPage";
+import UdyamRegistrationPage from "./Pages/Services/BussinessSetup/UdyamRegistrationPage";
 
 
 
@@ -379,7 +380,7 @@ const AnimatedRoutes = () => {
           path="/udyam-registration"
           element={
             <PageTransition>
-              <UdyogAadharRegistrationPage />
+              <UdyamRegistrationPage />
             </PageTransition>
           }
         />

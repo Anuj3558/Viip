@@ -40,7 +40,7 @@ const TrademarkInfringementPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/trademark/trademark-infringement`,
+        }/trademark-ip/trademark-infringement`,
         {
           method: "POST",
           headers: {

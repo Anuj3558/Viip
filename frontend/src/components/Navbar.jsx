@@ -935,7 +935,97 @@ const documentationSubMenu = {
             </div>
 
             {/* Accounting Dropdown */}
-            
+          
+            <div className="relative ">
+              <motion.button
+                onClick={() => toggleDropdown("licenses")}
+                className={`flex items-center text-gray-700 mx-1 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                  openDropdown === "licenses" ? "bg-blue-50 text-blue-900" : ""
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-1.5 text-blue-800">
+                  {menuIcons.licenses}
+                </span>
+                <span className="  text-sm min-w-full">Others</span>
+                <motion.span
+                  animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="ml-1"
+                >
+                  <ChevronDown size={16} />
+                </motion.span>
+              </motion.button>
+              <AnimatePresence>
+                {openDropdown === "licenses" && (
+                  <motion.div
+                    className="absolute left-[-60vh] mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={dropdownVariants}
+                  >
+                    <div className="py-2 w-2/5 border-r border-gray-100 max-h-[70vh] overflow-y-auto">
+                      {Object.keys(licenseSubMenu).map((item, index) => (
+                        <motion.a
+                          key={index}
+                          href={`#${item.replace(/\s+/g, "")}`}
+                          className={`flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 transition-colors ${
+                            activeLicenseSubMenu === item
+                              ? "bg-blue-50 text-blue-900 font-medium"
+                              : ""
+                          }`}
+                          onMouseEnter={() => setActiveLicenseSubMenu(item)}
+                          variants={itemVariants}
+                          whileHover="hover"
+                        >
+                          <span>{item}</span>
+                          {licenseSubMenu[item] && (
+                            <ChevronRight size={14} className="text-blue-600" />
+                          )}
+                        </motion.a>
+                      ))}
+                    </div>
+                    {/* Submenu with Two-Column Layout */}
+                    <AnimatePresence mode="wait">
+                      {activeLicenseSubMenu &&
+                        licenseSubMenu[activeLicenseSubMenu] && (
+                          <motion.div
+                            className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 10 }}
+                            transition={{ duration: 0.2 }}
+                            key={activeLicenseSubMenu}
+                          >
+                            <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0  bg-gray-50">
+                              {activeLicenseSubMenu}
+                            </div>
+                            <div className="grid grid-cols-2 gap-x-2">
+                              {licenseSubMenu[activeLicenseSubMenu].map(
+                                (subItem, index) => (
+                                  <Link to={subItem.link} key={index}>
+                                    <motion.a
+                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors rounded-md m-1"
+                                      variants={linkVariants}
+                                      initial="initial"
+                                      whileHover="hover"
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      {subItem.name}
+                                    </motion.a>
+                                  </Link>
+                                )
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                    </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Contact Us Link */}
             <motion.a

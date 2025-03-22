@@ -5,81 +5,81 @@ import Notification from "../../../../components/NOtification"; // Assuming you 
 
 const TrademarkRenewal = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     phone: "",
     message: "",
-    trademarkNumber: "",
-    renewalYear: "",
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [notification, setNotification] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.fullName) newErrors.fullName = "Full Name is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.phone) newErrors.phone = "Phone is required";
-    if (!formData.trademarkNumber)
-      newErrors.trademarkNumber = "Trademark Number is required";
-    if (!formData.renewalYear)
-      newErrors.renewalYear = "Renewal Year is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
 
-    setIsSubmitting(true);
+    const dataToSend = {
+      ...formData,
+      route: "/trademark-renewal",
+      type: "trademark_renewal_inquiry",
+    };
+
     try {
-      const response = await fetch("/api/submit-inquiry", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/trademark-ip/trademark-renewal`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        }
+      );
 
       if (response.ok) {
-        showSuccessNotification();
+        console.log("Form submitted successfully!");
         setFormData({
-          fullName: "",
+          name: "",
           email: "",
           phone: "",
           message: "",
-          trademarkNumber: "",
-          renewalYear: "",
         });
+        showSuccessNotification();
       } else {
-        showErrorNotification(
-          "Failed to submit your inquiry. Please try again later."
-        );
+        console.error("Form submission failed:", response.status);
+        showErrorNotification("Form submission failed. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      showErrorNotification("An error occurred while submitting your inquiry.");
-    } finally {
-      setIsSubmitting(false);
+      showErrorNotification(
+        "An error occurred while submitting the form. Please try again."
+      );
     }
+  };
+
+  const isPhoneValid = (phone) => {
+    const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+    return phone === "" || phoneRegex.test(phone);
+  };
+
+  const isEmailValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === "" || emailRegex.test(email);
   };
 
   const showSuccessNotification = () => {
     setNotification({
       type: "success",
       message: "Success",
-      description:
-        "Your trademark renewal inquiry has been submitted successfully! We'll get back to you soon.",
+      description: "Form submitted successfully!",
     });
   };
 
@@ -91,26 +91,22 @@ const TrademarkRenewal = () => {
     });
   };
 
-  const closeNotification = () => setNotification(null);
+  const closeNotification = () => {
+    setNotification(null);
+  };
 
   useEffect(() => {
-    if (notification && notification.type === "success") {
-      const timer = setTimeout(() => closeNotification(), 3000);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      if (notification && notification.type === "success") {
+        closeNotification();
+      }
+    }, 4500);
+
+    return () => clearTimeout(timer);
   }, [notification]);
 
   return (
     <>
-      {notification && (
-        <Notification
-          type={notification.type}
-          message={notification.message}
-          description={notification.description}
-          onClose={closeNotification}
-        />
-      )}
-
       <Helmet>
         <title>Trademark Renewal | Vastav Intellect and IP Solutions</title>
         <meta
@@ -125,66 +121,68 @@ const TrademarkRenewal = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
+        {notification && (
+          <Notification
+            type={notification.type}
+            message={notification.message}
+            description={notification.description}
+            onClose={closeNotification}
+          />
+        )}
+
         {/* Main Trademark Renewal Section */}
         <section className="container mx-auto px-4 py-16">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">
               <h2 className="text-3xl font-bold text-blue-800">
-                Trademark Renewal Service
+                Trademark Renewal Services
               </h2>
               <p className="text-lg text-gray-700">
                 Protect your valuable brand by renewing your trademark
                 registration before it expires. Our expert team ensures a smooth
                 and timely renewal process.
               </p>
-
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                <h3 className="font-bold text-blue-800 text-xl mb-2">
-                  Why Renew Your Trademark?
-                </h3>
-                <p className="text-gray-700">
-                  Trademark registrations in India are valid for 10 years from
-                  the date of application. Renewal is essential to maintain your
-                  exclusive rights to use the mark and prevent others from using
-                  similar marks.
-                </p>
-              </div>
-
-              {/* Features */}
-              {[
-                {
-                  icon: FaCalendarAlt,
-                  title: "Timely Renewals",
-                  description:
-                    "We track your renewal deadlines and ensure applications are filed within the required timeframe.",
-                },
-                {
-                  icon: FaShieldAlt,
-                  title: "Continuous Protection",
-                  description:
-                    "Maintain uninterrupted protection for your valuable brand assets",
-                },
-                {
-                  icon: FaGlobe,
-                  title: "Expert Support",
-                  description:
-                    "Our experienced team guides you through the entire renewal process",
-                },
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm"
-                >
-                  <feature.icon className="w-6 h-6 text-blue-600" />
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-2 rounded-full mr-3">
+                    <FaCalendarAlt className="h-6 w-6 text-blue-800" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-lg text-gray-800">
-                      {feature.title}
-                    </h4>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h3 className="font-semibold text-lg">Timely Renewals</h3>
+                    <p className="text-gray-600">
+                      We track your renewal deadlines and ensure applications
+                      are filed within the required timeframe.
+                    </p>
                   </div>
                 </div>
-              ))}
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-2 rounded-full mr-3">
+                    <FaShieldAlt className="h-6 w-6 text-blue-800" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">
+                      Continuous Protection
+                    </h3>
+                    <p className="text-gray-600">
+                      Maintain uninterrupted protection for your valuable brand
+                      assets.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-blue-100 p-2 rounded-full mr-3">
+                    <FaGlobe className="h-6 w-6 text-blue-800" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Expert Support</h3>
+                    <p className="text-gray-600">
+                      Our experienced team guides you through the entire renewal
+                      process.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right Form Column */}
@@ -195,30 +193,27 @@ const TrademarkRenewal = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label
-                    htmlFor="fullName"
-                    className="block text-gray-700 mb-1"
+                    htmlFor="name"
+                    className="block text-gray-700 font-medium mb-1"
                   >
                     Full Name
                   </label>
                   <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${
-                      errors.fullName ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your full name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your full name"
+                    required
                   />
-                  {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.fullName}
-                    </p>
-                  )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Email Address
                   </label>
                   <input
@@ -228,16 +223,24 @@ const TrademarkRenewal = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.email ? "border-red-500" : "border-gray-300"
+                      !isEmailValid(formData.email) && formData.email
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your email address"
+                    placeholder="Enter your email address"
+                    required
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  {!isEmailValid(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid email address
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -247,16 +250,24 @@ const TrademarkRenewal = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
+                      !isPhoneValid(formData.phone) && formData.phone
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your 10-digit phone number"
+                    placeholder="Enter your phone number"
+                    required
                   />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  {!isPhoneValid(formData.phone) && formData.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid phone number
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -265,29 +276,18 @@ const TrademarkRenewal = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className={`w-full px-4 py-2 border ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Please provide details about your trademark and the objection received"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Describe your requirements"
+                    required
                   ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.message}
-                    </p>
-                  )}
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-800 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center"
-                  disabled={isSubmitting}
+                  className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                  Submit Inquiry
                 </button>
               </form>
-              <p className="text-xs text-gray-500 mt-4">
-                *T&C: Turnaround time is subject to the complexity of the
-                objection and complete submission of required documents.
-              </p>
             </div>
           </div>
         </section>
