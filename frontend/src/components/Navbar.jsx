@@ -21,11 +21,10 @@ const Navbar = () => {
   const [activeBusinessSubMenu, setActiveBusinessSubMenu] = useState("Company Registration");
   const [activeLicenseSubMenu, setActiveLicenseSubMenu] = useState("Fundraising");
   const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState("Trademarks");
-  const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState("Free Legal Documents"); // Tracks the active submenu in "Documents"
+  const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState("Free Legal Documents");
 
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -48,32 +47,29 @@ const Navbar = () => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
   };
 
-  // Local state for submenus
   const [mobileSubmenu, setMobileSubmenu] = useState(null);
   const [mobileNestedMenu, setMobileNestedMenu] = useState(null);
 
-  // Function to toggle submenus
   const toggleMobileSubmenu = (menu) => {
     setMobileSubmenu(mobileSubmenu === menu ? null : menu);
   };
 
-  // Function to toggle nested menus
   const toggleMobileNestedMenu = (nestedMenu) => {
     setMobileNestedMenu(mobileNestedMenu === nestedMenu ? null : nestedMenu);
   };
-  // Enhanced animation variants
+
   const menuVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 1, y: -20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.3,
-        ease: [0.25, 0.1, 0.25, 1], // Custom cubic bezier for smoother motion
+        ease: [0.25, 0.1, 0.25, 1],
       },
     },
     exit: {
-      opacity: 0,
+      opacity: 1,
       y: -10,
       transition: {
         duration: 0.2,
@@ -83,7 +79,7 @@ const Navbar = () => {
   };
 
   const dropdownVariants = {
-    hidden: { opacity: 0, y: -5, scale: 0.98 },
+    hidden: { opacity: 1, y: -5, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
@@ -96,7 +92,7 @@ const Navbar = () => {
       },
     },
     exit: {
-      opacity: 0,
+      opacity: 1,
       y: -5,
       scale: 0.98,
       transition: {
@@ -106,19 +102,18 @@ const Navbar = () => {
     },
   };
 
-
   const mobileMenuVariants = {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 1, y: -10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.2, ease: "easeOut" },
     },
-    exit: { opacity: 0, y: -10, transition: { duration: 0.2, ease: "easeIn" } },
+    exit: { opacity: 1, y: -10, transition: { duration: 0.2, ease: "easeIn" } },
   };
 
   const mobileMenuItemVariants = {
-    hidden: { opacity: 0, y: -5 },
+    hidden: { opacity: 1, y: -5 },
     visible: {
       opacity: 1,
       y: 0,
@@ -127,7 +122,7 @@ const Navbar = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -5 },
+    hidden: { opacity: 1, x: -5 },
     visible: {
       opacity: 1,
       x: 0,
@@ -147,10 +142,6 @@ const Navbar = () => {
       },
     },
   };
-
-  
-
-  // Dropdown data
   const dropdownItems = {
     expert: [{
       "Expert Consultation":"/talktoexpert"
@@ -562,7 +553,6 @@ const documentationSubMenu = {
   ],
 
 };
-  // Map icons to dropdown categories
   const menuIcons = {
     home: <Home size={18} />,
     expert: <Award size={18} />,
@@ -574,7 +564,7 @@ const documentationSubMenu = {
   };
 
   return (
-    <nav className="w-full border-b  border-gray-200 bg-white shadow-sm sticky top-0 z-50">
+    <nav className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -590,12 +580,21 @@ const documentationSubMenu = {
             ref={dropdownRef}
           >
             {/* Home Link */}
+            <motion.a
+              href="/"
+              className="flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.home}</span>
+              <span className="inline text-sm min-w-full">Home</span>
+            </motion.a>
 
             {/* Expert Consultation Dropdown */}
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("expert")}
-                className={`flex items-center text-gray-700 hover:text-blue-900 w-full  transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700 hover:text-blue-900 w-full transition-colors px-2 py-1 rounded-md ${
                   openDropdown === "expert" ? "bg-blue-50 text-blue-900" : ""
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -603,17 +602,9 @@ const documentationSubMenu = {
               >
                 <span className="mr-1.5 text-blue-800">{menuIcons.expert}</span>
                 <span className="inline text-sm min-w-full">
-                 <a href="/talktoexpert"> Consult an Expert</a>
+                  <a href="/talktoexpert">Consult an Expert</a>
                 </span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-1"
-                >
-
-                </motion.span>
               </motion.button>
-             
             </div>
 
             {/* Business Setup Dropdown */}
@@ -629,16 +620,7 @@ const documentationSubMenu = {
                 <span className="mr-1.5 text-blue-800">
                   {menuIcons.business}
                 </span>
-                <span className="inline text-sm  min-w-full">
-                  Business Setup
-                </span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "business" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-1"
-                >
-                  
-                </motion.span>
+                <span className="inline text-sm min-w-full">Business Setup</span>
               </motion.button>
               <AnimatePresence>
                 {openDropdown === "business" && (
@@ -670,15 +652,14 @@ const documentationSubMenu = {
                         </motion.a>
                       ))}
                     </div>
-                    {/* Submenu with Two-Column Layout */}
                     <AnimatePresence mode="wait">
                       {activeBusinessSubMenu &&
                         businessSubMenu[activeBusinessSubMenu] && (
                           <motion.div
                             className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
-                            initial={{ opacity: 0, x: 10 }}
+                            initial={{ opacity: 1, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 10 }}
+                            exit={{ opacity: 1, x: 10 }}
                             transition={{ duration: 0.2 }}
                             key={activeBusinessSubMenu}
                           >
@@ -728,15 +709,7 @@ const documentationSubMenu = {
                 <span className="inline text-sm min-w-full">
                   Trademarks & IP
                 </span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "trademarks" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-1"
-                >
-                  
-                </motion.span>
               </motion.button>
-
               <AnimatePresence>
                 {openDropdown === "trademarks" && (
                   <motion.div
@@ -767,14 +740,12 @@ const documentationSubMenu = {
                         </motion.a>
                       ))}
                     </div>
-
-                    {/* Submenu with Two-Column Layout */}
                     <AnimatePresence mode="wait">
                       {activeTrademarkSubMenu &&
                         trademarkIpSubMenu[activeTrademarkSubMenu] && (
                           <motion.div
                             className="py-2 w-3/5 bg-gray-50 max-h-[70vh] overflow-y-auto"
-                            initial={{ opacity: 0, x: 10 }}
+                            initial={{ opacity: 1, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 10 }}
                             transition={{ duration: 0.2 }}
@@ -808,8 +779,6 @@ const documentationSubMenu = {
               </AnimatePresence>
             </div>
 
-            {/* Licenses & Registrations Dropdown */}
-
             {/* Documents Dropdown */}
             <div className="relative">
               <motion.button
@@ -821,17 +790,9 @@ const documentationSubMenu = {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="mr-1.5 text-blue-800">
-                  {menuIcons.documents}{" "}
-                  {/* Replace with your icon for Documents */}
+                  {menuIcons.documents}
                 </span>
                 <span className="text-sm min-w-full">Documents</span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "documents" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="ml-1"
-                >
-                  
-                </motion.span>
               </motion.button>
               <AnimatePresence>
                 {openDropdown === "documents" && (
@@ -842,7 +803,6 @@ const documentationSubMenu = {
                     exit="exit"
                     variants={dropdownVariants}
                   >
-                    {/* Left Panel with Categories */}
                     <div className="py-2 w-2/5 border-r border-gray-100 max-h-[70vh] overflow-y-auto">
                       {Object.keys(documentationSubMenu).map((item, index) => (
                         <motion.a
@@ -864,8 +824,6 @@ const documentationSubMenu = {
                         </motion.a>
                       ))}
                     </div>
-
-                    {/* Right Panel with Two Column Layout */}
                     <AnimatePresence mode="wait">
                       {activeDocumentSubMenu &&
                         documentationSubMenu[activeDocumentSubMenu] && (
@@ -905,10 +863,8 @@ const documentationSubMenu = {
               </AnimatePresence>
             </div>
 
-            {/* Accounting Dropdown */}
-            
-            {/* Other Dropdown */}
-            <div className="relative ">
+            {/* Others Dropdown */}
+            <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("licenses")}
                 className={`flex items-center text-gray-700 mx-1 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
@@ -917,17 +873,8 @@ const documentationSubMenu = {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className=" text-blue-800">
-                  {menuIcons.licenses}
-                </span>
-                <span className="  text-sm min-w-full">Others</span>
-                <motion.span
-                  animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className=""
-                >
-                  
-                </motion.span>
+                <span className="text-blue-800">{menuIcons.licenses}</span>
+                <span className="text-sm min-w-full">Others</span>
               </motion.button>
               <AnimatePresence>
                 {openDropdown === "licenses" && (
@@ -959,7 +906,6 @@ const documentationSubMenu = {
                         </motion.a>
                       ))}
                     </div>
-                    {/* Submenu with Two-Column Layout */}
                     <AnimatePresence mode="wait">
                       {activeLicenseSubMenu &&
                         licenseSubMenu[activeLicenseSubMenu] && (
@@ -971,7 +917,7 @@ const documentationSubMenu = {
                             transition={{ duration: 0.2 }}
                             key={activeLicenseSubMenu}
                           >
-                            <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0  bg-gray-50">
+                            <div className="px-4 py-2 text-sm font-bold text-blue-900 border-b border-gray-200 mb-1 sticky top-0 bg-gray-50">
                               {activeLicenseSubMenu}
                             </div>
                             <div className="grid grid-cols-2 gap-x-2">
@@ -1002,12 +948,12 @@ const documentationSubMenu = {
             {/* Contact Us Link */}
             <motion.a
               href="/contact"
-              className="flex items-center text-gray-700 border-2  hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
+              className="flex items-center text-gray-700 border-2 hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span className="inline text-sm  min-w-full">Contact Us</span>
+              <span className="inline text-sm min-w-full">Contact Us</span>
             </motion.a>
           </div>
 
@@ -1083,7 +1029,7 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "expert" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
@@ -1094,12 +1040,10 @@ const documentationSubMenu = {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {dropdownItems.expert.map((item, index) => (
                         <div key={index} className="relative">
-                          {" "}
-                          {/* Add relative positioning */}
                           <motion.button
                             onClick={() =>
                               toggleMobileNestedMenu(`expert-${item}`)
@@ -1172,18 +1116,20 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "business" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
                   {mobileSubmenu === "business" && (
                     <motion.div
                       className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0, opacity: 1
+
+                       }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {Object.keys(businessSubMenu).map((category, idx) => (
                         <div key={idx} className="relative">
@@ -1210,9 +1156,9 @@ const documentationSubMenu = {
                             {mobileNestedMenu === `business-${category}` && (
                               <motion.div
                                 className="bg-blue-50 max-h-[40vh] overflow-y-auto"
-                                initial={{ height: 0, opacity: 0 }}
+                                initial={{ height: 0, opacity: 1 }}
                                 animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
+                                exit={{ height: 0, opacity: 1 }}
                                 transition={{ duration: 0.3 }}
                               >
                                 {businessSubMenu[category].map(
@@ -1257,23 +1203,21 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
                   {mobileSubmenu === "trademarks" && (
                     <motion.div
                       className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0, opacity: 1   }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {Object.keys(trademarkIpSubMenu).map((category, idx) => (
                         <div key={idx} className="relative">
-                          {" "}
-                          {/* Add relative positioning */}
                           <motion.button
                             onClick={() =>
                               toggleMobileNestedMenu(`trademark-${category}`)
@@ -1297,7 +1241,7 @@ const documentationSubMenu = {
                             {mobileNestedMenu === `trademark-${category}` && (
                               <motion.div
                                 className="bg-blue-50 max-h-[40vh] overflow-y-auto"
-                                initial={{ height: 0, opacity: 0 }}
+                                initial={{ height: 0, opacity: 1 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.3 }}
@@ -1344,24 +1288,22 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
                   {mobileSubmenu === "documents" && (
                     <motion.div
                       className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0, opacity: 1 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {Object.keys(documentationSubMenu).map(
                         (category, idx) => (
                           <div key={idx} className="relative">
-                            {" "}
-                            {/* Add relative positioning */}
                             <motion.button
                               onClick={() =>
                                 toggleMobileNestedMenu(`document-${category}`)
@@ -1385,7 +1327,7 @@ const documentationSubMenu = {
                               {mobileNestedMenu === `document-${category}` && (
                                 <motion.div
                                   className="bg-blue-50 max-h-[40vh] overflow-y-auto"
-                                  initial={{ height: 0, opacity: 0 }}
+                                  initial={{ height: 0, opacity: 1 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
                                   transition={{ duration: 0.3 }}
@@ -1435,18 +1377,18 @@ const documentationSubMenu = {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
                   {mobileSubmenu === "accounting" && (
                     <motion.div
                       className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0, opacity: 1 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {dropdownItems.accounting.map((item, index) => (
                         <a
@@ -1481,24 +1423,21 @@ const documentationSubMenu = {
                     animate={{ rotate: mobileSubmenu === "licenses" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    
+                    <ChevronDown size={14} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
                   {mobileSubmenu === "licenses" && (
                     <motion.div
                       className="bg-gray-100"
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0, opacity: 1 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                      style={{ overflow: "visible" }}
                     >
                       {Object.keys(licenseSubMenu).map((category, idx) => (
                         <div key={idx} className="relative">
-                          {" "}
-                          {/* Add relative positioning */}
-                          {/* Ensure the category is visible */}
                           <motion.button
                             onClick={() =>
                               toggleMobileNestedMenu(`license-${category}`)
@@ -1522,9 +1461,9 @@ const documentationSubMenu = {
                             {mobileNestedMenu === `license-${category}` && (
                               <motion.div
                                 className="bg-blue-50 max-h-[40vh] overflow-y-auto"
-                                initial={{ height: 0, opacity: 0 }}
+                                initial={{ height: 0, opacity: 1 }}
                                 animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
+                                exit={{ height: 0, opacity: 1 }}
                                 transition={{ duration: 0.3 }}
                               >
                                 {licenseSubMenu[category].map((item, index) => (
