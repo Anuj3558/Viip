@@ -28,7 +28,7 @@ import dotenv from "dotenv";
 
 import connectDB from "./connection.js";
 import DocumentRouer from "./router/DocumentRouter.js";
-import OtherRouter from "./router/OtherRouter.js";
+import OtherRouter from "./router/otherRouter.js";
 dotenv.config();
 const app = express();
 
