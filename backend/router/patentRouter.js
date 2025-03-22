@@ -14,6 +14,6 @@ router.post("/patent-inquiry", createPatentInquiry); // Consolidated route for a
 router.post("/patent-infringement", createPatentInquiry);
 // GET Routes
 router.get("/patent-inquiries", getAllPatentInquiries); // Get all patent inquiries
-router.get("/patent-inquiries/:type", getPatentInquiriesByType); // Get patent inquiries by type
+router.get("/:type", getPatentInquiriesByType); // Get patent inquiries by type
 
 export default router;

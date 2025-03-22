@@ -14,7 +14,7 @@
   router.post("/copyright-infringement", createCopyrightInquiry);
 
   // GET Routes
-  router.get("/copyright-inquiries/:type", getCopyrightInquiriesByType); // Get inquiries by type
+  router.get("/:type", getCopyrightInquiriesByType); // Get inquiries by type
   router.get("/copyright-inquiries", getAllCopyrightInquiries); // Get all inquiries
 
   export default router;

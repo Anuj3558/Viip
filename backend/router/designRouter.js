@@ -14,6 +14,6 @@ router.post("/design-inquiry", createDesignInquiry); // Consolidated route for a
 
 // GET Routes
 router.get("/design-inquiries", getAllDesignInquiries); // Get all design inquiries
-router.get("/design-inquiries/:type", getDesignInquiriesByType); // Get design inquiries by type
+router.get("/:type", getDesignInquiriesByType); // Get design inquiries by type
 
 export default router;

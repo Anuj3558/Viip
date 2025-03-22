@@ -1,7 +1,7 @@
 import DesignModel from "../models/design.js";
 
 // Define valid types for design inquiries
-const validTypes = ["logo-design", "design-registration"];
+const validTypes = ["design_registration_inquiry", "logo_design_inquiry"];
 
 // Create a new design inquiry
 const createDesignInquiry = async (req, res) => {

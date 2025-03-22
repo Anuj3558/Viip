@@ -43,7 +43,7 @@ const getCopyrightInquiriesByType = async (req, res) => {
   try {
     const type = req.params.type; // Get the type from the URL parameter
     const inquiries = await CopyrightModel.find({ type: type }); // Find inquiries by type
-    res.json(inquiries); // Return the inquiries
+    res.json({data:inquiries}); // Return the inquiries
   } catch (error) {
     res.status(500).json({ message: error.message }); // Handle errors
   }

@@ -15,102 +15,71 @@ const WellKnownTrademarkPage = () => {
     phone: "",
     message: "",
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [notification, setNotification] = useState(null);
-
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-
-  const validatePhone = (phone) => {
-    const re = /^[0-9]{10}$/;
-    return re.test(phone);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
-
-    // Clear errors when user types
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: null,
-      });
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!validatePhone(formData.phone)) {
-      newErrors.phone = "Please enter a valid 10-digit phone number";
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
+    const dataToSend = {
+      ...formData,
+      route: "/well-known-trademark",
+      type: "well_known_trademark_inquiry",
+    };
 
     try {
+      formData.name = formData.fullName;
+      console.log(formData);
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/api/contact`,
+        `${
+          import.meta.env.VITE_APP_BACKEND_URL
+        }/trademark-ip/well-known-trademark`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            ...formData,
-            subject: "Well-Known Trademark Protection Inquiry",
-          }),
+          body: JSON.stringify(dataToSend),
         }
       );
 
       if (response.ok) {
-        showSuccessNotification();
+        console.log("Form submitted successfully!");
         setFormData({
           fullName: "",
           email: "",
           phone: "",
           message: "",
         });
+        showSuccessNotification();
       } else {
-        showErrorNotification(
-          "Failed to submit your inquiry. Please try again later."
-        );
+        console.error("Form submission failed:", response.status);
+        showErrorNotification("Form submission failed. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      showErrorNotification("An error occurred while submitting your inquiry.");
-    } finally {
-      setIsSubmitting(false);
+      showErrorNotification(
+        "An error occurred while submitting the form. Please try again."
+      );
     }
+  };
+
+  const isPhoneValid = (phone) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phone === "" || phoneRegex.test(phone);
+  };
+
+  const isEmailValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return email === "" || emailRegex.test(email);
   };
 
   const showSuccessNotification = () => {
@@ -135,25 +104,17 @@ const WellKnownTrademarkPage = () => {
   };
 
   useEffect(() => {
-    if (notification && notification.type === "success") {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (notification && notification.type === "success") {
         closeNotification();
-      }, 3000);
+      }
+    }, 4500);
 
-      return () => clearTimeout(timer);
-    }
+    return () => clearTimeout(timer);
   }, [notification]);
 
   return (
     <>
-      {notification && (
-        <Notification
-          type={notification.type}
-          message={notification.message}
-          description={notification.description}
-          onClose={closeNotification}
-        />
-      )}
       <Helmet>
         <title>
           Protection of Well-Known Trademark | Vastav Intellect and IP Solutions
@@ -170,9 +131,18 @@ const WellKnownTrademarkPage = () => {
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
+        {notification && (
+          <Notification
+            type={notification.type}
+            message={notification.message}
+            description={notification.description}
+            onClose={closeNotification}
+          />
+        )}
+
         {/* Main Well-Known Trademark Section */}
         <section className="container mx-auto px-4 py-16">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">
               <h2 className="text-3xl font-bold text-blue-800">
@@ -239,7 +209,7 @@ const WellKnownTrademarkPage = () => {
                 <div>
                   <label
                     htmlFor="fullName"
-                    className="block text-gray-700 mb-1"
+                    className="block text-gray-700 font-medium mb-1"
                   >
                     Full Name
                   </label>
@@ -249,19 +219,16 @@ const WellKnownTrademarkPage = () => {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${
-                      errors.fullName ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your full name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your full name"
+                    required
                   />
-                  {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.fullName}
-                    </p>
-                  )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Email Address
                   </label>
                   <input
@@ -271,16 +238,24 @@ const WellKnownTrademarkPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.email ? "border-red-500" : "border-gray-300"
+                      !isEmailValid(formData.email) && formData.email
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your email address"
+                    placeholder="Enter your email address"
+                    required
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  {!isEmailValid(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid email address
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -290,16 +265,24 @@ const WellKnownTrademarkPage = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${
-                      errors.phone ? "border-red-500" : "border-gray-300"
+                      !isPhoneValid(formData.phone) && formData.phone
+                        ? "border-red-500"
+                        : "border-gray-300"
                     } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Your 10-digit phone number"
+                    placeholder="Enter your 10-digit phone number"
+                    required
                   />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  {!isPhoneValid(formData.phone) && formData.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      Please enter a valid phone number
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 font-medium mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -308,23 +291,16 @@ const WellKnownTrademarkPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows="4"
-                    className={`w-full px-4 py-2 border ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Tell us about your trademark and requirements"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Describe your requirements"
+                    required
                   ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.message}
-                    </p>
-                  )}
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-800 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 flex items-center justify-center"
-                  disabled={isSubmitting}
+                  className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                  Submit Inquiry
                 </button>
               </form>
             </div>

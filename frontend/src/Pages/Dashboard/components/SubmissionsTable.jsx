@@ -48,9 +48,11 @@ const SubmissionsTable = ({
        "document/inquiries/type/mou_drafting_inquiry",
      "Change Company Name":
        "bussiness-setup/inquiries/type/company_name_change_inquiry",
-     "Web/Ecom Developmet":"bussiness-setup/inquiries/type/website_ecommerce_development",
+     "Web/Ecom Developmet":
+       "bussiness-setup/inquiries/type/website_ecommerce_development",
      // International Business Setup
-   "International Incorporation":"bussiness-setup/international-business-setup",
+     "International Incorporation":
+       "bussiness-setup/international-business-setup",
      // ISO Certification
      "ISO Certification": "api/iso",
      "ISO Certification 22000": "api/iso/22000",
@@ -67,12 +69,12 @@ const SubmissionsTable = ({
      "Online PF Registration": "api/pf-registration",
      "NGO Registration": "api/ngo-registration",
      "Online ESI Registration": "api/esi-registration",
-     
+
      "Legal Metrology": "api/legal-metrology-registration",
      // Licenses
      "PSARA License": "api/psara-license",
      "Trade License Renewal Registration": "api/trade-license-renewal",
-     "FSSAI": "api/fssai-registration",
+     FSSAI: "api/fssai-registration",
 
      //IP Services
      "Patent Registration": "api/patent-registration",
@@ -157,8 +159,33 @@ const SubmissionsTable = ({
     "Noncompete Agreement":"document/inquiries/type/non-compete_agreement",
     "Finance Agreement":"document/inquiries/type/finance_agreement",
     "GDPR":"document/inquiries/type/gdpr_compliance",
+     ///Liscensce and Regisration
 
-     "Trademark Registration": "/trademark-registration",
+
+     "Trademark Registration": "trademark-ip/trademark_registration_inquiry",
+     "Trademark Assignment": "trademark-ip/trademark_assignment_inquiry",
+     "Well Known Trademark": "trademark-ip/well_known_trademark_inquiry",
+     "Trademark Renewal": "trademark-ip/trademark_renewal_inquiry",
+     "International Trademark":
+       "trademark-ip/trademark_registration_international_inquiry",
+     "Trademark Registration for Individuals":
+       "trademark-ip/trademark_registration_individual_inquiry",
+     "Respond to TM Objection":
+       "trademark-ip/trademark_objection_response_inquiry",
+     "Trademark Watch": "trademark-ip/trademark_watch_inquiry",
+     "USA Trademark": "trademark-ip/trademark_registration_usa_inquiry",
+
+     "Copyright Music": "copyright/copyright_music_inquiry",
+
+     "Provisional Patent Application":
+       "patent/provisional_patent_application_inquiry",
+
+     "Copyright Infringement": "copyright/copyright_infringement_inquiry",
+     "Patent Infringement": "patent/patent_infringement_inquiry",
+     "Trademark Infringement": "trademark-ip/trademark_infringement_inquiry",
+
+     "Logo Design": "design/logo_design_inquiry",
+     "Design Registration": "design/design_registration_inquiry",
    };
 
   // Fetch submissions when selectedService changes

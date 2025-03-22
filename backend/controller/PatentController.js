@@ -80,16 +80,7 @@ const getPatentInquiriesByType = async (req, res) => {
   try {
     const type = req.params.type; // Get the type from the URL parameter
 
-    // Validate the type field
-    if (
-      !["provisional-patent-application", "patent-registration"].includes(type)
-    ) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "Invalid type. Allowed values: provisional-patent-application, patent-registration",
-      });
-    }
+    
 
     // Fetch inquiries by type from the database
     const inquiries = await PatentModel.find({ type });

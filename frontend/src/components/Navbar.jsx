@@ -23,11 +23,7 @@ const Navbar = () => {
   const [activeTrademarkSubMenu, setActiveTrademarkSubMenu] = useState(null);
   const [activeDocumentSubMenu, setActiveDocumentSubMenu] = useState(""); // Tracks the active submenu in "Documents"
 
-  
-
-  
   const dropdownRef = useRef(null);
-
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -52,6 +48,19 @@ const Navbar = () => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
   };
 
+  // Local state for submenus
+  const [mobileSubmenu, setMobileSubmenu] = useState(null);
+  const [mobileNestedMenu, setMobileNestedMenu] = useState(null);
+
+  // Function to toggle submenus
+  const toggleMobileSubmenu = (menu) => {
+    setMobileSubmenu(mobileSubmenu === menu ? null : menu);
+  };
+
+  // Function to toggle nested menus
+  const toggleMobileNestedMenu = (nestedMenu) => {
+    setMobileNestedMenu(mobileNestedMenu === nestedMenu ? null : nestedMenu);
+  };
   // Enhanced animation variants
   const menuVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -97,6 +106,26 @@ const Navbar = () => {
     },
   };
 
+
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+    exit: { opacity: 0, y: -10, transition: { duration: 0.2, ease: "easeIn" } },
+  };
+
+  const mobileMenuItemVariants = {
+    hidden: { opacity: 0, y: -5 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+  };
+
   const itemVariants = {
     hidden: { opacity: 0, x: -5 },
     visible: {
@@ -119,256 +148,260 @@ const Navbar = () => {
     },
   };
 
+  
+
   // Dropdown data
-// Dropdown data
-const dropdownItems = {
-  expert: ["Expert Consultation"],
-  business: ["Company Registration"],
-  trademarks: [
-    { name: "Trademark Registration", link: "/trademark-registration" },
-    {
-      name: "Trademark Registration for Individuals",
-      link: "/trademark-registration-individual",
-    },
-    { name: "Trademark Assignment", link: "/trademark-assignment" },
-    {
-      name: "Legal Support",
-      link: "", // No direct link, will use submenu
-      submenu: {
+  const dropdownItems = {
+    expert: ["Expert Consultation"],
+    business: ["Company Registration"],
+    trademarks: [
+      { name: "Trademark Registration", link: "/trademark-registration" },
+      {
+        name: "Trademark Registration for Individuals",
+        link: "/trademark-registration-individual",
+      },
+      { name: "Trademark Assignment", link: "/trademark-assignment" },
+      {
         name: "Legal Support",
-        items: [
-          { name: "IP Due Diligence", link: "/ip-due-diligence" },
-          { name: "IP Litigation Support", link: "/ip-litigation-support" },
-          { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
-          {
-            name: "International IP Protection",
-            link: "/international-ip-protection",
-          },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "Legal Support",
+          items: [
+            { name: "IP Due Diligence", link: "/ip-due-diligence" },
+            { name: "IP Litigation Support", link: "/ip-litigation-support" },
+            { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+            {
+              name: "International IP Protection",
+              link: "/international-ip-protection",
+            },
+          ],
+        },
       },
-    },
-    {
-      name: "IP Services",
-      link: "", // No direct link, will use submenu
-      submenu: {
+      {
         name: "IP Services",
-        items: [
-          { name: "Patent Registration", link: "/patent-registration" },
-          { name: "Copyright Registration", link: "/copyright-registration" },
-          {
-            name: "Industrial Design Registration",
-            link: "/industrial-design-registration",
-          },
-          { name: "IP Valuation", link: "/ip-valuation" },
-          { name: "IP Licensing", link: "/ip-licensing" },
-          {
-            name: "IP Portfolio Management",
-            link: "/ip-portfolio-management",
-          },
-        ],
+        link: "", // No direct link, will use submenu
+        submenu: {
+          name: "IP Services",
+          items: [
+            { name: "Patent Registration", link: "/patent-registration" },
+            { name: "Copyright Registration", link: "/copyright-registration" },
+            {
+              name: "Industrial Design Registration",
+              link: "/industrial-design-registration",
+            },
+            { name: "IP Valuation", link: "/ip-valuation" },
+            { name: "IP Licensing", link: "/ip-licensing" },
+            {
+              name: "IP Portfolio Management",
+              link: "/ip-portfolio-management",
+            },
+          ],
+        },
       },
-    },
-  ],
-  licenses: ["Licenses", "Registrations", "ISO Certification"],
-  documents: [
-    "Free Legal Documents",
-    "Business Contracts",
-    "Personal & Family",
-    "Real Estate",
-    "Notices",
-    "HR Policies",
-  ],
-  accounting: [
-    { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
-    { name: "Payroll Management System", link: "/payroll-management-system" },
-  ],
-};
+    ],
+    licenses: ["Licenses", "Registrations", "ISO Certification"],
+    documents: [
+      "Free Legal Documents",
+      "Business Contracts",
+      "Personal & Family",
+      "Real Estate",
+      "Notices",
+      "HR Policies",
+    ],
+    accounting: [
+      { name: "Income Tax Return (ITR)", link: "/income-tax-return" },
+      { name: "Payroll Management System", link: "/payroll-management-system" },
+    ],
+  };
 
 // Submenu data for Expert Consultation
 const expertSubMenu = {
   "Expert Consultation": ["Talk To Expert"],
 };
 
-const businessSubMenu = {
-"Company Registration": [
-  {
-    name: "Company Registration",
-    link: "/company-registrion",
-  },
-  {
-    name: "LLP Annual Compliance",
-    link: "/llpannual-compliance",
-  },
-  {
-    name: "LLP Annual Filings",
-    link: "/llp-annual-filing",
-  },
-  {
-    name: "LLP Designated Partner Change",
-    link: "/llpdesignated-partner-change",
-  },
-  {
-    name: "Sole Proprietorship Registration",
-    link: "/sole-proprietorship-registration",
-  },
-  {
-    name: "Producer Company Registration",
-    link: "/producer-company-registration",
-  },
-  {
-    name: "Nidhi Company Registration",
-    link: "/nidhi-company-registration",
-  },
-  {
-    name: "Startup India Registration",
-    link: "/startup-india-registration",
-  },
-  {
-    name: "Partnership Deed Drafting",
-    link: "/partnership-deed-drafting",
-  },
-  {
-    name: "One Person Company Registration",
-    link: "/one-person-company-registration",
-  },
-  {
-    name: "Authorized Share Capital",
-    link: "/authorized-share-capital",
-  },
-  {
-    name: "Memorandum Of Understanding (MOU) Drafting",
-    link: "/mou-drafting",
-  },
-  {
-    name: "Change Company Name",
-    link: "/company-name-change",
-  },
-],
-"International Business Setup": [
-  { name: "International Business Setup", link: "/international-business-setupPage" }, // Note: You need to define this route // Note: You need to define this route
-],
-"Company Name Search": [
-  { name: "Change Company Name", link: "/company-name-change" }, // Note: You need to define this route // Note: You need to define this route
-],
-"Licenses & Registrations": [
-  {
-    name: "Digital Signature Certificate",
-    link: "/digital-signature-certificate",
-  }, // Note: You need to define this route // Note: You need to define this route
-  { name: "Udyam Registration", link: "/udyam-registration" }, // Note: You need to define this route // Note: You need to define this route
-  { name: "IEC [Import/Export Code]", link: "/IEC-importexportcode" }, // Note: You need to define this route // Note: You need to define this route
-  { name: "MSME Registration", link: "/MSME-registration" },
-  { name: "FSSAI", link: "/fssai-license" },
-  { name: "Apeda RCMC", link: "/APEDA-RCMC" },
-  { name: "Spice Board Registration", link: "/spiceboard-registration" },
-  { name: "FIEO Registration", link: "/FIEO-registration" },
-  { name: "Legal Metrology", link: "/legal-metrology" },
-  { name: "Hallmark Registration", link: "/hallmark-registration" },
-  { name: "BIS Registration", link: "/BIS-certification" },
-  { name: "Liquor License", link: "/liquor-license" },
-  { name: "CLRA Registration & Licensing", link: "/CLRA-registration" },
-  { name: "AD Code Registration", link: "/AD-code-registration" },
-  { name: "IRDAI Registration", link: "/IRDAI-registration" },
-  { name: "Drug & Cosmetic License", link: "/drugs-and-cosmetics-license" },
-  { name: "Customs Clearance", link: "/customer-clearance" },
-  { name: "PSARA License", link: "/psara-license" },
-    {
-      name: "Trade License Renewal Registration",
-      link: "/trade-license-renewal",
-    },
-    {
-      name: "Professional Tax Registration",
-      link: "/professional-tax-registration",
-    },
-    { name: "Online PF Registration", link: "/online-pf-registration" },
-    { name: "Online ESI Registration", link: "/online-esi-registration" },
-    { name: "Udyog Aadhaar Registration", link: "/udyog-aadhaar-registration" },
-   
-  // Note: You need to define this route // Note: You need to define this route
-],
-"Web Development": [
-  { name: "Web/E-Commerce Website Development", link: "/website-ecommerce-development" }, // Note: You need to define this route // Note: You need to define this route
-],
-"ISO Certification": [
-  { name: "ISO Certification", link: "/iso-certification" },
-  { name: "ISO Certification 22000", link: "/iso-22000-certification" },
-  { name: "ISO Certification 27001", link: "/iso-27001-certification" },
-  { name: "ISO Certification 9001", link: "/iso-9001-certification" },
-  { name: "ISO Certification 13485", link: "/iso-13485-certification" },
-  { name: "ISO Certification 26000", link: "/iso-26000-consulting" },
-  {
-    name: "ISO Certification 9000 2005",
-    link: "/iso-9000-2005-certification",
-  }, // Note: This route needs to be defined
-  { name: "ISO Certification 14001", link: "/iso-14001-certification" },
-  { name: "ISO Certification 31000", link: "/iso-31000-certification" },
-  {
-    name: "Benefits Of ISO Certification",
-    link: "/benefits-of-iso-certification",
-  },
-  
-],
+  const businessSubMenu = {
+    "Company Registration": [
+      {
+        name: "Company Registration",
+        link: "/company-registrion",
+      },
+      {
+        name: "LLP Annual Compliance",
+        link: "/llpannual-compliance",
+      },
+      {
+        name: "LLP Annual Filings",
+        link: "/llp-annual-filing",
+      },
+      {
+        name: "LLP Designated Partner Change",
+        link: "/llpdesignated-partner-change",
+      },
+      {
+        name: "Sole Proprietorship Registration",
+        link: "/sole-proprietorship-registration",
+      },
+      {
+        name: "Producer Company Registration",
+        link: "/producer-company-registration",
+      },
+      {
+        name: "Nidhi Company Registration",
+        link: "/nidhi-company-registration",
+      },
+      {
+        name: "Startup India Registration",
+        link: "/startup-india-registration",
+      },
+      {
+        name: "Partnership Deed Drafting",
+        link: "/partnership-deed-drafting",
+      },
+      {
+        name: "One Person Company Registration",
+        link: "/one-person-company-registration",
+      },
+      {
+        name: "Authorized Share Capital",
+        link: "/authorized-share-capital",
+      },
+      {
+        name: "Memorandum Of Understanding (MOU) Drafting",
+        link: "/mou-drafting",
+      },
+      {
+        name: "Change Company Name",
+        link: "/company-name-change",
+      },
+    ],
+    "International Business Setup": [
+      {
+        name: "International Business Setup",
+        link: "/international-business-setupPage",
+      }, // Note: You need to define this route // Note: You need to define this route
+    ],
+    "Company Name Search": [
+      { name: "Change Company Name", link: "/company-name-change" }, // Note: You need to define this route // Note: You need to define this route
+    ],
+    "Licenses & Registrations": [
+      {
+        name: "Digital Signature Certificate",
+        link: "/digital-signature-certificate",
+      }, // Note: You need to define this route // Note: You need to define this route
+      { name: "Udyam Registration", link: "/udyam-registration" }, // Note: You need to define this route // Note: You need to define this route
+      { name: "IEC [Import/Export Code]", link: "/IEC-importexportcode" }, // Note: You need to define this route // Note: You need to define this route
+      { name: "MSME Registration", link: "/MSME-registration" },
+      { name: "FSSAI", link: "/fssai-license" },
+      { name: "Apeda RCMC", link: "/APEDA-RCMC" },
+      { name: "Spice Board Registration", link: "/spiceboard-registration" },
+      { name: "FIEO Registration", link: "/FIEO-registration" },
+      { name: "Legal Metrology", link: "/legal-metrology" },
+      { name: "Hallmark Registration", link: "/hallmark-registration" },
+      { name: "BIS Registration", link: "/BIS-certification" },
+      { name: "Liquor License", link: "/liquor-license" },
+      { name: "CLRA Registration & Licensing", link: "/CLRA-registration" },
+      { name: "AD Code Registration", link: "/AD-code-registration" },
+      { name: "IRDAI Registration", link: "/IRDAI-registration" },
+      { name: "Drug & Cosmetic License", link: "/drugs-and-cosmetics-license" },
+      { name: "Customs Clearance", link: "/customer-clearance" },
+      { name: "PSARA License", link: "/psara-license" },
+      {
+        name: "Trade License Renewal Registration",
+        link: "/trade-license-renewal",
+      },
+      {
+        name: "Professional Tax Registration",
+        link: "/professional-tax-registration",
+      },
+      { name: "Online PF Registration", link: "/online-pf-registration" },
+      { name: "Online ESI Registration", link: "/online-esi-registration" },
+      {
+        name: "Udyog Aadhaar Registration",
+        link: "/udyog-aadhaar-registration",
+      },
 
-};
+      // Note: You need to define this route // Note: You need to define this route
+    ],
+    "Web Development": [
+      {
+        name: "Web/E-Commerce Website Development",
+        link: "/website-ecommerce-development",
+      }, // Note: You need to define this route // Note: You need to define this route
+    ],
+    "ISO Certification": [
+      { name: "ISO Certification", link: "/iso-certification" },
+      { name: "ISO Certification 22000", link: "/iso-22000-certification" },
+      { name: "ISO Certification 27001", link: "/iso-27001-certification" },
+      { name: "ISO Certification 9001", link: "/iso-9001-certification" },
+      { name: "ISO Certification 13485", link: "/iso-13485-certification" },
+      { name: "ISO Certification 26000", link: "/iso-26000-consulting" },
+      {
+        name: "ISO Certification 9000 2005",
+        link: "/iso-9000-2005-certification",
+      }, // Note: This route needs to be defined
+      { name: "ISO Certification 14001", link: "/iso-14001-certification" },
+      { name: "ISO Certification 31000", link: "/iso-31000-certification" },
+      {
+        name: "Benefits Of ISO Certification",
+        link: "/benefits-of-iso-certification",
+      },
+    ],
+  };
 
-const trademarkIpSubMenu = {
-Trademarks: [
-  { name: "Trademark Registration", link: "/trademark-registration" },
-  {
-    name: "Trademark Registration for Individuals",
-    link: "/trademark-registration-individual",
-  },
-  { name: "Trademark Assignment", link: "/trademark-assignment" },
-  { name: "Respond to TM Objection", link: "/respond-to-tm-objection" },
-  { name: "Well Known Trademark", link: "/well-known-trademark" },
-  { name: "Trademark Watch", link: "/trademark-watch" },
-  { name: "Trademark Renewal", link: "/trademark-renewal" },
-  { name: "USA Trademark", link: "/usa-trademark" },
-  { name: "International Trademark", link: "/international-trademark" },
-],
-Copyright: [
-  { name: "Copyright Registration", link: "/copyright-registration" },
-  { name: "Copyright Music", link: "/copyright-music" },
-],
-Patent: [
-  {
-    name: "Provisional Patent Application",
-    link: "/provisional-patent-application",
-  },
-  { name: "Patent Registration", link: "/patent-registration" },
-],
-Infringement: [
-  { name: "Copyright Infringement", link: "/copyright-infringement" },
-  { name: "Patent Infringement", link: "/patent-infringement" },
-  { name: "Trademark Infringement", link: "/trademark-infringement" },
-],
-"Design Registration": [
-  { name: "Logo Design", link: "/logo-design" },
-  { name: "Design Registration", link: "/design-registration" },
-],
-"Legal Support": [
-  { name: "IP Due Diligence", link: "/ip-due-diligence" },
-  { name: "IP Litigation Support", link: "/ip-litigation-support" },
-  { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
-  {
-    name: "International IP Protection",
-    link: "/international-ip-protection",
-  },
-],
-"IP Services": [
-  
-  {
-    name: "Industrial Design Registration",
-    link: "/industrial-design-registration",
-  },
-  { name: "IP Valuation", link: "/ip-valuation" },
-  { name: "IP Licensing", link: "/ip-licensing" },
-  { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
-],
-};
-
-
-
+  const trademarkIpSubMenu = {
+    Trademarks: [
+      { name: "Trademark Registration", link: "/trademark-registration" },
+      {
+        name: "Trademark Registration for Individuals",
+        link: "/trademark-registration-individual",
+      },
+      { name: "Trademark Assignment", link: "/trademark-assignment" },
+      { name: "Respond to TM Objection", link: "/respond-to-tm-objection" },
+      { name: "Well Known Trademark", link: "/well-known-trademark" },
+      { name: "Trademark Watch", link: "/trademark-watch" },
+      { name: "Trademark Renewal", link: "/trademark-renewal" },
+      { name: "USA Trademark", link: "/usa-trademark" },
+      { name: "International Trademark", link: "/international-trademark" },
+    ],
+    Copyright: [
+      { name: "Copyright Registration", link: "/copyright-registration" },
+      { name: "Copyright Music", link: "/copyright-music" },
+    ],
+    Patent: [
+      {
+        name: "Provisional Patent Application",
+        link: "/provisional-patent-application",
+      },
+      { name: "Patent Registration", link: "/patent-registration" },
+    ],
+    Infringement: [
+      { name: "Copyright Infringement", link: "/copyright-infringement" },
+      { name: "Patent Infringement", link: "/patent-infringement" },
+      { name: "Trademark Infringement", link: "/trademark-infringement" },
+    ],
+    "Design Registration": [
+      { name: "Logo Design", link: "/logo-design" },
+      { name: "Design Registration", link: "/design-registration" },
+    ],
+    "Legal Support": [
+      { name: "IP Due Diligence", link: "/ip-due-diligence" },
+      { name: "IP Litigation Support", link: "/ip-litigation-support" },
+      { name: "IP Strategy Consulting", link: "/ip-strategy-consulting" },
+      {
+        name: "International IP Protection",
+        link: "/international-ip-protection",
+      },
+    ],
+    "IP Services": [
+      {
+        name: "Industrial Design Registration",
+        link: "/industrial-design-registration",
+      },
+      { name: "IP Valuation", link: "/ip-valuation" },
+      { name: "IP Licensing", link: "/ip-licensing" },
+      { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
+    ],
+  };
 
 const licenseSubMenu = {
   Fundraising: [
@@ -837,7 +870,6 @@ const documentationSubMenu = {
             </div>
 
             {/* Licenses & Registrations Dropdown */}
-           
 
             {/* Documents Dropdown */}
             <div className="relative">
@@ -935,7 +967,58 @@ const documentationSubMenu = {
             </div>
 
             {/* Accounting Dropdown */}
-          
+            <div className="relative">
+              <motion.button
+                onClick={() => toggleDropdown("accounting")}
+                className={`flex items-center text-gray-700 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                  openDropdown === "accounting"
+                    ? "bg-blue-50 text-blue-900"
+                    : ""
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="mr-1.5 text-blue-800">
+                  {menuIcons.accounting}
+                </span>
+                <span className="text-sm">Accounting</span>
+                <motion.span
+                  animate={{ rotate: openDropdown === "accounting" ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="ml-1"
+                >
+                  <ChevronDown size={16} />
+                </motion.span>
+              </motion.button>
+              <AnimatePresence>
+                {openDropdown === "accounting" && (
+                  <motion.div
+                    className="absolute mt-2 w-64 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 overflow-hidden"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={dropdownVariants}
+                  >
+                    <div className="py-2">
+                      {dropdownItems.accounting.map((item, index) => (
+                        <motion.div
+                          key={index}
+                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                          variants={itemVariants}
+                          whileHover="hover"
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <Link to={item.link} className="block w-full">
+                            {item.name}
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            {/* Other Dropdown */}
             <div className="relative ">
               <motion.button
                 onClick={() => toggleDropdown("licenses")}
@@ -1074,17 +1157,18 @@ const documentationSubMenu = {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto"
+            className="md:hidden fixed inset-0 top-16 bg-white z-50 overflow-y-auto pb-20"
             initial="hidden"
             animate="visible"
             exit="exit"
-            variants={menuVariants}
+            variants={mobileMenuVariants}
           >
             <div className="flex flex-col divide-y divide-gray-100">
+              {/* Home */}
               <motion.a
                 href="#Home"
                 className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                variants={itemVariants}
+                variants={mobileMenuItemVariants}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -1092,11 +1176,12 @@ const documentationSubMenu = {
                 <span>Home</span>
               </motion.a>
 
+              {/* Expert Consultation */}
               <div>
                 <motion.button
-                  onClick={() => toggleDropdown("expert")}
+                  onClick={() => toggleMobileSubmenu("expert")}
                   className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  variants={itemVariants}
+                  variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center">
@@ -1106,43 +1191,86 @@ const documentationSubMenu = {
                     <span>Consult an Expert</span>
                   </div>
                   <motion.span
-                    animate={{ rotate: openDropdown === "expert" ? 180 : 0 }}
+                    animate={{ rotate: mobileSubmenu === "expert" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
                     <ChevronDown size={16} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
-                  {openDropdown === "expert" && (
+                  {mobileSubmenu === "expert" && (
                     <motion.div
-                      className="bg-gray-50"
+                      className="bg-gray-100"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
                     >
                       {dropdownItems.expert.map((item, index) => (
-                        <motion.a
-                          key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
-                          className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
-                          variants={itemVariants}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item}
-                        </motion.a>
+                        <div key={index} className="relative">
+                          {" "}
+                          {/* Add relative positioning */}
+                          <motion.button
+                            onClick={() =>
+                              toggleMobileNestedMenu(`expert-${item}`)
+                            }
+                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                            variants={mobileMenuItemVariants}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <span className="text-gray-800 font-medium z-10 relative">
+                              {item}
+                            </span>
+                            {expertSubMenu[item] && (
+                              <ChevronRight
+                                size={14}
+                                className="text-blue-600"
+                              />
+                            )}
+                          </motion.button>
+                          <AnimatePresence>
+                            {mobileNestedMenu === `expert-${item}` &&
+                              expertSubMenu[item] && (
+                                <motion.div
+                                  className="bg-blue-50"
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  {expertSubMenu[item].map(
+                                    (subItem, subIndex) => (
+                                      <a
+                                        key={subIndex}
+                                        href={`/${subItem
+                                          .replace(/\s+/g, "")
+                                          .toLowerCase()}`}
+                                        className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
+                                        onClick={() =>
+                                          setIsMobileMenuOpen(false)
+                                        }
+                                      >
+                                        {subItem}
+                                      </a>
+                                    )
+                                  )}
+                                </motion.div>
+                              )}
+                          </AnimatePresence>
+                        </div>
                       ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
+              {/* Business Setup */}
               <div>
                 <motion.button
-                  onClick={() => toggleDropdown("business")}
+                  onClick={() => toggleMobileSubmenu("business")}
                   className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  variants={itemVariants}
+                  variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center">
@@ -1152,41 +1280,67 @@ const documentationSubMenu = {
                     <span>Business Setup</span>
                   </div>
                   <motion.span
-                    animate={{ rotate: openDropdown === "business" ? 180 : 0 }}
+                    animate={{ rotate: mobileSubmenu === "business" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
                     <ChevronDown size={16} />
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
-                  {openDropdown === "business" && (
+                  {mobileSubmenu === "business" && (
                     <motion.div
-                      className="bg-gray-50"
+                      className="bg-gray-100"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
                     >
                       {Object.keys(businessSubMenu).map((category, idx) => (
-                        <div key={idx}>
-                          <motion.div
-                            className="px-8 py-2 text-sm font-medium text-blue-900 bg-gray-100"
-                            variants={itemVariants}
+                        <div key={idx} className="relative">
+                          <motion.button
+                            onClick={() =>
+                              toggleMobileNestedMenu(`business-${category}`)
+                            }
+                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                            variants={mobileMenuItemVariants}
                           >
-                            {category}
-                          </motion.div>
-                          {businessSubMenu[category].map((item, index) => (
-                            <motion.a
-                              key={index}
-                              href={`#${item.replace(/\s+/g, "")}`}
-                              className="block px-10 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-8"
-                              variants={itemVariants}
-                              whileTap={{ scale: 0.98 }}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              {item}
-                            </motion.a>
-                          ))}
+                            <span className="text-gray-800 font-medium z-10 relative">
+                              {category}
+                            </span>
+                            <ChevronRight
+                              size={14}
+                              className={`text-blue-600 transition-transform duration-300 ${
+                                mobileNestedMenu === `business-${category}`
+                                  ? "rotate-90"
+                                  : ""
+                              }`}
+                            />
+                          </motion.button>
+                          <AnimatePresence>
+                            {mobileNestedMenu === `business-${category}` && (
+                              <motion.div
+                                className="bg-blue-50 max-h-[40vh] overflow-y-auto"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                {businessSubMenu[category].map(
+                                  (item, index) => (
+                                    <a
+                                      key={index}
+                                      href={item.link}
+                                      className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                      {item.name}
+                                    </a>
+                                  )
+                                )}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ))}
                     </motion.div>
@@ -1194,11 +1348,12 @@ const documentationSubMenu = {
                 </AnimatePresence>
               </div>
 
+              {/* Trademarks & IP */}
               <div>
                 <motion.button
-                  onClick={() => toggleDropdown("trademarks")}
+                  onClick={() => toggleMobileSubmenu("trademarks")}
                   className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  variants={itemVariants}
+                  variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center">
@@ -1209,7 +1364,7 @@ const documentationSubMenu = {
                   </div>
                   <motion.span
                     animate={{
-                      rotate: openDropdown === "trademarks" ? 180 : 0,
+                      rotate: mobileSubmenu === "trademarks" ? 180 : 0,
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -1217,80 +1372,62 @@ const documentationSubMenu = {
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
-                  {openDropdown === "trademarks" && (
+                  {mobileSubmenu === "trademarks" && (
                     <motion.div
-                      className="bg-gray-50"
+                      className="bg-gray-100"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
                     >
-                      {dropdownItems.trademarks.map((item, index) => (
-                        <motion.a
-                          key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
-                          className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
-                          variants={itemVariants}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item}
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              <div>
-                <motion.button
-                  onClick={() => toggleDropdown("licenses")}
-                  className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  variants={itemVariants}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center">
-                    <span className="mr-3 text-blue-800">
-                      {menuIcons.licenses}
-                    </span>
-                    <span>Licenses & Registrations</span>
-                  </div>
-                  <motion.span
-                    animate={{ rotate: openDropdown === "licenses" ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown size={16} />
-                  </motion.span>
-                </motion.button>
-                <AnimatePresence>
-                  {openDropdown === "licenses" && (
-                    <motion.div
-                      className="bg-gray-50"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {Object.keys(licenseSubMenu).map((category, idx) => (
-                        <div key={idx}>
-                          <motion.div
-                            className="px-8 py-2 text-sm font-medium text-blue-900 bg-gray-100"
-                            variants={itemVariants}
+                      {Object.keys(trademarkIpSubMenu).map((category, idx) => (
+                        <div key={idx} className="relative">
+                          {" "}
+                          {/* Add relative positioning */}
+                          <motion.button
+                            onClick={() =>
+                              toggleMobileNestedMenu(`trademark-${category}`)
+                            }
+                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                            variants={mobileMenuItemVariants}
                           >
-                            {category}
-                          </motion.div>
-                          {licenseSubMenu[category].map((item, index) => (
-                            <motion.a
-                              key={index}
-                              href={`#${item.replace(/\s+/g, "")}`}
-                              className="block px-10 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-8"
-                              variants={itemVariants}
-                              whileTap={{ scale: 0.98 }}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              {item}
-                            </motion.a>
-                          ))}
+                            <span className="text-gray-800 font-medium z-10 relative">
+                              {category}
+                            </span>
+                            <ChevronRight
+                              size={14}
+                              className={`text-blue-600 transition-transform duration-300 ${
+                                mobileNestedMenu === `trademark-${category}`
+                                  ? "rotate-90"
+                                  : ""
+                              }`}
+                            />
+                          </motion.button>
+                          <AnimatePresence>
+                            {mobileNestedMenu === `trademark-${category}` && (
+                              <motion.div
+                                className="bg-blue-50 max-h-[40vh] overflow-y-auto"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                {trademarkIpSubMenu[category].map(
+                                  (item, index) => (
+                                    <a
+                                      key={index}
+                                      href={item.link}
+                                      className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                      {item.name}
+                                    </a>
+                                  )
+                                )}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       ))}
                     </motion.div>
@@ -1298,11 +1435,103 @@ const documentationSubMenu = {
                 </AnimatePresence>
               </div>
 
+              {/* Documents */}
               <div>
                 <motion.button
-                  onClick={() => toggleDropdown("accounting")}
+                  onClick={() => toggleMobileSubmenu("documents")}
                   className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  variants={itemVariants}
+                  variants={mobileMenuItemVariants}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center">
+                    <span className="mr-3 text-blue-800">
+                      {menuIcons.documents}
+                    </span>
+                    <span>Documents</span>
+                  </div>
+                  <motion.span
+                    animate={{
+                      rotate: mobileSubmenu === "documents" ? 180 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={16} />
+                  </motion.span>
+                </motion.button>
+                <AnimatePresence>
+                  {mobileSubmenu === "documents" && (
+                    <motion.div
+                      className="bg-gray-100"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                    >
+                      {Object.keys(documentationSubMenu).map(
+                        (category, idx) => (
+                          <div key={idx} className="relative">
+                            {" "}
+                            {/* Add relative positioning */}
+                            <motion.button
+                              onClick={() =>
+                                toggleMobileNestedMenu(`document-${category}`)
+                              }
+                              className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                              variants={mobileMenuItemVariants}
+                            >
+                              <span className="text-gray-800 font-medium z-10 relative">
+                                {category}
+                              </span>
+                              <ChevronRight
+                                size={14}
+                                className={`text-blue-600 transition-transform duration-300 ${
+                                  mobileNestedMenu === `document-${category}`
+                                    ? "rotate-90"
+                                    : ""
+                                }`}
+                              />
+                            </motion.button>
+                            <AnimatePresence>
+                              {mobileNestedMenu === `document-${category}` && (
+                                <motion.div
+                                  className="bg-blue-50 max-h-[40vh] overflow-y-auto"
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  {documentationSubMenu[category].map(
+                                    (item, index) => (
+                                      <a
+                                        key={index}
+                                        href={item.link}
+                                        className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
+                                        onClick={() =>
+                                          setIsMobileMenuOpen(false)
+                                        }
+                                      >
+                                        {item.name}
+                                      </a>
+                                    )
+                                  )}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Accounting */}
+              <div>
+                <motion.button
+                  onClick={() => toggleMobileSubmenu("accounting")}
+                  className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center">
@@ -1313,7 +1542,7 @@ const documentationSubMenu = {
                   </div>
                   <motion.span
                     animate={{
-                      rotate: openDropdown === "accounting" ? 180 : 0,
+                      rotate: mobileSubmenu === "accounting" ? 180 : 0,
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -1321,35 +1550,119 @@ const documentationSubMenu = {
                   </motion.span>
                 </motion.button>
                 <AnimatePresence>
-                  {openDropdown === "accounting" && (
+                  {mobileSubmenu === "accounting" && (
                     <motion.div
-                      className="bg-gray-50"
+                      className="bg-gray-100"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
                     >
                       {dropdownItems.accounting.map((item, index) => (
-                        <motion.a
+                        <a
                           key={index}
-                          href={`#${item.replace(/\s+/g, "")}`}
-                          className="block px-8 py-2 text-sm text-gray-700 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
-                          variants={itemVariants}
-                          whileTap={{ scale: 0.98 }}
+                          href={item.link}
+                          className="block px-8 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          {item}
-                        </motion.a>
+                          {item.name}
+                        </a>
                       ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
+              {/* Others */}
+              <div>
+                <motion.button
+                  onClick={() => toggleMobileSubmenu("licenses")}
+                  className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  variants={mobileMenuItemVariants}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex items-center">
+                    <span className="mr-3 text-blue-800">
+                      {menuIcons.licenses}
+                    </span>
+                    <span>Others</span>
+                  </div>
+                  <motion.span
+                    animate={{ rotate: mobileSubmenu === "licenses" ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={16} />
+                  </motion.span>
+                </motion.button>
+                <AnimatePresence>
+                  {mobileSubmenu === "licenses" && (
+                    <motion.div
+                      className="bg-gray-100"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ overflow: "visible" }} // Add this to ensure content is visible
+                    >
+                      {Object.keys(licenseSubMenu).map((category, idx) => (
+                        <div key={idx} className="relative">
+                          {" "}
+                          {/* Add relative positioning */}
+                          {/* Ensure the category is visible */}
+                          <motion.button
+                            onClick={() =>
+                              toggleMobileNestedMenu(`license-${category}`)
+                            }
+                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                            variants={mobileMenuItemVariants}
+                          >
+                            <span className="text-gray-800 font-medium z-10 relative">
+                              {category}
+                            </span>
+                            <ChevronRight
+                              size={14}
+                              className={`text-blue-600 transition-transform duration-300 ${
+                                mobileNestedMenu === `license-${category}`
+                                  ? "rotate-90"
+                                  : ""
+                              }`}
+                            />
+                          </motion.button>
+                          <AnimatePresence>
+                            {mobileNestedMenu === `license-${category}` && (
+                              <motion.div
+                                className="bg-blue-50 max-h-[40vh] overflow-y-auto"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                {licenseSubMenu[category].map((item, index) => (
+                                  <a
+                                    key={index}
+                                    href={item.link}
+                                    className="block px-12 py-2 text-sm font-medium text-gray-800 hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-300 ml-8"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    {item.name}
+                                  </a>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Contact Us */}
               <motion.a
-                href="#Contact"
+                href="/contact"
                 className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                variants={itemVariants}
+                variants={mobileMenuItemVariants}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
