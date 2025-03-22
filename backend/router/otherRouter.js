@@ -2,7 +2,7 @@ import express from 'express';
 import {
   HandleOthers,
   getOthersByType,
-} from "../controller/OtherController.js";
+} from "../controller/otherController.js";
 
 
 
