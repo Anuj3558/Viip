@@ -1508,7 +1508,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        path="/legal-heir-certificate"
+        <Route path="/legal-heir-certificate"
         element={
           <PageTransition>
             <LegalHeirCertificatePage    />
