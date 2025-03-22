@@ -31,7 +31,7 @@ const MOUDraftingPage = () => {
 
         try {
             // Send data to backend API
-            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/mou-drafting`, {
+            const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/mou-drafting`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -2,6 +2,7 @@ import express from 'express';
 import { HandleConsultsExpert } from '../controller/ConsultsExpertController.js';
 import ConsultsExpert from '../models/ConsultsExpertSchmea.js';
 import { HandleDocument } from '../controller/DocumentContoller.js';
+import DocumentModel from '../models/DocumentModel.js';
 
 
 const DocumentRouer = express.Router();
@@ -27,6 +28,7 @@ DocumentRouer.post("/delivery-challan",HandleDocument)
 DocumentRouer.post("/offer-letter",HandleDocument)
 DocumentRouer.post("/consent-letter",HandleDocument)
 DocumentRouer.post("/rent-receipt",HandleDocument)
+DocumentRouer.post("/mou-drafting",HandleDocument)
 DocumentRouer.post("/non-disclosure-agreement",HandleDocument)
 DocumentRouer.post("/service-level-agreement",HandleDocument)
 DocumentRouer.post("/non-disclosure-agreement",HandleDocument)
@@ -63,6 +65,16 @@ DocumentRouer.post("/legal-notice-recovery-of-dues",HandleDocument)
 DocumentRouer.post("/payroll-maintenance",HandleDocument)
 DocumentRouer.post("/legal-documents",HandleDocument)
 DocumentRouer.post("/legal-documents",HandleDocument)
+
+DocumentRouer.get("/inquiries/type/:type", async (req, res) => {
+    try {
+      const type = req.params.type;
+      const inquiries = await DocumentModel.find({ type: type });
+      res.json({ data: inquiries });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
 
 
 export default DocumentRouer;
