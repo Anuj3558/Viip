@@ -66,7 +66,7 @@ const ScopeOfWorkAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/operations/scope-of-work-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/scope-of-work-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

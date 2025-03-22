@@ -35,7 +35,7 @@ const Section80G12APage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/section80g-12a`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/section80g-12a`,
         {
           method: "POST",
           headers: {

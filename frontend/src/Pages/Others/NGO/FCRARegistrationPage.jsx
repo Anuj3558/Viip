@@ -31,7 +31,7 @@ const FCRARegistrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/fcra-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/fcra-registration`,
         {
           method: "POST",
           headers: {

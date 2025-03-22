@@ -31,7 +31,7 @@ const FamilyImmigrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/family-immigration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/family-immigration`,
         {
           method: "POST",
           headers: {

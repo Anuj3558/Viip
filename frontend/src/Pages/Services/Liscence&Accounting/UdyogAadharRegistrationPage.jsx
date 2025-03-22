@@ -13,12 +13,14 @@ import Notification from "../../../components/NOtification";
 const UdyogAadharRegistrationPage = () => {
   const [formData, setFormData] = useState({
     ownerName: "",
+    name:"",
     email: "",
     phone: "",
     businessName: "",
     businessType: "",
     aadharNumber: "",
     message: "",
+    type:"udyog_aadhar_registarion"
   });
 
   const [emailError, setEmailError] = useState("");
@@ -101,8 +103,9 @@ const UdyogAadharRegistrationPage = () => {
     }
 
     try {
+      formData.name=formData.ownerName;
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/api/udyog-aadhar-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/udyog-aadhar-registration`,
         formData
       );
       console.log("Form submitted:", response.data);

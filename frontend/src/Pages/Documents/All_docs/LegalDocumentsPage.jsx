@@ -66,7 +66,7 @@ const LegalDocumentsPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/legal-documents`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/legal-documents`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -66,7 +66,7 @@ const IncomeCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/income-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/income-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

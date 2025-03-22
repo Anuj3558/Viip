@@ -31,7 +31,7 @@ const ReraComplaintPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/rera-complaint`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/rera-complaint`,
         {
           method: "POST",
           headers: {

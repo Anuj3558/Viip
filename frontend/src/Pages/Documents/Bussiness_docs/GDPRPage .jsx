@@ -66,7 +66,7 @@ const GDPRPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/compliance/gdpr`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/gdpr`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

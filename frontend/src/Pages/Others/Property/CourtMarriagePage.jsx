@@ -31,7 +31,7 @@ const CourtMarriagePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/court-marriage`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/court-marriage`,
         {
           method: "POST",
           headers: {

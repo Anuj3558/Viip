@@ -31,7 +31,7 @@ const PropertyRegistrationPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/property-registration`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/property-registration`,
         {
           method: "POST",
           headers: {

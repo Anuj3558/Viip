@@ -66,7 +66,7 @@ const DrugsAndCosmeticsLicensePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/drugs-and-cosmetics-license`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/drugs-and-cosmetics-license`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -66,7 +66,7 @@ const AffidavitFormatPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/affidavit-format`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/affidavit-format`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

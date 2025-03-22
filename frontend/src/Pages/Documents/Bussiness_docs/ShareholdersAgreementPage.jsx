@@ -66,7 +66,7 @@ const ShareholdersAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/corporate/shareholders-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/shareholders-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

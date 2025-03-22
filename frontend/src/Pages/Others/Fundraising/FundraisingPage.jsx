@@ -67,7 +67,7 @@ const FundraisingPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/fundraising`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/fundraising`,
         {
           method: "POST",
           headers: {

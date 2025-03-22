@@ -31,7 +31,7 @@ const ESOPPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/esop`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/document/esop`,
         {
           method: "POST",
           headers: {

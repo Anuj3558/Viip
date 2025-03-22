@@ -38,7 +38,7 @@ const DPRServicePage = () => {
     try {
       // Send data to backend API
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/dpr/dpr-service`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/dpr-service`,
         {
           method: "POST",
           headers: {

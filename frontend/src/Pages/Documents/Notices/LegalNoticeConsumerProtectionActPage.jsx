@@ -33,7 +33,7 @@ const LegalNoticeConsumerProtectionActPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/legal-notice-consumer-protection-act`,
+        }/document/legal-notice-consumer-protection-act`,
         {
           method: "POST",
           headers: {

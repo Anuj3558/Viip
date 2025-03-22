@@ -66,7 +66,7 @@ const GstInvoicePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/accounting/gst-invoice`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/gst-invoice`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

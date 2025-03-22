@@ -66,7 +66,7 @@ const SharePurchaseAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/corporate/share-purchase-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/share-purchase-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

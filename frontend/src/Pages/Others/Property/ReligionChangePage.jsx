@@ -31,7 +31,7 @@ const ReligionChangePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/religion-change`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/religion-change`,
         {
           method: "POST",
           headers: {

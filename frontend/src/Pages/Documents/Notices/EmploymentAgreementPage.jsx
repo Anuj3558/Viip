@@ -31,7 +31,7 @@ const EmploymentAgreementPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/employment-agreement`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/document/employment-agreement`,
         {
           method: "POST",
           headers: {

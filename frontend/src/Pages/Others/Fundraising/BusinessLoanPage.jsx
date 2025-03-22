@@ -36,7 +36,7 @@ const BusinessLoanPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/business-loan`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/business-loan`,
         {
           method: "POST",
           headers: {

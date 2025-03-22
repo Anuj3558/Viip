@@ -31,7 +31,7 @@ const LegalNoticePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/legal-notice`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/document/legal-notice`,
         {
           method: "POST",
           headers: {

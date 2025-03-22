@@ -31,7 +31,7 @@ const CSR1FilingPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/csr1-filing`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/csr1-filing`,
         {
           method: "POST",
           headers: {

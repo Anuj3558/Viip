@@ -31,7 +31,7 @@ const GenderChangePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/gender-change`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/gender-change`,
         {
           method: "POST",
           headers: {

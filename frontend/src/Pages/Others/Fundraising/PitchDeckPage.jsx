@@ -67,7 +67,7 @@ const PitchDeckPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/pitch-deck`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/pitch-deck`,
         {
           method: "POST",
           headers: {

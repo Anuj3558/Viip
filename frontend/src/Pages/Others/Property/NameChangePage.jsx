@@ -31,7 +31,7 @@ const NameChangePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/name-change`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/name-change`,
         {
           method: "POST",
           headers: {

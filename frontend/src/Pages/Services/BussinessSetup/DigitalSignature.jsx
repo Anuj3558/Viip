@@ -68,7 +68,7 @@ const DigitalSignatureCertificatePage = () => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/digital-signature-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/digital-signature-certificate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

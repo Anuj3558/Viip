@@ -66,7 +66,7 @@ const OfferLetterPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/hr/offer-letter`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/offer-letter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

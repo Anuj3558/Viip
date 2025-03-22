@@ -33,7 +33,7 @@ const LegalNoticeRecoveryOfDuesPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/legal-notice-recovery-of-dues`,
+        }/document/legal-notice-recovery-of-dues`,
         {
           method: "POST",
           headers: {

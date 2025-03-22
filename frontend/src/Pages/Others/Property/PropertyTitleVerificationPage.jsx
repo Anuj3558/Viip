@@ -33,7 +33,7 @@ const PropertyTitleVerificationPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/property-title-verification`,
+        }/others/property-title-verification`,
         {
           method: "POST",
           headers: {

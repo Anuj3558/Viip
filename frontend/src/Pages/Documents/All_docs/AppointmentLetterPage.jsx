@@ -66,7 +66,7 @@ const AppointmentLetterPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/appointment-letter`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/appointment-letter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

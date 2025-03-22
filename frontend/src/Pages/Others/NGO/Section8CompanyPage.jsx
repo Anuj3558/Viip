@@ -38,7 +38,7 @@ const Section8CompanyPage = () => {
     try {
       // Send data to backend API
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/section-8-company`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/section-8-company`,
         {
           method: "POST",
           headers: {

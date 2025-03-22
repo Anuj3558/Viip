@@ -66,7 +66,7 @@ const ADCodeRegistrationPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business-setup/ad-code-registration`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/bussiness-setup/ad-code-registration`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -27,6 +27,8 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
 import connectDB from "./connection.js";
+import DocumentRouer from "./router/DocumentRouter.js";
+import OtherRouter from "./router/OtherRouter.js";
 dotenv.config();
 const app = express();
 
@@ -116,4 +118,6 @@ app.use("/copyright", copyrightRouter);
 app.use("/design", designRouter);
 app.use("/patent", petentRouter);
 app.use("/other", otherRouter);
+app.use("/document",DocumentRouer)
+app.use("/others",OtherRouter)
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

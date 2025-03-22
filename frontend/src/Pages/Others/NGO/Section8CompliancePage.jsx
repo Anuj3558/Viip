@@ -31,7 +31,7 @@ const Section8CompliancePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/section8-compliance`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/section8-compliance`,
         {
           method: "POST",
           headers: {

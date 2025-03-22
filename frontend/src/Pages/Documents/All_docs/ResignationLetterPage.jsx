@@ -66,7 +66,7 @@ const ResignationLetterPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/hr/resignation-letter`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/resignation-letter`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

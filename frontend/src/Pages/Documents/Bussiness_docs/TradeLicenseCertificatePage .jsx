@@ -66,7 +66,7 @@ const TradeLicenseCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business/trade-license-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/trade-license-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

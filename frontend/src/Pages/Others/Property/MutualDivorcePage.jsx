@@ -31,7 +31,7 @@ const MutualDivorcePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/mutual-divorce`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/others/mutual-divorce`,
         {
           method: "POST",
           headers: {

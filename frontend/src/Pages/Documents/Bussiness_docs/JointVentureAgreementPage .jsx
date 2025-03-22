@@ -66,7 +66,7 @@ const JointVentureAgreementPage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/business/joint-venture-agreement`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/joint-venture-agreement`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

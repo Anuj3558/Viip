@@ -66,7 +66,7 @@ const NoObjectionCertificatePage = () => {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/legal/no-objection-certificate`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/document/no-objection-certificate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

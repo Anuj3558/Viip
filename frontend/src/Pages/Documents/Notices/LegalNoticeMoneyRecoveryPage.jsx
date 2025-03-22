@@ -33,7 +33,7 @@ const LegalNoticeMoneyRecoveryPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/company/legal-notice-money-recovery`,
+        }/document/legal-notice-money-recovery`,
         {
           method: "POST",
           headers: {

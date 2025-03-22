@@ -11,6 +11,7 @@ const DigitalSignatureCertificatePage = () => {
     phone: "",
     certificateType: "",
     message: "",
+    type:"digital-signature-certificate"
   });
 
   const [emailError, setEmailError] = useState("");
@@ -97,7 +98,7 @@ const DigitalSignatureCertificatePage = () => {
       const response = await axios.post(
         `${
           import.meta.env.VITE_APP_BACKEND_URL
-        }/api/digital-signature-certificate`,
+        }/bussiness-setup/digital-signature-certificate`,
         formData
       );
       console.log("Form submitted:", response.data);

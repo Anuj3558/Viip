@@ -35,7 +35,7 @@ const ChequeBounceNoticePage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/company/cheque-bounce-notice`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/document/cheque-bounce-notice`,
         {
           method: "POST",
           headers: {
