@@ -28,6 +28,8 @@ BussinessSetupRouter.post("/mou-drafting", HandleCompanyRegistration);
 BussinessSetupRouter.post("/company-name-change", HandleCompanyRegistration);
 BussinessSetupRouter.post("/iec-import-export-code", HandleCompanyRegistration);
 BussinessSetupRouter.post("/llp-annual-compliance", HandleCompanyRegistration);
+BussinessSetupRouter.post("/sole-proprietorship-registration", HandleCompanyRegistration);
+BussinessSetupRouter.post("/liquor-license", HandleCompanyRegistration);
 
 BussinessSetupRouter.post(
   "/partnership-deed-drafting",
@@ -69,7 +71,8 @@ BussinessSetupRouter.get("/international-business-setup", async (req, res) => {
   try {
     const type = req.params.type;
     const inquiries = await InternationalBusinessSetup.find({});
-    res.json(inquiries);
+    const data={data:inquiries};
+    res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

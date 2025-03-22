@@ -214,10 +214,10 @@ const Navbar = () => {
     ],
   };
 
-  // Submenu data for Expert Consultation
-  const expertSubMenu = {
-    "Expert Consultation": ["Talk To Expert"],
-  };
+// Submenu data for Expert Consultation
+const expertSubMenu = {
+  "Expert Consultation": ["Talk To Expert"],
+};
 
   const businessSubMenu = {
     "Company Registration": [
@@ -403,159 +403,158 @@ const Navbar = () => {
     ],
   };
 
-  const licenseSubMenu = {
-    Fundraising: [
-      { name: "Fundraising", link: "/fundraising" },
-      { name: "Pitch Deck", link: "/pitch-deck" },
-      { name: "Business loan", link: "/business-loan" },
-      { name: "DPR Service", link: "/drp-service" },
-    ],
-    NGO: [
-      { name: "Section 8 Company", link: "/section-8-company" },
-      { name: "Trust Registration", link: "/trust-registration" },
-      { name: "Society Registration", link: "/society-registration" },
-      { name: "NGO Compliance", link: "/ngo-compliance" },
-      { name: "Section 8 Compliance", link: "/section-8-compliance" },
-      { name: "CSR-1 Filing", link: "/csr-1-filing" },
-      { name: "Sec.80G & Sec.12A", link: "/sec-80g-sec-12a" },
-      { name: "Darpan Registration", link: "/darpan-registration" },
-      { name: "FCRA Registration", link: "/fcra-registration" },
-    ],
-    Property: [
-      {
-        name: "Property Title Verification",
-        link: "/property-title-verification",
-      },
-      { name: "Property Registration", link: "/property-registration" },
-      { name: "Rera Complaint", link: "/rera-complaint" },
-      { name: "Gun License", link: "/gun-license" },
-      { name: "Name Change", link: "/name-change" },
-      { name: "Religion Change", link: "/religion-change" },
-      { name: "Gender Change", link: "/gender-change" },
-      { name: "Online Police Complaint", link: "/online-police-complaint" },
-      { name: "Marriage Registration", link: "/marriage-registration" },
-      { name: "Court Marriage", link: "/court-marriage" },
-      { name: "Mutual Divorce", link: "/mutual-divorce" },
-      { name: "Divorce Alimony", link: "/divorce-alimony" },
-      {
-        name: "Restitution of Conjugal Rights",
-        link: "/restitution-conjugal-rights",
-      },
-      { name: "Corporate Immigration", link: "/corporate-immigration" },
-      { name: "Family Immigration", link: "/family-immigration" },
-      { name: "College Immigration", link: "/college-immigration" },
-      { name: "Online Consumer Complaint", link: "/online-consumer-complaint" },
-    ],
-  };
-  const documentationSubMenu = {
-    "Free Legal Documents": [
-      { name: "All Legal Documents", link: "/documents" },
-      { name: "Rental Agreement", link: "/rental-agreement-download-format" },
-      {
-        name: "Commercial Rental Agreement",
-        link: "/commercial-rental-agreement",
-      },
-      { name: "Experience Letter", link: "/experience-letter-format" },
-      { name: "Appointment Letter", link: "/appointment-letter-format" },
-      { name: "Affidavit Format", link: "/affidavit-format-download" },
-      { name: "Power Of Attorney", link: "/power-of-attorney-format" },
-      {
-        name: "Income Certificate",
-        link: "/income-certificate-format-download",
-      },
-      {
-        name: "No Objection Certificate",
-        link: "/no-objection-certificate-noc-format-download",
-      },
-      { name: "Salary Slip", link: "/salary-slip-sample-download" },
-      {
-        name: "Resignation Letter",
-        link: "/resignation-letter-format-download",
-      },
-      {
-        name: "Legal Heir Certificate",
-        link: "/legal-heir-certificate-format-download",
-      },
-      { name: "Relieving Letter", link: "/relieving-letter-format" },
-      {
-        name: "Bonafide Certificate",
-        link: "/bonafide-certificate-format-download",
-      },
-      { name: "Partnership Deed", link: "/partnership-deed-format-download" },
-      { name: "Gst Invoice", link: "/gst-invoice-format" },
-      {
-        name: "Authorised Signatory In Gst",
-        link: "/authorised-signatory-in-gst",
-      },
-      { name: "Delivery Challan", link: "/delivery-challan-format" },
-      { name: "Offer Letter", link: "/offer-letter-format" },
-      {
-        name: "Consent Letter For Gst Registration",
-        link: "/consent-letter-for-gst-registration-format-download",
-      },
-      { name: "Rent Receipt", link: "/generate-free-rent-receipt" },
-    ],
-    "Business Contracts": [
-      {
-        name: "Non Disclosure Agreement NDA",
-        link: "/non-disclosure-agreement-nda",
-      },
-      { name: "Service Level Agreement", link: "/service-level-agreement" },
-      { name: "Franchise Agreement", link: "/franchise-agreement" },
-      { name: "Master Service Agreement", link: "/master-service-agreement" },
-      { name: "Shareholders Agreement", link: "/shareholders-agreement" },
-      { name: "Joint Venture Agreement", link: "/joint-venture-agreement" },
-      { name: "Founders Agreement", link: "/founders-agreement" },
-      { name: "Vendor Agreement", link: "/vendor-agreement" },
-      { name: "Consultancy Agreement", link: "/consultancy-agreement" },
-      {
-        name: "Memorandum of Understanding",
-        link: "/memorandum-of-understanding",
-      },
-      { name: "Succession Certificate", link: "/succession-certificate" },
-      { name: "Scope of Work Agreement", link: "/scope-of-work-agreement" },
-      { name: "Share Purchase Agreement", link: "/share-purchase-agreement" },
-      { name: "Relinquishment Deed", link: "/relinquishment-deed" },
-      { name: "Legal Heir Certificate", link: "/legal-heir-certificate" },
-      { name: "Trade License", link: "/trade-license" },
-      { name: "Noncompete Agreement", link: "/noncompete-agreement" },
-      { name: "Finance Agreement", link: "/finance-agreement" },
-      { name: "GDPR", link: "/gdpr" },
-    ],
-    "Personal & Family": [
-      { name: "Will Registration", link: "/will-registration" },
-      { name: "Probate of Will", link: "/probate-of-will" },
-      { name: "Power of Attorney", link: "/power-of-attorney" },
-    ],
-    "Real Estate": [
-      { name: "Rental Agreement", link: "/rental-agreement" },
-      { name: "Sale Deed", link: "/sale-deed" },
-      { name: "Gift Deed", link: "/gift-deed" },
-      { name: "Rental Tenant Notice", link: "/rental-tenant-notice" },
-    ],
-    Notices: [
-      { name: "Legal Notice", link: "/legal-notice" },
-      {
-        name: "Legal Notice for Money Recovery",
-        link: "/legal-notice-for-money-recovery",
-      },
-      {
-        name: "Legal Notice for recovery of dues",
-        link: "/legal-notice-for-recovery-of-dues",
-      },
-      { name: "Cheque Bounce Notice", link: "/cheque-bounce-notice" },
-      {
-        name: "Legal Notice Under Consumer Protection Act",
-        link: "/legal-notice-under-consumer-protection-act",
-      },
-    ],
-    "HR Policies": [
-      { name: "Employment Agreement", link: "/employment-agreement" },
-      { name: "ESOP", link: "/esop" },
-      { name: "Payroll Maintenance", link: "/payroll-maintenance" },
-    ],
-  };
-
+const licenseSubMenu = {
+  Fundraising: [
+    { name: "Fundraising", link: "/fundraising" },
+    { name: "Pitch Deck", link: "/pitch-deck" },
+    { name: "Business loan", link: "/business-loan" },
+    { name: "DPR Service", link: "/drp-service" },
+  ],
+  NGO: [
+    { name: "Section 8 Company", link: "/section-8-company" },
+    { name: "Trust Registration", link: "/trust-registration" },
+    { name: "Society Registration", link: "/society-registration" },
+    { name: "NGO Compliance", link: "/ngo-compliance" },
+    { name: "Section 8 Compliance", link: "/section-8-compliance" },
+    { name: "CSR-1 Filing", link: "/csr-1-filing" },
+    { name: "Sec.80G & Sec.12A", link: "/sec-80g-sec-12a" },
+    { name: "Darpan Registration", link: "/darpan-registration" },
+    { name: "FCRA Registration", link: "/fcra-registration" },
+  ],
+  Property: [
+    {
+      name: "Property Title Verification",
+      link: "/property-title-verification",
+    },
+    { name: "Property Registration", link: "/property-registration" },
+    { name: "Rera Complaint", link: "/rera-complaint" },
+    { name: "Gun License", link: "/gun-license" },
+    { name: "Name Change", link: "/name-change" },
+    { name: "Religion Change", link: "/religion-change" },
+    { name: "Gender Change", link: "/gender-change" },
+    { name: "Online Police Complaint", link: "/online-police-complaint" },
+    { name: "Marriage Registration", link: "/marriage-registration" },
+    { name: "Court Marriage", link: "/court-marriage" },
+    { name: "Mutual Divorce", link: "/mutual-divorce" },
+    { name: "Divorce Alimony", link: "/divorce-alimony" },
+    {
+      name: "Restitution of Conjugal Rights",
+      link: "/restitution-conjugal-rights",
+    },
+    { name: "Corporate Immigration", link: "/corporate-immigration" },
+    { name: "Family Immigration", link: "/family-immigration" },
+    { name: "College Immigration", link: "/college-immigration" },
+    { name: "Online Consumer Complaint", link: "/online-consumer-complaint" },
+  ],
+};
+const documentationSubMenu = {
+  "Free Legal Documents": [
+    { name: "All Legal Documents", link: "/documents" },
+    { name: "Rental Agreement", link: "/rental-agreement-download-format" },
+    {
+      name: "Commercial Rental Agreement",
+      link: "/commercial-rental-agreement",
+    },
+    { name: "Experience Letter", link: "/experience-letter-format" },
+    { name: "Appointment Letter", link: "/appointment-letter-format" },
+    { name: "Affidavit Format", link: "/affidavit-format-download" },
+    { name: "Power Of Attorney", link: "/power-of-attorney-format" },
+    {
+      name: "Income Certificate",
+      link: "/income-certificate-format-download",
+    },
+    {
+      name: "No Objection Certificate",
+      link: "/no-objection-certificate-noc-format-download",
+    },
+    { name: "Salary Slip", link: "/salary-slip-sample-download" },
+    {
+      name: "Resignation Letter",
+      link: "/resignation-letter-format-download",
+    },
+    {
+      name: "Legal Heir Certificate",
+      link: "/legal-heir-certificate-format-download",
+    },
+    { name: "Relieving Letter", link: "/relieving-letter-format" },
+    {
+      name: "Bonafide Certificate",
+      link: "/bonafide-certificate-format-download",
+    },
+    { name: "Partnership Deed", link: "/partnership-deed-format-download" },
+    { name: "Gst Invoice", link: "/gst-invoice-format" },
+    {
+      name: "Authorised Signatory In Gst",
+      link: "/authorised-signatory-in-gst",
+    },
+    { name: "Delivery Challan", link: "/delivery-challan-format" },
+    { name: "Offer Letter", link: "/offer-letter-format" },
+    {
+      name: "Consent Letter For Gst Registration",
+      link: "/consent-letter-for-gst-registration-format-download",
+    },
+    { name: "Rent Receipt", link: "/generate-free-rent-receipt" },
+  ],
+  "Business Contracts": [
+    {
+      name: "Non Disclosure Agreement NDA",
+      link: "/non-disclosure-agreement-nda",
+    },
+    { name: "Service Level Agreement", link: "/service-level-agreement" },
+    { name: "Franchise Agreement", link: "/franchise-agreement" },
+    { name: "Master Service Agreement", link: "/master-service-agreement" },
+    { name: "Shareholders Agreement", link: "/shareholders-agreement" },
+    { name: "Joint Venture Agreement", link: "/joint-venture-agreement" },
+    { name: "Founders Agreement", link: "/founders-agreement" },
+    { name: "Vendor Agreement", link: "/vendor-agreement" },
+    { name: "Consultancy Agreement", link: "/consultancy-agreement" },
+    {
+      name: "Memorandum of Understanding",
+      link: "/memorandum-of-understanding",
+    },
+    { name: "Succession Certificate", link: "/succession-certificate" },
+    { name: "Scope of Work Agreement", link: "/scope-of-work-agreement" },
+    { name: "Share Purchase Agreement", link: "/share-purchase-agreement" },
+    { name: "Relinquishment Deed", link: "/relinquishment-deed" },
+    { name: "Legal Heir Certificate", link: "/legal-heir-certificate" },
+    { name: "Trade License", link: "/trade-license" },
+    { name: "Noncompete Agreement", link: "/noncompete-agreement" },
+    { name: "Finance Agreement", link: "/finance-agreement" },
+    { name: "GDPR", link: "/gdpr" },
+  ],
+  "Personal & Family": [
+    { name: "Will Registration", link: "/will-registration" },
+    { name: "Probate of Will", link: "/probate-of-will" },
+    { name: "Power of Attorney", link: "/power-of-attorney" },
+  ],
+  "Real Estate": [
+    { name: "Rental Agreement", link: "/rental-agreement" },
+    { name: "Sale Deed", link: "/sale-deed" },
+    { name: "Gift Deed", link: "/gift-deed" },
+    { name: "Rental Tenant Notice", link: "/rental-tenant-notice" },
+  ],
+  Notices: [
+    { name: "Legal Notice", link: "/legal-notice" },
+    {
+      name: "Legal Notice for Money Recovery",
+      link: "/legal-notice-for-money-recovery",
+    },
+    {
+      name: "Legal Notice for recovery of dues",
+      link: "/legal-notice-for-recovery-of-dues",
+    },
+    { name: "Cheque Bounce Notice", link: "/cheque-bounce-notice" },
+    {
+      name: "Legal Notice Under Consumer Protection Act",
+      link: "/legal-notice-under-consumer-protection-act",
+    },
+  ],
+  "HR Policies": [
+    { name: "Employment Agreement", link: "/employment-agreement" },
+    { name: "ESOP", link: "/esop" },
+    { name: "Payroll Maintenance", link: "/payroll-maintenance" },
+  ],
+};
   // Map icons to dropdown categories
   const menuIcons = {
     home: <Home size={18} />,

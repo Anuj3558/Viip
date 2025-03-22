@@ -9,7 +9,7 @@ import { menuItems, mockSubmissions } from "./components/data/mockData";
 function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubMenu, setActiveSubMenu] = useState("");
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState("Talk To Expert");
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

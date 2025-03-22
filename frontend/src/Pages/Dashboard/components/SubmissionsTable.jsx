@@ -18,39 +18,39 @@ const SubmissionsTable = ({
   console.log(selectedService);
   // Mapping of services to their corresponding API endpoints
    const serviceEndpoints = {
-     "Talk To Expert": "/expert/consult-and-expert",
+     "Talk To Expert": "expert/consult-and-expert",
      // Business Setup
      "Company Registration":
        "bussiness-setup/inquiries/type/company_registration_inquiry",
      "LLP Registration":
        "bussiness-setup/inquiries/type/llp_registration_inquiry",
-     "LLP Anuual Compliance":
-       "bussiness-setup/inquiries/type/llp_annual_compliance_inquiry",
-     "LLP Anuual Filings":
+     "LLP Annual Compliance":
+       "bussiness-setup/inquiries/type/llp_annual_compliance",
+     "LLP Annual Filings":
        "bussiness-setup/inquiries/type/llp_annual_filing_inquiry",
      "LLP Designated Partner":
        "bussiness-setup/inquiries/type/llp_designated_partner_inquiry",
      "Sole Proprietorship Registration":
        "bussiness-setup/inquiries/type/sole_proprietorship_inquiry",
      "Producer Company Registration":
-       "bussiness-setup/inquiries/type/producer_company_inquiry",
+       "bussiness-setup/inquiries/type/producer_company_registration",
      "Nidhi Company Registration":
-       "bussiness-setup/inquiries/type/nidhi_company_inquiry",
+       "bussiness-setup/inquiries/type/nidhi_company_registration_inquiry",
      "Startup India Scheme":
-       "bussiness-setup/inquiries/type/startup_india_inquiry",
+       "bussiness-setup/inquiries/type/startup_india_registration_inquiry",
      "Partnership Firm Deed":
-       "bussiness-setup/inquiries/type/partnership_firm_inquiry",
+       "bussiness-setup/inquiries/type/partnership_deed_drafting_inquiry",
      "One Person Company Registration":
-       "bussiness-setup/inquiries/type/one_person_company_inquiry",
+       "bussiness-setup/inquiries/type/opc_registration_inquiry",
      "Authorised Share Capital":
-       "bussiness-setup/inquiries/type/authorised_share_capital_inquiry",
+       "bussiness-setup/inquiries/type/authorized_share_capital_inquiry",
      "Memorandum Of Understanding":
-       "bussiness-setup/inquiries/type/mou_inquiry",
+       "bussiness-setup/inquiries/type/mou_drafting_inquiry",
      "Change Company Name":
        "bussiness-setup/inquiries/type/company_name_change_inquiry",
-
+     "Web/Ecom Developmet":"bussiness-setup/inquiries/type/website_ecommerce_development",
      // International Business Setup
-
+   "International Incorporation":"bussiness-setup/international-business-setup",
      // ISO Certification
      "ISO Certification": "api/iso",
      "ISO Certification 22000": "api/iso/22000",
@@ -67,13 +67,12 @@ const SubmissionsTable = ({
      "Online PF Registration": "api/pf-registration",
      "NGO Registration": "api/ngo-registration",
      "Online ESI Registration": "api/esi-registration",
-     "Udyog Aadhaar Registration": "api/udyog-aadhar-registration",
-     "Digital Signature Certificate": "api/digital-signature-certificate",
+     
      "Legal Metrology": "api/legal-metrology-registration",
      // Licenses
      "PSARA License": "api/psara-license",
      "Trade License Renewal Registration": "api/trade-license-renewal",
-     FSSAI: "api/fssai-registration",
+     "FSSAI": "api/fssai-registration",
 
      //IP Services
      "Patent Registration": "api/patent-registration",
@@ -88,6 +87,23 @@ const SubmissionsTable = ({
      "International IP Protection": "api/international-ip-protection",
 
      "Income Tax Return": "",
+      ///Liscensce and Regisration
+      "Digital Signature Certificate":"bussiness-setup/inquiries/type/company_name_change_inquiry",
+       "IEC [Import/Export Code]":"bussiness-setup/inquiries/type/iec_import_export_code",
+       "Spice Board Registration":"bussiness-setup/inquiries/type/spice_board_registration",
+       "BIS Registration":"bussiness-setup/inquiries/type/bis_certification",
+       "CLRA Registration & Licensing":"bussiness-setup/inquiries/type/clra_registration",
+       "IRDAI Registration":"bussiness-setup/inquiries/type/irdai_registration",
+       "Customs Clearance":"bussiness-setup/inquiries/type/customer_clearance",
+   
+       "Apeda RCMC":"bussiness-setup/inquiries/type/apeda_rcmc",
+       "FIEO Registration":"bussiness-setup/inquiries/type/fieo_registration",
+       "Hallmark Registration":"bussiness-setup/inquiries/type/hallmark_registration",
+       "Liquor License":"bussiness-setup/inquiries/type/liquor_license",
+       "AD Code Registration":"bussiness-setup/inquiries/type/ad_code_registration",
+       "Drug & Cosmetic License":"bussiness-setup/inquiries/type/drugs_and_cosmetics_license",
+        "Udyog Aadhaar Registration": "bussiness-setup/inquiries/type/udyog_aadhar_registarion",
+
 
      "Trademark Registration": "/trademark-registration",
    };
