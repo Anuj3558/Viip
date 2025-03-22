@@ -22,6 +22,7 @@ import copyrightRouter from "./router/CopyrightRoutes.js";
 import designRouter from "./router/designRouter.js";
 import petentRouter from "./router/patentRouter.js";
 import otherRouter from "./router/otherRouter.js";
+import ContactRoutes from "./router/ContactRoutes.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
@@ -120,4 +121,5 @@ app.use("/patent", petentRouter);
 app.use("/other", otherRouter);
 app.use("/document",DocumentRouer)
 app.use("/others",OtherRouter)
+app.use("/api", ContactRoutes);
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
