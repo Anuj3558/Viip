@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   ChevronDown,
   ChevronRight,
+  X
  
 } from "lucide-react";
 import { logo } from "../assets";
@@ -366,7 +367,7 @@ const Navbar = () => {
     ],
     "Design IP Registration": [
       { name: "Logo Design", link: "/logo-design" },
-      { name: "Design IP Registration", link: "/design-registration" },
+      { name: "Design Registration", link: "/design-registration" },
     ],
     "Legal Support": [
       { name: "IP Due Diligence", link: "/ip-due-diligence" },
@@ -432,11 +433,7 @@ const licenseSubMenu = {
     { name: "Online Consumer Complaint", link: "/online-consumer-complaint" },
     
   ],
-  "Other Services": [
-    { name: "Vastav Incubatex & Entrepreneurship Foundation", link: "https://vief.in/" },
-    { name: "Vscholar", link: "https://vscholar.in/" },
-    { name: "Xcubit", link: "https://www.xcubit.in/" },
-  ],
+ 
 };
 const documentationSubMenu = {
   "Free Legal Documents": [
@@ -559,7 +556,7 @@ const documentationSubMenu = {
 
   return (
     <nav className="w-full border-b border-gray-200 bg-gradient-to-r from-blue-50 to-blue-100 shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-5">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 mr-8 justify-items-start">
@@ -570,7 +567,7 @@ const documentationSubMenu = {
 
           {/* Desktop Menu */}
           <div
-            className="hidden md:flex items-center space-x-6"
+            className="hidden md:flex items-center space-x-2"
             ref={dropdownRef}
           >
             {/* Home Link */}
@@ -580,7 +577,7 @@ const documentationSubMenu = {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="mr-1.5 text-blue-800">{menuIcons.home}</span>
+              <span className=" text-blue-800">{menuIcons.home}</span>
               <span className="inline text-sm min-w-full">Home</span>
             </motion.a>
 
@@ -861,14 +858,14 @@ const documentationSubMenu = {
             <div className="relative">
               <motion.button
                 onClick={() => toggleDropdown("licenses")}
-                className={`flex items-center text-gray-700 mx-1 hover:text-blue-900 transition-colors px-2 py-1 rounded-md ${
+                className={`flex items-center text-gray-700  hover:text-blue-900 transition-colors  py-1 rounded-md ${
                   openDropdown === "licenses" ? "bg-blue-50 text-blue-900" : ""
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="text-blue-800">{menuIcons.licenses}</span>
-                <span className="text-sm min-w-full">Others</span>
+                <span className="text-sm min-w-full mr-2">Others</span>
               </motion.button>
               <AnimatePresence>
                 {openDropdown === "licenses" && (
@@ -938,8 +935,33 @@ const documentationSubMenu = {
                 )}
               </AnimatePresence>
             </div>
-
+            <motion.a
+              href="https://vief.in/"
+              className="flex items-center text-blue-900 border-2-blue-900 bg-white justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">VIEF</span>
+            </motion.a> <motion.a
+              href="https://vscholar.in/"
+              className="flex items-center text-blue-900 border-2-blue-900 bg-white justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">VScholar</span>
+            </motion.a>
             {/* Contact Us Link */}
+            <motion.a
+              href="https://www.xcubit.in/"
+              className="flex items-center text-blue-900 border-2-blue-900 bg-white justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">Xcubits</span>
+            </motion.a>
             <motion.a
               href="/contact"
               className="flex items-center text-white border-2-blue-900 bg-blue-900 justify-center transition-colors px-2 py-1 rounded-md"
@@ -948,7 +970,8 @@ const documentationSubMenu = {
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
               <span className="inline text-sm min-w-full">Contact Us</span>
-            </motion.a>
+            </motion.a> 
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -1418,6 +1441,34 @@ const documentationSubMenu = {
 
               {/* Contact Us */}
               <motion.a
+                href="/contact"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Contact Us</span>
+              </motion.a>
+              <motion.a
+                href="/contact"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Contact Us</span>
+              </motion.a><motion.a
+                href="/contact"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Contact Us</span>
+              </motion.a><motion.a
                 href="/contact"
                 className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                 variants={mobileMenuItemVariants}
