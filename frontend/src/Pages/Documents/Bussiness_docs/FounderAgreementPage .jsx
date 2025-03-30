@@ -90,10 +90,12 @@ const FounderAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Founder Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Founder Agreements with Vastav Intellect and IP Solutions. We help draft professional Founder Agreements for startups and businesses." />
-      </Helmet>
+     <Helmet>
+  <title>Founder Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Founder Agreements with Vastav Intellect and IP Solutions. We help draft professional Founder Agreements for startups and businesses." />
+  <meta name="keywords" content="founder agreement, founder agreement format, founder agreement drafting, founder agreement for startups, founder agreement for businesses, professional founder agreement, VIIP founder agreement, Vastav Intellect founder agreement, IP solutions founder agreement, founder agreement template, founder agreement for co-founders, founder agreement for equity distribution, founder agreement for legal purposes, founder agreement for compliance, founder agreement assistance, founder agreement services, founder agreement examples, founder agreement help, founder agreement for new businesses, founder agreement for corporate roles" />
+  <link rel="canonical" href="https://www.vastavintellect.com/founders-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

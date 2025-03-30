@@ -91,9 +91,11 @@ const ScopeOfWorkAgreementPage = () => {
   return (
     <>
       <Helmet>
-        <title>Scope of Work Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Scope of Work Agreements with Vastav Intellect and IP Solutions. We help draft professional Scope of Work Agreements for businesses." />
-      </Helmet>
+  <title>Scope of Work Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Scope of Work Agreements with Vastav Intellect and IP Solutions. We help draft professional Scope of Work Agreements for businesses." />
+  <meta name="keywords" content="scope of work agreement, scope of work agreement format, scope of work agreement drafting, scope of work agreement for businesses, professional scope of work agreement, VIIP scope of work agreement, Vastav Intellect scope of work agreement, IP solutions scope of work agreement, scope of work agreement template, scope of work agreement for startups, scope of work agreement for SMEs, scope of work agreement for legal purposes, scope of work agreement for compliance, scope of work agreement assistance, scope of work agreement services, scope of work agreement examples, scope of work agreement help, scope of work agreement for corporate roles, scope of work agreement for service providers, scope of work agreement for project management" />
+  <link rel="canonical" href="https://www.vastavintellect.com/scope-of-work-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

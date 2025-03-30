@@ -91,9 +91,11 @@ const ExperienceLetterPage = () => {
   return (
     <>
       <Helmet>
-        <title>Experience Letter | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for experience letters with Vastav Intellect and IP Solutions. We help draft professional experience letters for employees." />
-      </Helmet>
+  <title>Experience Letter | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for experience letters with Vastav Intellect and IP Solutions. We help draft professional experience letters for employees." />
+  <meta name="keywords" content="experience letter, experience letter format, experience letter drafting, experience letter for employees, professional experience letter, VIIP experience letter, Vastav Intellect experience letter, IP solutions experience letter, experience letter template, experience letter for job change, experience letter for HR purposes, experience letter for corporate roles, experience letter for verification, experience letter assistance, experience letter services, experience letter examples, experience letter help, experience letter for startups, experience letter for SMEs, experience letter for legal purposes" />
+  <link rel="canonical" href="https://www.vastavintellect.com/experience-letter-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

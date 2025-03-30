@@ -91,9 +91,11 @@ const RelievingLetterPage = () => {
   return (
     <>
       <Helmet>
-        <title>Relieving Letter | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for relieving letters with Vastav Intellect and IP Solutions. We help draft professional relieving letters for employees." />
-      </Helmet>
+  <title>Relieving Letter | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for relieving letters with Vastav Intellect and IP Solutions. We help draft professional relieving letters for employees." />
+  <meta name="keywords" content="relieving letter, relieving letter format, relieving letter drafting, relieving letter for employees, professional relieving letter, VIIP relieving letter, Vastav Intellect relieving letter, IP solutions relieving letter, relieving letter template, relieving letter for job change, relieving letter for HR purposes, relieving letter for corporate roles, relieving letter for verification, relieving letter assistance, relieving letter services, relieving letter examples, relieving letter help, relieving letter for startups, relieving letter for SMEs, relieving letter for legal purposes" />
+  <link rel="canonical" href="https://www.vastavintellect.com/relieving-letter-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

@@ -90,10 +90,12 @@ const SalarySlipPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Salary Slip | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for salary slips with Vastav Intellect and IP Solutions. We help draft professional salary slips for employees." />
-      </Helmet>
+     <Helmet>
+  <title>Salary Slip | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for salary slips with Vastav Intellect and IP Solutions. We help draft professional salary slips for employees." />
+  <meta name="keywords" content="salary slip, salary slip format, salary slip drafting, salary slip for employees, professional salary slip, VIIP salary slip, Vastav Intellect salary slip, IP solutions salary slip, salary slip template, salary slip for HR purposes, salary slip for corporate roles, salary slip for verification, salary slip for tax purposes, salary slip assistance, salary slip services, salary slip examples, salary slip help, salary slip for startups, salary slip for SMEs, salary slip for legal purposes" />
+  <link rel="canonical" href="https://www.vastavintellect.com/salary-slip-sample-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

@@ -91,9 +91,11 @@ const ResignationLetterPage = () => {
   return (
     <>
       <Helmet>
-        <title>Resignation Letter | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for resignation letters with Vastav Intellect and IP Solutions. We help draft professional resignation letters for employees." />
-      </Helmet>
+  <title>Resignation Letter | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for resignation letters with Vastav Intellect and IP Solutions. We help draft professional resignation letters for employees." />
+  <meta name="keywords" content="resignation letter, resignation letter format, resignation letter drafting, resignation letter for employees, professional resignation letter, VIIP resignation letter, Vastav Intellect resignation letter, IP solutions resignation letter, resignation letter template, resignation letter for job change, resignation letter for HR purposes, resignation letter for corporate roles, resignation letter for verification, resignation letter assistance, resignation letter services, resignation letter examples, resignation letter help, resignation letter for startups, resignation letter for SMEs, resignation letter for legal purposes" />
+  <link rel="canonical" href="https://www.vastavintellect.com/resignation-letter-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

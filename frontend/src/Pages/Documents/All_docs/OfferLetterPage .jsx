@@ -90,10 +90,12 @@ const OfferLetterPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Offer Letter | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for offer letters with Vastav Intellect and IP Solutions. We help draft professional offer letters for employers." />
-      </Helmet>
+     <Helmet>
+  <title>Offer Letter | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for offer letters with Vastav Intellect and IP Solutions. We help draft professional offer letters for employers." />
+  <meta name="keywords" content="offer letter, offer letter format, offer letter drafting, offer letter for employers, professional offer letter, VIIP offer letter, Vastav Intellect offer letter, IP solutions offer letter, offer letter template, offer letter for new hires, offer letter for corporate roles, offer letter for startups, offer letter for SMEs, offer letter for HR purposes, offer letter assistance, offer letter services, professional offer letter drafting, offer letter examples, offer letter help, offer letter for job offers" />
+  <link rel="canonical" href="https://www.vastavintellect.com/offer-letter-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

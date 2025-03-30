@@ -90,10 +90,12 @@ const DeliveryChallanPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Delivery Challan | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for delivery challans with Vastav Intellect and IP Solutions. We help draft professional delivery challans for businesses." />
-      </Helmet>
+     <Helmet>
+  <title>Delivery Challan | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for delivery challans with Vastav Intellect and IP Solutions. We help draft professional delivery challans for businesses." />
+  <meta name="keywords" content="delivery challan, delivery challan format, delivery challan drafting, delivery challan for businesses, delivery challan for goods, delivery challan for logistics, VIIP delivery challan, Vastav Intellect delivery challan, IP solutions delivery challan, delivery challan template, delivery challan for SMEs, delivery challan for startups, delivery challan for e-commerce, delivery challan for suppliers, delivery challan compliance, delivery challan assistance, delivery challan services, professional delivery challan, delivery challan examples, delivery challan help" />
+  <link rel="canonical" href="https://www.vastavintellect.com/delivery-challan-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

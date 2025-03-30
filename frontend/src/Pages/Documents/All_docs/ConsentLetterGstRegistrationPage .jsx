@@ -91,9 +91,11 @@ const ConsentLetterGstRegistrationPage = () => {
   return (
     <>
       <Helmet>
-        <title>Consent Letter for GST Registration | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for consent letters for GST registration with Vastav Intellect and IP Solutions. We help draft professional consent letters for GST purposes." />
-      </Helmet>
+  <title>Consent Letter for GST Registration | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for consent letters for GST registration with Vastav Intellect and IP Solutions. We help draft professional consent letters for GST purposes." />
+  <meta name="keywords" content="consent letter for GST, GST registration consent letter, GST consent letter format, consent letter drafting, GST compliance, VIIP GST consent letter, Vastav Intellect GST consent letter, IP solutions GST consent letter, GST registration assistance, GST documentation, GST legal compliance, GST for businesses, GST for startups, GST for SMEs, GST advisory, GST consultancy, GST consent letter template, GST consent letter examples, GST consent letter services, professional GST consent letter, GST consent letter help" />
+  <link rel="canonical" href="https://www.vastavintellect.com/consent-letter-for-gst-registration-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

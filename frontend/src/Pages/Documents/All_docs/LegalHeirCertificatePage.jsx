@@ -90,10 +90,12 @@ const LegalHeirCertificatePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Legal Heir Certificate | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for legal heir certificates with Vastav Intellect and IP Solutions. We help draft professional legal heir certificates for various legal purposes." />
-      </Helmet>
+     <Helmet>
+  <title>Legal Heir Certificate | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for legal heir certificates with Vastav Intellect and IP Solutions. We help draft professional legal heir certificates for various legal purposes." />
+  <meta name="keywords" content="legal heir certificate, legal heir certificate format, legal heir certificate drafting, legal heir certificate for inheritance, legal heir certificate for property transfer, VIIP legal heir certificate, Vastav Intellect legal heir certificate, IP solutions legal heir certificate, legal heir certificate template, legal heir certificate for legal purposes, legal heir certificate for succession, legal heir certificate for banks, legal heir certificate for government schemes, legal heir certificate assistance, legal heir certificate services, professional legal heir certificate, legal heir certificate examples, legal heir certificate help, legal heir certificate for documentation, legal heir certificate for verification" />
+  <link rel="canonical" href="https://www.vastavintellect.com/legal-heir-certificate-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

@@ -90,10 +90,12 @@ const RentalAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Rental Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for rental agreements with Vastav Intellect and IP Solutions. We help landlords and tenants draft comprehensive rental agreements." />
-      </Helmet>
+    <Helmet>
+  <title>Rental Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for rental agreements with Vastav Intellect and IP Solutions. We help landlords and tenants draft comprehensive rental agreements." />
+  <meta name="keywords" content="rental agreement, rental agreement format, rental agreement drafting, rental agreement for landlords, rental agreement for tenants, VIIP rental agreement, Vastav Intellect rental agreement, IP solutions rental agreement, rental agreement template, rental agreement for residential property, rental agreement for commercial property, rental agreement for legal purposes, rental agreement for verification, rental agreement assistance, rental agreement services, professional rental agreement, rental agreement examples, rental agreement help, rental agreement for startups, rental agreement for SMEs" />
+  <link rel="canonical" href="https://www.vastavintellect.com/rental-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

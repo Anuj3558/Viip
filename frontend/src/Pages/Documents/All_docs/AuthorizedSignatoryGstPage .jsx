@@ -90,10 +90,12 @@ const AuthorizedSignatoryGstPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Authorized Signatory in GST | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for authorized signatory in GST with Vastav Intellect and IP Solutions. We help businesses manage GST compliance effectively." />
-      </Helmet>
+     <Helmet>
+  <title>Authorized Signatory in GST | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for authorized signatory in GST with Vastav Intellect and IP Solutions. We help businesses manage GST compliance effectively." />
+  <meta name="keywords" content="authorized signatory in GST, GST authorized signatory, GST compliance, GST registration, GST signatory, GST for businesses, GST services, VIIP GST, Vastav Intellect GST, IP solutions GST, GST compliance services, GST filing, GST returns, GST documentation, GST signatory appointment, GST legal compliance, GST for startups, GST for SMEs, GST advisory, GST consultancy, GST assistance" />
+  <link rel="canonical" href="https://www.vastavintellect.com/authorised-signatory-in-gst" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

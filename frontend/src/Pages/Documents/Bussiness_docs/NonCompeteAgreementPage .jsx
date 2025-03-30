@@ -91,9 +91,11 @@ const NonCompeteAgreementPage = () => {
   return (
     <>
       <Helmet>
-        <title>Non-Compete Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Non-Compete Agreements with Vastav Intellect and IP Solutions. We help draft professional Non-Compete Agreements for businesses." />
-      </Helmet>
+  <title>Non-Compete Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Non-Compete Agreements with Vastav Intellect and IP Solutions. We help draft professional Non-Compete Agreements for businesses." />
+  <meta name="keywords" content="non-compete agreement, non-compete agreement format, non-compete agreement drafting, non-compete agreement for businesses, professional non-compete agreement, VIIP non-compete agreement, Vastav Intellect non-compete agreement, IP solutions non-compete agreement, non-compete agreement template, non-compete agreement for startups, non-compete agreement for SMEs, non-compete agreement for legal purposes, non-compete agreement for compliance, non-compete agreement assistance, non-compete agreement services, non-compete agreement examples, non-compete agreement help, non-compete agreement for employees, non-compete agreement for corporate roles, non-compete agreement for partnerships" />
+  <link rel="canonical" href="https://www.vastavintellect.com/noncompete-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

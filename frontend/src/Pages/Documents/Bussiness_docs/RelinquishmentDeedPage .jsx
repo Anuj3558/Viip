@@ -90,10 +90,12 @@ const RelinquishmentDeedPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Relinquishment Deed | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Relinquishment Deeds with Vastav Intellect and IP Solutions. We help draft professional Relinquishment Deeds for legal purposes." />
-      </Helmet>
+     <Helmet>
+  <title>Relinquishment Deed | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Relinquishment Deeds with Vastav Intellect and IP Solutions. We help draft professional Relinquishment Deeds for legal purposes." />
+  <meta name="keywords" content="relinquishment deed, relinquishment deed format, relinquishment deed drafting, relinquishment deed for legal purposes, professional relinquishment deed, VIIP relinquishment deed, Vastav Intellect relinquishment deed, IP solutions relinquishment deed, relinquishment deed template, relinquishment deed for property transfer, relinquishment deed for inheritance, relinquishment deed for succession, relinquishment deed for legal compliance, relinquishment deed assistance, relinquishment deed services, relinquishment deed examples, relinquishment deed help, relinquishment deed for documentation, relinquishment deed for verification, relinquishment deed for startups, relinquishment deed for SMEs" />
+  <link rel="canonical" href="https://www.vastavintellect.com/relinquishment-deed" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

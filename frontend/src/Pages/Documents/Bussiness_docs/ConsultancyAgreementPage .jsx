@@ -91,9 +91,11 @@ const ConsultancyAgreementPage = () => {
   return (
     <>
       <Helmet>
-        <title>Consultancy Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Consultancy Agreements with Vastav Intellect and IP Solutions. We help draft professional Consultancy Agreements for businesses." />
-      </Helmet>
+  <title>Consultancy Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Consultancy Agreements with Vastav Intellect and IP Solutions. We help draft professional Consultancy Agreements for businesses." />
+  <meta name="keywords" content="consultancy agreement, consultancy agreement format, consultancy agreement drafting, consultancy agreement for businesses, professional consultancy agreement, VIIP consultancy agreement, Vastav Intellect consultancy agreement, IP solutions consultancy agreement, consultancy agreement template, consultancy agreement for startups, consultancy agreement for SMEs, consultancy agreement for legal purposes, consultancy agreement for corporate roles, consultancy agreement assistance, consultancy agreement services, consultancy agreement examples, consultancy agreement help, consultancy agreement for freelancers, consultancy agreement for contractors, consultancy agreement for compliance" />
+  <link rel="canonical" href="https://www.vastavintellect.com/consultancy-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

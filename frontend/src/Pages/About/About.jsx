@@ -1,8 +1,26 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const AboutUsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>About Us | Vastav Intellect IP Solutions LLP</title>
+        <meta
+          name="description"
+          content="Vastav Intellect IP Solutions LLP is a trusted law firm specializing in intellectual property, patents, trademarks, copyrights, and market research."
+        />
+        <meta
+          name="keywords"
+          content="Intellectual Property, IP Solutions, Patent Filing, Trademark Registration, Copyright Protection, Business Setup, IP Law Firm, Market Research, Licensing, Industrial Design, IP Monetization, IP Strategy, Legal Advisory, Patent Prosecution, Trademark Enforcement, Business Consultation, Startup Support, IP Management, Tech Innovation, Delhi Law Firm"
+        />
+        <meta name="author" content="Vastav Intellect IP Solutions LLP" />
+        <meta property="og:title" content="About Us | Vastav Intellect IP Solutions LLP" />
+        <meta property="og:description" content="Your trusted partner in Intellectual Property solutions with expertise in patents, trademarks, copyrights, and business consulting." />
+        <meta property="og:url" content="https://www.vastavintellect.com/about" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -11,9 +29,6 @@ const AboutUsPage = () => {
             Vastav Intellect IP Solutions LLP - Your Trusted Partner in Intellectual Property
           </p>
         </div>
-
-        {/* Stats Section */}
-      
 
         {/* About Content Section */}
         <div className="bg-white p-8 rounded-lg shadow-md">

@@ -90,10 +90,12 @@ const AppointmentLetterPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Appointment Letter | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for appointment letters with Vastav Intellect and IP Solutions. We help draft professional appointment letters for various purposes." />
-      </Helmet>
+     <Helmet>
+  <title>Appointment Letter | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for appointment letters with Vastav Intellect and IP Solutions. We help draft professional appointment letters for various purposes." />
+  <meta name="keywords" content="appointment letter, appointment letter format, professional appointment letter, appointment letter drafting, appointment letter for employees, appointment letter for business, appointment letter for directors, VIIP appointment letter, Vastav Intellect appointment letter, IP solutions appointment letter, appointment letter template, appointment letter for new hires, appointment letter for legal purposes, appointment letter for corporate roles, appointment letter for startups, appointment letter for executives, appointment letter for managers, appointment letter assistance, appointment letter examples, appointment letter services" />
+  <link rel="canonical" href="https://www.vastavintellect.com/appointment-letter-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

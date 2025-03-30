@@ -90,10 +90,12 @@ const MasterServiceAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Master Service Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Master Service Agreements with Vastav Intellect and IP Solutions. We help draft professional MSAs for businesses." />
-      </Helmet>
+    <Helmet>
+  <title>Master Service Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Master Service Agreements with Vastav Intellect and IP Solutions. We help draft professional MSAs for businesses." />
+  <meta name="keywords" content="master service agreement, MSA, master service agreement format, master service agreement drafting, master service agreement for businesses, professional MSA, VIIP master service agreement, Vastav Intellect master service agreement, IP solutions master service agreement, MSA template, master service agreement for startups, master service agreement for SMEs, master service agreement for legal purposes, master service agreement for compliance, master service agreement assistance, master service agreement services, MSA examples, master service agreement help, master service agreement for corporate roles, master service agreement for service providers" />
+  <link rel="canonical" href="https://www.vastavintellect.com/master-service-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

@@ -90,10 +90,12 @@ const ServiceLevelAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Service Level Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Service Level Agreements with Vastav Intellect and IP Solutions. We help draft professional SLAs for businesses." />
-      </Helmet>
+     <Helmet>
+  <title>Service Level Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Service Level Agreements with Vastav Intellect and IP Solutions. We help draft professional SLAs for businesses." />
+  <meta name="keywords" content="service level agreement, SLA, service level agreement format, service level agreement drafting, service level agreement for businesses, professional SLA, VIIP service level agreement, Vastav Intellect service level agreement, IP solutions service level agreement, SLA template, service level agreement for startups, service level agreement for SMEs, service level agreement for legal purposes, service level agreement for compliance, service level agreement assistance, service level agreement services, SLA examples, service level agreement help, service level agreement for corporate roles, service level agreement for service providers, service level agreement for IT services" />
+  <link rel="canonical" href="https://www.vastavintellect.com/service-level-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

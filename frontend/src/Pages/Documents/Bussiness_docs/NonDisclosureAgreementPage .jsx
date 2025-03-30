@@ -90,10 +90,12 @@ const NonDisclosureAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Non-Disclosure Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for non-disclosure agreements with Vastav Intellect and IP Solutions. We help draft professional non-disclosure agreements for businesses." />
-      </Helmet>
+    <Helmet>
+  <title>Non-Disclosure Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for non-disclosure agreements with Vastav Intellect and IP Solutions. We help draft professional non-disclosure agreements for businesses." />
+  <meta name="keywords" content="non-disclosure agreement, NDA, non-disclosure agreement format, non-disclosure agreement drafting, non-disclosure agreement for businesses, professional NDA, VIIP non-disclosure agreement, Vastav Intellect non-disclosure agreement, IP solutions non-disclosure agreement, NDA template, non-disclosure agreement for startups, non-disclosure agreement for SMEs, non-disclosure agreement for legal purposes, non-disclosure agreement for compliance, non-disclosure agreement assistance, non-disclosure agreement services, NDA examples, non-disclosure agreement help, non-disclosure agreement for employees, non-disclosure agreement for corporate roles, non-disclosure agreement for partnerships" />
+  <link rel="canonical" href="https://www.vastavintellect.com/non-disclosure-agreement-nda" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

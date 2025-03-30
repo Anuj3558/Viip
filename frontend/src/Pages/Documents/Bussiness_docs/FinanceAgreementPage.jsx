@@ -90,10 +90,12 @@ const FinanceAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Finance Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Finance Agreements with Vastav Intellect and IP Solutions. We help draft professional Finance Agreements for businesses." />
-      </Helmet>
+    <Helmet>
+  <title>Finance Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Finance Agreements with Vastav Intellect and IP Solutions. We help draft professional Finance Agreements for businesses." />
+  <meta name="keywords" content="finance agreement, finance agreement format, finance agreement drafting, finance agreement for businesses, professional finance agreement, VIIP finance agreement, Vastav Intellect finance agreement, IP solutions finance agreement, finance agreement template, finance agreement for startups, finance agreement for SMEs, finance agreement for loans, finance agreement for investments, finance agreement for legal purposes, finance agreement assistance, finance agreement services, finance agreement examples, finance agreement help, finance agreement for compliance, finance agreement for corporate roles" />
+  <link rel="canonical" href="https://www.vastavintellect.com/finance-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

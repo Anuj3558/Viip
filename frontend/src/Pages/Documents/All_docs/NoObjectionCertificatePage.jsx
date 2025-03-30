@@ -90,10 +90,12 @@ const NoObjectionCertificatePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>No Objection Certificate | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for No Objection Certificates with Vastav Intellect and IP Solutions. We help draft professional NOCs for various legal and administrative purposes." />
-      </Helmet>
+     <Helmet>
+  <title>No Objection Certificate | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for No Objection Certificates with Vastav Intellect and IP Solutions. We help draft professional NOCs for various legal and administrative purposes." />
+  <meta name="keywords" content="no objection certificate, NOC, NOC format, NOC drafting, NOC for legal purposes, NOC for administrative purposes, VIIP NOC, Vastav Intellect NOC, IP solutions NOC, NOC template, NOC for property transfer, NOC for employment, NOC for immigration, NOC for business, NOC for schools, NOC for colleges, NOC assistance, NOC services, professional NOC, NOC examples, NOC help, NOC for documentation" />
+  <link rel="canonical" href="https://www.vastavintellect.com/no-objection-certificate-noc-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

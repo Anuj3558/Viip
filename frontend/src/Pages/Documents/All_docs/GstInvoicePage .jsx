@@ -91,9 +91,11 @@ const GstInvoicePage = () => {
   return (
     <>
       <Helmet>
-        <title>GST Invoice | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for GST invoices with Vastav Intellect and IP Solutions. We help draft professional GST invoices for businesses." />
-      </Helmet>
+  <title>GST Invoice | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for GST invoices with Vastav Intellect and IP Solutions. We help draft professional GST invoices for businesses." />
+  <meta name="keywords" content="GST invoice, GST invoice format, GST invoice drafting, GST invoice for businesses, GST compliance, VIIP GST invoice, Vastav Intellect GST invoice, IP solutions GST invoice, GST invoice template, GST invoice for SMEs, GST invoice for startups, GST invoice for e-commerce, GST invoice for suppliers, GST invoice compliance, GST invoice assistance, GST invoice services, professional GST invoice, GST invoice examples, GST invoice help, GST invoice for tax purposes" />
+  <link rel="canonical" href="https://www.vastavintellect.com/gst-invoice-format" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

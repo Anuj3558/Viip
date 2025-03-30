@@ -91,9 +91,11 @@ const PowerOfAttorneyPage = () => {
   return (
     <>
       <Helmet>
-        <title>Power of Attorney | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for power of attorney documents with Vastav Intellect and IP Solutions. We help draft professional power of attorney documents for various legal purposes." />
-      </Helmet>
+  <title>Power of Attorney | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for power of attorney documents with Vastav Intellect and IP Solutions. We help draft professional power of attorney documents for various legal purposes." />
+  <meta name="keywords" content="power of attorney, power of attorney format, power of attorney drafting, power of attorney for legal purposes, power of attorney for property, power of attorney for business, VIIP power of attorney, Vastav Intellect power of attorney, IP solutions power of attorney, power of attorney template, power of attorney for financial matters, power of attorney for legal representation, power of attorney for startups, power of attorney for SMEs, power of attorney assistance, power of attorney services, professional power of attorney, power of attorney examples, power of attorney help, power of attorney for documentation" />
+  <link rel="canonical" href="https://www.vastavintellect.com/power-of-attorney" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

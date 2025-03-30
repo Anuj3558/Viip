@@ -91,9 +91,11 @@ const LegalDocumentsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Legal Documents | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for legal documents with Vastav Intellect and IP Solutions. We help businesses prepare and manage legal documents efficiently." />
-      </Helmet>
+  <title>Legal Documents | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for legal documents with Vastav Intellect and IP Solutions. We help businesses prepare and manage legal documents efficiently." />
+  <meta name="keywords" content="legal documents, legal document drafting, legal document preparation, legal document management, VIIP legal documents, Vastav Intellect legal documents, IP solutions legal documents, legal document templates, legal document for businesses, legal document for startups, legal document for SMEs, legal document for contracts, legal document for compliance, legal document assistance, legal document services, professional legal documents, legal document examples, legal document help, legal document for corporate purposes, legal document for verification" />
+  <link rel="canonical" href="https://www.vastavintellect.com/documents" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

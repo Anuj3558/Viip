@@ -91,9 +91,11 @@ const FranchiseAgreementPage = () => {
   return (
     <>
       <Helmet>
-        <title>Franchise Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for franchise agreements with Vastav Intellect and IP Solutions. We help draft professional franchise agreements for businesses." />
-      </Helmet>
+  <title>Franchise Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for franchise agreements with Vastav Intellect and IP Solutions. We help draft professional franchise agreements for businesses." />
+  <meta name="keywords" content="franchise agreement, franchise agreement format, franchise agreement drafting, franchise agreement for businesses, professional franchise agreement, VIIP franchise agreement, Vastav Intellect franchise agreement, IP solutions franchise agreement, franchise agreement template, franchise agreement for startups, franchise agreement for SMEs, franchise agreement for legal purposes, franchise agreement for compliance, franchise agreement assistance, franchise agreement services, franchise agreement examples, franchise agreement help, franchise agreement for brand expansion, franchise agreement for corporate roles, franchise agreement for partnerships" />
+  <link rel="canonical" href="https://www.vastavintellect.com/franchise-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

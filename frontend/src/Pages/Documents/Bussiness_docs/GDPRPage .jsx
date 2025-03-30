@@ -91,9 +91,11 @@ const GDPRPage = () => {
   return (
     <>
       <Helmet>
-        <title>GDPR Compliance | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for GDPR compliance with Vastav Intellect and IP Solutions. We help businesses ensure GDPR compliance and data protection." />
-      </Helmet>
+  <title>GDPR Compliance | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for GDPR compliance with Vastav Intellect and IP Solutions. We help businesses ensure GDPR compliance and data protection." />
+  <meta name="keywords" content="GDPR compliance, GDPR compliance assistance, GDPR compliance for businesses, GDPR data protection, GDPR compliance services, VIIP GDPR compliance, Vastav Intellect GDPR compliance, IP solutions GDPR compliance, GDPR compliance checklist, GDPR compliance for startups, GDPR compliance for SMEs, GDPR compliance for legal purposes, GDPR compliance for data security, GDPR compliance for corporate roles, GDPR compliance examples, GDPR compliance help, GDPR compliance for EU regulations, GDPR compliance for data privacy, GDPR compliance for IT systems, GDPR compliance for documentation" />
+  <link rel="canonical" href="https://www.vastavintellect.com/gdpr" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

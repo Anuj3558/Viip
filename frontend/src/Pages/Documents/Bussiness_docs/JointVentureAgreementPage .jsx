@@ -90,10 +90,12 @@ const JointVentureAgreementPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Joint Venture Agreement | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for Joint Venture Agreements with Vastav Intellect and IP Solutions. We help draft professional Joint Venture Agreements for businesses." />
-      </Helmet>
+<Helmet>
+  <title>Joint Venture Agreement | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for Joint Venture Agreements with Vastav Intellect and IP Solutions. We help draft professional Joint Venture Agreements for businesses." />
+  <meta name="keywords" content="joint venture agreement, joint venture agreement format, joint venture agreement drafting, joint venture agreement for businesses, professional joint venture agreement, VIIP joint venture agreement, Vastav Intellect joint venture agreement, IP solutions joint venture agreement, joint venture agreement template, joint venture agreement for startups, joint venture agreement for SMEs, joint venture agreement for legal purposes, joint venture agreement for compliance, joint venture agreement assistance, joint venture agreement services, joint venture agreement examples, joint venture agreement help, joint venture agreement for partnerships, joint venture agreement for corporate roles, joint venture agreement for investments" />
+  <link rel="canonical" href="https://www.vastavintellect.com/joint-venture-agreement" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

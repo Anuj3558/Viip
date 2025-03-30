@@ -91,9 +91,11 @@ const IncomeCertificatePage = () => {
   return (
     <>
       <Helmet>
-        <title>Income Certificate | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for income certificates with Vastav Intellect and IP Solutions. We help draft professional income certificates for various legal and financial purposes." />
-      </Helmet>
+  <title>Income Certificate | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for income certificates with Vastav Intellect and IP Solutions. We help draft professional income certificates for various legal and financial purposes." />
+  <meta name="keywords" content="income certificate, income certificate format, income certificate drafting, income certificate for legal purposes, income certificate for financial purposes, VIIP income certificate, Vastav Intellect income certificate, IP solutions income certificate, income certificate template, income certificate for students, income certificate for loans, income certificate for government schemes, income certificate for tax purposes, income certificate assistance, income certificate services, professional income certificate, income certificate examples, income certificate help, income certificate for verification, income certificate for documentation" />
+  <link rel="canonical" href="https://www.vastavintellect.com/income-certificate-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

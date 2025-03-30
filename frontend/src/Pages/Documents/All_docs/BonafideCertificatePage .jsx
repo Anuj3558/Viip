@@ -90,10 +90,12 @@ const BonafideCertificatePage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Bonafide Certificate | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for bonafide certificates with Vastav Intellect and IP Solutions. We help draft professional bonafide certificates for educational and administrative purposes." />
-      </Helmet>
+     <Helmet>
+  <title>Bonafide Certificate | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for bonafide certificates with Vastav Intellect and IP Solutions. We help draft professional bonafide certificates for educational and administrative purposes." />
+  <meta name="keywords" content="bonafide certificate, bonafide certificate format, bonafide certificate drafting, bonafide certificate for students, bonafide certificate for employees, bonafide certificate for educational purposes, bonafide certificate for administrative purposes, VIIP bonafide certificate, Vastav Intellect bonafide certificate, IP solutions bonafide certificate, bonafide certificate template, bonafide certificate for schools, bonafide certificate for colleges, bonafide certificate for institutions, bonafide certificate for verification, bonafide certificate assistance, bonafide certificate examples, bonafide certificate services, professional bonafide certificate, bonafide certificate help" />
+  <link rel="canonical" href="https://www.vastavintellect.com/bonafide-certificate-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

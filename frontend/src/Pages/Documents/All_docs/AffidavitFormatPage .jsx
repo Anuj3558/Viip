@@ -91,9 +91,11 @@ const AffidavitFormatPage = () => {
   return (
     <>
       <Helmet>
-        <title>Affidavit Format | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for affidavit formats with Vastav Intellect and IP Solutions. We help draft professional affidavits for various legal purposes." />
-      </Helmet>
+  <title>Affidavit Format | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for affidavit formats with Vastav Intellect and IP Solutions. We help draft professional affidavits for various legal purposes." />
+  <meta name="keywords" content="affidavit format, affidavit drafting, legal affidavit, affidavit for court, notarized affidavit, affidavit for legal purposes, affidavit services, VIIP affidavit, Vastav Intellect affidavit, IP solutions affidavit, affidavit for business, affidavit for immigration, affidavit for property, affidavit for name change, affidavit for identity proof, affidavit for legal documents, professional affidavit drafting, affidavit format examples, affidavit help, affidavit assistance" />
+  <link rel="canonical" href="https://www.vastavintellect.com/affidavit-format-download" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (

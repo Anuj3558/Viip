@@ -91,9 +91,11 @@ const RentReceiptPage = () => {
   return (
     <>
       <Helmet>
-        <title>Rent Receipt | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Get expert assistance for rent receipts with Vastav Intellect and IP Solutions. We help draft professional rent receipts for landlords and tenants." />
-      </Helmet>
+  <title>Rent Receipt | Vastav Intellect and IP Solutions</title>
+  <meta name="description" content="Get expert assistance for rent receipts with Vastav Intellect and IP Solutions. We help draft professional rent receipts for landlords and tenants." />
+  <meta name="keywords" content="rent receipt, rent receipt format, rent receipt drafting, rent receipt for landlords, rent receipt for tenants, VIIP rent receipt, Vastav Intellect rent receipt, IP solutions rent receipt, rent receipt template, rent receipt for residential property, rent receipt for commercial property, rent receipt for tax purposes, rent receipt for legal purposes, rent receipt assistance, rent receipt services, professional rent receipt, rent receipt examples, rent receipt help, rent receipt for startups, rent receipt for SMEs" />
+  <link rel="canonical" href="https://www.vastavintellect.com/generate-free-rent-receipt" />
+</Helmet>
 
       <div className="min-h-screen bg-gray-50">
         {notification && (
