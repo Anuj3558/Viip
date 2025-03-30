@@ -4,13 +4,7 @@ import { Link } from "react-router-dom";
 import {
   ChevronDown,
   ChevronRight,
-  Home,
-  Briefcase,
-  Award,
-  FileText,
-  DollarSign,
-  Phone,
-  X,
+ 
 } from "lucide-react";
 import { logo } from "../assets";
 
@@ -554,13 +548,13 @@ const documentationSubMenu = {
 
 };
   const menuIcons = {
-    home: <Home size={18} />,
-    expert: <Award size={18} />,
-    business: <Briefcase size={18} />,
-    trademarks: <FileText size={18} />,
-    licenses: <Award size={18} />,
-    accounting: <DollarSign size={18} />,
-    contact: <Phone size={18} />,
+    home: "",
+    expert: "",
+    business: "",
+    trademarks:"",
+    licenses:"",
+    accounting: "",
+    contact: "",
   };
 
   return (
@@ -713,7 +707,7 @@ const documentationSubMenu = {
               <AnimatePresence>
                 {openDropdown === "trademarks" && (
                   <motion.div
-                    className="absolute mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    className="absolute left-[-30vh] mt-2 w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
@@ -797,7 +791,7 @@ const documentationSubMenu = {
               <AnimatePresence>
                 {openDropdown === "documents" && (
                   <motion.div
-                    className="absolute mt-2 left-[-20vh] w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
+                    className="absolute mt-2 left-[-40vh] w-[600px] rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 flex z-10 overflow-hidden"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
@@ -948,7 +942,7 @@ const documentationSubMenu = {
             {/* Contact Us Link */}
             <motion.a
               href="/contact"
-              className="flex items-center text-gray-700 border-2 hover:text-blue-900 transition-colors px-2 py-1 rounded-md"
+              className="flex items-center text-white border-2-blue-900 bg-blue-900 justify-center transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -1158,7 +1152,7 @@ const documentationSubMenu = {
                             onClick={() =>
                               toggleMobileNestedMenu(`trademark-${category}`)
                             }
-                            className="w-full text-left flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
+                            className="w-full text-left  flex items-center justify-between px-8 py-2 text-sm font-semibold hover:bg-blue-100 hover:text-blue-900 transition-colors border-l-2 border-blue-200 ml-4"
                             variants={mobileMenuItemVariants}
                           >
                             <span className="text-gray-800 font-medium z-10 relative">

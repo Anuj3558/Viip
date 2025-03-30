@@ -176,6 +176,7 @@ import GiftDeedPage from "./Pages/Documents/Family/formData";
 import RentalTenantNoticePage from "./Pages/Documents/Family/RentalTenantNoticePage ";
 import WebsiteEcommerceDevelopmentPage from "./Pages/Services/BussinessSetup/WebsiteEcommerceDevelopmentPage";
 import UdyamRegistrationPage from "./Pages/Services/BussinessSetup/UdyamRegistrationPage";
+import BlogListPage from "./Pages/Blogs/BlogListPage";
 
 
 
@@ -1402,6 +1403,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <MOUDraftingPage />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/blogs"
+          element={
+            <PageTransition>
+              <BlogListPage />
             </PageTransition>
           }
         />
