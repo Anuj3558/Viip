@@ -364,9 +364,9 @@ const Navbar = () => {
       { name: "Patent Infringement", link: "/patent-infringement" },
       { name: "Trademark Infringement", link: "/trademark-infringement" },
     ],
-    "Design Registration": [
+    "Design IP Registration": [
       { name: "Logo Design", link: "/logo-design" },
-      { name: "Design Registration", link: "/design-registration" },
+      { name: "Design IP Registration", link: "/design-registration" },
     ],
     "Legal Support": [
       { name: "IP Due Diligence", link: "/ip-due-diligence" },
