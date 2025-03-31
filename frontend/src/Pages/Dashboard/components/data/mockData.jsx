@@ -1,5 +1,6 @@
 import React from "react";
 import { Award, Briefcase,BookOpen, FileText, DollarSign, Home, Heart, Clipboard, Users, MoreHorizontal } from "lucide-react";
+import Achievement from "../../../../../../backend/models/achievementmodel";
 
 // Submenu data
 const expertSubMenu = {
@@ -256,6 +257,16 @@ export const menuItems = {
     icon: <BookOpen size={20} />,
     title: "Blogs",
     component: 'Blogs' // Specify which component to render
+  },
+  Achievement: {
+    icon: <BookOpen size={20} />,
+    title: "Achievement",
+    component: 'Achivement' // Specify which component to render
+  },
+  Events: {
+    icon: <BookOpen size={20} />,
+    title: "Events",
+    component: 'Events' // Specify which component to render
   }
 };
 

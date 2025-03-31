@@ -33,6 +33,8 @@ import OtherRouter from "./router/otherRouter.js";
 import router from "./router/blogRoutes.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import Achievementrouter from "./router/achievementroutes.js";
+import event from "./router/Licenses and registrations/eventroutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -108,6 +110,8 @@ app.get("/api/protected", (req, res) => {
   });
 });
 app.use("/api",router);
+app.use("/api",Achievementrouter);
+app.use("/api",event);
 app.use("/api", isoRouter);
 app.use("/api", professionalTaxRoutes);
 app.use("/api", pfRegistrationRoutes);

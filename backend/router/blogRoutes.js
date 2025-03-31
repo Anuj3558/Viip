@@ -3,6 +3,7 @@ import Blog from '../models/blog.js';
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { console } from 'inspector';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +36,7 @@ const upload = multer({
     }
   }
 });
+export {upload}
 
 // Public routes
 router.get('/', async (req, res) => {
@@ -89,8 +91,10 @@ router.get('/admin/blogs', async (req, res) => {
 });
 // Get single blog by ID (public route)
 router.get('/blogs/:id', async (req, res) => {
+  console.log(req.params.id)
     try {
-      const blog = await Blog.findById(req.params.id).lean();
+      const blog = await Blog.findOne({ slug: req.params.id }).lean();
+
       
       if (!blog) {
         return res.status(404).json({ message: 'Blog not found' });
@@ -100,7 +104,8 @@ router.get('/blogs/:id', async (req, res) => {
       if (!blog.isPublished && !req.user?.isAdmin) {
         return res.status(403).json({ message: 'This blog is not published' });
       }
-     const featuredImage = blog.featuredImage ? `${process.env.FILE}${blog.featuredImage}` : null;
+      const trimed = blog.featuredImage.slice(15);
+     const featuredImage = blog.featuredImage ? `${process.env.FILE}/${trimed}` : null;
       // Add full URL to featured image
       const blogWithFullImageUrl = {
         ...blog,
@@ -115,6 +120,35 @@ router.get('/blogs/:id', async (req, res) => {
       res.status(500).json({ message: err.message });
     }
   });
+  router.get('/blogs/:id', async (req, res) => {
+    console.log(req.params.id)
+      try {
+        const blog = await Blog.findById(req.params.id).lean();
+  
+        
+        if (!blog) {
+          return res.status(404).json({ message: 'Blog not found' });
+        }
+    
+        // Only return published blogs unless it's an admin request
+        if (!blog.isPublished && !req.user?.isAdmin) {
+          return res.status(403).json({ message: 'This blog is not published' });
+        }
+       const featuredImage = blog.featuredImage ? `${process.env.FILE}/${blog.featuredImage}` : null;
+        // Add full URL to featured image
+        const blogWithFullImageUrl = {
+          ...blog,
+          featuredImage:  `${process.env.FILE}${blog.featuredImage}` 
+        };
+        console.log(featuredImage)
+        res.json(blogWithFullImageUrl);
+      } catch (err) {
+        if (err.name === 'CastError') {
+          return res.status(400).json({ message: 'Invalid blog ID format' });
+        }
+        res.status(500).json({ message: err.message });
+      }
+    });
 router.post('/admin/blogs', upload.single('featuredImage'), async (req, res) => {
   try {
     const { 

@@ -177,6 +177,11 @@ import RentalTenantNoticePage from "./Pages/Documents/Family/RentalTenantNoticeP
 import WebsiteEcommerceDevelopmentPage from "./Pages/Services/BussinessSetup/WebsiteEcommerceDevelopmentPage";
 import UdyamRegistrationPage from "./Pages/Services/BussinessSetup/UdyamRegistrationPage";
 import BlogListPage from "./Pages/Blogs/BlogListPage";
+import BlogPage from "./Pages/Blogs/BlogPage";
+import AchievementPage from "./Pages/Achivements/AchievementPage";
+import AchievementsList from "./Pages/Achivements/AchievementsList";
+import EventsList from "./Pages/Events/EventsList";
+import EventPage from "./Pages/Events/EventPage";
 
 
 
@@ -247,6 +252,46 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <MSMERegistrationPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <PageTransition>
+              <BlogPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/achievements/:slug"
+          element={
+            <PageTransition>
+              <AchievementPage />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/achivement"
+          element={
+            <PageTransition>
+              <AchievementsList />
+            </PageTransition>
+          }
+        />
+             <Route
+          path="/events"
+          element={
+            <PageTransition>
+              <EventsList />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/events/:slug"
+          element={
+            <PageTransition>
+              <EventPage />
             </PageTransition>
           }
         />

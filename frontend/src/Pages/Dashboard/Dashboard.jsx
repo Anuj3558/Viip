@@ -5,6 +5,8 @@ import ServiceGrid from "./components/ServiceGrid";
 import SubmissionsTable from "./components/SubmissionsTable";
 import AdminBlogEditor from "./components/AdminBlogEditor";
 import { menuItems, mockSubmissions } from "./components/data/mockData";
+import AdminAchievements from "./components/AdminAchievements";
+import AdminEvents from "./components/AdminEvents";
 
 function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("");
@@ -61,6 +63,10 @@ function Dashboard() {
     switch(currentView) {
       case 'Blogs':
         return <AdminBlogEditor editBlogId={editBlogId} onBack={handleBackToBlogs} />;
+      case 'Achivement':
+        return <AdminAchievements />;
+        case 'Events':
+          return <AdminEvents />;
       default:
         return (
           <div className="p-8">
