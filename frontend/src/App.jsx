@@ -241,6 +241,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+         
         <Route
           path="/MSME-registration"
           element={

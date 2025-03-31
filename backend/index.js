@@ -30,8 +30,15 @@ import dotenv from "dotenv";
 import connectDB from "./connection.js";
 import DocumentRouer from "./router/DocumentRouter.js";
 import OtherRouter from "./router/otherRouter.js";
+import router from "./router/blogRoutes.js";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 3001;
 app.use(cors({
@@ -100,7 +107,7 @@ app.get("/api/protected", (req, res) => {
     res.status(200).json({ message: "Access granted!", user: decoded });
   });
 });
-
+app.use("/api",router);
 app.use("/api", isoRouter);
 app.use("/api", professionalTaxRoutes);
 app.use("/api", pfRegistrationRoutes);

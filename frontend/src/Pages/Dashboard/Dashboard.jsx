@@ -1,86 +1,97 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Breadcrumb from "./components/Breadcrumb";
 import ServiceGrid from "./components/ServiceGrid";
 import SubmissionsTable from "./components/SubmissionsTable";
-import TablePagination from "./components/TablePagination";
+import AdminBlogEditor from "./components/AdminBlogEditor";
 import { menuItems, mockSubmissions } from "./components/data/mockData";
 
 function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubMenu, setActiveSubMenu] = useState("");
   const [selectedService, setSelectedService] = useState("Talk To Expert");
-  const [submissions, setSubmissions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  // Define API endpoints for each service
-  const serviceEndpoints = {
-    "Company Registration": "/api/company-registration",
-    "Trademark Registration": "/api/trademark-registration",
-    "ISO Certification": "/api/iso-certification",
-    "Talk To Lawyer": "/api/lawyer-consultation",
-    // Add other services and their endpoints here
-  };
+  const [currentView, setCurrentView] = useState(null); // 'Blogs', 'NewBlog', 'EditBlog'
+  const [editBlogId, setEditBlogId] = useState(null);
 
   const handleMenuClick = (menu) => {
-    setActiveMenu(activeMenu === menu ? "" : menu);
-    setActiveSubMenu("");
-    setSelectedService(null);
+    if (menuItems[menu].component) {
+      setCurrentView(menuItems[menu].component);
+      setActiveMenu(menu);
+      setActiveSubMenu("");
+      setSelectedService(null);
+    } else {
+      setCurrentView(null);
+      setActiveMenu(activeMenu === menu ? "" : menu);
+      setActiveSubMenu("");
+      setSelectedService(null);
+    }
   };
 
   const handleSubMenuClick = (subMenu) => {
     setActiveSubMenu(subMenu);
     setSelectedService(null);
+    setCurrentView(null);
   };
 
   const handleServiceClick = (service) => {
-    console.log("Service clicked:", service);
     setSelectedService(service);
+    setCurrentView(null);
   };
 
-  // Fetch data when selectedService changes
-  useEffect(() => {
-    if (selectedService) {
-      fetchSubmissionsByService(selectedService);
-    }
-  }, [selectedService]);
+  const handleUserManagementClick = () => {
+    // Handle user management click
+  };
 
-  const fetchSubmissionsByService = async (service) => {
-    // Check if we have an endpoint for this service
-    if (!serviceEndpoints[service]) {
-      console.warn(`No API endpoint defined for service: ${service}`);
-      // Fallback to mock data
-      const filteredMockSubmissions = mockSubmissions.filter(
-        (submission) => submission.subService === service
-      );
-      setSubmissions(filteredMockSubmissions);
-      return;
-    }
+  const handleCreateNewBlog = () => {
+    setCurrentView('NewBlog');
+    setEditBlogId(null);
+  };
 
-    setLoading(true);
-    setError(null);
+  const handleEditBlog = (id) => {
+    setCurrentView('EditBlog');
+    setEditBlogId(id);
+  };
 
-    try {
-      const endpoint = serviceEndpoints[service];
-      const response = await fetch(endpoint);
+  const handleBackToBlogs = () => {
+    setCurrentView('Blogs');
+    setEditBlogId(null);
+  };
 
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`);
-      }
+  const renderContent = () => {
+    switch(currentView) {
+      case 'Blogs':
+        return <AdminBlogEditor editBlogId={editBlogId} onBack={handleBackToBlogs} />;
+      default:
+        return (
+          <div className="p-8">
+            <div className="bg-white rounded-lg shadow">
+              <Breadcrumb
+                activeMenu={activeMenu}
+                activeSubMenu={activeSubMenu}
+                selectedService={selectedService}
+                menuItems={menuItems}
+              />
 
-      const data = await response.json();
-      setSubmissions(data);
-    } catch (err) {
-      console.error("Error fetching submissions:", err);
-      setError("Failed to load submissions. Please try again later.");
-      // Fallback to mock data in case of error
-      const filteredMockSubmissions = mockSubmissions.filter(
-        (submission) => submission.subService === service
-      );
-      setSubmissions(filteredMockSubmissions);
-    } finally {
-      setLoading(false);
+              {selectedService ? (
+                <SubmissionsTable
+                  selectedService={selectedService}
+                  activeMenu={activeMenu}
+                  activeSubMenu={activeSubMenu}
+                  menuItems={menuItems}
+                />
+              ) : (
+                <ServiceGrid
+                  activeMenu={activeMenu}
+                  activeSubMenu={activeSubMenu}
+                  selectedService={selectedService}
+                  onServiceClick={handleServiceClick}
+                  menuItems={menuItems}
+                  submissions={mockSubmissions}
+                />
+              )}
+            </div>
+          </div>
+        );
     }
   };
 
@@ -92,43 +103,11 @@ function Dashboard() {
         activeSubMenu={activeSubMenu}
         onMenuClick={handleMenuClick}
         onSubMenuClick={handleSubMenuClick}
+        onUserManagementClick={handleUserManagementClick}
       />
 
       <div className="flex-1 overflow-y-auto">
-        <div className="p-8">
-          <div className="bg-white rounded-lg shadow">
-            <Breadcrumb
-              activeMenu={activeMenu}
-              activeSubMenu={activeSubMenu}
-              selectedService={selectedService}
-              menuItems={menuItems}
-            />
-
-            {selectedService ? (
-              <>
-                <SubmissionsTable
-                  submissions={submissions}
-                  selectedService={selectedService}
-                  activeMenu={activeMenu}
-                  activeSubMenu={activeSubMenu}
-                  menuItems={menuItems}
-                  loading={loading}
-                  error={error}
-                />
-                
-              </>
-            ) : (
-              <ServiceGrid
-                activeMenu={activeMenu}
-                activeSubMenu={activeSubMenu}
-                selectedService={selectedService}
-                onServiceClick={handleServiceClick}
-                menuItems={menuItems}
-                submissions={mockSubmissions}
-              />
-            )}
-          </div>
-        </div>
+        {renderContent()}
       </div>
     </div>
   );

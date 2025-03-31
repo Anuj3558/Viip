@@ -8,6 +8,7 @@ const Sidebar = ({
   activeSubMenu,
   onMenuClick,
   onSubMenuClick,
+  onUserManagementClick, // Add this prop
 }) => {
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -65,9 +66,6 @@ const Sidebar = ({
         </div>
 
         <div className="overflow-y-auto h-[calc(100vh-64px)]">
-          {/* Dashboard Home */}
-     
-
           {/* Menu Items */}
           {Object.entries(menuItems).map(([key, item]) => (
             <div key={key}>
@@ -81,12 +79,14 @@ const Sidebar = ({
                   {item.icon}
                   <span className="ml-3">{item.title}</span>
                 </div>
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform ${
-                    activeMenu === key ? "rotate-180" : ""
-                  }`}
-                />
+                {item.subItems && (
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform ${
+                      activeMenu === key ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
               </div>
 
               {/* Submenu */}
@@ -112,7 +112,10 @@ const Sidebar = ({
 
           {/* Admin Settings */}
           <div className="border-t border-gray-200 mt-4">
-            <div className="p-4 hover:bg-blue-50 cursor-pointer flex items-center text-gray-700">
+            <div 
+              className="p-4 hover:bg-blue-50 cursor-pointer flex items-center text-gray-700"
+              onClick={onUserManagementClick} // Use the prop here
+            >
               <Users size={20} className="mr-3" />
               <span>User Management</span>
             </div>

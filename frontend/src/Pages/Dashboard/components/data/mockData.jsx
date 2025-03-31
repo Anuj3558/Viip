@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, Briefcase, FileText, DollarSign, Home, Heart, Clipboard, Users, MoreHorizontal } from "lucide-react";
+import { Award, Briefcase,BookOpen, FileText, DollarSign, Home, Heart, Clipboard, Users, MoreHorizontal } from "lucide-react";
 
 // Submenu data
 const expertSubMenu = {
@@ -251,6 +251,11 @@ export const menuItems = {
     icon: <MoreHorizontal size={20} />,
     title: "Other Services",
     subItems: otherSubMenu,
+  },
+  blog: {
+    icon: <BookOpen size={20} />,
+    title: "Blogs",
+    component: 'Blogs' // Specify which component to render
   }
 };
 

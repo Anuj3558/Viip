@@ -173,12 +173,9 @@ const Navbar = () => {
           items: [
             { name: "Patent Registration", link: "/patent-registration" },
             { name: "Copyright Registration", link: "/copyright-registration" },
-            {
-              name: "Industrial Design Registration",
-              link: "/industrial-design-registration",
-            },
+           
             { name: "IP Valuation", link: "/ip-valuation" },
-            { name: "IP Licensing", link: "/ip-licensing" },
+            { name: "IP Commercialization", link: "/ip-licensing" },
             {
               name: "IP Portfolio Management",
               link: "/ip-portfolio-management",
@@ -367,6 +364,10 @@ const Navbar = () => {
     ],
     "Design IP Registration": [
       { name: "Logo Design", link: "/logo-design" },
+      {
+        name: "Industrial Design Registration",
+        link: "/industrial-design-registration",
+      },
       { name: "Design Registration", link: "/design-registration" },
     ],
     "Legal Support": [
