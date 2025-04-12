@@ -265,7 +265,7 @@ const AdminBlogs = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 mb-3 overflow-auto  h-full w-full flex items-center justify-center">
-          <div className="relative mx-auto p-6 border w-full top-[30vh]  max-w-4xl shadow-lg rounded-md bg-white">
+          <div className="relative mx-auto p-6 border w-full top-[50vh]  max-w-4xl shadow-lg rounded-md bg-white">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-medium text-gray-900">
                 {editBlogId ? 'Edit Blog Post' : 'Create New Blog Post'}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Notification from '../../../components/NOtification';
 
-
 const InternationalBusinessSetupPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,7 +22,29 @@ const InternationalBusinessSetupPage = () => {
     { name: "Australia Incorporation", link: "/australia-incorporation" },
     { name: "USA Incorporation", link: "/usa-incorporation" },
     { name: "Singapore Incorporation", link: "/singapore-incorporation" },
-    { name: "Dubai Incorporation", link: "/dubai-incorporation" }
+    { name: "Dubai Incorporation", link: "/dubai-incorporation" },
+    { name: "Canada Incorporation", link: "/canada-incorporation" },
+    { name: "Germany Incorporation", link: "/germany-incorporation" },
+    { name: "France Incorporation", link: "/france-incorporation" },
+    { name: "Japan Incorporation", link: "/japan-incorporation" },
+    { name: "South Korea Incorporation", link: "/south-korea-incorporation" },
+    { name: "India Incorporation", link: "/india-incorporation" },
+    { name: "Thailand Incorporation", link: "/thailand-incorporation" },
+    { name: "Vietnam Incorporation", link: "/vietnam-incorporation" },
+    { name: "Indonesia Incorporation", link: "/indonesia-incorporation" },
+    { name: "Philippines Incorporation", link: "/philippines-incorporation" },
+    { name: "Saudi Arabia Incorporation", link: "/saudi-arabia-incorporation" },
+    { name: "Qatar Incorporation", link: "/qatar-incorporation" },
+    { name: "Switzerland Incorporation", link: "/switzerland-incorporation" },
+    { name: "Ireland Incorporation", link: "/ireland-incorporation" },
+    { name: "Luxembourg Incorporation", link: "/luxembourg-incorporation" },
+    { name: "Cyprus Incorporation", link: "/cyprus-incorporation" },
+    { name: "Malta Incorporation", link: "/malta-incorporation" },
+    { name: "Mauritius Incorporation", link: "/mauritius-incorporation" },
+    { name: "Seychelles Incorporation", link: "/seychelles-incorporation" },
+    { name: "British Virgin Islands Incorporation", link: "/bvi-incorporation" },
+    { name: "Cayman Islands Incorporation", link: "/cayman-islands-incorporation" },
+    { name: "Other Country", link: "/other-country-incorporation" }
   ];
 
   useEffect(() => {
@@ -104,7 +125,8 @@ const InternationalBusinessSetupPage = () => {
     <>
       <Helmet>
         <title>International Business Setup | Vastav Intellect and IP Solutions</title>
-        <meta name="description" content="Set up your international business with Vastav Intellect and IP Solutions. We offer expert guidance and time-efficient processing for global incorporation." />
+        <meta name="description" content="Set up your international business with Vastav Intellect and IP Solutions. We offer expert guidance and time-efficient processing for global incorporation in 30+ countries." />
+        <meta name="keywords" content="international business setup, global incorporation, company registration abroad, foreign business setup, overseas company formation" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50">
@@ -121,10 +143,35 @@ const InternationalBusinessSetupPage = () => {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">
-              <h2 className="text-3xl font-bold text-blue-800">International Business Setup</h2>
+              <h1 className="text-4xl font-bold text-blue-800">Global Business Expansion Made Simple</h1>
               <p className="text-lg text-gray-700">
-                At Vastav Intellect and IP Solutions, we simplify the complex process of international business setup, helping you establish your business entity quickly and efficiently across the globe.
+                At Vastav Intellect and IP Solutions, we simplify the complex process of international business setup, helping you establish your business entity quickly and efficiently across the globe. Our expertise spans 30+ countries with specialized knowledge of local regulations, tax structures, and compliance requirements.
               </p>
+              
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Why Choose Our International Business Setup Services?</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>End-to-end support from entity selection to bank account opening</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Local legal and tax advisory for optimal business structure</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-blue-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Dedicated relationship manager for each jurisdiction</span>
+                  </li>
+                </ul>
+              </div>
+
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="bg-blue-100 p-2 rounded-full mr-3">
@@ -133,8 +180,8 @@ const InternationalBusinessSetupPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Expert Guidance</h3>
-                    <p className="text-gray-600">Our team of experienced professionals will guide you through every step.</p>
+                    <h3 className="font-semibold text-lg">Strategic Jurisdiction Selection</h3>
+                    <p className="text-gray-600">We analyze your business needs to recommend the most favorable jurisdiction based on tax treaties, industry regulations, and growth objectives.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -144,8 +191,8 @@ const InternationalBusinessSetupPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Time-Efficient Process</h3>
-                    <p className="text-gray-600">We handle all paperwork and documentation to minimize your time investment.</p>
+                    <h3 className="font-semibold text-lg">Rapid Incorporation</h3>
+                    <p className="text-gray-600">Our established networks with local authorities enable faster processing times compared to direct applications.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -155,8 +202,50 @@ const InternationalBusinessSetupPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Complete Compliance</h3>
-                    <p className="text-gray-600">Ensure your business meets all legal and regulatory requirements.</p>
+                    <h3 className="font-semibold text-lg">Ongoing Compliance Management</h3>
+                    <p className="text-gray-600">We provide annual compliance packages including financial reporting, tax filings, and corporate secretarial services.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Our Global Coverage</h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>North America</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Europe</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Middle East</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Asia Pacific</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Africa</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Offshore Jurisdictions</span>
                   </div>
                 </div>
               </div>
@@ -164,10 +253,11 @@ const InternationalBusinessSetupPage = () => {
 
             {/* Right Form Column */}
             <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-blue-800 mb-6">Set Up Your International Business</h2>
+              <h2 className="text-2xl font-bold text-blue-800 mb-6">Start Your Global Expansion Today</h2>
+              <p className="text-gray-600 mb-6">Complete this form to receive a customized international business setup proposal within 24 hours.</p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name</label>
+                  <label htmlFor="name" className="block text-gray-700 font-medium mb-1">Full Name*</label>
                   <input
                     type="text"
                     id="name"
@@ -180,7 +270,7 @@ const InternationalBusinessSetupPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email Address</label>
+                  <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email Address*</label>
                   <input
                     type="email"
                     id="email"
@@ -196,7 +286,7 @@ const InternationalBusinessSetupPage = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone Number</label>
+                  <label htmlFor="phone" className="block text-gray-700 font-medium mb-1">Phone Number*</label>
                   <input
                     type="tel"
                     id="phone"
@@ -204,7 +294,7 @@ const InternationalBusinessSetupPage = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full px-4 py-2 border ${!isPhoneValid(formData.phone) && formData.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your phone number with country code"
                     required
                   />
                   {!isPhoneValid(formData.phone) && formData.phone && (
@@ -212,7 +302,7 @@ const InternationalBusinessSetupPage = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="country" className="block text-gray-700 font-medium mb-1">Country of Incorporation</label>
+                  <label htmlFor="country" className="block text-gray-700 font-medium mb-1">Preferred Country of Incorporation*</label>
                   <select
                     id="country"
                     name="country"
@@ -222,13 +312,20 @@ const InternationalBusinessSetupPage = () => {
                     required
                   >
                     <option value="">Select a country</option>
-                    {countries.map((country, index) => (
-                      <option key={index} value={country.name}>{country.name}</option>
-                    ))}
+                    <optgroup label="Popular Destinations">
+                      {countries.slice(0, 9).map((country, index) => (
+                        <option key={index} value={country.name}>{country.name}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Other Countries">
+                      {countries.slice(9).map((country, index) => (
+                        <option key={index + 9} value={country.name}>{country.name}</option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Message</label>
+                  <label htmlFor="message" className="block text-gray-700 font-medium mb-1">Your Business Requirements*</label>
                   <textarea
                     id="message"
                     name="message"
@@ -236,7 +333,7 @@ const InternationalBusinessSetupPage = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Tell us about your business and requirements"
+                    placeholder="Tell us about your business activities, expected turnover, and specific needs"
                     required
                   ></textarea>
                 </div>
@@ -244,9 +341,83 @@ const InternationalBusinessSetupPage = () => {
                   type="submit"
                   className="w-full bg-blue-800 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition duration-300"
                 >
-                  Submit Inquiry
+                  Get Free Consultation
                 </button>
+                <p className="text-sm text-gray-500 text-center">We respect your privacy. Your information will not be shared with third parties.</p>
               </form>
+            </div>
+          </div>
+
+          {/* Additional Information Section */}
+          <div className="mt-16 bg-white p-8 rounded-lg shadow">
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">International Business Setup Process</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="text-xl font-semibold mb-3">1. Initial Consultation</h3>
+                <p className="text-gray-600">We assess your business objectives, recommend suitable jurisdictions, and provide a detailed cost breakdown.</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="text-xl font-semibold mb-3">2. Document Preparation</h3>
+                <p className="text-gray-600">Our team prepares all required incorporation documents and assists with notarization and legalization if needed.</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="text-xl font-semibold mb-3">3. Registration Submission</h3>
+                <p className="text-gray-600">We submit your application to the relevant authorities and handle all follow-ups until approval is received.</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="text-xl font-semibold mb-3">4. Post-Incorporation Services</h3>
+                <p className="text-gray-600">We assist with bank account opening, tax registration, and other essential services to get your business operational.</p>
+              </div>
+              <div className="border-l-4 border-blue-600 pl-4">
+                <h3 className="text-xl font-semibold mb-3">5. Ongoing Support</h3>
+                <p className="text-gray-600">Our team provides continuous compliance support and advisory services as your international business grows.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-blue-800 mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div className="border border-gray-200 rounded-lg overflow-hidden">
+                <button className="w-full flex justify-between items-center p-4 text-left font-medium text-blue-800 bg-gray-50 hover:bg-gray-100">
+                  <span>How long does international business setup typically take?</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600">
+                    Processing times vary by country, ranging from 2-3 business days in jurisdictions like Singapore and Hong Kong to 4-6 weeks in countries with more complex regulatory requirements. We provide estimated timelines during our initial consultation based on your specific case.
+                  </p>
+                </div>
+              </div>
+              <div className="border border-gray-200 rounded-lg overflow-hidden">
+                <button className="w-full flex justify-between items-center p-4 text-left font-medium text-blue-800 bg-gray-50 hover:bg-gray-100">
+                  <span>What documents are typically required for international incorporation?</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600">
+                    Common requirements include passport copies of directors/shareholders, proof of address, bank reference letters, and business plan details. Some countries may require additional documents like notarized declarations or local registered office addresses. We provide a customized checklist for your chosen jurisdiction.
+                  </p>
+                </div>
+              </div>
+              <div className="border border-gray-200 rounded-lg overflow-hidden">
+                <button className="w-full flex justify-between items-center p-4 text-left font-medium text-blue-800 bg-gray-50 hover:bg-gray-100">
+                  <span>Can you help with tax optimization for international businesses?</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600">
+                    Yes, our international tax specialists work closely with our incorporation team to structure your business in a tax-efficient manner, considering double taxation treaties, transfer pricing regulations, and local tax incentives. We ensure full compliance while optimizing your tax position.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -295,8 +295,8 @@ const AdminAchievements = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-auto  h-full w-full flex items-center justify-center">
-          <div className="relative mx-auto p-6 border w-full max-w-4xl top-[40vh] shadow-lg bg-white">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-auto   h-full w-full flex items-center justify-center">
+          <div className="relative mx-auto p-6 border w-full max-w-4xl top-[70vh] shadow-lg bg-white">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-medium text-gray-900">
                 {editAchievementId ? 'Edit Achievement' : 'Create New Achievement'}

@@ -30,7 +30,7 @@ Achievementrouter.get('/achievements', async (req, res) => {
 });
 
 // Get a single achievement by slug
-Achievementrouter.get('/achievements/:slug', async (req, res) => {
+Achievementrouter.get('/achievements/slug/:slug', async (req, res) => {
   console.log(req.params.slug);
   try {
     const achievement = await Achievement.findOne({ 
@@ -70,7 +70,7 @@ Achievementrouter.get('/achievements/related/:slug', async (req, res) => {
 });
 Achievementrouter.get('/achievements/:id', async (req, res) => {
   try {
-    const currentAchievement = await Achievement.findById(req.params.id);
+    const currentAchievement = await Achievement.findById(req?.params?.id);
     
     if (!currentAchievement) {
       return res.status(404).json({ message: 'Achievement not found' });

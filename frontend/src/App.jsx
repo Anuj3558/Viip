@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -182,9 +182,23 @@ import AchievementPage from "./Pages/Achivements/AchievementPage";
 import AchievementsList from "./Pages/Achivements/AchievementsList";
 import EventsList from "./Pages/Events/EventsList";
 import EventPage from "./Pages/Events/EventPage";
+import TermsAndConditions from "./Pages/Tnc/tnc";
+import PrivacyPolicy from "./Pages/Tnc/PrivacyPolicy";
+import Careers from "./Pages/Tnc/Career";
+import GSTFilingCompliancePage from "./Pages/Services/Others/GSTFilingCompliancePage";
+import IncomeTaxFilingPage from "./Pages/Services/Others/IncomeTaxFilingPage";
+import AccountsMaintenancePage from "./Pages/Services/Others/AccountsMaintenancePage";
 
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 ///Now Doing THe 
 const PageTransition = ({ children }) => {
   const pageVariants = {
@@ -238,24 +252,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        <Route
-          path="/company-registrion"
-          element={
-            <PageTransition>
-              <CompanyRegistrationPage />
-            </PageTransition>
-          }
-        />
-         
-        <Route
-          path="/MSME-registration"
-          element={
-            <PageTransition>
-              <MSMERegistrationPage />
-            </PageTransition>
-          }
-        />
-        <Route
+         <Route
           path="/blog/:slug"
           element={
             <PageTransition>
@@ -295,6 +292,73 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+         <Route
+          path="/tnc"
+          element={
+            <PageTransition>
+              <TermsAndConditions />
+            </PageTransition>
+          }
+        />
+          <Route
+          path="/privacy-policy"
+          element={
+            <PageTransition>
+              <PrivacyPolicy />
+            </PageTransition>
+          }
+        />
+      
+
+        <Route
+          path="/company-registrion"
+          element={
+            <PageTransition>
+              <CompanyRegistrationPage />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/gst-filing-compliance"
+          element={
+            <PageTransition>
+              <GSTFilingCompliancePage />
+            </PageTransition>
+          }
+        />
+         <Route
+          path="/income-tax-filing"
+          element={
+            <PageTransition>
+              <IncomeTaxFilingPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/accounts-maintenance"
+          element={
+            <PageTransition>
+              <AccountsMaintenancePage />
+            </PageTransition>
+          }
+        />
+           <Route
+          path="/career"
+          element={
+            <PageTransition>
+              <Careers />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/MSME-registration"
+          element={
+            <PageTransition>
+              <MSMERegistrationPage />
+            </PageTransition>
+          }
+        />
+       
         <Route
           path="/llpannual-compliance"
           element={
@@ -1671,6 +1735,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       {location.pathname !== "/dashboard" && <Navbar />}
+      <ScrollToTop />
       <main className="flex-grow">
         <AnimatedRoutes />
       </main>

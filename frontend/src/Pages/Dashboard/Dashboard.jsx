@@ -7,6 +7,8 @@ import AdminBlogEditor from "./components/AdminBlogEditor";
 import { menuItems, mockSubmissions } from "./components/data/mockData";
 import AdminAchievements from "./components/AdminAchievements";
 import AdminEvents from "./components/AdminEvents";
+import TestimonialsAdmin from "./components/TestimonialsAdmin";
+import PartnershipsAdmin from "./components/PartnershipsAdmin";
 
 function Dashboard() {
   const [activeMenu, setActiveMenu] = useState("");
@@ -67,6 +69,10 @@ function Dashboard() {
         return <AdminAchievements />;
         case 'Events':
           return <AdminEvents />;
+          case 'Testimonails':
+          return <TestimonialsAdmin />;
+          case 'Partnership':
+            return <PartnershipsAdmin />;
       default:
         return (
           <div className="p-8">

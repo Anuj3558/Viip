@@ -35,6 +35,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Achievementrouter from "./router/achievementroutes.js";
 import event from "./router/Licenses and registrations/eventroutes.js";
+import AccountsMaintenanceRouter from "./router/AccountsMaintenanceRouter.js";
+import GSTRouter from "./router/GSTFilingInquiry.js";
+import TaxRouter from "./router/taxInquiryRouter.js";
+import Partnershiprouter from "./router/partnerships.js";
+import Testimonialrouter from "./router/testimonials.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -135,4 +140,11 @@ app.use("/other", otherRouter);
 app.use("/document",DocumentRouer)
 app.use("/others",OtherRouter)
 app.use("/api", ContactRoutes);
+app.use("/api", ContactRoutes);
+app.use("/api", Partnershiprouter);
+app.use("/api", Testimonialrouter);
+app.use("/api", AccountsMaintenanceRouter);
+app.use("/tax-services", GSTRouter);
+app.use("/income-tax",TaxRouter );
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

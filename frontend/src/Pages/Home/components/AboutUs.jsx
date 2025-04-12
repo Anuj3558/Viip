@@ -49,19 +49,19 @@ const AboutUs = () => {
               <div className="relative bg-white shadow-lg rounded-xl p-8">
                 <div className="grid grid-cols-2 gap-8">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="800">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="321">0</div>
                     <p className="text-gray-600">Businesses Supported</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="1200">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="2743">0</div>
                     <p className="text-gray-600">Happy Clients</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="10">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="7">0</div>
                     <p className="text-gray-600">Years Experience</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="95">0</div>
+                    <div className="text-4xl font-bold text-blue-900 mb-2 counter" data-target="3300">0</div>
                     <p className="text-gray-600">Client Satisfaction</p>
                   </div>
                 </div>

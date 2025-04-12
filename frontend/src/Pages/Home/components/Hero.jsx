@@ -1,10 +1,13 @@
 import React from 'react';
 import { iphone } from '../../../assets';
+import TrendingEventOverlay from './TrendingEventOverlay';
 
 const Hero = () => {
   return (
     <section id="Hero" className="min-h-[90vh] bg-white text-gray-800 pt-16 pb-20 overflow-hidden relative">
       {/* Background decorative elements - more evenly distributed */}
+            <TrendingEventOverlay />
+      
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         {/* Gradient circle top-right - enlarged and repositioned */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-40 transform translate-x-16 -translate-y-16"></div>
@@ -49,8 +52,8 @@ const Hero = () => {
               <a href="/services" className="inline-block bg-blue-900 text-white py-4 px-8 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                 Explore Our Services
               </a>
-              <a href="/contact" className="inline-block bg-white text-blue-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 border-2 border-blue-900 text-center hover:shadow-md transform hover:-translate-y-1">
-                Contact Us
+              <a href="/career" className="inline-block bg-white text-blue-900 py-4 px-8 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 border-2 border-blue-900 text-center hover:shadow-md transform hover:-translate-y-1">
+              Partner with us
               </a>
             </div>
           </div>

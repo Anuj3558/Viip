@@ -19,6 +19,9 @@ const SubmissionsTable = ({
   // Mapping of services to their corresponding API endpoints
    const serviceEndpoints = {
      "Talk To Expert": "expert/consult-and-expert",
+     "Accounts Maintenance":"api/accounts-maintenance",
+     "Income Tax Return Filing":"income-tax/income-tax-filing",
+     "GST Registration":"tax-services/gst-filing-compliance",
      // Business Setup
      "Company Registration":
        "bussiness-setup/inquiries/type/company_registration_inquiry",

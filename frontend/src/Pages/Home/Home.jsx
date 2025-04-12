@@ -10,6 +10,7 @@ import Testimonials from "./components/Testimonials";
 import ContactForm from "./components/ContactForm";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import TrendingEventOverlay from "./components/TrendingEventOverlay";
 
 
 const Home = () => {
@@ -49,7 +50,6 @@ const Home = () => {
       <IPRights />
       <WhyChooseUs />
       <ExpertTeam />
-      <Testimonials />
     </>
   );
 };

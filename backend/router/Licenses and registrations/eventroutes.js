@@ -26,6 +26,27 @@ event.get('/events', async (req, res) => {
   }
 });
 
+event.get('/top-future-event', async (req, res) => {
+  try {
+    const now = new Date();
+    
+    // Find the closest future event that is published
+    const topEvent = await Event.findOne({ 
+      startDate: { $gt: now },
+      isPublished: true 
+    })
+    .sort({ startDate: 1 }) // Sort by date ascending to get the closest upcoming event
+    .limit(1);
+    
+    if (!topEvent) {
+      return res.status(404).json({ message: 'No future events found' });
+    }
+    
+    res.json(topEvent);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 // Get a single event by slug
 event.get('/events/:slug', async (req, res) => {
   try {

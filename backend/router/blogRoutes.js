@@ -90,10 +90,10 @@ router.get('/admin/blogs', async (req, res) => {
   }
 });
 // Get single blog by ID (public route)
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/slug/:slug', async (req, res) => {
   console.log(req.params.id)
     try {
-      const blog = await Blog.findOne({ slug: req.params.id }).lean();
+      const blog = await Blog.findOne({ slug: req.params.slug }).lean();
 
       
       if (!blog) {
@@ -127,7 +127,7 @@ router.get('/blogs/:id', async (req, res) => {
   
         
         if (!blog) {
-          return res.status(404).json({ message: 'Blog not found' });
+          return res.status(404).json({ message: 'Blog not found hii' });
         }
     
         // Only return published blogs unless it's an admin request

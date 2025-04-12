@@ -65,6 +65,16 @@ const businessSubMenu = {
     "ISO Certification 14001",
     "ISO Certification 31000",
   ],
+  "GST Services": [
+    "GST Registration",
+  ],
+  "Income Tax Services": [
+    "Income Tax Return Filing",
+   
+  ],
+  "Account maintenance": [
+    "Accounts Maintenance",
+  ]
 };
 
 
@@ -267,6 +277,16 @@ export const menuItems = {
     icon: <BookOpen size={20} />,
     title: "Events",
     component: 'Events' // Specify which component to render
+  },
+  Testimonails: {
+    icon: <BookOpen size={20} />,
+    title: "Testimonails",
+    component: 'Testimonails' // Specify which component to render
+  },
+  Partnership: {
+    icon: <MoreHorizontal size={20} />,
+    title: "Partnership",
+    component: "Partnership",
   }
 };
 

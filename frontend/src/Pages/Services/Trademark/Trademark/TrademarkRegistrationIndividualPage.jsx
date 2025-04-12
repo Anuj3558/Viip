@@ -132,7 +132,7 @@ const TrademarkRegistrationIndividualPage = () => {
         )}
 
         {/* Main Registration Section */}
-        <section className="container mx-auto px-4 py-16">
+        <section className="container mx-auto px-4  py-16">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Information Column */}
             <div className="md:w-1/2 space-y-6">

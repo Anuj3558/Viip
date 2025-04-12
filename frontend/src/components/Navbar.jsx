@@ -263,8 +263,8 @@ const Navbar = () => {
         link: "/international-business-setupPage",
       }, // Note: You need to define this route // Note: You need to define this route
     ],
-    "Company Name Search": [
-      { name: "Change Company Name", link: "/company-name-change" }, // Note: You need to define this route // Note: You need to define this route
+    "Secure Company Name ": [
+      { name: "Register Company Name", link: "/company-name-change" }, // Note: You need to define this route // Note: You need to define this route
     ],
     "Licenses & Registrations": [
       {
@@ -329,6 +329,15 @@ const Navbar = () => {
         link: "/benefits-of-iso-certification",
       },
     ],
+    "GST Filing & Compliance": [
+      { name: "GST Filing & Compliance", link: "/gst-filing-compliance" }, // Note: You need to define this route // Note: You need to define this route
+    ],
+    "Income Tax Filing (As per IT norms)": [
+      { name: "Income Tax Filing (As per IT norms)", link: "/income-tax-filing" }, // Note: You need to define this route // Note: You need to define this route
+    ],
+    "Accounts Maintenance(Financial Maintenance)": [
+      { name: "Accounts Maintenance", link: "/accounts-maintenance" }, // Note: You need to define this route // Note: You need to define this route
+    ],
   };
 
   const trademarkIpSubMenu = {
@@ -380,10 +389,7 @@ const Navbar = () => {
       },
     ],
     "IP Services": [
-      {
-        name: "Industrial Design Registration",
-        link: "/industrial-design-registration",
-      },
+    
       { name: "IP Valuation", link: "/ip-valuation" },
       { name: "IP Licensing", link: "/ip-licensing" },
       { name: "IP Portfolio Management", link: "/ip-portfolio-management" },
@@ -436,11 +442,11 @@ const licenseSubMenu = {
   ],
   Others: [
     {
-      name: "Blogs",
-      link: "/blogs",
+      name: "VIEF",
+      link: "https://vief.in/",
     },
-    { name: "Achivements", link: "/achivement" },
-    { name: "Events", link: "/events" },
+    { name: "Xcubits", link: "https://www.xcubit.in/" },
+    { name: "VScholar", link: "https://vscholar.in/" },
    
   ],
  
@@ -453,8 +459,6 @@ const documentationSubMenu = {
       name: "Commercial Rental Agreement",
       link: "/commercial-rental-agreement",
     },
-    { name: "Experience Letter", link: "/experience-letter-format" },
-    { name: "Appointment Letter", link: "/appointment-letter-format" },
     { name: "Affidavit Format", link: "/affidavit-format-download" },
     { name: "Power Of Attorney", link: "/power-of-attorney-format" },
     {
@@ -465,33 +469,19 @@ const documentationSubMenu = {
       name: "No Objection Certificate",
       link: "/no-objection-certificate-noc-format-download",
     },
-    { name: "Salary Slip", link: "/salary-slip-sample-download" },
-    {
-      name: "Resignation Letter",
-      link: "/resignation-letter-format-download",
-    },
+   
     {
       name: "Legal Heir Certificate",
       link: "/legal-heir-certificate-format-download",
     },
-    { name: "Relieving Letter", link: "/relieving-letter-format" },
     {
       name: "Bonafide Certificate",
       link: "/bonafide-certificate-format-download",
     },
     { name: "Partnership Deed", link: "/partnership-deed-format-download" },
     { name: "Gst Invoice", link: "/gst-invoice-format" },
-    {
-      name: "Authorised Signatory In Gst",
-      link: "/authorised-signatory-in-gst",
-    },
-    { name: "Delivery Challan", link: "/delivery-challan-format" },
-    { name: "Offer Letter", link: "/offer-letter-format" },
-    {
-      name: "Consent Letter For Gst Registration",
-      link: "/consent-letter-for-gst-registration-format-download",
-    },
-    { name: "Rent Receipt", link: "/generate-free-rent-receipt" },
+    
+   
   ],
   "Business Contracts": [
     {
@@ -946,6 +936,42 @@ const documentationSubMenu = {
               </AnimatePresence>
             </div>
             <motion.a
+              href="/blogs"
+              className="flex items-center text-gray-700 border-2-blue-900  justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">Blogs</span>
+            </motion.a> <motion.a
+              href="/achivement"
+              className="flex items-center text-gray-700 border-2-blue-900  justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">Achivements</span>
+            </motion.a>
+            {/* Contact Us Link */}
+            <motion.a
+              href="/events"
+              className="flex items-center text-gray-700 border-2-blue-900  justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">Events</span>
+            </motion.a>
+            <motion.a
+              href="/career"
+              className="flex items-center text-gray-700 border-2-blue-900  justify-center transition-colors px-2 py-1 rounded-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
+              <span className="inline text-sm min-w-full">Career</span>
+            </motion.a> 
+            <motion.a
               href="https://vief.in/"
               className="flex items-center text-white border-2-blue-900 bg-blue-900 justify-center transition-colors px-2 py-1 rounded-md"
               whileHover={{ scale: 1.05 }}
@@ -953,24 +979,6 @@ const documentationSubMenu = {
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
               <span className="inline text-sm min-w-full">VIEF</span>
-            </motion.a> <motion.a
-              href="https://vscholar.in/"
-              className="flex items-center text-white border-2-blue-900 bg-blue-900 justify-center transition-colors px-2 py-1 rounded-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span className="inline text-sm min-w-full">VScholar</span>
-            </motion.a>
-            {/* Contact Us Link */}
-            <motion.a
-              href="https://www.xcubit.in/"
-              className="flex items-center text-white border-2-blue-900 bg-blue-900 justify-center transition-colors px-2 py-1 rounded-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span className="inline text-sm min-w-full">Xcubits</span>
             </motion.a>
             <motion.a
               href="/contact"
@@ -979,8 +987,9 @@ const documentationSubMenu = {
               whileTap={{ scale: 0.98 }}
             >
               <span className="mr-1.5 text-blue-800">{menuIcons.contact}</span>
-              <span className="inline text-sm min-w-full">Contact Us</span>
+              <span className="inline text-sm min-w-full">Support</span>
             </motion.a> 
+             
 
           </div>
 
@@ -1372,12 +1381,12 @@ const documentationSubMenu = {
               <div>
                 <motion.button
                   onClick={() => toggleMobileSubmenu("licenses")}
-                  className="w-full text-left flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  className="w-full text-left flex items-center justify-between px-4  py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                   variants={mobileMenuItemVariants}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center">
-                    <span className="mr-3 text-blue-800">
+                    <span className=" text-blue-800">
                       {menuIcons.licenses}
                     </span>
                     <span>Others</span>
@@ -1458,7 +1467,47 @@ const documentationSubMenu = {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
-                <span>Contact Us</span>
+                <span>Support</span>
+              </motion.a>
+              <motion.a
+                href="/blogs"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Blogs</span>
+              </motion.a><motion.a
+                href="/achivement"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Achivements</span>
+              </motion.a><motion.a
+                href="/events"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Events</span>
+                
+              </motion.a>
+              <motion.a
+                href="/career"
+                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                variants={mobileMenuItemVariants}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
+                <span>Career</span>
+                
               </motion.a>
               <motion.a
                 href="https://vief.in/"
@@ -1469,24 +1518,6 @@ const documentationSubMenu = {
               >
                 <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
                 <span>VIEF</span>
-              </motion.a><motion.a
-                href="https://vscholar.in/"
-                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                variants={mobileMenuItemVariants}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
-                <span>vscholar</span>
-              </motion.a><motion.a
-                href="http://xcubit.in/"
-                className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                variants={mobileMenuItemVariants}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="mr-3 text-blue-800">{menuIcons.contact}</span>
-                <span>xcubit</span>
               </motion.a>
             </div>
           </motion.div>
