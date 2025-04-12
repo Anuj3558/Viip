@@ -27,7 +27,7 @@ const Footer = () => {
             <a href="https://www.instagram.com/vastavintellectipsolutions/" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300">
               <FaInstagram size={22} />
             </a>
-            <a href="https://www.youtube.com/channel/your-channel" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300">
+            <a href="https://www.youtube.com/@VastavIntellect" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300">
               <FaYoutube size={22} />
             </a>
           </div>

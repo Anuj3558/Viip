@@ -3,65 +3,140 @@ import { Helmet } from "react-helmet";
 
 const AboutUsPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <Helmet>
-        <title>About Us | Vastav Intellect IP Solutions LLP</title>
+        <title>About Vastav Intellect | Premier IP & Business Solutions Partner</title>
         <meta
           name="description"
-          content="Vastav Intellect IP Solutions LLP is a trusted law firm specializing in intellectual property, patents, trademarks, copyrights, and market research."
+          content="Vastav Intellect transforms innovations into assets with premier intellectual property services, corporate consulting, and strategic business solutions for startups and enterprises."
         />
         <meta
           name="keywords"
-          content="Intellectual Property, IP Solutions, Patent Filing, Trademark Registration, Copyright Protection, Business Setup, IP Law Firm, Market Research, Licensing, Industrial Design, IP Monetization, IP Strategy, Legal Advisory, Patent Prosecution, Trademark Enforcement, Business Consultation, Startup Support, IP Management, Tech Innovation, Delhi Law Firm"
+          content="Intellectual Property Experts, Strategic IP Solutions, Patent Filing, Trademark Registration, Copyright Protection, Business Setup, IP Law Firm, Market Research, IP Monetization, Technology Innovation, Legal Advisory, Patent Prosecution, Trademark Enforcement, Business Consultation, Startup Support, IP Management, Delhi Law Firm, International IP Services"
         />
         <meta name="author" content="Vastav Intellect IP Solutions LLP" />
-        <meta property="og:title" content="About Us | Vastav Intellect IP Solutions LLP" />
-        <meta property="og:description" content="Your trusted partner in Intellectual Property solutions with expertise in patents, trademarks, copyrights, and business consulting." />
+        <meta property="og:title" content="About Vastav Intellect | Premier IP & Business Solutions Partner" />
+        <meta property="og:description" content="Transform your innovations into valuable assets with our comprehensive intellectual property and business advisory services." />
         <meta property="og:url" content="https://www.vastavintellect.com/about" />
         <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blue-800 mb-4">About Us</h1>
-          <p className="text-lg text-gray-600">
-            Vastav Intellect IP Solutions LLP - Your Trusted Partner in Intellectual Property
+        {/* Hero Section */}
+        <div className="text-center mb-14">
+          <h1 className="text-5xl font-extrabold text-blue-900 mb-4">Transforming Ideas Into Assets</h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Your premier partner in intellectual property and strategic business solutions since 2019
           </p>
         </div>
 
         {/* About Content Section */}
-        <div className="bg-white p-8 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-blue-800 mb-6">
-            Vastav Intellect IP Solutions LLP
-          </h2>
-          <p className="text-gray-700 mb-4">
-            Vastav Intellect IP Solutions stands as a distinguished and professionally managed law firm with a clear mission and a set of effective operational principles. Our firm specializes in various domains, including intellectual property rights, market research, and prototyping.
+        <div className="bg-white p-10 rounded-xl shadow-lg mb-12">
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">
+              Our Story: From Patents to Comprehensive Business Solutions
+            </h2>
+            <p className="text-gray-700 text-lg mb-6">
+              Founded in 2019 as "AV IP Solution," Vastav Intellect has evolved into a comprehensive legal and business advisory powerhouse. What began as a specialized patent service in Delhi has transformed into a holistic IP and business solutions firm serving clients across India and globally.
+            </p>
+            <p className="text-gray-700 text-lg mb-6">
+              With over 7 years of domain expertise and a proven track record of 400+ successful IP filings, we've become the trusted partner for startups, corporations, academic institutions, and government agencies seeking to protect their innovations and accelerate business growth.
+            </p>
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">
+              Beyond Traditional IP Services
+            </h2>
+            <p className="text-gray-700 text-lg mb-6">
+              Unlike conventional law firms, Vastav Intellect delivers end-to-end solutions that bridge the gap between innovation and commercialization. Our expertise extends across:
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Intellectual Property Excellence</h3>
+                <p className="text-gray-700">Strategic filing, prosecution, and monetization of Patents, Trademarks, Copyrights, and Industrial Designs with industry-specific insights.</p>
+              </div>
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Startup & Corporate Services</h3>
+                <p className="text-gray-700">Business formation, DPIIT recognition, funding documentation, pitch decks, due diligence, and comprehensive startup mentorship.</p>
+              </div>
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Regulatory Navigation</h3>
+                <p className="text-gray-700">Seamless compliance solutions including GST, MSME, FSSAI, Import/Export licensing, and international regulatory frameworks.</p>
+              </div>
+              <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-3">Global Business Expansion</h3>
+                <p className="text-gray-700">Cross-border filing management, international business setup, and strategic alliance formation across key markets.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">
+              The Vastav Intellect Advantage
+            </h2>
+            <p className="text-gray-700 text-lg mb-6">
+              What truly sets us apart is our client-first approach combined with deep industry knowledge and technological integration:
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">✓</span>
+                <span className="text-gray-700"><span className="font-semibold">Tailored Solutions:</span> We craft customized strategies aligned with your specific business objectives and budget constraints.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">✓</span>
+                <span className="text-gray-700"><span className="font-semibold">Industry Expertise:</span> Our team brings specialized knowledge across technology, healthcare, manufacturing, and creative sectors.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">✓</span>
+                <span className="text-gray-700"><span className="font-semibold">Strategic Partnership:</span> We function as your extended team, offering ongoing guidance beyond transactional services.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">✓</span>
+                <span className="text-gray-700"><span className="font-semibold">Global Network:</span> Access to international associates across the US, Europe, Middle East, and Asia-Pacific.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 font-bold mr-2">✓</span>
+                <span className="text-gray-700"><span className="font-semibold">Innovation Ecosystem:</span> Active collaboration with universities, incubators, and innovation councils.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-3xl font-bold text-blue-800 mb-6">
+              Our Vision & Mission
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-lg text-white">
+                <h3 className="text-xl font-semibold mb-3">Our Vision</h3>
+                <p className="text-white text-lg">
+                  To become India's most dependable, inclusive, and forward-thinking legal-business advisory firm, recognized for transforming ideas into thriving businesses and being the legal backbone for tomorrow's changemakers.
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-lg text-white">
+                <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
+                <p className="text-white text-lg">
+                  To empower entrepreneurs, startups, corporates, and institutions by delivering holistic legal, IP, and strategic consultancy solutions that simplify complexities, accelerate growth, and nurture innovation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="bg-blue-900 text-white p-10 rounded-xl shadow-lg text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Ideas into Assets?</h2>
+          <p className="text-xl mb-8">
+            Whether you're a startup founder, an enterprise innovator, or an academic institution, our team is ready to help you navigate the complex landscape of intellectual property and business growth.
           </p>
-          <p className="text-gray-700 mb-4">
-            We commenced our journey in 2019, primarily focusing on patents under the name "Av IP Solution," based in Delhi. Since then, we have broadened our scope to encompass a comprehensive range of intellectual property areas.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Our legal expertise spans the entirety of intellectual property matters, with a particular emphasis on filing, registering, and prosecuting Patents, safeguarding Trade Marks, nurturing Industrial Designs, and preserving Copyrights. We also excel in managing renewals, licensing, and enforcing these rights with utmost dedication and monetization.
-          </p>
-          <p className="text-gray-700 mb-4">
-            At Vastav Intellect IP Solutions LLP, our fundamental mission is to enhance customer satisfaction by comprehensively understanding our clients' requirements, business objectives, concerns, and goals.
-          </p>
-          <p className="text-gray-700 mb-4">
-            We are steadfast in our commitment to delivering results-oriented solutions while forging enduring relationships with clients, both domestically and internationally.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Our strength lies in our profound understanding of various industries, our ability to cater to diverse business needs, and our proficiency in leveraging technology to provide innovative yet practical solutions. We excel in efficiently managing even the most complex projects, delivering high-quality services to clients at competitive rates tailored to their specific requirements and budgets.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Our primary objective is to establish and nurture personal connections, guiding clients through challenges, and emerging as a reliable source of solutions. Confidentiality is a cornerstone of our client relationships. Vastav Intellect's premium services are sought-after by India's corporate giants and resonate globally.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Headquartered in Delhi, India, our firm boasts over 4+ years of experience in the field, with a track record of handling more than 400+ filed patents, Designs, Trademarks, etc.
-          </p>
-          <p className="text-gray-700">
-            Vastav Intellect is not just a law firm; it is a testament to legal expertise, client-centricity, and unwavering commitment to the realm of intellectual property.
-          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/talktoexpert"><button className="bg-white text-blue-900 hover:bg-blue-100 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+              Schedule a Consultation
+            </button></a>
+            <a href="/services"><button className="bg-transparent border-2 border-white hover:bg-blue-800 font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+              Explore Our Services
+            </button></a>
+          </div>
         </div>
       </div>
     </div>

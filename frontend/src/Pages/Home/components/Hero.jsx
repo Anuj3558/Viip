@@ -63,7 +63,7 @@ const Hero = () => {
             <div className="relative w-full max-w-md mx-auto mt-8 md:mt-0 transition-transform duration-500">
               {/* iPhone Mockup with Improved Bounce Animation */}
               <div className="relative animate-float-bounce">
-                <img src={iphone} alt="iPhone mockup" className="relative z-10 w-full max-w-xs mx-auto" />
+                <img src={iphone} alt="iPhone mockup" className="relative z-10 w-full h-full max-w-xs mx-auto" />
                 
                 {/* Enhanced shadows for iPhone */}
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-6 bg-black rounded-full filter blur-md opacity-40 animate-shadow"></div>

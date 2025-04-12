@@ -244,6 +244,7 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        
         <Route
           path="/contact"
           element={

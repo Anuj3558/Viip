@@ -22,7 +22,7 @@ const Home = () => {
         </title>
         <meta
           name="description"
-          content="Premier intellectual property law firm in India offering comprehensive patent, trademark, and IP solutions. Expert legal services for protecting your innovations and intellectual property rights."
+          content="Established in 2019, Vastav Intellect IP Solutions LLP (formerly AV IP Solution) is a professionally managed legal and business consultancy firm headquartered in Delhi, India. While our roots lie in intellectual property, we’ve grown into a one-stop destination for startups, corporates, NGOs, and professionals seeking seamless support in business setup, legal compliance, licensing, certification, fundraising, registrations, and personal legal matters. With a client-first approach and a track record of excellence, VIIPS stands as a trusted partner for organizations at every stage of growth—from ideation to expansion."
         />
         <meta
           name="keywords"
